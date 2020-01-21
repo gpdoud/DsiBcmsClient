@@ -10,7 +10,7 @@ import { FeatModule } from './feat/feat.module';
 import { CoreModule } from './core/core.module';
 import { AppInitService } from './app-init.service';
 
-export function startupServiceFactory(appinit: AppInitService): function {
+export const startupServiceFactory = (appinit: AppInitService) => {
   return () => appinit.getSettings();
 }
 

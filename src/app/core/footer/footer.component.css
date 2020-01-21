@@ -1,0 +1,14 @@
+.right-align {
+    text-align: right;
+    font-size: small;
+    color: silver;
+    background-color: #454545;
+}
+.pin-to-bottom-page {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.version {
+    color: white;
+}
