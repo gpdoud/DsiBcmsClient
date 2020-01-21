@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'about', component: core.AboutComponent },
   { path: 'home', component: core.HomeComponent },
+  { path: 'help', component: core.HelpComponent },
   { path: 'users/list', component: feat.UserListComponent },
   { path: '**', component: core.E404Component }
 ];
