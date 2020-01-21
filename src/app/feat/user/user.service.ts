@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AppInitService } from '../app-init.service';
+import { AppInitService } from '../../app-init.service';
 import { Observable } from 'rxjs';
 import { User } from './user.class';
 

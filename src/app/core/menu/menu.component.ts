@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Menu } from '../menu.class';
+import { Menu } from './menu.class';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +11,7 @@ export class MenuComponent implements OnInit {
   menus: Menu[] = [
     new Menu("BCMS", "/home", "The BCMS Home Page"),
     new Menu("Users", "/users/list", "The BCMS Users Page"),
-    new Menu("About", "/About", "The BCMS About Page")
+    new Menu("About", "/about", "The BCMS About Page")
   ];
   constructor() { }
 

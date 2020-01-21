@@ -1,26 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { MenuModule } from './menu/menu.module';
-import * as menu from './menu/index';
-import { AuthModule } from './auth/auth.module';
-import * as auth from './auth/index';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
+import * as feat from './feat/index';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FeatModule } from './feat/feat.module';
+import { CoreModule } from './core/core.module';
+import { AppInitService } from './app-init.service';
+
+export function startupServiceFactory(appinit: AppInitService): function {
+  return () => appinit.getSettings();
+}
+
 
 @NgModule({
   declarations: [
-    AppComponent, menu.MenuComponent, menu.MenuitemComponent,
-    auth.UserListComponent,
-    auth.E404Component
+    AppComponent 
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule,
+    BrowserModule, FormsModule, HttpClientModule, FeatModule, CoreModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AppInitService, { 
+      provide: APP_INITIALIZER, 
+      useFactory: startupServiceFactory, 
+        deps: [AppInitService], 
+        multi: true 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

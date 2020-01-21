@@ -1,0 +1,1 @@
+export { UserListComponent } from '../feat/user/user-list/user-list.component';

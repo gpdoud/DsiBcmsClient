@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Menu } from '../menu.class';
+import { Menu } from './menu.class';
 
 @Component({
   selector: 'app-menuitem',
