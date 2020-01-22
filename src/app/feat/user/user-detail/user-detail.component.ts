@@ -8,13 +8,13 @@ import { BcmsComponent } from '../../common/bcms.compoent';
 
 @Component({
   selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
+  templateUrl: '../user-form.component.html',
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent extends BcmsComponent implements OnInit {
 
-  pageTitle: string = "User List";
-  searchCriteria: string = '';
+  pageTitle: string = "User Detail";
+  readonly: boolean = true;
 
   user: User = new User();
 

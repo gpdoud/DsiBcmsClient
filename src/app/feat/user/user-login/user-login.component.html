@@ -1,0 +1,23 @@
+<header></header>
+<main>
+    <section>
+        <div class="div-dialog">
+            <div class="dialog-title">Boot Camp Management System (BCMS)</div>
+            <div class="username-field">
+                <label>Username: <input [(ngModel)]="user.username" type="text"></label>
+            </div>
+            <div class="password-field">
+                <label>Password: <input [(ngModel)]="user.password" type="password"></label>
+            </div>
+            <div>
+                <button (click)="login()" class="btn btn-primary btn-sm">Login</button>
+            </div>
+            <div class="message">
+                <span>{{message}}</span>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

@@ -1,0 +1,77 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+            <span> | </span>
+            <span><a routerLink="/users/list">Back to list ...</a></span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <table class="table table-sm" *ngIf="user">
+            <tr>
+                <td>Id:</td>
+                <td>{{user.id}}</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input [(ngModel)]="user.firstname" [disabled]="readonly" type="text" size="15">
+                    <input [(ngModel)]="user.lastname" [disabled]="readonly" type="text" size="15">
+                </td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td><input [(ngModel)]="user.username" [disabled]="readonly" type="text" size="10"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input [(ngModel)]="user.email" [disabled]="readonly" type="text" size="25"></td>
+            </tr>
+            <tr>
+                <td>Cell/Work Phone:</td>
+                <td>
+                    <input [(ngModel)]="user.cellPhone" [disabled]="readonly" type="text" size="15">
+                    <input [(ngModel)]="user.workPhone" [disabled]="readonly" type="text" size="15">
+                </td>
+            </tr>
+            <tr>
+                <td>Active:</td>
+                <td><input [(ngModel)]="user.active" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Role:</td>
+                <td *ngIf="readonly && user.role">{{user.role.name}}</td>
+                <td *ngIf="!readonly">
+                    <select [(ngModel)]="user.roleCode">
+                        <option *ngFor="let role of roles" [ngValue]="role.code">{{role.name}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Security Key</td>
+                <td>{{user.securityKey}}</td>
+            </tr>
+            <tr>
+                <td>Created:</td>
+                <td>{{user.created | date:'short'}}</td>
+            </tr>
+            <tr>
+                <td>Updated:</td>
+                <td>{{user.updated | date:'short'}}</td>
+            </tr>
+            <tr *ngIf="!readonly">
+                <td colspan="2">
+                    <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                </td>
+            </tr>
+        </table>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

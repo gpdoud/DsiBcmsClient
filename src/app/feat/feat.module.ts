@@ -7,13 +7,15 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 @NgModule({
     declarations: [
         UserListComponent,
         UserDetailComponent,
         UserCreateComponent,
-        UserEditComponent
+        UserEditComponent,
+        UserLoginComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

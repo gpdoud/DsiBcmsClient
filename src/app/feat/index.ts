@@ -1,3 +1,4 @@
+export { UserLoginComponent } from '../feat/user/user-login/user-login.component';
 export { UserListComponent } from '../feat/user/user-list/user-list.component';
 export { UserDetailComponent } from '../feat/user/user-detail/user-detail.component';
 export { UserCreateComponent } from '../feat/user/user-create/user-create.component';

@@ -2,3 +2,17 @@
 body {
     margin: 0;
 }
+input { 
+    border-radius: 5px;
+}
+.component-content {
+    text-align: center;
+}
+.component-content table {
+    width: 600px;
+    margin: 0 auto;
+    text-align: initial;
+}
+.searchbox {
+    border: 0;
+}
