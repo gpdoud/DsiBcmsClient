@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SystemService } from '@core/system/system.service';
-import { UserService } from '@feat/user/user.service';
-import { User } from '@feat/user/user.class';
-import { RoleService } from '@feat/role/role.service';
-import { Role } from '@feat/role/role.class';
+import { UserService } from '@user/user.service';
+import { User } from '@user/user.class';
+import { RoleService } from '@role/role.service';
+import { Role } from '@role/role.class';
 import { BcmsComponent } from '@feat/common/bcms.component';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '@feat/user/user.service';
-import { User } from '@feat/user/user.class';
+import { UserService } from '@user/user.service';
+import { User } from '@user/user.class';
 import { SystemService } from '@core/system/system.service';
 import { BcmsListComponent } from '@feat/common/bcms-list.component';
 

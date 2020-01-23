@@ -1,1 +1,45 @@
-<p>role-list works!</p>
+<header></header>
+<app-menu></app-menu>
+<div>
+    <span>{{pageTitle}}</span>
+    <span> | </span>
+    <span><a routerLink="/roles/create" class="">Create</a></span>
+    <span> | </span>
+    <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
+
+</div>
+<main>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td class="sortable"><a (click)="sort('code')">Code</a></td>
+                <td class="sortable"><a (click)="sort('name')">Name</a></td>
+                <td class="sortable"><a (click)="sort('isAdmin')">Admin?</a></td>
+                <td class="sortable"><a (click)="sort('isStaff')">Staff?</a></td>
+                <td class="sortable"><a (click)="sort('isInstructor')">Instructor?</a></td>
+                <td class="sortable"><a (click)="sort('isStudent')">Student?</a></td>
+                <td class="sortable"><a (click)="sort('active')">Active</a></td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of roles | roleSrch:searchCriteria | sort:sortCriteria:ascOrder">
+                <td>{{r.code}}</td>
+                <td>{{r.name}}</td>
+                <td>{{r.isAdmin | bool}}</td>
+                <td>{{r.isStaff | bool}}</td>
+                <td>{{r.isInstructor | bool}}</td>
+                <td>{{r.isStudent | bool}}</td>
+                <td>{{r.active | bool}}</td>
+                <td>
+                    <span><a routerLink="/roles/detail/{{r.id}}" class="">Detail</a></span>
+                    <span> | </span>
+                    <span><a routerLink="/roles/edit/{{r.id}}" class="">Edit</a></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
   menus: Menu[] = [
     new Menu("BCMS", "/home", "The BCMS Home Page"),
     new Menu("Users", "/users/list", "The BCMS Users Page"),
+    new Menu("Roles", "/roles/list", "The BCMS Roles Page"),
     new Menu("About", "/about", "The BCMS About Page"),
     new Menu("Help", "/help", "The BCMS Helo Page"),
     new Menu("Login", "/login", "The Login/logout Page")

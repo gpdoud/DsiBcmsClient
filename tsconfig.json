@@ -4,7 +4,9 @@
     "baseUrl": "src",
     "paths": {
       "@core/*": ["app/core/*"],
-      "@feat/*": ["app/feat/*"]
+      "@feat/*": ["app/feat/*"],
+      "@user/*": ["app/feat/user/*"],
+      "@role/*": ["app/feat/role/*"]
     },
     // "baseUrl": "./",
     "outDir": "./dist/out-tsc",

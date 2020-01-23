@@ -6,3 +6,4 @@ export { AboutComponent } from './about/about.component';
 export { FooterComponent } from './footer/footer.component';
 export { HelpComponent } from './help/help.component';
 export { SortPipe } from './sort/sort.pipe';
+export { BoolDisplayPipe } from './util/bool-display.pipe';

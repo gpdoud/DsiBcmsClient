@@ -13,6 +13,7 @@ import { RoleListComponent } from './role/role-list/role-list.component';
 import { RoleDetailComponent } from './role/role-detail/role-detail.component';
 import { RoleEditComponent } from './role/role-edit/role-edit.component';
 import { RoleCreateComponent } from './role/role-create/role-create.component';
+import { RoleSearchPipe } from './role/role-search.pipe';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { RoleCreateComponent } from './role/role-create/role-create.component';
         RoleListComponent,
         RoleDetailComponent,
         RoleEditComponent,
-        RoleCreateComponent
+        RoleCreateComponent,
+        RoleSearchPipe
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [
