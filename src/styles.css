@@ -16,3 +16,11 @@ input {
 .searchbox {
     border: 0;
 }
+.sortable {
+    color: blue;
+    font-style: italic;
+    font-weight: bold;
+}
+.sortable a {
+    cursor: pointer;
+}

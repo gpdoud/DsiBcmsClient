@@ -12,6 +12,9 @@ import { BcmsComponent } from '../../common/bcms.compoent';
 export class UserListComponent extends BcmsComponent implements OnInit {
 
   searchCriteria: string = '';
+  sortCriteria: string = 'id';
+  ascOrder: boolean = true;
+
   users: User[] = [];
   
   constructor(
@@ -21,10 +24,16 @@ export class UserListComponent extends BcmsComponent implements OnInit {
     super(sys);
   }
 
+  sort(column: string): void {
+    this.ascOrder = (column == this.sortCriteria) ? !this.ascOrder : true;
+    this.sortCriteria = column;
+  }
+
   ngOnInit() {
     super.ngOnInit();
     this.usersvc.list().subscribe(
       res => {
+        res.forEach(user => { user.roleName = user.role.name; })
         this.users = res;
         this.sys.log.debug("Users", res);
       },

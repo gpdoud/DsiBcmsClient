@@ -15,6 +15,7 @@ export class User {
     created: string;
     updated: string;
     role: Role;
+    roleName: string;
 
     constructor() {}
 }

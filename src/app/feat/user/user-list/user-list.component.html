@@ -12,20 +12,20 @@
     <table class="table table-sm">
         <thead>
             <tr>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Username</td>
-                <td>Phones</td>
-                <td>Email</td>
-                <td>Role</td>
+                <td class="sortable"><a (click)="sort('id')">Id</a></td>
+                <td class="sortable"><a (click)="sort('lastname')">Name</a></td>
+                <td class="sortable"><a (click)="sort('username')">Username</a></td>
+                <td class="sortable"><a (click)="sort('cellPhone')">Phones (cell/work)</a></td>
+                <td class="sortable"><a (click)="sort('email')">Email</a></td>
+                <td class="sortable"><a (click)="sort('roleName')">Role</a></td>
                 <td>Actions</td>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let u of users | userSrch:searchCriteria">
+            <tr *ngFor="let u of users | userSrch:searchCriteria | sort:sortCriteria:ascOrder">
                 <td>{{u.id}}</td>
-                <td>{{u.username}}</td>
                 <td>{{u.firstname}} {{u.lastname}}</td>
+                <td>{{u.username}}</td>
                 <td>{{u.cellPhone}} / {{u.workPhone}}</td>
                 <td>{{u.email}}</td>
                 <td>{{u.role.name}}</td>
