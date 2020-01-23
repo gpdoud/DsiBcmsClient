@@ -11,6 +11,7 @@ import { BcmsComponent } from '../../common/bcms.compoent';
 })
 export class UserListComponent extends BcmsComponent implements OnInit {
 
+  searchCriteria: string = '';
   users: User[] = [];
   
   constructor(

@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let u of users">
+            <tr *ngFor="let u of users | userSrch:searchCriteria">
                 <td>{{u.id}}</td>
                 <td>{{u.username}}</td>
                 <td>{{u.firstname}} {{u.lastname}}</td>

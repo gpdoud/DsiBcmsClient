@@ -8,6 +8,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserSearchPipe } from './user/user-search.pipe';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
         UserDetailComponent,
         UserCreateComponent,
         UserEditComponent,
-        UserLoginComponent
+        UserLoginComponent,
+        UserSearchPipe
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

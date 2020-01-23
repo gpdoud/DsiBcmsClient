@@ -16,7 +16,7 @@ export const startupServiceFactory = (appinit: AppInitService) => {
 
 @NgModule({
   declarations: [
-    AppComponent 
+    AppComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, FeatModule, CoreModule,
