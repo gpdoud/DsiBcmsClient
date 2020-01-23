@@ -22,11 +22,11 @@ export class UserLoginComponent implements OnInit {
   ) { }
 
   login(): void {
-    this.sys.clearLoggedInUser();
     this.usersvc.login(this.user.username, this.user.password).subscribe(
-      res => { 
+      res => {
         let e404 = (res as unknown) as NotFound;
-        if(e404.status == 404) return;
+        if (e404.status == 404) return;
+        this.sys.setLoggedInUser(res);
         this.sys.log.debug("Login successful!", res);
         this.router.navigateByUrl("/home");
       },
@@ -35,6 +35,12 @@ export class UserLoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.sys.config.checkLogin) {
+      this.router.navigateByUrl("/users/list");
+    }
+    this.sys.clearLoggedInUser();
+    this.user.username = "gpdoud";
+    this.user.password = "MaxPass@8888";
   }
 
 }

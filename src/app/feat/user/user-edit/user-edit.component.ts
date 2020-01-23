@@ -5,7 +5,7 @@ import { UserService } from '../user.service';
 import { User } from '../user.class';
 import { RoleService } from '../../role/role.service';
 import { Role } from '../../role/role.class';
-import { BcmsComponent } from '../../common/bcms.compoent';
+import { BcmsComponent } from '../../common/bcms.component';
 
 @Component({
   selector: 'app-user-edit',

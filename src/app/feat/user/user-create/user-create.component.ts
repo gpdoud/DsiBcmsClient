@@ -5,13 +5,14 @@ import { UserService } from '../user.service';
 import { User } from '../user.class';
 import { RoleService } from '../../role/role.service';
 import { Role } from '../../role/role.class';
+import { BcmsComponent } from '../../common/bcms.component';
 
 @Component({
   selector: 'app-user-create',
   templateUrl: '../user-form.component.html',
   styleUrls: ['./user-create.component.css']
 })
-export class UserCreateComponent implements OnInit {
+export class UserCreateComponent extends BcmsComponent implements OnInit {
 
   pageTitle: string = "User Create";
   readonly: boolean = false;
@@ -23,7 +24,9 @@ export class UserCreateComponent implements OnInit {
     private usersvc: UserService,
     private rolesvc: RoleService,
     private router: Router
-  ) { }
+  ) { 
+    super(sys);
+  }
 
   save(): void {
     this.user.password = "MaxPass@8888";
@@ -40,6 +43,7 @@ export class UserCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    super.ngOnInit();
     this.rolesvc.list().subscribe(
       res => {
         this.roles = res;

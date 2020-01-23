@@ -4,7 +4,7 @@ import { SystemService } from '../../../core/system/system.service';
 import { UserService } from '../user.service';
 import { User } from '../user.class';
 
-import { BcmsComponent } from '../../common/bcms.compoent';
+import { BcmsComponent } from '../../common/bcms.component';
 
 @Component({
   selector: 'app-user-detail',
