@@ -1,0 +1,76 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+            <span> | </span>
+            <span><a routerLink="/roles/list">Back to list ...</a></span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <table class="table table-sm" *ngIf="role">
+            <tr>
+                <td>Code:</td>
+                <td><input [(ngModel)]="role.code" [disabled]="readonly" type="text" size="10"> Must be unique.</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input [(ngModel)]="role.name" [disabled]="readonly" type="text" size="15">
+                </td>
+            </tr>
+            <tr>
+                <td>Admin?:</td>
+                <td><input [(ngModel)]="role.isAdmin" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Staff?:</td>
+                <td><input [(ngModel)]="role.isStaff" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Instructor?:</td>
+                <td><input [(ngModel)]="role.isInstructor" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Student?:</td>
+                <td><input [(ngModel)]="role.isStudent" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Active:</td>
+                <td><input [(ngModel)]="role.active" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Created:</td>
+                <td>{{role.created | date:'short'}}</td>
+            </tr>
+            <tr>
+                <td>Updated:</td>
+                <td>{{role.updated | date:'short'}}</td>
+            </tr>
+            <tr *ngIf="!readonly">
+                <td colspan="2">
+                    <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                </td>
+            </tr>
+            <tr *ngIf="readonly">
+                <td colspan="2">
+                    <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                    <span> | </span>
+                    <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                    <span *ngIf="verified"> |
+                        <span>
+                            <button (click)="verify()" class="btn btn-danger btn-sm">Verify Delete</button>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

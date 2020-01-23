@@ -13,19 +13,19 @@ import { BcmsComponent } from '../../common/bcms.component';
 })
 export class UserDetailComponent extends BcmsComponent implements OnInit {
 
-  pageTitle: string = "User Detail";
   readonly: boolean = true;
   verified: boolean = false;
-
+  
   user: User = new User();
-
+  
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
     private usersvc: UserService
-  ) { 
-    super(sys);
+    ) { 
+      super(sys);
+      this.pageTitle = "User Detail";
   }
 
   edit(): void {

@@ -14,18 +14,18 @@ import { BcmsComponent } from '@feat/common/bcms.component';
 })
 export class UserCreateComponent extends BcmsComponent implements OnInit {
 
-  pageTitle: string = "User Create";
   readonly: boolean = false;
   user: User = new User();
   roles: Role[] = [];
-
+  
   constructor(
     protected sys: SystemService,
     private usersvc: UserService,
     private rolesvc: RoleService,
     private router: Router
-  ) { 
-    super(sys);
+    ) { 
+      super(sys);
+      this.pageTitle = "User Create";
   }
 
   save(): void {

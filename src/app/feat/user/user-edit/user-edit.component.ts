@@ -14,20 +14,20 @@ import { BcmsComponent } from '@feat/common/bcms.component';
 })
 export class UserEditComponent extends BcmsComponent implements OnInit {
 
-  pageTitle: string = "User Edit";
   readonly: boolean = false;
-
+  
   user: User = null;
   roles: Role[] = [];
-
+  
   constructor(
     protected sys: SystemService,
     private usersvc: UserService,
     private rolesvc: RoleService,
     private route: ActivatedRoute,
     private router: Router
-  ) { 
-    super(sys);
+    ) { 
+      super(sys);
+      this.pageTitle = "User Edit";
   }
 
   save(): void {
