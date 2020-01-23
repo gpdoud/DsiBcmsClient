@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SystemService } from '../../../core/system/system.service';
-import { UserService } from '../user.service';
-import { User } from '../user.class';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from '@core/system/system.service';
+import { UserService } from '@feat/user/user.service';
+import { User } from '@feat/user/user.class';
 
 import { BcmsComponent } from '../../common/bcms.component';
 
@@ -15,15 +15,36 @@ export class UserDetailComponent extends BcmsComponent implements OnInit {
 
   pageTitle: string = "User Detail";
   readonly: boolean = true;
+  verified: boolean = false;
 
   user: User = new User();
 
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
+    private router: Router,
     private usersvc: UserService
   ) { 
     super(sys);
+  }
+
+  edit(): void {
+    this.router.navigateByUrl(`/users/edit/${this.user.id}`);
+  }
+
+  delete(): void {
+    this.verified = !this.verified;
+  }
+  verify(): void {
+    this.usersvc.remove(this.user).subscribe(
+      res => {
+        this.sys.log.debug("User Remove Successful!", res);
+        this.router.navigateByUrl("/users/list");
+      },
+      err => {
+        this.sys.log.err(err);
+      }
+    );
   }
 
   ngOnInit() {

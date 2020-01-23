@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { User } from '../user.class';
-import { SystemService } from '../../../core/system/system.service';
-import { BcmsListComponent } from '../../common/bcms-list.component';
+import { UserService } from '@feat/user/user.service';
+import { User } from '@feat/user/user.class';
+import { SystemService } from '@core/system/system.service';
+import { BcmsListComponent } from '@feat/common/bcms-list.component';
 
 @Component({
   selector: 'app-user-list',

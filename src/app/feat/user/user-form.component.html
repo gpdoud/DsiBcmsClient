@@ -69,6 +69,18 @@
                     <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
                 </td>
             </tr>
+            <tr *ngIf="readonly">
+                <td colspan="2">
+                    <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                    <span> | </span>
+                    <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                    <span *ngIf="verified"> |
+                        <span>
+                            <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
+                        </span>
+                    </span>
+                </td>
+            </tr>
         </table>
     </section>
 </main>

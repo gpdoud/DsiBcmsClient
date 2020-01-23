@@ -9,6 +9,10 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserSearchPipe } from './user/user-search.pipe';
+import { RoleListComponent } from './role/role-list/role-list.component';
+import { RoleDetailComponent } from './role/role-detail/role-detail.component';
+import { RoleEditComponent } from './role/role-edit/role-edit.component';
+import { RoleCreateComponent } from './role/role-create/role-create.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +21,11 @@ import { UserSearchPipe } from './user/user-search.pipe';
         UserCreateComponent,
         UserEditComponent,
         UserLoginComponent,
-        UserSearchPipe
+        UserSearchPipe,
+        RoleListComponent,
+        RoleDetailComponent,
+        RoleEditComponent,
+        RoleCreateComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [
