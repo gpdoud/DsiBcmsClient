@@ -1,8 +1,20 @@
+div.menu {
+    background-color: #454545;
+}
+div.left, div.right {
+    display: inline-block;
+}
+div.left {
+    width: 70%;
+}
+div.right {
+    width: 29%;
+    text-align: right;
+    color: silver;
+}
 nav {
-    width: 100%;
 }
 ul {
     margin: 0;
     padding: 0;
-    background-color: #454545;
 }

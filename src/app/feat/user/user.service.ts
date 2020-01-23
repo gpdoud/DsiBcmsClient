@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './user.class';
 import { SystemService } from '../../core/system/system.service';
+import { NotFound } from '../common/not-found.class';
 
 @Injectable({
   providedIn: 'root'

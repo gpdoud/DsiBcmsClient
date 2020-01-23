@@ -8,6 +8,8 @@ import { Menu } from './menu.class';
 })
 export class MenuComponent implements OnInit {
 
+  username: string = 'Admin';
+
   menus: Menu[] = [
     new Menu("BCMS", "/home", "The BCMS Home Page"),
     new Menu("Users", "/users/list", "The BCMS Users Page"),

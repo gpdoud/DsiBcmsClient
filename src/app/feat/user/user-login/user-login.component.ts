@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SystemService } from '../../../core/system/system.service';
 import { UserService } from '../user.service';
 import { User } from '../user.class';
+import { NotFound } from '../../common/not-found.class';
 
 @Component({
   selector: 'app-user-login',
@@ -21,8 +22,11 @@ export class UserLoginComponent implements OnInit {
   ) { }
 
   login(): void {
+    this.sys.clearLoggedInUser();
     this.usersvc.login(this.user.username, this.user.password).subscribe(
       res => { 
+        let e404 = (res as unknown) as NotFound;
+        if(e404.status == 404) return;
         this.sys.log.debug("Login successful!", res);
         this.router.navigateByUrl("/home");
       },

@@ -1,5 +1,12 @@
-<nav>
-    <ul>
-        <app-menuitem *ngFor="let mnu of menus" [menu]="mnu"></app-menuitem>
-    </ul>
-</nav>
+<div class="menu">
+    <div class="left">
+        <nav>
+            <ul>
+                <app-menuitem *ngFor="let mnu of menus" [menu]="mnu"></app-menuitem>
+            </ul>
+        </nav>
+    </div>
+    <div class="right">
+        <span class="username">{{username}}</span>
+    </div>
+</div>

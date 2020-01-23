@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppInitService } from '../../app-init.service';
 import { LoggerService } from '../logger/logger.service';
+import { User } from '../../feat/user/user.class';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +18,28 @@ export class SystemService {
     return this.logger;
   }
 
+  private _loggedInUser: User = null;
+  setLoggedInUser(user: User): void {
+    this._loggedInUser = user;
+  }
+  clearLoggedInUser(): void {
+    this._loggedInUser = null;
+  }
+  isUserLoggedIn(): boolean {
+    return this._loggedInUser != null;
+  }
+  get loggedInUser(): User {
+    return this._loggedInUser;
+  }
+  checkLogin(): void {
+    if(!this.isUserLoggedIn()) {
+      this.router.navigateByUrl("/login");
+    }
+  }
+
   constructor(
     private init: AppInitService,
+    private router: Router,
     private logger: LoggerService
   ) { 
     this.config = init.config;
