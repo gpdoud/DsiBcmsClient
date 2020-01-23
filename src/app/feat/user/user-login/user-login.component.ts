@@ -36,7 +36,7 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit() {
     if(!this.sys.config.checkLogin) {
-      this.router.navigateByUrl("/users/list");
+      this.login();
     }
     this.sys.clearLoggedInUser();
     this.user.username = "gpdoud";

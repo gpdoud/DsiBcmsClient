@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from '../../core/system/system.service';
 import { Menu } from './menu.class';
 
 @Component({
@@ -18,9 +19,14 @@ export class MenuComponent implements OnInit {
     new Menu("Help", "/help", "The BCMS Helo Page"),
     new Menu("Login", "/login", "The Login/logout Page")
   ];
-  constructor() { }
+  constructor(
+    private sys: SystemService
+  ) { }
 
   ngOnInit() {
+    this.username = this.sys.isUserLoggedIn() 
+      ? `[${this.sys.loggedInUser.lastname} (${this.sys.loggedInUser.roleCode})]` 
+      : "Login";
   }
 
 }
