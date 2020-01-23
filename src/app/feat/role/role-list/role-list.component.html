@@ -14,6 +14,7 @@
             <tr>
                 <td class="sortable"><a (click)="sort('code')">Code</a></td>
                 <td class="sortable"><a (click)="sort('name')">Name</a></td>
+                <td class="sortable"><a (click)="sort('isRoot')">Root?</a></td>
                 <td class="sortable"><a (click)="sort('isAdmin')">Admin?</a></td>
                 <td class="sortable"><a (click)="sort('isStaff')">Staff?</a></td>
                 <td class="sortable"><a (click)="sort('isInstructor')">Instructor?</a></td>
@@ -26,6 +27,7 @@
             <tr *ngFor="let r of roles | roleSrch:searchCriteria | sort:sortCriteria:ascOrder">
                 <td>{{r.code}}</td>
                 <td>{{r.name}}</td>
+                <td>{{r.isRoot | bool}}</td>
                 <td>{{r.isAdmin | bool}}</td>
                 <td>{{r.isStaff | bool}}</td>
                 <td>{{r.isInstructor | bool}}</td>

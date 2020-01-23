@@ -24,6 +24,10 @@
                 </td>
             </tr>
             <tr>
+                <td>Root?:</td>
+                <td><input [(ngModel)]="role.isRoot" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
                 <td>Admin?:</td>
                 <td><input [(ngModel)]="role.isAdmin" [disabled]="readonly" type="checkbox" size="10"></td>
             </tr>
