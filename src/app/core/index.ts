@@ -7,3 +7,4 @@ export { FooterComponent } from './footer/footer.component';
 export { HelpComponent } from './help/help.component';
 export { SortPipe } from './sort/sort.pipe';
 export { BoolDisplayPipe } from './util/bool-display.pipe';
+export { NotifyComponent } from '@core/notify/notify.component';

@@ -1,0 +1,10 @@
+header div {
+    display: inline-block;
+}
+div#img { 
+    width: 50%;
+}
+div.notify {
+    width: 50%;
+    text-align: right;
+}
