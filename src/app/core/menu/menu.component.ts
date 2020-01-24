@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SystemService } from '../../core/system/system.service';
 import { Menu } from './menu.class';
+import { User } from '@feat/user/user.class';
 
 @Component({
   selector: 'app-menu',
@@ -9,12 +10,14 @@ import { Menu } from './menu.class';
 })
 export class MenuComponent implements OnInit {
 
-  username: string = 'Admin';
+  loggedInUser: User = null;
+  username: string = 'Login';
+  isRootOrAdmin: boolean = false;
 
   menus: Menu[] = [
     new Menu("BCMS", "/home", "The BCMS Home Page"),
-    new Menu("Users", "/users/list", "The BCMS Users Page"),
-    new Menu("Roles", "/roles/list", "The BCMS Roles Page"),
+    new Menu("Users", "/users/list", "The BCMS Users Page", true),
+    new Menu("Roles", "/roles/list", "The BCMS Roles Page", true),
     new Menu("About", "/about", "The BCMS About Page"),
     new Menu("Help", "/help", "The BCMS Helo Page"),
     new Menu("Login", "/login", "The Login/logout Page")
@@ -24,9 +27,11 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.username = this.sys.isUserLoggedIn() 
-      ? `[${this.sys.loggedInUser.lastname} (${this.sys.loggedInUser.roleCode})]` 
-      : "Login";
+    this.loggedInUser = this.sys.loggedInUser;
+    if(this.loggedInUser != null) {
+      this.isRootOrAdmin = this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin;
+      this.username = `[${this.loggedInUser.lastname} (${this.loggedInUser.roleCode})]`;
+    }
   }
 
 }

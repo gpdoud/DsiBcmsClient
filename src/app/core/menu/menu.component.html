@@ -1,8 +1,10 @@
 <div class="menu">
     <div class="left">
         <nav>
-            <ul>
-                <app-menuitem *ngFor="let mnu of menus" [menu]="mnu"></app-menuitem>
+            <ul> 
+                <ng-container *ngFor="let mnu of menus | security:loggedInUser">
+                    <app-menuitem [menu]="mnu"></app-menuitem>
+                </ng-container>
             </ul>
         </nav>
     </div>

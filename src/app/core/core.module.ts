@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { E404Component, HomeComponent, AboutComponent, MenuComponent, MenuitemComponent,
           FooterComponent, HelpComponent, SortPipe, BoolDisplayPipe } from './index';
+import { MenuSecurityPipe } from './menu/menu-security.pipe';
 
 @NgModule({
   declarations: [
     E404Component, HomeComponent, AboutComponent
-    , MenuComponent, MenuitemComponent, FooterComponent, HelpComponent, SortPipe, BoolDisplayPipe
+    , MenuComponent, MenuitemComponent, FooterComponent, HelpComponent, SortPipe, BoolDisplayPipe, MenuSecurityPipe
   ],
   imports: [
     CommonModule, RouterModule
