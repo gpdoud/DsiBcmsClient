@@ -1,4 +1,4 @@
 {
-    "checkLogin": false,
+    "checkLogin": true,
     "baseurl": "http://localhost:5000/dsi"
 }
