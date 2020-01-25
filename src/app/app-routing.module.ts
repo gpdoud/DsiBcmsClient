@@ -4,7 +4,7 @@ import * as feat from './feat/index';
 import * as core from './core/index';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   
   { path: 'about',              component: core.AboutComponent },
   { path: 'home',               component: core.HomeComponent },
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'roles/detail/:code', component: feat.RoleDetailComponent },
   { path: 'roles/edit/:code',   component: feat.RoleEditComponent },
   
-  { path: '**', component: core.E404Component }
+  { path: '**',                 component: core.E404Component }
 ];
 
 @NgModule({
