@@ -1,5 +1,6 @@
 span {
     margin-right: 5px;
-    color: silver;
+    color: white;
     font-style: italic;
+    cursor: pointer;
 }

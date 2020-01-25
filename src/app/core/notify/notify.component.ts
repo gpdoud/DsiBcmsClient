@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '@feat/config/config.service';
 import { SystemService } from '@core/system/system.service';
-import { GroupedObservable } from 'rxjs';
+import { Config } from '@feat/config/config.class';
 
 @Component({
   selector: 'app-notify',
@@ -10,7 +10,8 @@ import { GroupedObservable } from 'rxjs';
 })
 export class NotifyComponent implements OnInit {
 
-  notifications: string[] = [];
+  notifications: Config[] = [];
+  index: number = 0;
   notification: string = '';
 
   constructor(
@@ -19,20 +20,23 @@ export class NotifyComponent implements OnInit {
   ) { }
 
   go(): void {
-    let idx = 0;
-    while(true) {
-      this.notification = this.notifications[idx];
-      setTimeout(null, 3000);
-      idx = (idx < this.notifications.length) ? idx++ : 0;
+    this.notification = this.notifications[this.index++].dataValue;
+    if(this.index == this.notifications.length) { 
+      this.index = 0; 
     }
-
   }
 
   ngOnInit() {
-    this.notifications.push("Have a nice day!")
-    this.notifications.push("You are a good person!");
-    this.notifications.push("Everything will be alright!");
-    this.go();
+    this.cfg.search("notify").subscribe(
+      res => {
+        this.notifications = res;
+        this.sys.log.debug("Configs", res);
+        this.go();
+      },
+      err => {
+        this.sys.log.err(err);
+      }
+    );
   }
 
 }

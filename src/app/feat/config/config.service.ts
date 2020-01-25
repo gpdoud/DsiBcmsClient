@@ -20,6 +20,9 @@ export class ConfigService {
   get(key: string): Observable<Config> {
     return this.http.get(`${this.sys.url}/configs/${key}`) as Observable<Config>; 
   }
+  search(partKey: string): Observable<Config[]> {
+    return this.http.get(`${this.sys.url}/configs/search/${partKey}`) as Observable<Config[]>; 
+  }
   set(config: Config): Observable<any> {
     return this.http.post(`${this.sys.url}/configs`, config) as Observable<any>;
   }
