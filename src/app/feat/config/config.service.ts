@@ -20,6 +20,9 @@ export class ConfigService {
   get(key: string): Observable<Config> {
     return this.http.get(`${this.sys.url}/configs/${key}`) as Observable<Config>; 
   }
+  getKeys(keys: string): Observable<Config[]> {
+    return this.http.get(`${this.sys.url}/configs/keys/${keys}`) as Observable<Config[]>; 
+  }
   search(partKey: string): Observable<Config[]> {
     return this.http.get(`${this.sys.url}/configs/search/${partKey}`) as Observable<Config[]>; 
   }

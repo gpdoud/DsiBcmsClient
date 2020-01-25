@@ -8,3 +8,5 @@ export { HelpComponent } from './help/help.component';
 export { SortPipe } from './sort/sort.pipe';
 export { BoolDisplayPipe } from './util/bool-display.pipe';
 export { NotifyComponent } from '@core/notify/notify.component';
+export { MenuSecurityPipe } from './menu/menu-security.pipe';
+export { ConfigListComponent } from '@feat/config/config-list/config-list.component';

@@ -3,6 +3,7 @@
     font-size: small;
     color: silver;
     background-color: #454545;
+    padding-right: 15px;
 }
 .pin-to-bottom-page {
     position: fixed;

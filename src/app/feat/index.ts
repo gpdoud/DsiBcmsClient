@@ -1,3 +1,5 @@
+export { ConfigListComponent } from '@config/config-list/config-list.component';
+
 export { RoleListComponent } from '@role/role-list/role-list.component';
 export { RoleDetailComponent } from '@role/role-detail/role-detail.component';
 export { RoleCreateComponent } from '@role/role-create/role-create.component';

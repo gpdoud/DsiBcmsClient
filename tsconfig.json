@@ -6,7 +6,8 @@
       "@core/*": ["app/core/*"],
       "@feat/*": ["app/feat/*"],
       "@user/*": ["app/feat/user/*"],
-      "@role/*": ["app/feat/role/*"]
+      "@role/*": ["app/feat/role/*"],
+      "@config/*": ["app/feat/config/*"]
     },
     // "baseUrl": "./",
     "outDir": "./dist/out-tsc",

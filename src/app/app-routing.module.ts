@@ -10,6 +10,8 @@ const routes: Routes = [
   { path: 'home',               component: core.HomeComponent },
   { path: 'help',               component: core.HelpComponent },
 
+  { path: 'configs/list',       component: feat.ConfigListComponent },
+  
   { path: 'login',              component: feat.UserLoginComponent },
   { path: 'users/list',         component: feat.UserListComponent },
   { path: 'users/create',       component: feat.UserCreateComponent },
