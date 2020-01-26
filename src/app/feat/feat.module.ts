@@ -5,14 +5,15 @@ import { RouterModule } from '@angular/router';
 import { CoreModule } from '../core/core.module';
 import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditComponent, UserLoginComponent, UserSearchPipe,
             RoleListComponent, RoleDetailComponent, RoleEditComponent, RoleCreateComponent, RoleSearchPipe,
-            ConfigListComponent, ConfigSearchPipe, ConfigEditComponent } from './index';
+            ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent 
+        } from './index';
 
 @NgModule({
     declarations: [
         UserListComponent, UserDetailComponent, UserCreateComponent, UserEditComponent, UserLoginComponent,
         UserSearchPipe,
         RoleListComponent, RoleDetailComponent, RoleEditComponent, RoleCreateComponent, RoleSearchPipe,
-        ConfigListComponent, ConfigSearchPipe, ConfigEditComponent
+        ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent, 
    ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

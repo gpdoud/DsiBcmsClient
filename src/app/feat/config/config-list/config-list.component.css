@@ -1,0 +1,19 @@
+a {
+    color: #007bff;
+}
+a:hover {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+a.red:hover {
+    color: red;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.red {
+    color: red;
+}
+.bold {
+    font-weight: bold;
+}

@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'help',               component: core.HelpComponent },
 
   { path: 'configs/list',       component: feat.ConfigListComponent },
+  { path: 'configs/create',     component: feat.ConfigCreateComponent },
   { path: 'configs/edit/:key',  component: feat.ConfigEditComponent },
   
   { path: 'login',              component: feat.UserLoginComponent },

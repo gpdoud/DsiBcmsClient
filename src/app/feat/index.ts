@@ -1,5 +1,6 @@
 export { ConfigListComponent } from '@config/config-list/config-list.component';
 export { ConfigEditComponent } from '@config/config-edit/config-edit.component';
+export { ConfigCreateComponent } from '@config/config-create/config-create.component';
 export { ConfigSearchPipe } from '@config/config-search.pipe';
 
 export { RoleListComponent } from '@role/role-list/role-list.component';
