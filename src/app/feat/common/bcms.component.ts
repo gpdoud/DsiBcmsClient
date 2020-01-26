@@ -8,6 +8,7 @@ import { SystemService } from '../../core/system/system.service';
 export class BcmsComponent implements OnInit {
 
     pageTitle: string = "No Page Title";
+    readonly: boolean = false;
 
     constructor(
         protected sys: SystemService
