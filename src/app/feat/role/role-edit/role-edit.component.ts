@@ -12,18 +12,18 @@ import { BcmsComponent } from '@feat/common/bcms.component';
 })
 export class RoleEditComponent extends BcmsComponent implements OnInit {
 
-  readonly: boolean = false;
-
+  
   role: Role = null;
-
+  
   constructor(
     protected sys: SystemService,
     private rolesvc: RoleService,
     private route: ActivatedRoute,
     private router: Router
-  ) {
-    super(sys);
-    this.pageTitle = "Role Edit";
+    ) {
+      super(sys);
+      this.pageTitle = "Role Edit";
+      this.readonly = false;
   }
 
   save(): void {

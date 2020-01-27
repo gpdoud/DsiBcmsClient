@@ -13,7 +13,6 @@ import { BcmsComponent } from '../../common/bcms.component';
 })
 export class UserDetailComponent extends BcmsComponent implements OnInit {
 
-  readonly: boolean = true;
   verified: boolean = false;
   
   user: User = new User();
@@ -26,6 +25,7 @@ export class UserDetailComponent extends BcmsComponent implements OnInit {
     ) { 
       super(sys);
       this.pageTitle = "User Detail";
+      this.readonly = true;
   }
 
   edit(): void {
