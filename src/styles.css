@@ -8,6 +8,11 @@ header {
 input { 
     border-radius: 5px;
 }
+thead tr td {
+    font-weight: bold;
+    font-style: italic;
+    color: blue;
+}
 .component-content {
     text-align: center;
 }

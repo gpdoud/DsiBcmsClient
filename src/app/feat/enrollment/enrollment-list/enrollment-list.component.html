@@ -6,6 +6,8 @@
     <span><a routerLink="/enrollments/create" class="">Create</a></span>
     <span> | </span>
     <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
+    <span> | </span>
+    <span><a routerLink="/cohorts/list" class="">Back to list...</a></span>
 
 </div>
 <main>
@@ -13,7 +15,7 @@
         <thead>
             <tr>
                 <td>Id</td>
-                <td>Name</td>
+                <td>Cohort</td>
                 <td>Instructor</td>
                 <td>Capacity</td>
                 <td>Enrollments</td>
@@ -31,29 +33,35 @@
     </table>
     <table class="table table-sm">
         <thead>
-            <tr><td>Students</td></tr>
+            <tr class="separator"><td colspan="6"></td></tr>
             <tr>
                 <td>Id</td>
                 <td>Name</td>
+                <td>Phones</td>
+                <td>Email</td>
                 <td>Enrolled?</td>
                 <td>Action</td>
             </tr>
         </thead>    
         <tbody>
+            <tr><th colspan="6">Enrolled</th></tr>
             <tr *ngFor="let e of cohort.enrollments | sort:'e.user.lastname':true">
                 <td>{{e.userId}}</td>
                 <td>{{e.user.lastname}}, {{e.user.firstname}}</td>
+                <td>{{e.user.cellPhone}}/{{e.user.workPhone}}</td>
+                <td>{{e.user.email}}</td>
                 <td>{{true | bool}}</td>
                 <td>
                     <span><a (click)="drop(e.userId)" class="btn btn-link text-danger">Drop</a></span>
                 </td>
             </tr>
-            <tr class="separator">
-                <td colspan="4"></td>
-            </tr>
+            <tr class="separator-light"><td colspan="6"></td></tr>
+            <tr><th colspan="6">Not Enrolled</th></tr>
             <tr *ngFor="let u of notEnrolled | sort:'u.lastname':true">
                 <td>{{u.id}}</td>
                 <td>{{u.lastname}}, {{u.firstname}}</td>
+                <td>{{u.cellPhone}}/{{u.workPhone}}</td>
+                <td>{{u.email}}</td>
                 <td>{{false | bool}}</td>
                 <td>
                     <span><a (click)="enroll(u.id)" class="btn btn-link text-success">Enroll</a></span>
