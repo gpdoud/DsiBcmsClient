@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SortPipe implements PipeTransform {
 
   transform(arr: any[], column: string, asc: boolean = true): any[] {
+    if(arr == null || arr.length == 0) return arr;
 
     let sortFn = (a: any, b: any): number => {
       let x = this.setValue(a[column]);

@@ -32,6 +32,8 @@
                 <td>{{c.capacity}}</td>
                 <td>{{c.active | bool}}</td>
                 <td>
+                    <span><a routerLink="/enrollments/list/{{c.id}}" class="">Enrollment</a></span>
+                    <span> | </span>
                     <span><a routerLink="/cohorts/detail/{{c.id}}" class="">Detail</a></span>
                     <span> | </span>
                     <span><a routerLink="/cohorts/edit/{{c.id}}" class="">Edit</a></span>

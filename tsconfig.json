@@ -8,8 +8,10 @@
       "@feat/*": ["app/feat/*"],
       "@user/*": ["app/feat/user/*"],
       "@role/*": ["app/feat/role/*"],
+      "@common/*": ["app/feat/common/*"],
       "@config/*": ["app/feat/config/*"],
-      "@cohort/*": ["app/feat/cohort/*"]
+      "@cohort/*": ["app/feat/cohort/*"],
+      "@enrollment/*": ["app/feat/enrollment/*"]
     },
     // "baseUrl": "./",
     "outDir": "./dist/out-tsc",

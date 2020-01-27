@@ -2,11 +2,14 @@ export { CohortListComponent } from './cohort/cohort-list/cohort-list.component'
 export { CohortDetailComponent } from './cohort/cohort-detail/cohort-detail.component';
 export { CohortCreateComponent } from './cohort/cohort-create/cohort-create.component';
 export { CohortEditComponent } from './cohort/cohort-edit/cohort-edit.component';
+export { CohortSearchPipe } from './cohort/cohort-search.pipe';
 
 export { ConfigListComponent } from '@config/config-list/config-list.component';
 export { ConfigEditComponent } from '@config/config-edit/config-edit.component';
 export { ConfigCreateComponent } from '@config/config-create/config-create.component';
 export { ConfigSearchPipe } from '@config/config-search.pipe';
+
+export { EnrollmentListComponent } from './enrollment/enrollment-list/enrollment-list.component';
 
 export { RoleListComponent } from '@role/role-list/role-list.component';
 export { RoleDetailComponent } from '@role/role-detail/role-detail.component';

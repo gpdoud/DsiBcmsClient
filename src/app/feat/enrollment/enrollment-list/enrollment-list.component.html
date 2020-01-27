@@ -1,0 +1,64 @@
+<header></header>
+<app-menu></app-menu>
+<div>
+    <span>{{pageTitle}}</span>
+    <span> | </span>
+    <span><a routerLink="/enrollments/create" class="">Create</a></span>
+    <span> | </span>
+    <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
+
+</div>
+<main>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Instructor</td>
+                <td>Capacity</td>
+                <td>Enrollments</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{cohort.id}}</td>
+                <td>{{cohort.name}}</td>
+                <td *ngIf="cohort.instructor">{{cohort.instructor.lastname}}, {{cohort.instructor.firstname}}</td>
+                <td>{{cohort.capacity}}</td>
+                <td *ngIf="cohort.enrollments">{{cohort.enrollments.length}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm">
+        <thead>
+            <tr><td>Students</td></tr>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Enrolled?</td>
+                <td>Action</td>
+            </tr>
+        </thead>    
+        <tbody>
+            <tr *ngFor="let e of cohort.enrollments | sort:'e.user.lastname':true">
+                <td>{{e.userId}}</td>
+                <td>{{e.user.lastname}}, {{e.user.firstname}}</td>
+                <td>{{true | bool}}</td>
+                <td>
+                    <span><a (click)="drop(e.userId)" class="btn btn-link text-danger">Drop</a></span>
+                </td>
+            </tr>
+            <tr *ngFor="let u of notEnrolled | sort:'u.lastname':true">
+                <td>{{u.id}}</td>
+                <td>{{u.lastname}}, {{u.firstname}}</td>
+                <td>{{false | bool}}</td>
+                <td>
+                    <span><a (click)="enroll(u.id)" class="btn btn-link text-success">Enroll</a></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>
