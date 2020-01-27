@@ -24,16 +24,40 @@ export class EnrollmentListComponent extends BcmsListComponent implements OnInit
     private enrollsvc: EnrollmentService,
     private cohortsvc: CohortService,
     private route: ActivatedRoute
-  ) { 
+  ) {
     super(sys);
     this.pageTitle = "Enrollment List";
   }
 
   enroll(userId: number): void {
-    this.refresh(this.cohortId);
+    let e: Enrollment = new Enrollment();
+    e.userId = userId;
+    e.cohortId = this.cohortId;
+    this.enrollsvc.create(e).subscribe(
+      res => {
+        this.sys.log.trace(`Enrolled student ${userId} to cohort id: ${this.cohortId}`);
+        this.sys.log.debug(res);
+        this.refresh(this.cohortId);
+      },
+      err => {
+        this.sys.log.err(err);
+      }
+    );
   }
   drop(userId: number): void {
-    this.refresh(this.cohortId);
+    let e: Enrollment = new Enrollment();
+    e.userId = userId;
+    e.cohortId = this.cohortId;
+    this.enrollsvc.remove(e).subscribe(
+      res => {
+        this.sys.log.trace(`Dropped student ${userId} from cohort id: ${this.cohortId}`);
+        this.sys.log.debug(res);
+        this.refresh(this.cohortId);
+      },
+      err => {
+        this.sys.log.err(err);
+      }
+    );
   }
   refresh(id: number): void {
     this.cohortsvc.get(id).subscribe(
@@ -46,13 +70,6 @@ export class EnrollmentListComponent extends BcmsListComponent implements OnInit
         this.sys.log.err(err);
       }
     );
-  }
-
-  ngOnInit() {
-    super.ngOnInit();
-    this.cohortId = this.route.snapshot.params.id;
-    this.refresh(this.cohortId);
-
     this.enrollsvc.getNotEnrolled(this.cohortId).subscribe(
       res => {
         this.notEnrolled = res;
@@ -63,6 +80,13 @@ export class EnrollmentListComponent extends BcmsListComponent implements OnInit
         this.sys.log.err(err);
       }
     );
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.cohortId = Number(this.route.snapshot.params.id);
+    this.refresh(this.cohortId);
+
   }
 
 }

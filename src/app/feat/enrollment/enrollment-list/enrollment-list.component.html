@@ -48,6 +48,9 @@
                     <span><a (click)="drop(e.userId)" class="btn btn-link text-danger">Drop</a></span>
                 </td>
             </tr>
+            <tr class="separator">
+                <td colspan="4"></td>
+            </tr>
             <tr *ngFor="let u of notEnrolled | sort:'u.lastname':true">
                 <td>{{u.id}}</td>
                 <td>{{u.lastname}}, {{u.firstname}}</td>
