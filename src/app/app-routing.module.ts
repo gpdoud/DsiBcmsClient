@@ -10,6 +10,11 @@ const routes: Routes = [
   { path: 'home',               component: core.HomeComponent },
   { path: 'help',               component: core.HelpComponent },
 
+  { path: 'cohorts/list',       component: feat.CohortListComponent },
+  { path: 'cohorts/create',     component: feat.CohortCreateComponent },
+  { path: 'cohorts/detail/:id', component: feat.CohortDetailComponent },
+  { path: 'cohorts/edit/:id',   component: feat.CohortEditComponent },
+  
   { path: 'configs/list',       component: feat.ConfigListComponent },
   { path: 'configs/create',     component: feat.ConfigCreateComponent },
   { path: 'configs/edit/:key',  component: feat.ConfigEditComponent },

@@ -3,11 +3,13 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
+      "@system/*": ["app/core/system/*"],
       "@core/*": ["app/core/*"],
       "@feat/*": ["app/feat/*"],
       "@user/*": ["app/feat/user/*"],
       "@role/*": ["app/feat/role/*"],
-      "@config/*": ["app/feat/config/*"]
+      "@config/*": ["app/feat/config/*"],
+      "@cohort/*": ["app/feat/cohort/*"]
     },
     // "baseUrl": "./",
     "outDir": "./dist/out-tsc",
