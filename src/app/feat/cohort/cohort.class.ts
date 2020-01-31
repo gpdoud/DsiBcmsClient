@@ -7,8 +7,9 @@ export class Cohort {
     instructorId?: number;
     beginDate: string;
     endDate: string;
-    capacity: number;
-    active: boolean;
+    demoDay: string;
+    capacity: number = 12;
+    active: boolean = true;
     created: string;
     updated: string;
     enrollments: Enrollment[];

@@ -27,18 +27,24 @@
                     <input type="text" [disabled]="readonly" [(ngModel)]="cohort.instructorName" size="30"></td>
                 <td *ngIf="!readonly">
                     <select [(ngModel)]="cohort.instructorId" [disabled]="readonly">
-                        <option *ngFor="let user of users" [ngValue]="user.id">{{user.lastname}}, {{user.firstname}}</option>
+                        <option *ngFor="let user of users" [ngValue]="user.id">{{user.lastname}}, {{user.firstname}}
+                        </option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>Begin Date:</td>
-                <td><input [ngModel]="cohort.beginDate | date:'yyyy-MM-dd'" (ngModelChange)="cohort.beginDate = $event" 
-                    [disabled]="readonly" type="date" size="25"></td>
-                </tr>
-                <tr>
-                    <td>End Date:</td>
-                    <td><input [ngModel]="cohort.endDate | date:'yyyy-MM-dd'" (ngModelChange)="cohort.endDate = $event" 
+                <td><input [ngModel]="cohort.beginDate | date:'yyyy-MM-dd'" (ngModelChange)="cohort.beginDate = $event"
+                        [disabled]="readonly" type="date" size="25"></td>
+            </tr>
+            <tr>
+                <td>End Date:</td>
+                <td><input [ngModel]="cohort.endDate | date:'yyyy-MM-dd'" (ngModelChange)="cohort.endDate = $event"
+                        [disabled]="readonly" type="date" size="25"></td>
+            </tr>
+            <tr>
+                <td>Demo Day:</td>
+                <td><input [ngModel]="cohort.demoDay | date:'yyyy-MM-dd'" (ngModelChange)="cohort.demoDay = $event"
                         [disabled]="readonly" type="date" size="25"></td>
             </tr>
             <tr>
