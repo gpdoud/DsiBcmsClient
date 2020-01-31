@@ -1,6 +1,16 @@
+a {
+    padding: 1px;
+    vertical-align: top;
+}
+td {
+    vertical-align: middle;
+}
 .separator {
     background-color: gray;
 }
 .separator-light {
     background-color: silver;
+}
+.bold {
+    font-weight: 500;
 }
