@@ -7,9 +7,9 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             RoleListComponent, RoleDetailComponent, RoleEditComponent, RoleCreateComponent, RoleSearchPipe,
             ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent,
             CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
-            EnrollmentListComponent
+            EnrollmentListComponent, EnrollmentSearchPipe, 
+            AttendanceCheckinoutComponent, AttendanceStudentComponent
         } from './index';
-import { EnrollmentSearchPipe } from './enrollment/enrollment-search.pipe';
 
 @NgModule({
     declarations: [
@@ -17,7 +17,7 @@ import { EnrollmentSearchPipe } from './enrollment/enrollment-search.pipe';
         RoleListComponent, RoleDetailComponent, RoleEditComponent, RoleCreateComponent, RoleSearchPipe,
         ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent, 
         CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
-        EnrollmentListComponent, EnrollmentSearchPipe
+        EnrollmentListComponent, EnrollmentSearchPipe, AttendanceCheckinoutComponent, AttendanceStudentComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

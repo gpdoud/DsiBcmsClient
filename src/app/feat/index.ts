@@ -1,3 +1,6 @@
+export { AttendanceCheckinoutComponent } from '@attendance/attendance-checkinout/attendance-checkinout.component';
+export { AttendanceStudentComponent } from '@attendance/attendance-student/attendance-student.component';
+
 export { CohortListComponent } from './cohort/cohort-list/cohort-list.component';
 export { CohortDetailComponent } from './cohort/cohort-detail/cohort-detail.component';
 export { CohortCreateComponent } from './cohort/cohort-create/cohort-create.component';
@@ -9,7 +12,8 @@ export { ConfigEditComponent } from '@config/config-edit/config-edit.component';
 export { ConfigCreateComponent } from '@config/config-create/config-create.component';
 export { ConfigSearchPipe } from '@config/config-search.pipe';
 
-export { EnrollmentListComponent } from './enrollment/enrollment-list/enrollment-list.component';
+export { EnrollmentListComponent } from '@enrollment/enrollment-list/enrollment-list.component';
+export { EnrollmentSearchPipe } from '@enrollment/enrollment-search.pipe';
 
 export { RoleListComponent } from '@role/role-list/role-list.component';
 export { RoleDetailComponent } from '@role/role-detail/role-detail.component';
@@ -23,3 +27,4 @@ export { UserDetailComponent } from '@user/user-detail/user-detail.component';
 export { UserCreateComponent } from '@user/user-create/user-create.component';
 export { UserEditComponent } from '@user/user-edit/user-edit.component';
 export { UserSearchPipe } from '@user/user-search.pipe';
+

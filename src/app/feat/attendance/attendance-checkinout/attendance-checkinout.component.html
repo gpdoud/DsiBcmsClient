@@ -1,0 +1,15 @@
+<header></header>
+<app-menu></app-menu>
+<div>
+    <span>{{pageTitle}}</span>
+    <hr>
+</div>
+<main>
+    <ng-container *ngFor="let stud of students | sort:'firstname':'asc'; index as idx">
+        <app-attendance-student [student]="stud" [idx]="idx" >
+        </app-attendance-student>
+    </ng-container>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Attendance } from '@attendance/attendance.class';
+import { SystemService } from '@system/system.service';
+import { User } from '@feat/user/user.class';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AttendanceService {
+
+  constructor(
+    private sys: SystemService,
+    private http: HttpClient
+  ) { }
+
+  list(): Observable<Attendance[]> {
+    return this.http.get(`${this.sys.url}/enrollments`) as Observable<Attendance[]>;
+  }
+  get(id: number): Observable<Attendance> {
+    return this.http.get(`${this.sys.url}/enrollments/${id}`) as Observable<Attendance>;
+  }
+  getNotEnrolled(cohortId: number): Observable<User[]> {
+    return this.http.get(`${this.sys.url}/enrollments/notenrolled/${cohortId}`) as Observable<User[]>;    
+  }
+  create(attendance: Attendance): Observable<any> {
+    return this.http.post(`${this.sys.url}/enrollments`, attendance) as Observable<any>;
+  }
+  change(attendance: Attendance): Observable<any> {
+    return this.http.put(`${this.sys.url}/enrollments/${attendance.id}`, attendance) as Observable<any>;
+  }
+  remove(attendance: Attendance): Observable<any> {
+    return this.http.delete(`${this.sys.url}/enrollments/${attendance.id}`) as Observable<any>;
+  }
+}

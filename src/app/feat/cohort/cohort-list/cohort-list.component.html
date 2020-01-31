@@ -36,6 +36,8 @@
                 <td>{{c.enrollments.length}}</td>
                 <td>{{c.active | bool}}</td>
                 <td>
+                    <span><a routerLink="/attendance/checkinout/{{c.id}}" class="">CheckInOut</a></span>
+                    <span> | </span>
                     <span><a routerLink="/enrollments/list/{{c.id}}" class="">Enroll</a></span>
                     <span> | </span>
                     <span><a routerLink="/cohorts/detail/{{c.id}}" class="">Detail</a></span>

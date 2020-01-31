@@ -11,7 +11,8 @@
       "@common/*": ["app/feat/common/*"],
       "@config/*": ["app/feat/config/*"],
       "@cohort/*": ["app/feat/cohort/*"],
-      "@enrollment/*": ["app/feat/enrollment/*"]
+      "@enrollment/*": ["app/feat/enrollment/*"],
+      "@attendance/*": ["app/feat/attendance/*"]
     },
     // "baseUrl": "./",
     "outDir": "./dist/out-tsc",
