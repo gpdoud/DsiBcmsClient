@@ -44,13 +44,10 @@ export class EnrollmentListComponent extends BcmsListComponent implements OnInit
       }
     );
   }
-  drop(userId: number): void {
-    let e: Enrollment = new Enrollment();
-    e.userId = userId;
-    e.cohortId = this.cohortId;
+  drop(e: Enrollment): void {
     this.enrollsvc.remove(e).subscribe(
       res => {
-        this.sys.log.trace(`Dropped student ${userId} from cohort id: ${this.cohortId}`);
+        this.sys.log.trace(`Dropped student ${e.user.lastname} from cohort id: ${this.cohort.name}`);
         this.sys.log.debug(res);
         this.refresh(this.cohortId);
       },

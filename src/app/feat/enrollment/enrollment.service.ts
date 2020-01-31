@@ -18,8 +18,8 @@ export class EnrollmentService {
   list(): Observable<Enrollment[]> {
     return this.http.get(`${this.sys.url}/enrollments`) as Observable<Enrollment[]>;
   }
-  get(userId: number, cohortId: number): Observable<Enrollment> {
-    return this.http.get(`${this.sys.url}/enrollments/${userId}/${cohortId}`) as Observable<Enrollment>;
+  get(id: number): Observable<Enrollment> {
+    return this.http.get(`${this.sys.url}/enrollments/${id}`) as Observable<Enrollment>;
   }
   getNotEnrolled(cohortId: number): Observable<User[]> {
     return this.http.get(`${this.sys.url}/enrollments/notenrolled/${cohortId}`) as Observable<User[]>;    
@@ -28,9 +28,9 @@ export class EnrollmentService {
     return this.http.post(`${this.sys.url}/enrollments`, enrollment) as Observable<any>;
   }
   change(enrollment: Enrollment): Observable<any> {
-    return this.http.put(`${this.sys.url}/enrollments/${enrollment.userId}/${enrollment.cohortId}`, enrollment) as Observable<any>;
+    return this.http.put(`${this.sys.url}/enrollments/${enrollment.id}`, enrollment) as Observable<any>;
   }
   remove(enrollment: Enrollment): Observable<any> {
-    return this.http.delete(`${this.sys.url}/enrollments/${enrollment.userId}/${enrollment.cohortId}`) as Observable<any>;
+    return this.http.delete(`${this.sys.url}/enrollments/${enrollment.id}`) as Observable<any>;
   }
 }
