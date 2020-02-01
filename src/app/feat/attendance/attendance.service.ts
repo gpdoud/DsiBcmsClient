@@ -14,7 +14,13 @@ export class AttendanceService {
     private sys: SystemService,
     private http: HttpClient
   ) { }
-
+  
+  checkin(cohortId: number, studentId: number): Observable<any> {
+    return this.http.post(`${this.sys.url}/attendances/checkin/${cohortId}/${studentId}`, null) as Observable<any>;
+  }
+  checkout(cohortId: number, studentId: number): Observable<any> {
+    return this.http.post(`${this.sys.url}/attendances/checkout/${cohortId}/${studentId}`, null) as Observable<any>;
+  }
   list(): Observable<Attendance[]> {
     return this.http.get(`${this.sys.url}/enrollments`) as Observable<Attendance[]>;
   }

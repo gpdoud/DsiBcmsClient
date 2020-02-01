@@ -1,23 +1,53 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '@feat/user/user.class';
+import { SystemService } from '@system/system.service';
+import { EnrollmentService } from '@enrollment/enrollment.service';
+import { Enrollment } from '@enrollment/enrollment.class'
+import { AttendanceService } from '@attendance/attendance.service'
+import { Attendance } from '@attendance/attendance.class'
+import { BcmsComponent } from '@feat/common/bcms.component';
 
 @Component({
   selector: 'app-attendance-student',
   templateUrl: './attendance-student.component.html',
   styleUrls: ['./attendance-student.component.css']
 })
-export class AttendanceStudentComponent implements OnInit {
+export class AttendanceStudentComponent extends BcmsComponent implements OnInit {
 
-  buttonClasses: string = "btn btn-secondary btn-lg";
+  checkedInStyle: string = "btn btn-lg btn-success";
+  checkedOutStyle: string = "btn btn-lg btn-secondary";
+  buttonClasses: string = this.checkedOutStyle;
+
+  checkedIn: boolean = false;
 
   @Input()
   student: User;
   @Input()
-  idx: number;
+  cohortId: number;
 
-  constructor() { }
+  checkInOut(studentId: number): void {
+    let chkinout = this.checkedIn 
+        ? this.attendsvc.checkout(this.cohortId, studentId)
+        : this.attendsvc.checkin(this.cohortId, studentId);
+    chkinout.subscribe(
+      res => {
+        this.sys.log.debug(`Student ${this.student.firstname} is checked${this.checkedIn ? 'out': 'in'}`);
+        this.checkedIn = !this.checkedIn;
+        this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
+      }
+    );
+  }
+
+  constructor(
+    protected sys: SystemService,
+    private enrollsvc: EnrollmentService,
+    private attendsvc: AttendanceService
+  ) { 
+    super(sys);
+  }
 
   ngOnInit() {
+    super.ngOnInit();
   }
 
 }

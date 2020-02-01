@@ -5,8 +5,8 @@
     <hr>
 </div>
 <main>
-    <ng-container *ngFor="let stud of students | sort:'firstname':'asc'; index as idx">
-        <app-attendance-student [student]="stud" [idx]="idx" >
+    <ng-container *ngIf="students.length > 0">
+        <app-attendance-student [student]="stud" [cohortId]="cohortId" *ngFor="let stud of students | sort:'lastname'">
         </app-attendance-student>
     </ng-container>
 </main>

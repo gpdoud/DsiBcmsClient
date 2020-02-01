@@ -18,7 +18,7 @@ export class AttendanceCheckinoutComponent extends BcmsComponent implements OnIn
   pageTitle: string = "Attendance Check-in/out";
   buttonClass: string = "btn btn-secondary btn-lg";
 
-  cols: number = 4;
+  cohortId: number = 0;
 
   students: User[] = [];
 
@@ -33,8 +33,8 @@ export class AttendanceCheckinoutComponent extends BcmsComponent implements OnIn
 
   ngOnInit() {
     super.ngOnInit();
-    let id = this.route.snapshot.params.id;
-    this.cohortsvc.get(id).subscribe(
+    this.cohortId = this.route.snapshot.params.id;
+    this.cohortsvc.get(this.cohortId).subscribe(
       res => {
         res.enrollments.forEach(e => this.students.push(e.user));
         this.sys.log.debug("Cohort:", res);

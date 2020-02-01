@@ -16,7 +16,9 @@ export class SortPipe implements PipeTransform {
       return mult * (x < y ? -1 : 1);
     }
 
-    return arr.sort(sortFn);
+    let sorted = arr.sort(sortFn);
+
+    return sorted;
   }
   setValue = (colVal: any): any => {
     if (colVal == null) return '';
