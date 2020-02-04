@@ -15,6 +15,10 @@ export class AttendanceService {
     private http: HttpClient
   ) { }
   
+
+  ischeckedin(cohortId: number, studentId: number): Observable<Attendance> {
+    return this.http.get(`${this.sys.url}/attendances/ischeckedin/${cohortId}/${studentId}`) as Observable<Attendance>;
+  }
   checkin(cohortId: number, studentId: number): Observable<any> {
     return this.http.post(`${this.sys.url}/attendances/checkin/${cohortId}/${studentId}`, null) as Observable<any>;
   }

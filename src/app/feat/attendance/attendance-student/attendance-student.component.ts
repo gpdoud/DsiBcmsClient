@@ -35,6 +35,18 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
         this.checkedIn = !this.checkedIn;
         this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
       }
+      );
+    }
+    
+    isCheckedIn(studentId: number): void {
+      this.attendsvc.ischeckedin(this.cohortId, studentId).subscribe(
+        res => {
+          this.checkedIn = (res != null);
+          this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
+      },
+      err => {
+        this.sys.log.err("Exception:", err);
+      }
     );
   }
 
@@ -48,6 +60,8 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
 
   ngOnInit() {
     super.ngOnInit();
+    // see if user is checked in already
+    this.isCheckedIn(this.student.id);
   }
 
 }
