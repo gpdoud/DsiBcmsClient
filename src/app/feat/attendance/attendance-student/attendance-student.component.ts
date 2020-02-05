@@ -26,6 +26,10 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
   @Input()
   cohortId: number;
 
+  showPinCode(studentId: number): void {
+    this.router.navigateByUrl(`/attendance/pincode/${studentId}/${this.cohortId}/${this.checkedIn}`);
+  }
+
   checkInOut(studentId: number): void {
     let chkinout = this.checkedIn 
         ? this.attendsvc.checkout(this.cohortId, studentId)
