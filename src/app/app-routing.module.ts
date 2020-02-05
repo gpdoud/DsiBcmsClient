@@ -11,6 +11,8 @@ const routes: Routes = [
   { path: 'help',                       component: core.HelpComponent },
         
   { path: 'attendance/checkinout/:id',  component: feat.AttendanceCheckinoutComponent },
+  { path: 'attendance/pincode/:id',     component: feat.AttendancePincodeComponent },
+
   { path: 'cohorts/list',               component: feat.CohortListComponent },
   { path: 'cohorts/create',             component: feat.CohortCreateComponent },
   { path: 'cohorts/detail/:id',         component: feat.CohortDetailComponent },

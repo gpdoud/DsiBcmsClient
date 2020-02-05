@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '@feat/user/user.class';
 import { SystemService } from '@system/system.service';
 import { EnrollmentService } from '@enrollment/enrollment.service';
@@ -35,8 +36,8 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
         this.checkedIn = !this.checkedIn;
         this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
       }
-      );
-    }
+    );
+  }
     
     isCheckedIn(studentId: number): void {
       this.attendsvc.ischeckedin(this.cohortId, studentId).subscribe(
@@ -52,6 +53,7 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
 
   constructor(
     protected sys: SystemService,
+    private router: Router,
     private enrollsvc: EnrollmentService,
     private attendsvc: AttendanceService
   ) { 

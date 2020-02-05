@@ -17,6 +17,7 @@
                 <td class="sortable"><a (click)="sort('username')">Username</a></td>
                 <td class="sortable"><a (click)="sort('cellPhone')">Phones (cell/work)</a></td>
                 <td class="sortable"><a (click)="sort('email')">Email</a></td>
+                <td class="sortable"><a (click)="sort('pinCode')">Pin</a></td>
                 <td class="sortable"><a (click)="sort('roleName')">Role</a></td>
                 <td>Actions</td>
             </tr>
@@ -28,6 +29,7 @@
                 <td>{{u.username}}</td>
                 <td>{{u.cellPhone}} / {{u.workPhone}}</td>
                 <td>{{u.email}}</td>
+                <td>{{u.pinCode}}</td>
                 <td>{{u.role.name}}</td>
                 <td>
                     <span><a routerLink="/users/detail/{{u.id}}" class="">Detail</a></span>

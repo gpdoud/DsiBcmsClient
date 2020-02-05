@@ -1,5 +1,6 @@
 export { AttendanceCheckinoutComponent } from '@attendance/attendance-checkinout/attendance-checkinout.component';
 export { AttendanceStudentComponent } from '@attendance/attendance-student/attendance-student.component';
+export { AttendancePincodeComponent } from './attendance/attendance-pincode/attendance-pincode.component';
 
 export { CohortListComponent } from './cohort/cohort-list/cohort-list.component';
 export { CohortDetailComponent } from './cohort/cohort-detail/cohort-detail.component';

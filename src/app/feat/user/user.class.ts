@@ -11,6 +11,7 @@ export class User {
     workPhone: string;
     roleCode: string;
     securityKey: string;
+    pinCode: string;
     active: boolean = true;
     created: string;
     updated: string;
