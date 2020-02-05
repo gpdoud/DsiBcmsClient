@@ -5,7 +5,7 @@ body {
 header {
     background-color: steelblue;
 }
-input { 
+input, select { 
     border-radius: 5px;
 }
 thead tr td {
@@ -17,7 +17,7 @@ thead tr td {
     text-align: center;
 }
 .component-content table {
-    width: 600px;
+    width: 700px;
     margin: 0 auto;
     text-align: initial;
 }

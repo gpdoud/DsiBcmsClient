@@ -18,6 +18,8 @@ export class UserEditComponent extends BcmsComponent implements OnInit {
   
   user: User = null;
   roles: Role[] = [];
+  verifyPassword: string = '';
+  passwordMessage: string = '';
   
   constructor(
     protected sys: SystemService,
@@ -30,11 +32,22 @@ export class UserEditComponent extends BcmsComponent implements OnInit {
       this.pageTitle = "User Edit";
   }
 
+  verifySamePassword(): boolean {
+    return (this.user.password === this.verifyPassword);
+  }
+
   save(): void {
+    this.passwordMessage = "";
+    if(!this.verifySamePassword()) {
+      this.passwordMessage = "Passwords differ!";
+      return;
+    }
     this.usersvc.change(this.user).subscribe(
       res => {
         this.sys.log.debug("Change successful!", res);
-        this.router.navigateByUrl("/users/list");
+        let routerLink = this.user.role.isRoot || this.user.role.isAdmin 
+                          ? "/users/list" : "/home"; 
+        this.router.navigateByUrl(routerLink);
       },
       err => {
         this.sys.log.err(err);
@@ -57,6 +70,7 @@ export class UserEditComponent extends BcmsComponent implements OnInit {
     this.usersvc.get(id).subscribe(
       res => {
         this.user = res;
+        this.verifyPassword = this.user.password;
         this.sys.log.debug("User", res);
       },
       err => {

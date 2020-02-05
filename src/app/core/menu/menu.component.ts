@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
 
   loggedInUser: User = null;
   username: string = 'Login';
+  profileRouterLink: string = "";
   isRootOrAdmin: boolean = false;
 
   menus: Menu[] = [
@@ -33,6 +34,7 @@ export class MenuComponent implements OnInit {
     if(this.loggedInUser != null) {
       this.isRootOrAdmin = this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin;
       this.username = `[${this.loggedInUser.lastname} (${this.loggedInUser.roleCode})]`;
+      this.profileRouterLink = `/users/edit/${this.loggedInUser.id}`;
     }
   }
 

@@ -17,6 +17,8 @@ export class UserCreateComponent extends BcmsComponent implements OnInit {
   readonly: boolean = false;
   user: User = new User();
   roles: Role[] = [];
+  verifyPassword: string = '';
+  passwordMessage: string = '';
   
   constructor(
     protected sys: SystemService,
@@ -28,13 +30,23 @@ export class UserCreateComponent extends BcmsComponent implements OnInit {
       this.pageTitle = "User Create";
   }
 
+  verifySamePassword(): boolean {
+    return (this.user.password === this.verifyPassword);
+  }
+
   save(): void {
-    this.user.password = "MaxPass@8888";
+    this.passwordMessage = "";
+    if(!this.verifySamePassword()) {
+      this.passwordMessage = "Passwords differ!";
+      return;
+    }
     this.usersvc.create(this.user).subscribe(
       res => {
         this.user = res;
         this.sys.log.debug("Created succcessfully!", res);
-        this.router.navigateByUrl("/users/list");
+        let routerLink = this.user.role.isRoot || this.user.role.isAdmin 
+                          ? "/users/list" : "/home"; 
+        this.router.navigateByUrl(routerLink);
       },
       err => {
         this.sys.log.err(err);
