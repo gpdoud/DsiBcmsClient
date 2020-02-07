@@ -46,11 +46,11 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
     chkinout.subscribe(
       res => {
         this.sys.log.debug(`Student ${this.student.firstname} is checked${this.studentIscheckedIn ? 'out' : 'in'}`);
+        this.router.navigateByUrl(`/attendance/checkinout/${this.cohortId}`);
       }
     );
 
 
-    this.router.navigateByUrl(`/attendance/checkinout/${this.cohortId}`);
   }
 
   ngOnInit() {
