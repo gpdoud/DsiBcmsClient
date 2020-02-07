@@ -17,8 +17,9 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
   student: User = null;
   cohortId: number = 0;
   pinCode: string = '';
+  note: string = '';
   studentIscheckedIn: boolean = false;
-  message: string = 'Enter PinCode and press enter';
+  message: string = 'Enter PinCode and optional Note and press enter';
 
   constructor(
     protected sys: SystemService,

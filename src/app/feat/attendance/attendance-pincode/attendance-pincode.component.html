@@ -6,9 +6,11 @@
 </div>
 <div class="component">
     <form class="content" *ngIf="student">
-        <div>{{student.firstname}} {{student.lastname}} is currently checked-{{studentIscheckedIn ? "in" : "out"}}</div>
+        <div>{{student.firstname}} {{student.lastname}} is checked-{{studentIscheckedIn ? "in" : "out"}}</div>
         <div><input #pincode [(ngModel)]="pinCode" type="text" maxlength="4" size="5" name="pinCode"
                 placeholder="Pin Code"></div>
+        <div hidden><input [(ngModel)]="note" type="text" maxlength="40" size="25" name="note"
+                placeholder="Note"></div>
         <div hidden><button (click)="enter()" class="btn btn-sm btn-primary">Submit</button></div>
         <div><span class="message">{{message}}</span></div>
     </form>
