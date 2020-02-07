@@ -6,3 +6,9 @@ button {
     width: 120px;
     height: 80px;
 }
+a {
+    padding: 0;
+}
+.heading {
+    border-bottom: 1px solid silver;
+}

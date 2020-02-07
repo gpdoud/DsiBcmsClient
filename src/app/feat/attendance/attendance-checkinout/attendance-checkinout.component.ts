@@ -31,11 +31,27 @@ export class AttendanceCheckinoutComponent extends BcmsComponent implements OnIn
     super(sys);
   }
 
+  refresh(): void {
+    this.cohortId = this.route.snapshot.params.id;
+    this.cohortsvc.get(this.cohortId).subscribe(
+      res => {
+        this.students = [];
+        res.enrollments.forEach(e => this.students.push(e.user));
+        this.sys.log.debug("Cohort:", res);
+        this.sys.log.debug("Students:", this.students);
+      },
+      err => {
+        this.sys.log.err(err);
+      }
+    );
+  }
+
   ngOnInit() {
     super.ngOnInit();
     this.cohortId = this.route.snapshot.params.id;
     this.cohortsvc.get(this.cohortId).subscribe(
       res => {
+        this.students = [];
         res.enrollments.forEach(e => this.students.push(e.user));
         this.sys.log.debug("Cohort:", res);
         this.sys.log.debug("Students:", this.students);

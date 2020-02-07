@@ -1,7 +1,8 @@
 <header></header>
 <app-menu></app-menu>
-<div>
-    <span>{{pageTitle}}</span>
+<div class="heading">
+    <span>{{pageTitle}}</span> |
+    <span><a (click)="refresh()" class="btn btn-link">Refresh</a></span>
 </div>
 <main>
     <ng-container *ngIf="students.length > 0">
