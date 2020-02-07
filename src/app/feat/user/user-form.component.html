@@ -13,88 +13,90 @@
         </div>
     </section>
     <section class="component-content">
-        <table class="table table-sm" *ngIf="user">
-            <tr>
-                <td>Id:</td>
-                <td>{{user.id}}</td>
-            </tr>
-            <tr>
-                <td>Name:</td>
-                <td>
-                    <input [(ngModel)]="user.firstname" [disabled]="readonly" type="text" size="15">
-                    <input [(ngModel)]="user.lastname" [disabled]="readonly" type="text" size="15">
-                </td>
-            </tr>
-            <tr>
-                <td>Username:</td>
-                <td><input [(ngModel)]="user.username" [disabled]="readonly" type="text" size="10"></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td>
-                    <input [(ngModel)]="user.password" [disabled]="readonly" type="password" size="15"> |
-                    <input [(ngModel)]="verifyPassword" [disabled]="readonly" type="password" size="15"> 
-                    <span>{{passwordMessage}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><input [(ngModel)]="user.email" [disabled]="readonly" type="text" size="25"></td>
-            </tr>
-            <tr>
-                <td>Cell/Work Phone:</td>
-                <td>
-                    <input [(ngModel)]="user.cellPhone" [disabled]="readonly" type="text" size="15">
-                    <input [(ngModel)]="user.workPhone" [disabled]="readonly" type="text" size="15">
-                </td>
-            </tr>
-            <tr>
-                <td>Pin Code</td>
-                <td><input [(ngModel)]="user.pinCode" [disabled]="readonly" type="text" size="7"></td>
-            </tr>
-            <tr>
-                <td>Active:</td>
-                <td><input [(ngModel)]="user.active" [disabled]="readonly" type="checkbox" size="10"></td>
-            </tr>
-            <tr *ngIf="user && (user.role.isRoot || user.role.isAdmin)">
-                <td>Role:</td>
-                <td *ngIf="readonly && user.role">{{user.role.name}}</td>
-                <td *ngIf="!readonly">
-                    <select [(ngModel)]="user.roleCode">
-                        <option *ngFor="let role of roles" [ngValue]="role.code">{{role.name}}</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Security Key</td>
-                <td>{{user.securityKey}}</td>
-            </tr>
-            <tr>
-                <td>Created:</td>
-                <td>{{user.created | date:'short'}}</td>
-            </tr>
-            <tr>
-                <td>Updated:</td>
-                <td>{{user.updated | date:'short'}}</td>
-            </tr>
-            <tr *ngIf="!readonly">
-                <td colspan="2">
-                    <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
-                </td>
-            </tr>
-            <tr *ngIf="readonly">
-                <td colspan="2">
-                    <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
-                    <span> | </span>
-                    <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
-                    <span *ngIf="verified"> |
-                        <span>
-                            <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
+        <form>
+            <table class="table table-sm" *ngIf="user">
+                <tr>
+                    <td>Id:</td>
+                    <td>{{user.id}}</td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input [(ngModel)]="user.firstname" [disabled]="readonly" type="text" name="firstname" size="15">
+                        <input [(ngModel)]="user.lastname" [disabled]="readonly" type="text" name="lastname" size="15">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td><input [(ngModel)]="user.username" [disabled]="readonly" type="text" autocomplete="username" name="username" size="10"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input [(ngModel)]="user.password" [disabled]="readonly" type="password" autocomplete="new-password" name="password" size="15"> |
+                        <input [(ngModel)]="verifyPassword" [disabled]="readonly" type="password" autocomplete="new-password" name="verifyPassword" size="15">
+                        <span>{{passwordMessage}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input [(ngModel)]="user.email" [disabled]="readonly" type="text" name="email" size="25"></td>
+                </tr>
+                <tr>
+                    <td>Cell/Work Phone:</td>
+                    <td>
+                        <input [(ngModel)]="user.cellPhone" [disabled]="readonly" type="text" name="cellPhone" size="15">
+                        <input [(ngModel)]="user.workPhone" [disabled]="readonly" type="text" name="workPhone" size="15">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pin Code</td>
+                    <td><input [(ngModel)]="user.pinCode" [disabled]="readonly" type="text" name="pinCode" size="7"></td>
+                </tr>
+                <tr>
+                    <td>Active:</td>
+                    <td><input [(ngModel)]="user.active" [disabled]="readonly" type="checkbox" name="active" size="10"></td>
+                </tr>
+                <tr *ngIf="user && (user.role.isRoot || user.role.isAdmin)">
+                    <td>Role:</td>
+                    <td *ngIf="readonly && user.role">{{user.role.name}}</td>
+                    <td *ngIf="!readonly">
+                        <select [(ngModel)]="user.roleCode" name="roleCode">
+                            <option *ngFor="let role of roles" [ngValue]="role.code">{{role.name}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Security Key</td>
+                    <td>{{user.securityKey}}</td>
+                </tr>
+                <tr>
+                    <td>Created:</td>
+                    <td>{{user.created | date:'short'}}</td>
+                </tr>
+                <tr>
+                    <td>Updated:</td>
+                    <td>{{user.updated | date:'short'}}</td>
+                </tr>
+                <tr *ngIf="!readonly">
+                    <td colspan="2">
+                        <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                    </td>
+                </tr>
+                <tr *ngIf="readonly">
+                    <td colspan="2">
+                        <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                        <span> | </span>
+                        <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                        <span *ngIf="verified"> |
+                            <span>
+                                <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
+                            </span>
                         </span>
-                    </span>
-                </td>
-            </tr>
-        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </section>
 </main>
 <footer>
