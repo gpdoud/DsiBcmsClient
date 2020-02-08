@@ -43,6 +43,7 @@ export class SystemService {
     private logger: LoggerService
   ) { 
     this.config = init.config;
+    this.logger.setSeverity(this.config.logSeverity);
     this.log.debug("System config:", this.config);
   }
 }
