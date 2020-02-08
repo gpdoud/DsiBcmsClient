@@ -19,6 +19,7 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
   checkedOutStyle: string = "btn btn-lg btn-secondary";
   buttonClasses: string = this.checkedOutStyle;
 
+  attnd: Attendance = null;
   checkedIn: boolean = false;
 
   @Input()
@@ -30,24 +31,13 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
     this.router.navigateByUrl(`/attendance/pincode/${studentId}/${this.cohortId}/${this.checkedIn}`);
   }
 
-  // checkInOut(studentId: number): void {
-  //   let chkinout = this.checkedIn 
-  //       ? this.attendsvc.checkout(this.cohortId, studentId)
-  //       : this.attendsvc.checkin(this.cohortId, studentId);
-  //   chkinout.subscribe(
-  //     res => {
-  //       this.sys.log.debug(`Student ${this.student.firstname} is checked${this.checkedIn ? 'out': 'in'}`);
-  //       this.checkedIn = !this.checkedIn;
-  //       this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
-  //     }
-  //   );
-  // }
-    
-    isCheckedIn(studentId: number): void {
-      this.attendsvc.ischeckedin(this.cohortId, studentId).subscribe(
-        res => {
-          this.checkedIn = (res != null);
-          this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
+  isCheckedIn(studentId: number): void {
+    this.attendsvc.ischeckedin(this.cohortId, studentId).subscribe(
+      res => {
+        this.attnd = res;
+        this.sys.log.debug("Attendance:", this.attnd);
+        this.checkedIn = (res != null);
+        this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
       },
       err => {
         this.sys.log.err("Exception:", err);
@@ -60,7 +50,7 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
     private router: Router,
     private enrollsvc: EnrollmentService,
     private attendsvc: AttendanceService
-  ) { 
+  ) {
     super(sys);
   }
 

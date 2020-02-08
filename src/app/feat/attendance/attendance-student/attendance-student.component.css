@@ -2,4 +2,8 @@ button {
     margin: 20px 30px;
     width: 200px;
     height: 100px;
+    font-size: 1.3rem;
+}
+.note {
+    font-size: 0.8rem;
 }
