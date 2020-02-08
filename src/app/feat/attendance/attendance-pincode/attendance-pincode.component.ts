@@ -6,6 +6,7 @@ import { BcmsComponent } from '@feat/common/bcms.component';
 import { UserService } from '@user/user.service';
 import { User } from '@user/user.class';
 import { NotFound } from '../../utility/not-found.class';
+import { Attendance } from '../attendance.class';
 
 @Component({
   selector: 'app-attendance-pincode',
@@ -16,8 +17,8 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
 
   student: User = null;
   cohortId: number = 0;
+  attnd: Attendance = new Attendance();
   pinCode: string = '';
-  note: string = '';
   studentIscheckedIn: boolean = false;
   message: string = 'Enter PinCode and optional Note and press enter';
 
@@ -41,8 +42,8 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
 
 
     let chkinout = this.studentIscheckedIn
-      ? this.attendsvc.checkout(this.cohortId, this.student.id)
-      : this.attendsvc.checkin(this.cohortId, this.student.id);
+      ? this.attendsvc.checkout(this.cohortId, this.student.id, this.attnd)
+      : this.attendsvc.checkin(this.cohortId, this.student.id, this.attnd);
     chkinout.subscribe(
       res => {
         this.sys.log.debug(`Student ${this.student.firstname} is checked${this.studentIscheckedIn ? 'out' : 'in'}`);

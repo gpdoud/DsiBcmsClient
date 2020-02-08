@@ -30,18 +30,18 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
     this.router.navigateByUrl(`/attendance/pincode/${studentId}/${this.cohortId}/${this.checkedIn}`);
   }
 
-  checkInOut(studentId: number): void {
-    let chkinout = this.checkedIn 
-        ? this.attendsvc.checkout(this.cohortId, studentId)
-        : this.attendsvc.checkin(this.cohortId, studentId);
-    chkinout.subscribe(
-      res => {
-        this.sys.log.debug(`Student ${this.student.firstname} is checked${this.checkedIn ? 'out': 'in'}`);
-        this.checkedIn = !this.checkedIn;
-        this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
-      }
-    );
-  }
+  // checkInOut(studentId: number): void {
+  //   let chkinout = this.checkedIn 
+  //       ? this.attendsvc.checkout(this.cohortId, studentId)
+  //       : this.attendsvc.checkin(this.cohortId, studentId);
+  //   chkinout.subscribe(
+  //     res => {
+  //       this.sys.log.debug(`Student ${this.student.firstname} is checked${this.checkedIn ? 'out': 'in'}`);
+  //       this.checkedIn = !this.checkedIn;
+  //       this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
+  //     }
+  //   );
+  // }
     
     isCheckedIn(studentId: number): void {
       this.attendsvc.ischeckedin(this.cohortId, studentId).subscribe(

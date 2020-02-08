@@ -19,11 +19,11 @@ export class AttendanceService {
   ischeckedin(cohortId: number, studentId: number): Observable<Attendance> {
     return this.http.get(`${this.sys.url}/attendances/ischeckedin/${cohortId}/${studentId}`) as Observable<Attendance>;
   }
-  checkin(cohortId: number, studentId: number): Observable<any> {
-    return this.http.post(`${this.sys.url}/attendances/checkin/${cohortId}/${studentId}`, null) as Observable<any>;
+  checkin(cohortId: number, studentId: number, attnd: Attendance): Observable<any> {
+    return this.http.post(`${this.sys.url}/attendances/checkin/${cohortId}/${studentId}`, attnd) as Observable<any>;
   }
-  checkout(cohortId: number, studentId: number): Observable<any> {
-    return this.http.post(`${this.sys.url}/attendances/checkout/${cohortId}/${studentId}`, null) as Observable<any>;
+  checkout(cohortId: number, studentId: number, attnd: Attendance): Observable<any> {
+    return this.http.post(`${this.sys.url}/attendances/checkout/${cohortId}/${studentId}`, attnd) as Observable<any>;
   }
   list(): Observable<Attendance[]> {
     return this.http.get(`${this.sys.url}/enrollments`) as Observable<Attendance[]>;
