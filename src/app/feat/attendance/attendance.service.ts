@@ -38,9 +38,15 @@ export class AttendanceService {
     return this.http.post(`${this.sys.url}/enrollments`, attendance) as Observable<any>;
   }
   change(attendance: Attendance): Observable<any> {
+    return this.http.post(`${this.sys.url}/enrollments/update/${attendance.id}`, attendance) as Observable<any>;
+  }
+  change2(attendance: Attendance): Observable<any> {
     return this.http.put(`${this.sys.url}/enrollments/${attendance.id}`, attendance) as Observable<any>;
   }
   remove(attendance: Attendance): Observable<any> {
+    return this.http.post(`${this.sys.url}/enrollments/delete/${attendance.id}`, null) as Observable<any>;
+  }
+  remove2(attendance: Attendance): Observable<any> {
     return this.http.delete(`${this.sys.url}/enrollments/${attendance.id}`) as Observable<any>;
   }
 }

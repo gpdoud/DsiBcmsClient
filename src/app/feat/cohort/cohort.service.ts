@@ -24,9 +24,15 @@ export class CohortService {
     return this.http.post(`${this.sys.url}/cohorts`, cohort) as Observable<any>;
   }
   change(cohort: Cohort): Observable<any> {
+    return this.http.post(`${this.sys.url}/cohorts/update/${cohort.id}`, cohort) as Observable<any>;
+  }
+  change2(cohort: Cohort): Observable<any> {
     return this.http.put(`${this.sys.url}/cohorts/${cohort.id}`, cohort) as Observable<any>;
   }
   remove(cohort: Cohort): Observable<any> {
+    return this.http.post(`${this.sys.url}/cohorts/delete/${cohort.id}`, null) as Observable<any>;
+  }
+  remove2(cohort: Cohort): Observable<any> {
     return this.http.delete(`${this.sys.url}/cohorts/${cohort.id}`) as Observable<any>;
   }
 

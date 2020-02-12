@@ -28,9 +28,15 @@ export class EnrollmentService {
     return this.http.post(`${this.sys.url}/enrollments`, enrollment) as Observable<any>;
   }
   change(enrollment: Enrollment): Observable<any> {
+    return this.http.post(`${this.sys.url}/enrollments/update/${enrollment.id}`, enrollment) as Observable<any>;
+  }
+  change2(enrollment: Enrollment): Observable<any> {
     return this.http.put(`${this.sys.url}/enrollments/${enrollment.id}`, enrollment) as Observable<any>;
   }
   remove(enrollment: Enrollment): Observable<any> {
+    return this.http.post(`${this.sys.url}/enrollments/delete/${enrollment.id}`, null) as Observable<any>;
+  }
+  remove2(enrollment: Enrollment): Observable<any> {
     return this.http.delete(`${this.sys.url}/enrollments/${enrollment.id}`) as Observable<any>;
   }
 }
