@@ -30,10 +30,10 @@
                     <span> | </span> -->
                     <span><a routerLink="/configs/edit/{{c.keyValue}}" class="">Edit</a></span>
                     <span> | </span>
-                    <span><a (click)="delete(c.keyValue)" class="">Delete</a></span>
+                    <span><a (click)="deleteKey(c.keyValue)" class="">Delete</a></span>
                     <span [hidden]="!displayVerify || c.keyValue !== keyToDelete">
                         <span> | </span>
-                        <span><a (click)="verifyDelete(c.keyValue)" class="red bold">Verify</a></span>
+                        <span><a (click)="verifyDelete()" class="red bold">Verify</a></span>
                     </span>
                 </td>
             </tr>

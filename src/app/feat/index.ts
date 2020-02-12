@@ -2,6 +2,9 @@ export { AttendanceCheckinoutComponent } from '@attendance/attendance-checkinout
 export { AttendanceStudentComponent } from '@attendance/attendance-student/attendance-student.component';
 export { AttendancePincodeComponent } from './attendance/attendance-pincode/attendance-pincode.component';
 
+export { BcmsComponent } from '../feat/common/bcms.component';
+export { BcmsListComponent } from '../feat/common/bcms-list.component';
+
 export { CohortListComponent } from './cohort/cohort-list/cohort-list.component';
 export { CohortDetailComponent } from './cohort/cohort-detail/cohort-detail.component';
 export { CohortCreateComponent } from './cohort/cohort-create/cohort-create.component';

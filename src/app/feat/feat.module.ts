@@ -8,7 +8,8 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent,
             CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
             EnrollmentListComponent, EnrollmentSearchPipe, 
-            AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent
+            AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent,
+            BcmsComponent, BcmsListComponent
         } from './index';
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
         RoleListComponent, RoleDetailComponent, RoleEditComponent, RoleCreateComponent, RoleSearchPipe,
         ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent, 
         CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
-        EnrollmentListComponent, EnrollmentSearchPipe, AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent
+        EnrollmentListComponent, EnrollmentSearchPipe, AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent,
+        BcmsComponent, BcmsListComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

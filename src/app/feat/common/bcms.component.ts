@@ -14,6 +14,13 @@ export class BcmsComponent implements OnInit {
         protected sys: SystemService
     ) { }
 
+    verified: boolean;
+    delete(): void {}
+    edit(): void {}
+    save(): void {}
+    verify(): void {}
+    verifyDelete(): void {};
+
     ngOnInit() {
         if(this.sys.config.checkLogin) {
             this.sys.checkLogin();

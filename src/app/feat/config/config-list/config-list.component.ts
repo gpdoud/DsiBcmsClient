@@ -16,7 +16,7 @@ export class ConfigListComponent extends BcmsListComponent implements OnInit {
   displayVerify: boolean = false;
   keyToDelete: string = '';
 
-  delete(key: string): void {
+  deleteKey(key: string): void {
     this.displayVerify = !this.displayVerify;
     this.keyToDelete = key;
   }

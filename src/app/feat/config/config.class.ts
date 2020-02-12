@@ -3,6 +3,8 @@ export class Config {
     dataValue: string;
     system: boolean;
     active: boolean;
+    created: string;
+    updated: string;
 
     constructor() {}
 }
