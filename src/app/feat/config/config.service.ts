@@ -29,7 +29,11 @@ export class ConfigService {
   set(config: Config): Observable<any> {
     return this.http.post(`${this.sys.url}/configs`, config) as Observable<any>;
   }
+
   remove(key: string): Observable<any> {
+    return this.http.post(`${this.sys.url}/configs/delete/${key}`, null) as Observable<any>;
+  }
+  remove2(key: string): Observable<any> {
     return this.http.delete(`${this.sys.url}/configs/${key}`) as Observable<any>;
   }
 }

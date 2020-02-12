@@ -1,5 +1,6 @@
 {
     "logSeverity": "DEBUG", 
     "checkLogin": true,
-    "baseurl": "http://localhost:5000/dsi"
+    "baseurl": "http://doudsystems.com/bcms/dsi"
+    ,"baseurllocal": "http://localhost:5000/dsi"
 }
