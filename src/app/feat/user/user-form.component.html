@@ -4,7 +4,7 @@
     <section class="page-header">
         <div class="left">
             <span class="page-title">{{pageTitle}}</span>
-            <span *ngIf="user && (user.role.isRoot || user.role.isAdmin)"> |
+            <span *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)"> |
                 <span><a routerLink="/users/list">Back to list ...</a></span>
             </span>
         </div>
@@ -57,7 +57,7 @@
                     <td>Active:</td>
                     <td><input [(ngModel)]="user.active" [disabled]="readonly" type="checkbox" name="active" size="10"></td>
                 </tr>
-                <tr *ngIf="user && (user.role.isRoot || user.role.isAdmin)">
+                <tr *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)">
                     <td>Role:</td>
                     <td *ngIf="readonly && user.role">{{user.role.name}}</td>
                     <td *ngIf="!readonly">

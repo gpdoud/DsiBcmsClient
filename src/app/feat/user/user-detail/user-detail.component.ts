@@ -39,7 +39,7 @@ export class UserDetailComponent extends BcmsComponent implements OnInit {
   delete(): void {
     this.verified = !this.verified;
   }
-  verify(): void {
+  verifyDelete(): void {
     this.usersvc.remove(this.user).subscribe(
       res => {
         this.sys.log.debug("User Remove Successful!", res);

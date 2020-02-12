@@ -45,7 +45,7 @@ export class UserEditComponent extends BcmsComponent implements OnInit {
     this.usersvc.change(this.user).subscribe(
       res => {
         this.sys.log.debug("Change successful!", res);
-        let routerLink = this.user.role.isRoot || this.user.role.isAdmin 
+        let routerLink = this._loggedInUser.role.isRoot || this._loggedInUser.role.isAdmin 
                           ? "/users/list" : "/home"; 
         this.router.navigateByUrl(routerLink);
       },
