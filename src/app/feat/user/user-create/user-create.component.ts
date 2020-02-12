@@ -44,7 +44,7 @@ export class UserCreateComponent extends BcmsComponent implements OnInit {
       res => {
         this.user = res;
         this.sys.log.debug("Created succcessfully!", res);
-        let routerLink = this.user.role.isRoot || this.user.role.isAdmin 
+        let routerLink = this._loggedInUser.role.isRoot || this._loggedInUser.role.isAdmin 
                           ? "/users/list" : "/home"; 
         this.router.navigateByUrl(routerLink);
       },

@@ -1,5 +1,5 @@
 {
-    "logSeverity": "TRACE", 
+    "logSeverity": "DEBUG", 
     "checkLogin": true,
     "baseurl": "http://localhost:5000/dsi"
 }

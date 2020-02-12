@@ -5,6 +5,7 @@ import { UserService } from '@user/user.service';
 import { User } from '@user/user.class';
 
 import { BcmsComponent } from '../../common/bcms.component';
+import { Role } from '@feat/role/role.class';
 
 @Component({
   selector: 'app-user-detail',
@@ -16,6 +17,9 @@ export class UserDetailComponent extends BcmsComponent implements OnInit {
   verified: boolean = false;
   
   user: User = new User();
+  roles: Role[] = [];
+  verifyPassword: string;
+  passwordMessage: string;
   
   constructor(
     protected sys: SystemService,
@@ -35,7 +39,7 @@ export class UserDetailComponent extends BcmsComponent implements OnInit {
   delete(): void {
     this.verified = !this.verified;
   }
-  verify(): void {
+  verifyDelete(): void {
     this.usersvc.remove(this.user).subscribe(
       res => {
         this.sys.log.debug("User Remove Successful!", res);
