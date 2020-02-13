@@ -3,6 +3,7 @@ import { BcmsComponent } from '@feat/common/bcms.component';
 import { SystemService } from '@system/system.service';
 import { UserService } from '@feat/user/user.service';
 import { AttendanceService } from '../attendance.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-attendance-menu-checkinout',
@@ -11,8 +12,12 @@ import { AttendanceService } from '../attendance.service';
 })
 export class AttendanceMenuCheckinoutComponent extends BcmsComponent implements OnInit {
 
+  checkedIn: boolean = false;
+  cohortId: number = 0;
+
   constructor(
     protected sys: SystemService,
+    private route: Router,
     private usersvc: UserService,
     private attendsvc: AttendanceService
   ) { 
@@ -26,34 +31,34 @@ export class AttendanceMenuCheckinoutComponent extends BcmsComponent implements 
         get whether the student is currently checked in or not. Then
         is should navigate to the attendance-student.component.
 */
-  getIsCheckedIn(cohortId: number, studentId: number): boolean {
+
+  getIsCheckedIn(cohortId: number, studentId: number): void {
     let isCheckedIn: boolean;
     this.attendsvc.ischeckedin(cohortId, studentId).subscribe(
       res => {
-        return res != null;
+        this.checkedIn =  res != null;
+        this.route.navigateByUrl(`/attendance/pincode/${studentId}/${this.cohortId}/${this.checkedIn}`);
       },
       err => {
         this.sys.log.err(err);
       }
     );
-    throw "This should never occur";
   }
-  getActiveCohortForStudent(studentId: number): number {
-    let cohortId = 0;
+  getActiveCohortForStudent(studentId: number): void {
     this.usersvc.getActiveCohortByUserId(studentId).subscribe(
       res => { 
-        cohortId = res.cohortId; 
+        this.cohortId = res.cohortId; 
         let msg = `Student ${res.studentId} ${res.studentLastname} currently enrolled in cohort ${res.cohortId} ${res.cohortName}`;
         this.sys.log.debug(msg);
-        return res.cohortId;
+        this.getIsCheckedIn(this.cohortId, studentId);
       },
       err => { this.sys.log.err(err); }
     );
-    return -1;
   }
 
   ngOnInit() {
     super.ngOnInit();
+    this.getActiveCohortForStudent(this._loggedInUser.id);
   }
 
 }

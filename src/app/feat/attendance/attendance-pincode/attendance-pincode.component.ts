@@ -21,18 +21,22 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
   pinCode: string = '';
   studentIscheckedIn: boolean = false;
   message: string = 'Enter PinCode and optional Note and press enter';
-
+  
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
     private usersvc: UserService,
     private attendsvc: AttendanceService
-  ) {
-    super(sys);
-    this.pageTitle = "Authorize by PinCode";
+    ) {
+      super(sys);
+      this.pageTitle = "Authorize by PinCode";
+    }
+    
+  get isLoggedInUserRootOrAdmin(): boolean {
+    return this._loggedInUser.role.isAdmin || this._loggedInUser.role.isRoot;
   }
-
+  
   enter(): void {
     if (this.pinCode !== this.student.pinCode) {
       this.pinCode = '';
@@ -47,7 +51,10 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
     chkinout.subscribe(
       res => {
         this.sys.log.debug(`Student ${this.student.firstname} is checked${this.studentIscheckedIn ? 'out' : 'in'}`);
-        this.router.navigateByUrl(`/attendance/checkinout/${this.cohortId}`);
+        if(this.isLoggedInUserRootOrAdmin) {
+          this.router.navigateByUrl(`/attendance/checkinout/${this.cohortId}`);
+        }
+        this.router.navigateByUrl(`/home`);
       }
     );
 
