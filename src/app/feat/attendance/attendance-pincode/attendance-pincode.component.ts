@@ -53,8 +53,9 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
         this.sys.log.debug(`Student ${this.student.firstname} is checked${this.studentIscheckedIn ? 'out' : 'in'}`);
         if(this.isLoggedInUserRootOrAdmin) {
           this.router.navigateByUrl(`/attendance/checkinout/${this.cohortId}`);
+        } else {
+          this.router.navigateByUrl(`/home`);
         }
-        this.router.navigateByUrl(`/home`);
       }
     );
 
