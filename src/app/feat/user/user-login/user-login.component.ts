@@ -4,6 +4,7 @@ import { SystemService } from '../../../core/system/system.service';
 import { UserService } from '../user.service';
 import { User } from '../user.class';
 import { NotFound } from '../../common/not-found.class';
+import { IpService } from '@core/ip/ip.service';
 
 @Component({
   selector: 'app-user-login',
@@ -14,8 +15,10 @@ export class UserLoginComponent implements OnInit {
 
   user: User = new User();
   message: string = '';
+  get isValidDomain(): boolean { return this.ipsvc.isValidDomain };
 
   constructor(
+    private ipsvc: IpService,
     protected sys: SystemService,
     private usersvc: UserService,
     private router: Router

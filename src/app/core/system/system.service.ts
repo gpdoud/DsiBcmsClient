@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AppInitService } from '../../app-init.service';
 import { LoggerService } from '../logger/logger.service';
 import { User } from '../../feat/user/user.class';
+import { IpService } from '@core/ip/ip.service';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,8 @@ export class SystemService {
   constructor(
     private init: AppInitService,
     private router: Router,
-    private logger: LoggerService
+    private logger: LoggerService,
+    private ipsvc: IpService
   ) { 
     this.config = init.config;
     this.logger.setSeverity(this.config.logSeverity);
