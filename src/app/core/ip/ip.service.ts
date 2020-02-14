@@ -4,7 +4,8 @@ import { LoggerService } from '@core/logger/logger.service';
 import { Ip } from './ip.class';
 
 const DoudIp: string = "69.133.52.201";
-const MaxIp: string = "66.42.189.98";
+const DoudPhoneIp: string = "174.233.133.93";
+const MaxIp: string = "66.42.189.";
 
 const GetIpUrl: string = "http://api.ipify.org/?format=json";
 
@@ -21,8 +22,10 @@ export class IpService {
   ) {
     this.http.get(GetIpUrl).subscribe(
       (res: Ip) => {
-        let myIp = <any>res.ip;
-        this.isValidDomain = myIp == DoudIp || myIp == MaxIp;
+        let myIp = res.ip;
+        this.isValidDomain = myIp.includes(DoudIp) 
+                            // || myIp.includes(DoudPhoneIp)
+                            || myIp.includes(MaxIp);
         this.log.debug(`IP: ${myIp}`)
       }
     );
