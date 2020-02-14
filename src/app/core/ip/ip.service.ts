@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoggerService } from '@core/logger/logger.service';
+import { Ip } from './ip.class';
 
 const DoudIp: string = "69.133.52.201";
 const MaxIp: string = "66.42.189.98";
@@ -19,8 +20,8 @@ export class IpService {
     private log: LoggerService
   ) {
     this.http.get(GetIpUrl).subscribe(
-      res => {
-        let myIp = res.ip;
+      (res: Ip) => {
+        let myIp = <any>res.ip;
         this.isValidDomain = myIp == DoudIp || myIp == MaxIp;
         this.log.debug(`IP: ${myIp}`)
       }
