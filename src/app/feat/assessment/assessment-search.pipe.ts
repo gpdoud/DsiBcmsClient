@@ -17,11 +17,12 @@ export class AssessmentSearchPipe implements PipeTransform {
         asmt.subject.toLowerCase().includes(criteria.toLowerCase()) ||
         asmt.description.toLowerCase().includes(criteria.toLowerCase()) ||
         asmt.pointsScore.toString().toLowerCase().includes(criteria.toLowerCase()) ||
-        asmt.pointsMax.toString().toLowerCase().includes(criteria.toLowerCase())
+        asmt.pointsMax.toString().toLowerCase().includes(criteria.toLowerCase()) ||
+        asmt.userName.toLowerCase().includes(criteria.toLowerCase()) 
       ) {
         selAsmts.push(asmt);
       }
-      return selAsmts;
     });
+    return selAsmts;
   }
 }
