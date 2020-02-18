@@ -12,6 +12,7 @@ const routes: Routes = [
         
   { path: 'attendance/checkinout/:id',              component: feat.AttendanceCheckinoutComponent },
   { path: 'attendance/pincode/:id/:cohortId/:checkedIn', component: feat.AttendancePincodeComponent },
+  { path: 'attendance/checkinout',                  component: feat.AttendanceMenuCheckinoutComponent },
 
   { path: 'cohorts/list',                           component: feat.CohortListComponent },
   { path: 'cohorts/create',                         component: feat.CohortCreateComponent },

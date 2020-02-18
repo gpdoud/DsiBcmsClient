@@ -14,6 +14,9 @@ export class UserService {
     private http: HttpClient
   ) { }
 
+  getActiveCohortByUserId(userId: number): Observable<any> {
+    return this.http.get(`${this.sys.url}/users/getcohort/${userId}`) as Observable<any>;
+  }
   login(username: string, password: string): Observable<User> {
     return this.http.get(`${this.sys.url}/login/${username}/${password}`) as Observable<User>;
   }
