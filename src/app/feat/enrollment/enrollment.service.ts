@@ -18,8 +18,11 @@ export class EnrollmentService {
   list(): Observable<Enrollment[]> {
     return this.http.get(`${this.sys.url}/enrollments`) as Observable<Enrollment[]>;
   }
-  get(id: number): Observable<Enrollment> {
-    return this.http.get(`${this.sys.url}/enrollments/${id}`) as Observable<Enrollment>;
+  get(userId: number, cohortId: number): Observable<Enrollment> {
+    return this.http.get(`${this.sys.url}/enrollments/${userId}/${cohortId}`) as Observable<Enrollment>;
+  }
+  getByCohortAndUser(cohortId: number, userId: number): Observable<Enrollment> {
+    return this.http.get(`${this.sys.url}/enrollments/${cohortId}/${userId}`) as Observable<Enrollment>;
   }
   getNotEnrolled(cohortId: number): Observable<User[]> {
     return this.http.get(`${this.sys.url}/enrollments/notenrolled/${cohortId}`) as Observable<User[]>;    

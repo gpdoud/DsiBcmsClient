@@ -1,0 +1,92 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+            <span *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)"> |
+                <span><a routerLink="/assessments/list/{{cohortId}}">Back to list ...</a></span>
+            </span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <form>
+            <table class="table table-sm" *ngIf="asmt">
+                <tr>
+                    <td>Id:</td>
+                    <td>{{asmt.id}}</td>
+                </tr>
+                <tr *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)">
+                    <td>Student:</td>
+                    <td *ngIf="readonly && user.role">{{asmt.enrollment.user.firstname}} {{asmt.enrollment.user.lastname}}</td>
+                    <td *ngIf="!readonly">
+                        <select [(ngModel)]="user" name="user" [compareWith]="compareFn">
+                            <option *ngFor="let user of users" [ngValue]="user">{{user.firstname}} {{user.lastname}}</option>
+                        </select>
+                    </td>
+                </tr>                <tr>
+                    <td>Date:</td>
+                    <td><input [ngModel]="asmt.date | date:'yyyy-MM-dd'"  (ngModelChange)="asmt.date = $event"
+                        [disabled]="readonly" type="date" autocomplete="date" name="date" size="10"></td>
+                </tr>
+                <tr>
+                    <td>Subject:</td>
+                    <td>
+                        <input [(ngModel)]="asmt.subject" [disabled]="readonly" type="text" name="subject" size="15">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input [(ngModel)]="asmt.description" [disabled]="readonly" type="text" name="description" size="25"></td>
+                </tr>
+                <tr>
+                    <td>Score:</td>
+                    <td>
+                        <input [(ngModel)]="asmt.pointsScore" [disabled]="readonly" type="number" name="pointsScore" size="7">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Score:</td>
+                    <td>
+                        <input [(ngModel)]="asmt.pointsMax" [disabled]="readonly" type="number" name="pointsMax" size="7">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Active:</td>
+                    <td><input [(ngModel)]="asmt.active" [disabled]="readonly" type="checkbox" name="active" size="10"></td>
+                </tr>
+                <tr>
+                    <td>Created:</td>
+                    <td>{{asmt.created | date:'short'}}</td>
+                </tr>
+                <tr>
+                    <td>Updated:</td>
+                    <td>{{asmt.updated | date:'short'}}</td>
+                </tr>
+                <tr *ngIf="!readonly">
+                    <td colspan="2">
+                        <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                    </td>
+                </tr>
+                <tr *ngIf="readonly">
+                    <td colspan="2">
+                        <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                        <span> | </span>
+                        <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                        <span *ngIf="verified"> |
+                            <span>
+                                <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>
