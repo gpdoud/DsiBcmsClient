@@ -1,3 +1,8 @@
+export { AssessmentListComponent } from './assessment/assessment-list/assessment-list.component';
+export { AssessmentDetailComponent } from './assessment/assessment-detail/assessment-detail.component';
+export { AssessmentEditComponent } from './assessment/assessment-edit/assessment-edit.component';
+export { AssessmentCreateComponent } from './assessment/assessment-create/assessment-create.component';
+
 export { AttendanceCheckinoutComponent } from '@attendance/attendance-checkinout/attendance-checkinout.component';
 export { AttendanceStudentComponent } from '@attendance/attendance-student/attendance-student.component';
 export { AttendancePincodeComponent } from './attendance/attendance-pincode/attendance-pincode.component';

@@ -9,17 +9,19 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
             EnrollmentListComponent, EnrollmentSearchPipe, 
             AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent,
-            BcmsComponent, BcmsListComponent
+            BcmsComponent, BcmsListComponent,
+            AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent
         } from './index';
-
-@NgModule({
-    declarations: [
-        UserListComponent, UserDetailComponent, UserCreateComponent, UserEditComponent, UserLoginComponent, UserSearchPipe,
-        RoleListComponent, RoleDetailComponent, RoleEditComponent, RoleCreateComponent, RoleSearchPipe,
-        ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent, 
-        CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
-        EnrollmentListComponent, EnrollmentSearchPipe, AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent,
-        BcmsComponent, BcmsListComponent
+        
+        @NgModule({
+            declarations: [
+                UserListComponent, UserDetailComponent, UserCreateComponent, UserEditComponent, UserLoginComponent, UserSearchPipe,
+                RoleListComponent, RoleDetailComponent, RoleEditComponent, RoleCreateComponent, RoleSearchPipe,
+                ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent, 
+                CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
+                EnrollmentListComponent, EnrollmentSearchPipe, AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent,
+                BcmsComponent, BcmsListComponent, 
+                AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

@@ -9,6 +9,11 @@ const routes: Routes = [
   { path: 'about',                                  component: core.AboutComponent },
   { path: 'home',                                   component: core.HomeComponent },
   { path: 'help',                                   component: core.HelpComponent },
+
+  { path: 'assessments/list',                       component: feat.AssessmentListComponent },
+  { path: 'assessments/detail/:id',                 component: feat.AssessmentDetailComponent },
+  { path: 'assessments/create',                     component: feat.AssessmentCreateComponent },
+  { path: 'assessments/edit/:id',                   component: feat.AssessmentEditComponent },
         
   { path: 'attendance/checkinout/:id',              component: feat.AttendanceCheckinoutComponent },
   { path: 'attendance/pincode/:id/:cohortId/:checkedIn', component: feat.AttendancePincodeComponent },
