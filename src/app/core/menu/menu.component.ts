@@ -22,6 +22,7 @@ export class MenuComponent implements OnInit {
     new Menu("Users", "/users/list", "The BCMS Users Page", true),
     new Menu("Roles", "/roles/list", "The BCMS Roles Page", true),
     new Menu("Configs", "/configs/list", "The BCMS Configs Page", true),
+    new Menu("CheckIn", "/attendance/checkinout", "Student checkin/out"),
     new Menu("About", "/about", "The BCMS About Page"),
     new Menu("Help", "/help", "The BCMS Helo Page"),
     new Menu("Login", "/login", "The Login/logout Page")

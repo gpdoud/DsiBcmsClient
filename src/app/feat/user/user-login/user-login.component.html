@@ -2,7 +2,10 @@
 <main>
     <section>
         <div class="div-dialog">
-            <form>
+            <div *ngIf="!isValidDomain">
+                <span class="text-danger">BCMS access is valid only at MAX Technical Training</span>
+            </div>
+            <form *ngIf="isValidDomain">
                 <div class="dialog-title">Boot Camp Management System (BCMS)</div>
                 <div class="username-field">
                     <label>Username: <input [(ngModel)]="user.username" type="text" autocomplete="username" name="username"></label>

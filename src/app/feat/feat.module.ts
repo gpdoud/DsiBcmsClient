@@ -8,7 +8,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent,
             CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
             EnrollmentListComponent, EnrollmentSearchPipe, 
-            AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent,
+            AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
             BcmsComponent, BcmsListComponent,
             AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent
         } from './index';
@@ -20,7 +20,8 @@ import { AssessmentSearchPipe } from './assessment/assessment-search.pipe';
                 RoleListComponent, RoleDetailComponent, RoleEditComponent, RoleCreateComponent, RoleSearchPipe,
                 ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent, 
                 CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
-                EnrollmentListComponent, EnrollmentSearchPipe, AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent,
+                EnrollmentListComponent, EnrollmentSearchPipe, 
+                AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
                 BcmsComponent, BcmsListComponent, 
                 AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentSearchPipe
     ],
