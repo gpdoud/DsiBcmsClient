@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'assessments/detail/:id/:cohortId',               component: feat.AssessmentDetailComponent },
   { path: 'assessments/create/:cohortId',                   component: feat.AssessmentCreateComponent },
   { path: 'assessments/edit/:id/:cohortId',                 component: feat.AssessmentEditComponent },
+  { path: 'assessments/listbystudent',                      component: feat.AssessmentStudentListComponent },
         
   { path: 'attendance/checkinout/:id',                      component: feat.AttendanceCheckinoutComponent },
   { path: 'attendance/pincode/:id/:cohortId/:checkedIn',    component: feat.AttendancePincodeComponent },

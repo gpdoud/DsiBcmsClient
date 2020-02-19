@@ -21,6 +21,9 @@ export class AssessmentService {
   listByCohort(cohortId: number): Observable<Assessment[]> {
     return this.http.get(`${this.sys.url}/assessments/bycohort/${cohortId}`) as Observable<Assessment[]>;
   }
+  listByStudent(studentId: number): Observable<Assessment[]> {
+    return this.http.get(`${this.sys.url}/assessments/bystudent/${studentId}`) as Observable<Assessment[]>;    
+  }
   get(id: number): Observable<Assessment> {
     return this.http.get(`${this.sys.url}/assessments/${id}`) as Observable<Assessment>;
   }

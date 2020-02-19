@@ -7,6 +7,8 @@ export { AttendanceCheckinoutComponent } from '@attendance/attendance-checkinout
 export { AttendanceStudentComponent } from '@attendance/attendance-student/attendance-student.component';
 export { AttendancePincodeComponent } from '@attendance/attendance-pincode/attendance-pincode.component';
 export { AttendanceMenuCheckinoutComponent } from '@attendance/attendance-menu-checkinout/attendance-menu-checkinout.component';
+export { AssessmentSearchPipe } from '@assessment/assessment-search.pipe';
+export { AssessmentStudentListComponent } from '@assessment/assessment-student-list/assessment-student-list.component';
 
 export { BcmsComponent } from './common/bcms.component';
 export { BcmsListComponent } from './common/bcms-list.component';

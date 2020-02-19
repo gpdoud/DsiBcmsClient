@@ -1,0 +1,51 @@
+<header></header>
+<app-menu></app-menu>
+<div>
+    <span>{{pageTitle}}</span>
+    <!-- <span> | </span>
+    <span><a routerLink="/assessments/create/{{cohortId}}" class="">Create</a></span> -->
+    <span> | </span>
+    <span><a routerLink="/home" class="">Back to home...</a></span>
+    <!-- <span> | </span>
+    <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span> -->
+
+</div>
+<main>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td class="sortable"><a (click)="sort('id')">Id</a></td>
+                <!-- <td class="sortable"><a (click)="sort('userName')">Student</a></td> -->
+                <td class="sortable"><a (click)="sort('date')">Date</a></td>
+                <td class="sortable"><a (click)="sort('subject')">Subject</a></td>
+                <td class="sortable"><a (click)="sort('description')">Description</a></td>
+                <td class="sortable"><a (click)="sort('pointsScore')">Score</a></td>
+                <td class="sortable"><a (click)="sort('pointsMax')">Max</a></td>
+                <td class="sortable"><a (click)="sort('grade')">Grade</a></td>
+                <td class="sortable"><a (click)="sort('active')">Active</a></td>
+                <!-- <td>Actions</td> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of assessments | assessmentSrch:searchCriteria | sort:sortCriteria:ascOrder">
+                <td>{{a.id}}</td>
+                <!-- <td>{{a.userName}}</td> -->
+                <td>{{a.date | date}}</td>
+                <td>{{a.subject}}</td>
+                <td>{{a.description}}</td>
+                <td>{{a.pointsScore}}</td>
+                <td>{{a.pointsMax}}</td>
+                <td>{{a.grade | percent}}</td>
+                <td>{{a.active}}</td>
+                <!-- <td>
+                    <span><a routerLink="/assessments/detail/{{a.id}}/{{cohortId}}" class="">Detail</a></span>
+                    <span> | </span>
+                    <span><a routerLink="/assessments/edit/{{a.id}}/{{cohortId}}" class="">Edit</a></span>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

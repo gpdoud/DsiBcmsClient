@@ -10,9 +10,9 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             EnrollmentListComponent, EnrollmentSearchPipe, 
             AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
             BcmsComponent, BcmsListComponent,
-            AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent
+            AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
+            AssessmentSearchPipe
         } from './index';
-import { AssessmentSearchPipe } from './assessment/assessment-search.pipe';
         
         @NgModule({
             declarations: [
@@ -23,7 +23,8 @@ import { AssessmentSearchPipe } from './assessment/assessment-search.pipe';
                 EnrollmentListComponent, EnrollmentSearchPipe, 
                 AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
                 BcmsComponent, BcmsListComponent, 
-                AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentSearchPipe
+                AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
+                AssessmentSearchPipe
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [
