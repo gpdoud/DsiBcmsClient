@@ -39,8 +39,8 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit() {
     this.sys.clearLoggedInUser();
-    this.user.username = "gpdoud";
-    this.user.password = "MaxPass@8888";
+    // this.user.username = "gpdoud";
+    // this.user.password = "MaxPass@8888";
     if (!this.sys.config.checkLogin) {
       this.login();
     }
