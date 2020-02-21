@@ -9,3 +9,7 @@ section {
     padding: 25px;
     border: 1px solid silver;
 }
+.version, .status {
+    font-weight: bold;
+    color: red;
+}

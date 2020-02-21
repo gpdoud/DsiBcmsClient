@@ -4,15 +4,42 @@
     <section>
         <h3>About BCMS</h3>
         <p>
-            Boot Camp Management System makes it easy to manage the entire process of deliving a boot camp cohort. The system
-            allows administration, staff, instructors and students to keep their focus on student learning instead of all the 
-            related administration.
+            Boot Camp Management System makes it easy to manage the entire process 
+            of delivering a boot camp cohort. The system allows administration, staff, 
+            instructors and students to keep their focus on student learning instead of
+            all the related administration.
         </p>
         <p>
-            BCMS was created by Greg Doud, Sr. Instructor at MAX Technical Training.
+            BCMS was created by Greg Doud, Sr. Instructor at MAX Technical Training. 
+            The technology used in BCMS is the same technology taught in the 
+            .Net Boot Camp. It includes:
         </p>
+        <table class="table table-sm">
+            <tr>
+                <th>Front-end (User Interface Layer)</th>
+                <th>Back-end (Business Layer)</th>
+                <th>Data Store (Data Layer)</th>
+            </tr>
+            <tr>
+                <td>Angular/Typescript</td>
+                <td>C# (.Net Core 3.0)</td>
+                <td>SQL Server</td>
+            </tr>
+            <tr>
+                <td>HTML5/CSS3/JavaScript</td>
+                <td>EntityFramework Core</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Bootstrap/jQuery</td>
+                <td>MVC/WebApi</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
         <p>
-            Version: {{version}}, Status: {{status}}, Date: February 21, 2020
+            BCMS Version: <span class="version">{{version}}</span>, Status: <span class="status">{{status}}</span>, Date:
+            February 21, 2020<br>
+            Copyright (c) 2020 by Doud Systems, Inc. All rights reserved
         </p>
     </section>
 </main>
