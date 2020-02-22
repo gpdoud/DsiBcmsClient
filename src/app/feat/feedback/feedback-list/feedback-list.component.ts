@@ -13,6 +13,7 @@ export class FeedbackListComponent extends BcmsListComponent implements OnInit {
 
   feedbacks: Feedback[] = [];
   maxTextLen: number = 50;
+  canEdit: boolean;
 
   constructor(
     protected sys: SystemService,
@@ -24,6 +25,7 @@ export class FeedbackListComponent extends BcmsListComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.canEdit = this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin;
     this.fbsvc.list().subscribe(
       res => {
         res.forEach(x => {

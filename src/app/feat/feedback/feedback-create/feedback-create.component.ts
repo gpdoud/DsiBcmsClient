@@ -13,6 +13,7 @@ import { FeedbackService } from '../feedback.service';
 export class FeedbackCreateComponent extends BcmsComponent implements OnInit {
 
   feedback: Feedback = new Feedback();
+  canEdit: boolean;
 
   constructor(
     protected sys: SystemService,
@@ -38,6 +39,7 @@ export class FeedbackCreateComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.canEdit = this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin;
     this.feedback.userId = this.sys.loggedInUser.id;
     this.feedback.userName = `${this.sys.loggedInUser.firstname} ${this.sys.loggedInUser.lastname}`;
   }

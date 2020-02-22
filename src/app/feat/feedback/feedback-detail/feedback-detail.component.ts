@@ -17,6 +17,7 @@ import { FeedbackService } from '../feedback.service';
 export class FeedbackDetailComponent extends BcmsComponent implements OnInit {
 
   feedback: Feedback = new Feedback();
+  canEdit: boolean;
 
   constructor(
     protected sys: SystemService,
@@ -55,6 +56,7 @@ export class FeedbackDetailComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.canEdit = this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin;
     let id = this.route.snapshot.params.id;
     this.fbsvc.get(id).subscribe(
       res => {

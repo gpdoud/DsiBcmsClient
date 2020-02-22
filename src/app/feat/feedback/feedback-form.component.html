@@ -31,7 +31,8 @@
             </tr>
             <tr>
                 <td>Text:</td>
-                <td><textarea [(ngModel)]="feedback.text" [disabled]="readonly" rows="10gpdou" cols="85"></textarea></td>
+                <td><textarea [(ngModel)]="feedback.text" [disabled]="readonly" rows="10gpdou" cols="85"></textarea>
+                </td>
             </tr>
             <tr>
                 <td>Locked:</td>
@@ -67,9 +68,13 @@
             </tr>
             <tr *ngIf="readonly">
                 <td colspan="2">
-                    <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
-                    <span> | </span>
-                    <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                    <span *ngIf="!feedback.locked || canEdit">
+                        <button (click)="edit()" class="btn btn-warning btn-sm">Edit</button>
+                        <span> | </span>
+                        <span>
+                            <button (click)="delete()" class="btn btn-danger btn-sm">Delete</button>
+                        </span>
+                    </span>
                     <span *ngIf="verified"> |
                         <span>
                             <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
