@@ -6,12 +6,12 @@ export class Feedback {
     category: string;
     title: string;
     text: string;
-    locked: boolean;
-    active: boolean;
+    locked: boolean = false;
+    active: boolean = true;
     created: string;
     updated: string;
     
-    userId: number;
+    userId: number = 0;
     user: User;
     nextId: number;
     nextFeedback: Feedback;

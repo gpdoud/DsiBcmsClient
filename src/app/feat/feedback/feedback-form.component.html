@@ -1,0 +1,85 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+            <span> | </span>
+            <span><a routerLink="/feedbacks/list">Back to list ...</a></span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <table class="table table-sm" *ngIf="feedback">
+            <tr>
+                <td>Id:</td>
+                <td>{{feedback.id}}</td>
+            </tr>
+            <tr>
+                <td>User:</td>
+                <td>{{feedback.userName}}</td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input [(ngModel)]="feedback.category" [disabled]="readonly" type="text" size="25"></td>
+            </tr>
+            <tr>
+                <td>Title:</td>
+                <td><input [(ngModel)]="feedback.title" [disabled]="readonly" type="text" size="25"></td>
+            </tr>
+            <tr>
+                <td>Text:</td>
+                <td><textarea [(ngModel)]="feedback.text" [disabled]="readonly" rows="10gpdou" cols="85"></textarea></td>
+            </tr>
+            <tr>
+                <td>Locked:</td>
+                <td><input [(ngModel)]="feedback.locked" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Active:</td>
+                <td><input [(ngModel)]="feedback.active" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Created:</td>
+                <td>{{feedback.created | date:'short'}}</td>
+            </tr>
+            <tr>
+                <td>Updated:</td>
+                <td>{{feedback.updated | date:'short'}}</td>
+            </tr>
+            <!-- <tr>
+                <td>Instructor:</td>
+                <td *ngIf="readonly">
+                    <input type="text" [disabled]="readonly" [(ngModel)]="feedback.instructorName" size="30"></td>
+                <td *ngIf="!readonly">
+                    <select [(ngModel)]="feedback.instructorId" [disabled]="readonly">
+                        <option *ngFor="let user of users" [ngValue]="user.id">{{user.lastname}}, {{user.firstname}}
+                        </option>
+                    </select>
+                </td>
+            </tr> -->
+            <tr *ngIf="!readonly">
+                <td colspan="2">
+                    <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                </td>
+            </tr>
+            <tr *ngIf="readonly">
+                <td colspan="2">
+                    <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                    <span> | </span>
+                    <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                    <span *ngIf="verified"> |
+                        <span>
+                            <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

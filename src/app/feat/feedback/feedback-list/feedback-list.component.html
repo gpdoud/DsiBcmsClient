@@ -13,11 +13,11 @@
         <thead>
             <tr>
                 <td class="sortable"><a (click)="sort('id')">Id</a></td>
+                <td class="sortable"><a (click)="sort('userName')">User</a></td>
                 <td class="sortable"><a (click)="sort('category')">Category</a></td>
                 <td class="sortable"><a (click)="sort('title')">Title</a></td>
                 <td class="sortable"><a (click)="sort('text')">Text (1st {{maxTextLen}} chars)</a></td>
                 <td class="sortable"><a (click)="sort('locked')">Locked</a></td>
-                <td class="sortable"><a (click)="sort('userName')">User</a></td>
                 <td class="sortable"><a (click)="sort('active')">Active</a></td>
                 <td>Actions</td>
             </tr>
@@ -25,12 +25,12 @@
         <tbody>
             <tr *ngFor="let f of feedbacks | feedbackSrch:searchCriteria | sort:sortCriteria:ascOrder">
                 <td>{{f.id}}</td>
+                <td>{{f.userName}}</td>
                 <td>{{f.category}}</td>
                 <td>{{f.title}}</td>
                 <td>{{f.text}}</td>
-                <td>{{f.locked}}</td>
-                <td>{{f.userName}}</td>
-                <td>{{f.active}}</td>
+                <td>{{f.locked | bool}}</td>
+                <td>{{f.active | bool}}</td>
                 <td>
                     <span><a routerLink="/feedbacks/detail/{{f.id}}" class="">Detail</a></span>
                     <span> | </span>
