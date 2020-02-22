@@ -30,7 +30,12 @@ const routes: Routes = [
   { path: 'configs/edit/:key',                              component: feat.ConfigEditComponent },
           
   { path: 'enrollments/list/:id',                           component: feat.EnrollmentListComponent },
-        
+  
+  { path: 'feedbacks/list',                                 component: feat.FeedbackListComponent },
+  { path: 'feedbacks/create',                               component: feat.FeedbackCreateComponent },
+  { path: 'feedbacks/detail/:id',                           component: feat.FeedbackDetailComponent },
+  { path: 'feedbacks/edit/:id',                             component: feat.FeedbackEditComponent },
+
   { path: 'login',                                          component: feat.UserLoginComponent },
   { path: 'users/list',                                     component: feat.UserListComponent },
   { path: 'users/create',                                   component: feat.UserCreateComponent },

@@ -1,0 +1,45 @@
+<header></header>
+<app-menu></app-menu>
+<div>
+    <span>{{pageTitle}}</span>
+    <span> | </span>
+    <span><a routerLink="/feedbacks/create" class="">Create</a></span>
+    <span> | </span>
+    <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
+
+</div>
+<main>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td class="sortable"><a (click)="sort('id')">Id</a></td>
+                <td class="sortable"><a (click)="sort('category')">Category</a></td>
+                <td class="sortable"><a (click)="sort('title')">Title</a></td>
+                <td class="sortable"><a (click)="sort('text')">Text (1st {{maxTextLen}} chars)</a></td>
+                <td class="sortable"><a (click)="sort('locked')">Locked</a></td>
+                <td class="sortable"><a (click)="sort('userName')">User</a></td>
+                <td class="sortable"><a (click)="sort('active')">Active</a></td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of feedbacks | feedbackSrch:searchCriteria | sort:sortCriteria:ascOrder">
+                <td>{{f.id}}</td>
+                <td>{{f.category}}</td>
+                <td>{{f.title}}</td>
+                <td>{{f.text}}</td>
+                <td>{{f.locked}}</td>
+                <td>{{f.userName}}</td>
+                <td>{{f.active}}</td>
+                <td>
+                    <span><a routerLink="/feedbacks/detail/{{f.id}}" class="">Detail</a></span>
+                    <span> | </span>
+                    <span><a routerLink="/feedbacks/edit/{{f.id}}" class="">Edit</a></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

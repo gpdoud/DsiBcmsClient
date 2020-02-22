@@ -27,6 +27,13 @@ export { ConfigSearchPipe } from '@config/config-search.pipe';
 export { EnrollmentListComponent } from '@enrollment/enrollment-list/enrollment-list.component';
 export { EnrollmentSearchPipe } from '@enrollment/enrollment-search.pipe';
 
+export { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
+export { FeedbackDetailComponent } from './feedback/feedback-detail/feedback-detail.component';
+export { FeedbackCreateComponent } from './feedback/feedback-create/feedback-create.component';
+export { FeedbackEditComponent } from './feedback/feedback-edit/feedback-edit.component';
+export { FeedbackSearchPipe } from './feedback/feedback-search.pipe';
+
+
 export { RoleListComponent } from '@role/role-list/role-list.component';
 export { RoleDetailComponent } from '@role/role-detail/role-detail.component';
 export { RoleCreateComponent } from '@role/role-create/role-create.component';

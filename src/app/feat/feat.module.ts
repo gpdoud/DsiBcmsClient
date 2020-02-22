@@ -11,7 +11,8 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
             BcmsComponent, BcmsListComponent,
             AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
-            AssessmentSearchPipe
+            AssessmentSearchPipe,
+            FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe
         } from './index';
         
         @NgModule({
@@ -24,7 +25,8 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
                 AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
                 BcmsComponent, BcmsListComponent, 
                 AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
-                AssessmentSearchPipe
+                AssessmentSearchPipe,
+                FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

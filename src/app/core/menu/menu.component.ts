@@ -24,6 +24,7 @@ export class MenuComponent implements OnInit {
     new Menu("Configs", "/configs/list", "The BCMS Configs Page", true),
     new Menu("CheckIn", "/attendance/checkinout", "Student checkin/out"),
     new Menu("About", "/about", "The BCMS About Page"),
+    new Menu("Feedback", "/feedbacks/list", "The BCMS Feedback Page"),
     new Menu("Help", "/help", "The BCMS Helo Page"),
     new Menu("Login", "/login", "The Login/logout Page")
   ];
