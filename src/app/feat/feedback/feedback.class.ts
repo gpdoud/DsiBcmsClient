@@ -6,6 +6,7 @@ export class Feedback {
     category: string;
     title: string;
     text: string;
+    response: string;
     locked: boolean = false;
     active: boolean = true;
     created: string;
@@ -16,6 +17,7 @@ export class Feedback {
     nextId: number;
     nextFeedback: Feedback;
     userName: string;
+    isOwner: boolean;
 
     constructor() {}
 }

@@ -31,7 +31,12 @@
             </tr>
             <tr>
                 <td>Text:</td>
-                <td><textarea [(ngModel)]="feedback.text" [disabled]="readonly" rows="10gpdou" cols="85"></textarea>
+                <td><textarea [(ngModel)]="feedback.text" [disabled]="readonly" rows="10" cols="85"></textarea>
+                </td>
+            </tr>
+            <tr *ngIf="feedback.response || canEdit">
+                <td>Response:</td>
+                <td><textarea [(ngModel)]="feedback.response" [disabled]="readonly" rows="10" cols="85"></textarea>
                 </td>
             </tr>
             <tr>
@@ -68,7 +73,7 @@
             </tr>
             <tr *ngIf="readonly">
                 <td colspan="2">
-                    <span *ngIf="!feedback.locked || canEdit">
+                    <span *ngIf="canEdit">
                         <button (click)="edit()" class="btn btn-warning btn-sm">Edit</button>
                         <span> | </span>
                         <span>
