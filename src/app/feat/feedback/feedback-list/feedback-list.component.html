@@ -17,6 +17,7 @@
                 <td class="sortable"><a (click)="sort('category')">Category</a></td>
                 <td class="sortable"><a (click)="sort('title')">Title</a></td>
                 <td class="sortable"><a (click)="sort('text')">Text (1st {{maxTextLen}} chars)</a></td>
+                <td class="sortable"><a (click)="sort('response')">Response (1st {{maxTextLen}} chars)</a></td>
                 <td class="sortable"><a (click)="sort('locked')">Locked</a></td>
                 <td class="sortable"><a (click)="sort('active')">Active</a></td>
                 <td>Actions</td>
@@ -29,6 +30,8 @@
                 <td>{{f.category}}</td>
                 <td>{{f.title}}</td>
                 <td>{{f.text}}</td>
+                <td *ngIf="f.response">{{f.response}}</td>
+                <td *ngIf="!f.response">&nbsp;</td>
                 <td>{{f.locked | bool}}</td>
                 <td>{{f.active | bool}}</td>
                 <td>
