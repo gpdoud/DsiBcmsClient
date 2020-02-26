@@ -33,7 +33,7 @@
                 <td>{{f.active | bool}}</td>
                 <td>
                     <span><a routerLink="/feedbacks/detail/{{f.id}}" class="">Detail</a></span>
-                    <span *ngIf="!f.locked || canEdit"> |
+                    <span *ngIf="(f.loggedInUserIsOwner && !f.locked) || canEdit"> |
                         <span>
                             <a routerLink="/feedbacks/edit/{{f.id}}" class="">Edit</a>
                         </span> 

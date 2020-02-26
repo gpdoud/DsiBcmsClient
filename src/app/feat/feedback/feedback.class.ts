@@ -16,6 +16,7 @@ export class Feedback {
     nextId: number;
     nextFeedback: Feedback;
     userName: string;
+    loggedInUserIsOwner: boolean;
 
     constructor() {}
 }

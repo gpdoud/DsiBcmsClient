@@ -29,6 +29,7 @@ export class FeedbackListComponent extends BcmsListComponent implements OnInit {
     this.fbsvc.list().subscribe(
       res => {
         res.forEach(x => {
+          x.loggedInUserIsOwner = this.sys.loggedInUser.id == x.userId;
           x.userName = `${x.user.firstname} ${x.user.lastname}`;
           if (x.text.length > this.maxTextLen) {
             x.text = x.text.substr(0, this.maxTextLen) + " ...";
