@@ -44,6 +44,7 @@ export class FeedbackEditComponent extends BcmsComponent implements OnInit {
     let id = this.route.snapshot.params.id;
     this.fbsvc.get(id).subscribe(
       res => {
+        res.loggedInUserIsOwner = this.sys.loggedInUser.id == res.userId;
         res.userName = `${res.user.firstname} ${res.user.lastname}`;
         this.feedback = res;
         this.sys.log.debug("Feedback", res);
