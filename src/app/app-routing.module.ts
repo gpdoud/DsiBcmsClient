@@ -36,6 +36,8 @@ const routes: Routes = [
   { path: 'feedbacks/detail/:id',                           component: feat.FeedbackDetailComponent },
   { path: 'feedbacks/edit/:id',                             component: feat.FeedbackEditComponent },
 
+  { path: 'revisions',                                      component: core.RevisionsComponent },
+
   { path: 'login',                                          component: feat.UserLoginComponent },
   { path: 'users/list',                                     component: feat.UserListComponent },
   { path: 'users/create',                                   component: feat.UserCreateComponent },
