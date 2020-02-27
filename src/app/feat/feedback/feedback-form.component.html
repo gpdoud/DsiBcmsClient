@@ -73,7 +73,7 @@
             </tr>
             <tr *ngIf="readonly">
                 <td colspan="2">
-                    <span *ngIf="(feedback.loggedInUserIsOwner && !feedback.isLocked) || canEdit">
+                    <span *ngIf="(feedback.loggedInUserIsOwner && !feedback.locked) || canEdit">
                         <button (click)="edit()" class="btn btn-warning btn-sm">Edit</button>
                         <span> | </span>
                         <span>
