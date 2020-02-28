@@ -13,6 +13,13 @@
                 placeholder="Pin Code"></div>
         <div ><input [(ngModel)]="attnd.note" type="text" maxlength="40" size="25" name="note"
                 placeholder="Note"></div>
+        <div *ngIf="isLoggedInUserRootOrAdmin">
+            <span>Excused: </span><input [(ngModel)]="attnd.excused" type="checkbox" name="excuded" class="custom-checkbox bigger">
+            <span> | Absent: </span><input [(ngModel)]="attnd.absent" type="checkbox" name="absent" class="custom-checkbox bigger">
+            <div>
+                <input [(ngModel)]="attnd.secureNote" type="text" maxlength="40" name="secureNote" placeholder="Secure Note">
+            </div>
+        </div>
         <div hidden><button (click)="enter()" class="btn btn-sm btn-primary">Submit</button></div>
         <div><span class="message">{{message}}</span></div>
     </form>

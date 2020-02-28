@@ -10,9 +10,14 @@ input {
     padding: 25px;
     width: 50%;
     border: 1px solid silver;
-    font-size: 2em;
+    font-size: 1.8em;
 }
 .message {
     color: red;
     font-weight: bold;
 }
+.bigger {
+    transform: scale(1.7);
+}
+
+                                                    
