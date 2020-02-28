@@ -7,6 +7,7 @@ import { UserService } from '@user/user.service';
 import { User } from '@user/user.class';
 import { NotFound } from '../../utility/not-found.class';
 import { Attendance } from '../attendance.class';
+import { IpService } from '@core/ip/ip.service';
 
 @Component({
   selector: 'app-attendance-pincode',
@@ -27,7 +28,8 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
     private route: ActivatedRoute,
     private router: Router,
     private usersvc: UserService,
-    private attendsvc: AttendanceService
+    private attendsvc: AttendanceService,
+    private ipsvc: IpService
     ) {
       super(sys);
       this.pageTitle = "Authorize by PinCode";
@@ -63,6 +65,7 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
 
   ngOnInit() {
     super.ngOnInit();
+    this.ipsvc.getCurrentIp();
     let id = this.route.snapshot.params.id;
     this.cohortId = this.route.snapshot.params.cohortId;
     this.studentIscheckedIn = this.route.snapshot.params.checkedIn === "true";

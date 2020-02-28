@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { LoggerService } from '@core/logger/logger.service';
 import { Ip } from './ip.class';
 import { AppInitService } from 'app/app-init.service';
+import { Router } from '@angular/router';
 
 const DoudIp: string = "69.133.52.201";
 const DoudPhoneIp: string = "174.233.133.93";
@@ -16,6 +17,7 @@ const GetIpUrl: string = "http://api.ipify.org/?format=json";
 })
 export class IpService {
 
+  currentIp: string;
   isValidDomain: boolean;
 
   setIsValidIp(myIp: string): void {
@@ -26,21 +28,26 @@ export class IpService {
     }
   }
 
+  getCurrentIp(): void {
+    this.http.get(GetIpUrl).subscribe(
+      (res: Ip) => {
+        this.log.debug("PrevIp:", this.currentIp, ", CurrIp:", res.ip);
+        if(this.currentIp !== res.ip) {
+          this.router.navigateByUrl("/login");
+        }
+        this.currentIp = res.ip;
+        this.setIsValidIp(this.currentIp);
+        this.log.debug(`IP: ${this.currentIp}`)
+      }
+    );
+  }
+
   constructor(
     private init: AppInitService,
     private http: HttpClient,
-    private log: LoggerService
+    private log: LoggerService,
+    private router: Router
   ) {
-    this.http.get(GetIpUrl).subscribe(
-      (res: Ip) => {
-        let myIp = res.ip;
-        this.setIsValidIp(myIp);
-        // this.isValidDomain = myIp.includes(DoudIp) 
-        //                     // || myIp.includes(DoudPhoneIp)
-        //                     || myIp.includes(KenIP)
-        //                     || myIp.includes(MaxIp);
-        this.log.debug(`IP: ${myIp}`)
-      }
-    );
+    this.getCurrentIp();
   }
 }
