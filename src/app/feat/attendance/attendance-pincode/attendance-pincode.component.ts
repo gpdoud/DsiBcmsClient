@@ -38,12 +38,12 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
   }
   
   enter(): void {
-    if (this.pinCode !== this.student.pinCode) {
+    // skip pin if isRoot/isAdmin
+    if (!this.isLoggedInUserRootOrAdmin && this.pinCode !== this.student.pinCode) {
       this.pinCode = '';
       this.message = "Invalid PinCode -- reenter";
       return;
     }
-
 
     let chkinout = this.studentIscheckedIn
       ? this.attendsvc.checkout(this.cohortId, this.student.id, this.attnd)
@@ -58,7 +58,6 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
         }
       }
     );
-
 
   }
 

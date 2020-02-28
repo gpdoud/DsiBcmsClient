@@ -6,7 +6,9 @@ export class Attendance {
     in: string;
     out: string;
     excused?: boolean;
+    absent?: boolean;
     note: string;
+    secureNote: string;
     enrollmentId: number;
     enrollment: Enrollment;
 
