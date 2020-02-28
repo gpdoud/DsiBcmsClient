@@ -22,7 +22,7 @@ export class IpService {
     let validIps = this.init.config.validIps;
     this.isValidDomain = false;
     for(let validIp of validIps) {
-      this.isValidDomain = this.isValidDomain || validIp.ip.startsWith(myIp)
+      this.isValidDomain = this.isValidDomain || myIp.startsWith(validIp.ip)
     }
   }
 
