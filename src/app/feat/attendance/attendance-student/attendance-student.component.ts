@@ -16,6 +16,7 @@ import { BcmsComponent } from '@feat/common/bcms.component';
 export class AttendanceStudentComponent extends BcmsComponent implements OnInit {
 
   checkedInStyle: string = "btn btn-lg btn-success";
+  checkedInLateStyle: string = "btn btn-lg btn-warning";
   checkedOutStyle: string = "btn btn-lg btn-secondary";
   buttonClasses: string = this.checkedOutStyle;
 
@@ -30,6 +31,14 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
   showPinCode(studentId: number): void {
     this.router.navigateByUrl(`/attendance/pincode/${studentId}/${this.cohortId}/${this.checkedIn}`);
   }
+  // check whther the student is late
+  isCheckinLate(checkin: string): boolean {
+    let chkin = new Date(Date.parse(checkin));
+    let late = new Date(Date());
+    late.setHours(9,15,0);
+
+    return chkin > late;
+  }
 
   isCheckedIn(studentId: number): void {
     this.attendsvc.ischeckedin(this.cohortId, studentId).subscribe(
@@ -37,7 +46,14 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
         this.attnd = res;
         this.sys.log.debug("Attendance:", this.attnd);
         this.checkedIn = (res != null);
-        this.buttonClasses = this.checkedIn ? this.checkedInStyle : this.checkedOutStyle;
+        if(this.checkedIn) { 
+          this.buttonClasses = this.checkedInStyle; 
+          if(this.isCheckinLate(this.attnd.in)) {
+            this.buttonClasses = this.checkedInLateStyle;
+          }
+        } else { 
+          this.buttonClasses = this.checkedOutStyle; 
+        }
       },
       err => {
         this.sys.log.err("Exception:", err);
