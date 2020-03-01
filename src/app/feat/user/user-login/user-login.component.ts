@@ -27,13 +27,18 @@ export class UserLoginComponent implements OnInit {
   login(): void {
     this.usersvc.login(this.user.username, this.user.password).subscribe(
       res => {
-        let e404 = (res as unknown) as NotFound;
-        if (e404.status == 404) return;
         this.sys.setLoggedInUser(res);
         this.sys.log.debug("Login successful!", res);
         this.router.navigateByUrl("/home");
       },
-      err => { this.sys.log.debug(err); }
+      err => { 
+        this.sys.log.debug(err); 
+        let e404 = (err as unknown) as NotFound;
+        if (e404.status == 404) {
+          this.message = "Username/password is not found!";
+          return;
+        } 
+      }
     );
   }
 
