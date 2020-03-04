@@ -58,6 +58,9 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
         } else {
           this.router.navigateByUrl(`/home`);
         }
+      },
+      err => {
+        this.sys.log.err(err);
       }
     );
 
