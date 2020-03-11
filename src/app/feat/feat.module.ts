@@ -12,6 +12,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             BcmsComponent, BcmsListComponent,
             AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
             AttendanceReportComponent, AssessmentSearchPipe, AttendanceReportStudentComponent, AttendanceReportAttendanceComponent,
+            AttendanceReportSearchPipe,
             FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe
         } from './index';
         
@@ -26,7 +27,8 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
                 BcmsComponent, BcmsListComponent, 
                 AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
                 AttendanceReportComponent, AssessmentSearchPipe, AttendanceReportStudentComponent, AttendanceReportAttendanceComponent,
-                FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe, 
+                AttendanceReportSearchPipe, 
+                FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

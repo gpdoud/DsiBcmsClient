@@ -12,7 +12,7 @@ import { AttendanceReport } from '../attendance-report.class';
 })
 export class AttendanceReportComponent extends BcmsComponent implements OnInit {
   
-  report: AttendanceReport;
+  reports: AttendanceReport[];
 
   constructor(
     protected sys: SystemService,
@@ -28,7 +28,7 @@ export class AttendanceReportComponent extends BcmsComponent implements OnInit {
     let cohortId = this.route.snapshot.params.cohortId;
     this.attsvc.report(cohortId).subscribe(
       res => {
-        this.report = res;
+        this.reports = res;
         this.sys.log.debug("Reports", res);
       },
       err => this.sys.log.err("Attendance Report ERROR:", err)

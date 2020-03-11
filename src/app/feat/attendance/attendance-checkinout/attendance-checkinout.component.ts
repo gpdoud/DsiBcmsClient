@@ -3,17 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { SystemService } from '@system/system.service';
 import { AttendanceService } from '@attendance/attendance.service';
 import { Attendance } from '@attendance/attendance.class';
-import { BcmsComponent } from '@feat/common/bcms.component';
 import { Cohort } from '@feat/cohort/cohort.class';
 import { CohortService } from '@feat/cohort/cohort.service';
 import { User } from '@feat/user/user.class';
+import { BcmsListComponent } from '@feat/common/bcms-list.component';
 
 @Component({
   selector: 'app-attendance-checkinout',
   templateUrl: './attendance-checkinout.component.html',
   styleUrls: ['./attendance-checkinout.component.css']
 })
-export class AttendanceCheckinoutComponent extends BcmsComponent implements OnInit {
+export class AttendanceCheckinoutComponent extends BcmsListComponent implements OnInit {
 
   pageTitle: string = "Attendance Check-in/out";
   buttonClass: string = "btn btn-secondary btn-lg";

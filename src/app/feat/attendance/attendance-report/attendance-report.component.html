@@ -1,6 +1,11 @@
 <app-menu></app-menu>
+<div class="heading">
+    <span>{{pageTitle}}</span>
+    <span> | </span>
+    <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
+</div>
 <div>
-    <div *ngFor="let ar of report">
+    <div *ngFor="let ar of reports | rptSrch:searchCriteria">
         <app-attendance-report-student [ar]="ar"></app-attendance-report-student>
     </div>
 </div>
