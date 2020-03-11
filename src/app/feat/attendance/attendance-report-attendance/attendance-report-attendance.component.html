@@ -1,0 +1,26 @@
+<div>
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>In</td>
+                <td>Out</td>
+                <td>Excused</td>
+                <td>Absent</td>
+                <td>Note</td>
+                <td>SecureNote</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let att of attendances">
+                <td>{{att.in | date}}</td>
+                <td>{{att.in | date:'shortTime'}}</td>
+                <td>{{att.out | date:'shortTime'}}</td>
+                <td>{{att.excused ? "Yes" : ""}}</td>
+                <td>{{att.absent ? "Yes" : ""}}</td>
+                <td>{{att.note}}</td>
+                <td>{{att.secureNote}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

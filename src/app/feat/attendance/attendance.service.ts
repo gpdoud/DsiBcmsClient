@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Attendance } from '@attendance/attendance.class';
 import { SystemService } from '@system/system.service';
 import { User } from '@feat/user/user.class';
+import { AttendanceReport } from './attendance-report.class';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class AttendanceService {
   ) { }
   
 
-  report(cohortId): Observable<any> {
-    return this.http.get(`${this.sys.url}/attendances/report/${cohortId}`) as Observable<any>;
+  report(cohortId): Observable<AttendanceReport> {
+    return this.http.get(`${this.sys.url}/attendances/report/${cohortId}`) as Observable<AttendanceReport>;
   }
   ischeckedin(cohortId: number, studentId: number): Observable<Attendance> {
     return this.http.get(`${this.sys.url}/attendances/ischeckedin/${cohortId}/${studentId}`) as Observable<Attendance>;

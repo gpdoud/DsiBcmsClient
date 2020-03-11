@@ -1,1 +1,5 @@
-<p>attendance-report works!</p>
+<div>
+    <div *ngFor="let ar of report">
+        <app-attendance-report-student [ar]="ar"></app-attendance-report-student>
+    </div>
+</div>

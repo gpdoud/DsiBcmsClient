@@ -3,6 +3,7 @@ import { BcmsComponent } from '@feat/common/bcms.component';
 import { SystemService } from '@system/system.service';
 import { ActivatedRoute } from '@angular/router';
 import { AttendanceService } from '../attendance.service';
+import { AttendanceReport } from '../attendance-report.class';
 
 @Component({
   selector: 'app-attendance-report',
@@ -10,6 +11,8 @@ import { AttendanceService } from '../attendance.service';
   styleUrls: ['./attendance-report.component.css']
 })
 export class AttendanceReportComponent extends BcmsComponent implements OnInit {
+  
+  report: AttendanceReport;
 
   constructor(
     protected sys: SystemService,
@@ -23,8 +26,12 @@ export class AttendanceReportComponent extends BcmsComponent implements OnInit {
   ngOnInit() {
     super.ngOnInit();
     let cohortId = this.route.snapshot.params.cohortId;
-    this.attsvc.report(1).subscribe(
-      res => this.sys.log.debug("Reports", res)
+    this.attsvc.report(cohortId).subscribe(
+      res => {
+        this.report = res;
+        this.sys.log.debug("Reports", res);
+      },
+      err => this.sys.log.err("Attendance Report ERROR:", err)
     );
   }
 
