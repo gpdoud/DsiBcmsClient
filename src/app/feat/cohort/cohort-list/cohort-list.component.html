@@ -36,15 +36,17 @@
                 <td>{{c.enrollments.length}}</td>
                 <td>{{c.active | bool}}</td>
                 <td>
+                    <span><a routerLink="/attendance/report/{{c.id}}" class="">Rpt</a></span>
+                    <span> | </span>
                     <span><a routerLink="/assessments/list/{{c.id}}" class="">Asmts</a></span>
                     <span> | </span>
                     <span><a routerLink="/attendance/checkinout/{{c.id}}" class="">ChkIO</a></span>
                     <span> | </span>
-                    <span><a routerLink="/enrollments/list/{{c.id}}" class="">Enroll</a></span>
+                    <span><a routerLink="/enrollments/list/{{c.id}}" class="">Enrll</a></span>
                     <span> | </span>
-                    <span><a routerLink="/cohorts/detail/{{c.id}}" class="">Detail</a></span>
+                    <span><a routerLink="/cohorts/detail/{{c.id}}" class="">Det</a></span>
                     <span> | </span>
-                    <span><a routerLink="/cohorts/edit/{{c.id}}" class="">Edit</a></span>
+                    <span><a routerLink="/cohorts/edit/{{c.id}}" class="">Edt</a></span>
                 </td>
             </tr>
         </tbody>

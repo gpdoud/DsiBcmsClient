@@ -16,6 +16,9 @@ export class AttendanceService {
   ) { }
   
 
+  report(cohortId): Observable<any> {
+    return this.http.get(`${this.sys.url}/attendances/report/${cohortId}`) as Observable<any>;
+  }
   ischeckedin(cohortId: number, studentId: number): Observable<Attendance> {
     return this.http.get(`${this.sys.url}/attendances/ischeckedin/${cohortId}/${studentId}`) as Observable<Attendance>;
   }
