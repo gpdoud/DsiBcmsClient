@@ -11,6 +11,9 @@ export class MenuSecurityPipe implements PipeTransform {
     let isRootOrAdmin = (user != null) 
       ? user.role.isRoot || user.role.isAdmin
       : false;
+    let isInstructor = (user != null) 
+      ? user.role.isInstructor
+      : false;
 
     let selMenus: Menu[] = [];
     for(let m of menus) {
@@ -28,6 +31,11 @@ export class MenuSecurityPipe implements PipeTransform {
       */
       if(!m.reqsAdm || isRootOrAdmin) {
         selMenus.push(m);
+        continue;
+      }
+      if(m.reqsInstructor && isInstructor) {
+        selMenus.push(m);
+        continue;
       }
     }
     return selMenus;
