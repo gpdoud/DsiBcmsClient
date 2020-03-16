@@ -26,6 +26,12 @@ export class IpService {
     for(let validIp of validIps) {
       this.isValidDomain = this.isValidDomain || myIp.startsWith(validIp.ip)
     }
+    
+    // Allow all IPs (issue #24)
+    this.isValidDomain = true;
+    this.log.warn("#24: IP checking being bypassed.");
+    // Allow all IPs (issue #24)
+
   }
 
   getCurrentIp(): void {
