@@ -19,7 +19,7 @@
                     <td>Id:</td>
                     <td>{{asmt.id}}</td>
                 </tr>
-                <tr *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)">
+                <tr *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin || _loggedInUser.role.isInstructor)">
                     <td>Student:</td>
                     <td *ngIf="readonly && user.role">{{asmt.enrollment.user.firstname}} {{asmt.enrollment.user.lastname}}</td>
                     <td *ngIf="!readonly">
@@ -49,7 +49,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Score:</td>
+                    <td>Max Score:</td>
                     <td>
                         <input [(ngModel)]="asmt.pointsMax" [disabled]="readonly" type="number" name="pointsMax" size="7">
                     </td>

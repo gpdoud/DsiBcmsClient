@@ -47,8 +47,8 @@ export class AssessmentCreateComponent extends BcmsComponent implements OnInit {
         this.asmtsvc.create(this.asmt).subscribe(
           res => {
             this.sys.log.debug("Change successful!", res);
-            let routerLink = this._loggedInUser.role.isRoot || this._loggedInUser.role.isAdmin 
-                              ? `/assessments/list/${this.cohortId}` : "/home"; 
+            let routerLink = this._loggedInUser.role.isRoot || this._loggedInUser.role.isAdmin || this._loggedInUser.role.isInstructor
+                              ? "/assessments/list/"+this.cohortId : "/home"; 
             this.router.navigateByUrl(routerLink);
           },
           err => {
