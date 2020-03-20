@@ -35,7 +35,7 @@ export class EnrollmentListComponent extends BcmsListComponent implements OnInit
     e.cohortId = this.cohortId;
     this.enrollsvc.create(e).subscribe(
       res => {
-        this.sys.log.trace(`Enrolled student ${userId} to cohort id: ${this.cohortId}`);
+        this.sys.log.debug(`Enrolled student ${userId} to cohort id: ${this.cohortId}`);
         this.sys.log.debug(res);
         this.refresh(this.cohortId);
       },
@@ -47,7 +47,7 @@ export class EnrollmentListComponent extends BcmsListComponent implements OnInit
   drop(e: Enrollment): void {
     this.enrollsvc.remove(e).subscribe(
       res => {
-        this.sys.log.trace(`Dropped student ${e.user.lastname} from cohort id: ${this.cohort.name}`);
+        this.sys.log.debug(`Dropped student ${e.user.lastname} from cohort id: ${this.cohort.name}`);
         this.sys.log.debug(res);
         this.refresh(this.cohortId);
       },
@@ -60,7 +60,7 @@ export class EnrollmentListComponent extends BcmsListComponent implements OnInit
     this.cohortsvc.get(id).subscribe(
       res => {
         this.cohort = res;
-        this.sys.log.trace("Retrieve cohort for cohort id:");
+        this.sys.log.debug("Retrieve cohort for cohort id:");
         this.sys.log.debug(res);
       },
       err => {
@@ -70,7 +70,7 @@ export class EnrollmentListComponent extends BcmsListComponent implements OnInit
     this.enrollsvc.getNotEnrolled(this.cohortId).subscribe(
       res => {
         this.notEnrolled = res;
-        this.sys.log.trace("Retrieve enrollments for cohort id:");
+        this.sys.log.debug("Retrieve enrollments for cohort id:");
         this.sys.log.debug(res);
       },
       err => {
