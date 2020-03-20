@@ -21,11 +21,22 @@ export class IpService {
   isValidDomain: boolean;
 
   setIsValidIp(myIp: string): void {
+    if(!this.init.config.checkIp) {
+      this.isValidDomain = true;
+      return;
+    }
     let validIps = this.init.config.validIps;
     this.isValidDomain = false;
     for(let validIp of validIps) {
-      this.isValidDomain = this.isValidDomain || myIp.startsWith(validIp.ip)
+      this.isValidDomain = this.isValidDomain || myIp.startsWith(validIp.ip);
+      if(this.isValidDomain) break; // once a valid IP is found; done
     }
+    
+    // Allow all IPs (issue #24)
+    // this.isValidDomain = true;
+    // this.log.warn("#24: IP checking being bypassed.");
+    // Allow all IPs (issue #24)
+
   }
 
   getCurrentIp(): void {
