@@ -49,6 +49,9 @@ export class IpService {
         this.currentIp = res.ip;
         this.setIsValidIp(this.currentIp);
         this.log.debug(`IP: ${this.currentIp}`)
+      },
+      err => {
+        this.log.fatal("*** FATAL: failed getting external IP! *** ", err);
       }
     );
   }
