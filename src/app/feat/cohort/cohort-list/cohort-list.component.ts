@@ -3,6 +3,7 @@ import { CohortService } from '@cohort/cohort.service';
 import { Cohort } from '@cohort/cohort.class';
 import { SystemService } from '@core/system/system.service';
 import { BcmsListComponent } from '@feat/common/bcms-list.component';
+import { User } from '@feat/user/user.class';
 
 @Component({
   selector: 'app-cohort-list',
@@ -21,13 +22,25 @@ export class CohortListComponent extends BcmsListComponent implements OnInit {
       this.pageTitle = "Cohort List";
   }
 
+  filterCohort(cohorts: Cohort[]): Cohort[] {
+    let filteredCohorts: Cohort[] = [];
+    let loggedInUser: User = this._loggedInUser;
+    cohorts.forEach(c => {
+      if(c.instructor.id === loggedInUser.id || loggedInUser.role.isAdmin || loggedInUser.role.isRoot) {
+        filteredCohorts.push(c);
+      }
+    });
+    return filteredCohorts;
+  }
+
   ngOnInit() {
     super.ngOnInit();
     this.Cohortsvc.list().subscribe(
       res => {
-        res.forEach(cohort => { cohort.instructorName = `${cohort.instructor.lastname}, ${cohort.instructor.firstname} `; })
-        this.cohorts = res;
-        this.sys.log.debug("Cohorts", res);
+        let res2 = this.filterCohort(res);
+        res2.forEach(cohort => { cohort.instructorName = `${cohort.instructor.lastname}, ${cohort.instructor.firstname} `; })
+        this.cohorts = res2;
+        this.sys.log.debug("Cohorts", res2);
       },
       err => console.error(err)
     );

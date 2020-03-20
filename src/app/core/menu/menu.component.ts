@@ -17,11 +17,11 @@ export class MenuComponent implements OnInit {
 
   menus: Menu[] = [
     new Menu("BCMS", "/home", "The BCMS Home Page"),
-    new Menu("Cohorts", "/cohorts/list", "The BCMS Cohorts Page", true),
+    new Menu("Cohorts", "/cohorts/list", "The BCMS Cohorts Page", true, true),
     new Menu("Assessments", "/assessments/listbystudent", "Student Assessments"),
-    new Menu("Users", "/users/list", "The BCMS Users Page", true),
-    new Menu("Roles", "/roles/list", "The BCMS Roles Page", true),
-    new Menu("Configs", "/configs/list", "The BCMS Configs Page", true),
+    new Menu("Users", "/users/list", "The BCMS Users Page", true, false),
+    new Menu("Roles", "/roles/list", "The BCMS Roles Page", true, false),
+    new Menu("Configs", "/configs/list", "The BCMS Configs Page", true, false),
     new Menu("CheckIn", "/attendance/checkinout", "Student checkin/out"),
     new Menu("About", "/about", "The BCMS About Page"),
     new Menu("Feedback", "/feedbacks/list", "The BCMS Feedback Page"),
