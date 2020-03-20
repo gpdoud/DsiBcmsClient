@@ -36,7 +36,7 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
     }
     
   get isLoggedInUserRootOrAdmin(): boolean {
-    return this._loggedInUser.role.isAdmin || this._loggedInUser.role.isRoot;
+    return this._loggedInUser.role.isAdmin || this._loggedInUser.role.isRoot || this._loggedInUser.role.isInstructor;
   }
   
   enter(): void {
