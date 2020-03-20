@@ -44,7 +44,7 @@ export class AssessmentDetailComponent extends BcmsComponent implements OnInit {
     this.asmtsvc.remove(this.asmt).subscribe(
       res => {
         this.sys.log.debug("Assessment Remove Successful!", res);
-        this.router.navigateByUrl("/assessments/list/${this.cohortId}");
+        this.router.navigateByUrl(`/assessments/list/${this.cohortId}`);
       },
       err => {
         this.sys.log.err(err);
