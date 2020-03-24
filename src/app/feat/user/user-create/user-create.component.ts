@@ -63,6 +63,8 @@ export class UserCreateComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.verifyPassword = this.user.password = "Train@MAX";
+    this.user.roleCode = "stu";
     this.user.pinCode = this.genPinCode();
     this.rolesvc.list().subscribe(
       res => {
