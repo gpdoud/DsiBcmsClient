@@ -77,4 +77,8 @@ export class UserCreateComponent extends BcmsComponent implements OnInit {
     );
   }
 
+  blurLastname(): void {
+    this.user.username = `${this.user.firstname.toLowerCase().substr(0, 1)}${this.user.lastname.toLowerCase()}`
+  }
+
 }

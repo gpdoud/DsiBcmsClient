@@ -23,7 +23,7 @@
                     <td>Name:</td>
                     <td>
                         <input [(ngModel)]="user.firstname" [disabled]="readonly" type="text" name="firstname" size="15">
-                        <input [(ngModel)]="user.lastname" [disabled]="readonly" type="text" name="lastname" size="15">
+                        <input  (blur)="blurLastname()" [(ngModel)]="user.lastname" [disabled]="readonly" type="text" name="lastname" size="15">
                     </td>
                 </tr>
                 <tr>

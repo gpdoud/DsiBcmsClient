@@ -22,6 +22,7 @@ export class BcmsComponent implements OnInit {
     save(): void {}
     verify(): void {}
     verifyDelete(): void {};
+    blurLastname(): void {}
 
     ngOnInit() {
         if(this.sys.config.checkLogin) {
