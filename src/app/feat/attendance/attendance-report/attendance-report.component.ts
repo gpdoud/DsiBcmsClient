@@ -13,6 +13,7 @@ import { BcmsListComponent } from '@feat/common/bcms-list.component';
 export class AttendanceReportComponent extends BcmsListComponent implements OnInit {
   
   reports: AttendanceReport[];
+  cohortId: number = 0;
 
   constructor(
     protected sys: SystemService,
@@ -23,16 +24,27 @@ export class AttendanceReportComponent extends BcmsListComponent implements OnIn
     this.pageTitle = "Attendance Report"
   }
 
-  ngOnInit() {
-    super.ngOnInit();
-    let cohortId = this.route.snapshot.params.cohortId;
-    this.attsvc.report(cohortId).subscribe(
+  refresh(): void {
+    this.attsvc.report(this.cohortId).subscribe(
       res => {
         this.reports = res;
         this.sys.log.debug("Reports", res);
       },
       err => this.sys.log.err("Attendance Report ERROR:", err)
     );
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.cohortId = Number(this.route.snapshot.params.cohortId);
+    this.refresh();
+    // this.attsvc.report(this.cohortId).subscribe(
+    //   res => {
+    //     this.reports = res;
+    //     this.sys.log.debug("Reports", res);
+    //   },
+    //   err => this.sys.log.err("Attendance Report ERROR:", err)
+    // );
   }
 
 }
