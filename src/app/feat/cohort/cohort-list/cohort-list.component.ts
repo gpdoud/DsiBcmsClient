@@ -20,6 +20,7 @@ export class CohortListComponent extends BcmsListComponent implements OnInit {
     ) { 
       super(sys);
       this.pageTitle = "Cohort List";
+      this.sortCriteria = "beginDate";
   }
 
   filterCohort(cohorts: Cohort[]): Cohort[] {
