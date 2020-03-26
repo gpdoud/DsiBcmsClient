@@ -35,6 +35,8 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
   isCheckinLate(checkin: string): boolean {
     let chkin = new Date(Date.parse(checkin));
     let late = new Date(Date());
+
+    this.sys.log.warn("Late checking hard coded to 9:15a");
     late.setHours(9,15,0);
 
     return chkin > late;
