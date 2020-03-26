@@ -5,6 +5,7 @@ import { UserService } from '../user.service';
 import { User } from '../user.class';
 import { NotFound } from '../../common/not-found.class';
 import { IpService } from '@core/ip/ip.service';
+import { Ip } from '@core/ip/ip.class';
 
 @Component({
   selector: 'app-user-login',
@@ -16,6 +17,7 @@ export class UserLoginComponent implements OnInit {
   user: User = new User();
   message: string = '';
   get isValidDomain(): boolean { return this.ipsvc.isValidDomain };
+  extIp: string = 'getting ip ...';
 
   constructor(
     private ipsvc: IpService,
@@ -44,6 +46,14 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit() {
     this.sys.clearLoggedInUser();
+
+    this.ipsvc.getCurrentIp();
+    this.ipsvc.getIp().subscribe(
+      (res: Ip) => {
+        this.extIp = res.ip;
+        this.sys.log.warn("Current external IP [", this.extIp, "]");
+      }
+    );
     // this.user.username = "gpdoud";
     // this.user.password = "MaxPass@8888";
     if (!this.sys.config.checkLogin) {

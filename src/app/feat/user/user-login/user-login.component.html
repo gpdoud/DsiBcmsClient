@@ -4,6 +4,8 @@
         <div class="div-dialog">
             <div *ngIf="!isValidDomain">
                 <span class="text-danger">BCMS access is valid only at MAX Technical Training</span>
+                <br>
+                <span class="ip">External IP: [ {{extIp}} ]</span>
             </div>
             <form *ngIf="isValidDomain">
                 <div class="dialog-title">Boot Camp Management System (BCMS)</div>
@@ -18,6 +20,9 @@
                 </div>
                 <div class="message">
                     <span>{{message}}</span>
+                </div>
+                <div class="ip">
+                    <span>External IP: {{extIp}}</span>
                 </div>
             </form>
         </div>

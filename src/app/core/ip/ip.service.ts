@@ -4,6 +4,7 @@ import { LoggerService } from '@core/logger/logger.service';
 import { Ip } from './ip.class';
 import { AppInitService } from 'app/app-init.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 const DoudIp: string = "69.133.52.201";
 const DoudPhoneIp: string = "174.233.133.93";
@@ -37,6 +38,10 @@ export class IpService {
     // this.log.warn("#24: IP checking being bypassed.");
     // Allow all IPs (issue #24)
 
+  }
+
+  getIp(): Observable<Ip> {
+    return this.http.get(GetIpUrl) as Observable<Ip>;
   }
 
   getCurrentIp(): void {
