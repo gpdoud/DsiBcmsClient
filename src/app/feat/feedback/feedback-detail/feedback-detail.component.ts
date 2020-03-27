@@ -12,7 +12,7 @@ import { FeedbackService } from '../feedback.service';
 @Component({
   selector: 'app-feedback-detail',
   templateUrl: '../feedback-form.component.html',
-  styleUrls: ['./feedback-detail.component.css']
+  styleUrls: ['../feedback-form.component.css']
 })
 export class FeedbackDetailComponent extends BcmsComponent implements OnInit {
 
@@ -20,7 +20,10 @@ export class FeedbackDetailComponent extends BcmsComponent implements OnInit {
   canEdit: boolean  = this.sys.loggedInUser != null 
                     && (this.sys.loggedInUser.id == this.feedback.userId 
                       || this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin);
-
+  categories: string[] = [
+    "KB", "Git/GitHub", "SQL", "C#", "HTML", "CSS", "Javascript"
+    , "Bootstrap", "jQuery", "Typescript", "Angular", "Misc"
+  ];
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,

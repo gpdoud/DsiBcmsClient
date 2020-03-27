@@ -8,13 +8,16 @@ import { FeedbackService } from '../feedback.service';
 @Component({
   selector: 'app-feedback-edit',
   templateUrl: '../feedback-form.component.html',
-  styleUrls: ['./feedback-create.component.css']
+  styleUrls: ['../feedback-form.component.css']
 })
 export class FeedbackCreateComponent extends BcmsComponent implements OnInit {
 
   feedback: Feedback = new Feedback();
   canEdit: boolean;
-
+  categories: string[] = [
+    "KB", "Git/GitHub", "SQL", "C#", "HTML", "CSS", "Javascript"
+    , "Bootstrap", "jQuery", "Typescript", "Angular", "Misc"
+  ];
   constructor(
     protected sys: SystemService,
     private router: Router,
