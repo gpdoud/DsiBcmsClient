@@ -4,6 +4,8 @@ import { SystemService } from '@core/system/system.service';
 import { BcmsComponent } from '@feat/common/bcms.component';
 import { Feedback } from '../feedback.class';
 import { FeedbackService } from '../feedback.service';
+import { ConfigService } from '@feat/config/config.service';
+import { Config } from '@feat/config/config.class';
 
 @Component({
   selector: 'app-feedback-edit',
@@ -23,6 +25,7 @@ export class FeedbackEditComponent extends BcmsComponent implements OnInit {
     protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
+    private cfgsvc: ConfigService,
     private fbsvc: FeedbackService
   ) {
     super(sys);
@@ -44,6 +47,12 @@ export class FeedbackEditComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.cfgsvc.search("category.").subscribe(
+      (res: Config[]) => { 
+        this.categories = [];
+        res.forEach(c => this.categories.push(c.dataValue));
+      }
+    );
     this.canEdit = this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin;
     let id = this.route.snapshot.params.id;
     this.fbsvc.get(id).subscribe(

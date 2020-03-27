@@ -4,6 +4,8 @@ import { SystemService } from '@core/system/system.service';
 import { BcmsComponent } from '@feat/common/bcms.component';
 import { Feedback } from '../feedback.class';
 import { FeedbackService } from '../feedback.service';
+import { ConfigService } from '@feat/config/config.service';
+import { Config } from '@feat/config/config.class';
 
 @Component({
   selector: 'app-feedback-edit',
@@ -21,6 +23,7 @@ export class FeedbackCreateComponent extends BcmsComponent implements OnInit {
   constructor(
     protected sys: SystemService,
     private router: Router,
+    private cfgsvc: ConfigService,
     private fbsvc: FeedbackService
   ) {
     super(sys);
@@ -42,7 +45,12 @@ export class FeedbackCreateComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-    this.canEdit = this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin;
+    this.cfgsvc.search("category.").subscribe(
+      (res: Config[]) => { 
+        this.categories = [];
+        res.forEach(c => this.categories.push(c.dataValue));
+      }
+    );    this.canEdit = this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin;
     this.feedback.userId = this.sys.loggedInUser.id;
     this.feedback.userName = `${this.sys.loggedInUser.firstname} ${this.sys.loggedInUser.lastname}`;
   }
