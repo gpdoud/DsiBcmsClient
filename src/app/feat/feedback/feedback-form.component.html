@@ -22,8 +22,12 @@
                 <td>{{feedback.userName}}</td>
             </tr>
             <tr>
-                <td>Name:</td>
-                <td><input [(ngModel)]="feedback.category" [disabled]="readonly" type="text" size="25"></td>
+                <td>Category:</td>
+                <td>
+                    <select id="category" [(ngModel)]="feedback.category" [disabled]="readonly">
+                        <option *ngFor="let c of categories" value="{{c}}">{{c}}</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>Title:</td>
@@ -31,12 +35,12 @@
             </tr>
             <tr>
                 <td>Text:</td>
-                <td><textarea [(ngModel)]="feedback.text" [disabled]="readonly" rows="10" cols="85"></textarea>
+                <td><textarea [(ngModel)]="feedback.text" [disabled]="readonly" rows="3" cols="85"></textarea>
                 </td>
             </tr>
             <tr *ngIf="feedback.response || canEdit">
                 <td>Response:</td>
-                <td><textarea [(ngModel)]="feedback.response" [disabled]="readonly" rows="10" cols="85"></textarea>
+                <td><textarea [(ngModel)]="feedback.response" [disabled]="readonly" rows="3" cols="85"></textarea>
                 </td>
             </tr>
             <tr>
