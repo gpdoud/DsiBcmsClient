@@ -8,11 +8,13 @@ import { User } from '@user/user.class'
 import { BcmsComponent } from '../../common/bcms.component';
 import { Feedback } from '../feedback.class';
 import { FeedbackService } from '../feedback.service';
+import { ConfigService } from '@feat/config/config.service';
+import { Config } from '@feat/config/config.class';
 
 @Component({
   selector: 'app-feedback-detail',
   templateUrl: '../feedback-form.component.html',
-  styleUrls: ['./feedback-detail.component.css']
+  styleUrls: ['../feedback-form.component.css']
 })
 export class FeedbackDetailComponent extends BcmsComponent implements OnInit {
 
@@ -20,11 +22,15 @@ export class FeedbackDetailComponent extends BcmsComponent implements OnInit {
   canEdit: boolean  = this.sys.loggedInUser != null 
                     && (this.sys.loggedInUser.id == this.feedback.userId 
                       || this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin);
-
+  categories: string[] = [
+    "KB", "Git/GitHub", "SQL", "C#", "HTML", "CSS", "Javascript"
+    , "Bootstrap", "jQuery", "Typescript", "Angular", "Misc"
+  ];
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
+    private cfgsvc: ConfigService,
     private fbsvc: FeedbackService
   ) { 
     super(sys);
@@ -59,7 +65,12 @@ export class FeedbackDetailComponent extends BcmsComponent implements OnInit {
   ngOnInit() {
     super.ngOnInit();
     // this.canEdit = this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin;
-    let id = this.route.snapshot.params.id;
+    this.cfgsvc.search("category.").subscribe(
+      (res: Config[]) => { 
+        this.categories = [];
+        res.forEach(c => this.categories.push(c.dataValue));
+      }
+    );    let id = this.route.snapshot.params.id;
     this.fbsvc.get(id).subscribe(
       res => {
         res.loggedInUserIsOwner = this.sys.loggedInUser != null && this.sys.loggedInUser.id == res.userId;

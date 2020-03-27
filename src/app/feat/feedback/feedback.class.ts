@@ -2,11 +2,11 @@ import { User } from '@feat/user/user.class';
 
 export class Feedback {
 
-    id: number;
-    category: string;
-    title: string;
-    text: string;
-    response: string;
+    id: number = 0;
+    category: string = '';
+    title: string = '';
+    text: string = '';
+    response: string = '';
     locked: boolean = false;
     active: boolean = true;
     created: string;
