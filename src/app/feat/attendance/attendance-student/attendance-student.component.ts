@@ -104,13 +104,13 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
       (res: Config[]) => {
         this.lateHour = Number(res[0].dataValue);
         this.lateMinute = Number(res[1].dataValue);
+        // see if user is checked in already
+        this.isCheckedIn(this.student.id);
       }, 
       err => {
         this.sys.log.err("Error attendance-student.ngOnInit:", err);
       }
     );
-    // see if user is checked in already
-    this.isCheckedIn(this.student.id);
   }
 
 }
