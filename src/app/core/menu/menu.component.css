@@ -5,10 +5,10 @@ div.left, div.right {
     display: inline-block;
 }
 div.left {
-    width: 70%;
+    width: 90%;
 }
 div.right {
-    width: 29%;
+    width: 10%;
     text-align: right;
     color: silver;
 }
