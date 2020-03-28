@@ -43,43 +43,33 @@ export class AttendanceStudentComponent extends BcmsComponent implements OnInit 
     late.setHours(this.lateHour,this.lateMinute,0);
 
     let isLate: boolean = chkin > late;
-    if(isLate) { 
-      this.setNoteWithCheckinTime(chkin, "LATE:");
-    } else {
-      this.setNoteWithCheckinTime(chkin);
-    }
+    this.setNoteWithCheckinTime(chkin);
     return isLate;
   }
 
-  setNoteWithCheckinTime(chkin: Date, msg: string = "OnTime:"): void {
-    let ampm = "a";
-    let hr = chkin.getHours();
-    if(hr > 12) {
-      hr -= 12;
-      ampm = "p";
-    }
-    let hrs = hr.toString();
-    let min = chkin.getMinutes().toString();
-    if(min.length < 2) min = `0${min}`;
+  setNoteWithCheckinTime(chkin: Date): void {
+    let time = chkin.toLocaleTimeString(); // to [1:23 AM] or [11:34 PM]
+    let displayTime = (time.length == 11) ? time.substr(0,5) : time.substr(0,4); // [1:23] or [11:34]
+    displayTime += time.substr(-2,1).toLowerCase(); // to [1:23a] or [11:34p]
+    if(this.attnd.note == null) this.attnd.note = ""; // make sure note is not null
+    this.attnd.note += ` [${displayTime}] `;
+  }
 
-    let lateTime = `${hrs}:${min}${ampm}`;
-    if(this.attnd.note == null) this.attnd.note = "";
-    this.attnd.note += `${msg} ${lateTime}`;
+  setBlockColor(checkInTime: string): void {
+    let checkedInLate = this.isCheckinLate(checkInTime);
+    this.buttonClasses = (checkedInLate) ? this.checkedInLateStyle : this.checkedInStyle;
   }
 
   isCheckedIn(studentId: number): void {
+    this.buttonClasses = this.checkedOutStyle; // set color to checked-out
     this.attendsvc.ischeckedin(this.cohortId, studentId).subscribe(
       res => {
         this.attnd = res;
         this.sys.log.debug("Attendance:", this.attnd);
         this.checkedIn = (res != null);
-        if(this.checkedIn) { 
-          this.buttonClasses = this.checkedInStyle; 
-          if(this.isCheckinLate(this.attnd.in)) {
-            this.buttonClasses = this.checkedInLateStyle;
-          }
-        } else { 
-          this.buttonClasses = this.checkedOutStyle; 
+        if(this.checkedIn) {
+          let checkInTime = this.attnd != null ? this.attnd.in : null;
+          this.setBlockColor(checkInTime);
         }
       },
       err => {
