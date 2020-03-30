@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+<header></header>
+<div>
+    <span>{{pageTitle}}</span>
+    <span> | </span>
+    <span><a routerLink="/evals/create" class="">Create</a></span>
+    <span> | </span>
+    <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
+
+</div>
+<main>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Description</td>
+                <td>Questions</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of evals">
+                <td>{{ e.id }}</td>
+                <td>{{ e.description }}</td>
+                <td>{{ e.questions.length }}</td>
+                <td>
+                    <a routerLink="/evals/take/{{e.id}}">Take</a> |
+                    <a routerLink="/questions/list/{{e.id}}">Questions</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
