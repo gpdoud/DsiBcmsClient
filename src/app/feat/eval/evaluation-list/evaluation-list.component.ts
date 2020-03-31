@@ -23,10 +23,10 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
 
   ngOnInit() {
     super.ngOnInit();
-    this.evalsvc.list().subscribe(
+    this.evalsvc.listTemplates().subscribe(
       res => {
         this.evals = res;
-        this.sys.log.info(res);
+        this.sys.log.debug("Templates:", res);
       }
     );
   }
