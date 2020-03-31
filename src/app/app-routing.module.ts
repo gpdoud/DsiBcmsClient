@@ -46,6 +46,11 @@ const routes: Routes = [
   { path: 'users/create',                                   component: feat.UserCreateComponent },
   { path: 'users/detail/:id',                               component: feat.UserDetailComponent },
   { path: 'users/edit/:id',                                 component: feat.UserEditComponent },
+  
+  { path: 'quests/list/:evalid',                            component: feat.QuestionListComponent },
+  { path: 'quests/detail/:id',                              component: feat.QuestionDetailComponent },
+  { path: 'quests/create/:evalid',                          component: feat.QuestionCreateComponent },
+  { path: 'quests/edit/:id',                                component: feat.QuestionEditComponent },
         
   { path: 'roles/list',                                     component: feat.RoleListComponent },
   { path: 'roles/create',                                   component: feat.RoleCreateComponent },

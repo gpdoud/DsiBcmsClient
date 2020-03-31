@@ -21,7 +21,7 @@ export class EvaluationService {
   list(): Observable<Evaluation[]> {
     return this.http.get(`${this.sys.url}/evaluations`) as Observable<Evaluation[]>;
   }
-  get(id: number): Observable<Evaluation> {
+  get(id: any): Observable<Evaluation> {
     return this.http.get(`${this.sys.url}/evaluations/${id}`) as Observable<Evaluation>;
   }
   create(cohort: Evaluation): Observable<any> {
