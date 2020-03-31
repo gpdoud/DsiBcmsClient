@@ -1,0 +1,76 @@
+<app-menu></app-menu>
+<header></header>
+<div>
+    <span>{{pageTitle}}</span>
+    <span> | </span>
+    <span><a *ngIf="question.evaluation" routerLink="/quests/list/{{question.evaluation.id}}" class="">Back to list ...</a></span>
+</div>
+<section class="component-content">
+    <table class="table table-sm">
+        <tr>
+            <td>Id:</td>
+            <td><input [(ngModel)]="question.id" type="number" disabled size="10" name="question.id"></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td><input [(ngModel)]="question.category" type="text" size="15" name="question.category"></td>
+        </tr>
+        <tr>
+            <td>Question:</td>
+            <td><textarea id="qtext" [(ngModel)]="question.questionText" rows="3" name="question.questionText"></textarea></td>
+        </tr>
+        <tr>
+            <td>A:</td>
+            <td>
+                <textarea class="qans" [(ngModel)]="question.answerTextA" rows="1" name="question.answerTextA"></textarea>
+                <span class="align-top"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>B:</td>
+            <td>
+                <textarea class="qans" [(ngModel)]="question.answerTextB" rows="1" name="question.answerTextB"></textarea>
+                <span class="align-top"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>C:</td>
+            <td>
+                <textarea [disabled]="cignore ? 'true' : 'false'" class="qans" [(ngModel)]="question.answerTextC" rows="1" name="question.answerTextC"></textarea>
+                <span class="align-top"> <button (click)="disable('c')" class="btn btn-link">Disable</button></span>
+            </td>
+        </tr>
+        <tr>
+            <td>D:</td>
+            <td>
+                <textarea [disabled]="dignore ? 'true' : 'false'" class="qans" [(ngModel)]="question.answerTextD" rows="1" name="question.answerTextD"></textarea>
+                <span class="align-top"> <button (click)="disable('d')" class="btn btn-link">Disable</button></span>
+            </td>
+        </tr>
+        <tr>
+            <td>E:</td>
+            <td>
+                <textarea [disabled]="eignore ? 'true' : 'false'" class="qans" [(ngModel)]="question.answerTextE" rows="1" name="question.answerTextE"></textarea>
+                <span class="align-top"> <button (click)="disable('e')" class="btn btn-link">Disable</button></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Answer:</td>
+            <td>
+                <select [(ngModel)]="question.correctAnswerNbr">
+                    <option value=-1 selected>&ngsp;</option>
+                    <option value=0>A</option>
+                    <option value=1>B</option>
+                    <option value=2>C</option>
+                    <option value=3>D</option>
+                    <option value=4>E</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="save()" class="btn btn-primary">Save</button>
+            </td>
+        </tr>
+    </table>
+</section>

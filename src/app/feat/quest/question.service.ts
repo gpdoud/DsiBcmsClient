@@ -17,5 +17,17 @@ export class QuestionService {
   list(): Observable<Question[]> {
     return this.http.get(`${this.sys.url}/questions`) as Observable<Question[]>;
   }
+  get(id: any): Observable<Question> {
+    return this.http.get(`${this.sys.url}/questions/${id}`) as Observable<Question>;
+  }
+  create(q: Question): Observable<Question> {
+    return this.http.post(`${this.sys.url}/questions`, q) as Observable<Question>;
+  }
+  change(q: Question): Observable<Question> {
+    return this.http.post(`${this.sys.url}/questions/update/${q.id}`, q) as Observable<Question>;
+  }
+  remove(q: Question): Observable<Question> {
+    return this.http.post(`${this.sys.url}/questions/delete/${q.id}`, null) as Observable<Question>;
+  }
 
 }

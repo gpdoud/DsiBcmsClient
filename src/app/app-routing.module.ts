@@ -49,7 +49,7 @@ const routes: Routes = [
   
   { path: 'quests/list/:evalid',                            component: feat.QuestionListComponent },
   { path: 'quests/detail/:id',                              component: feat.QuestionDetailComponent },
-  { path: 'quests/create/:evalid',                          component: feat.QuestionCreateComponent },
+  { path: 'quests/create/:evalId',                          component: feat.QuestionCreateComponent },
   { path: 'quests/edit/:id',                                component: feat.QuestionEditComponent },
         
   { path: 'roles/list',                                     component: feat.RoleListComponent },
