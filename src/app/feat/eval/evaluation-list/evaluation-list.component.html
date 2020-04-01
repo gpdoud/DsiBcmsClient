@@ -15,6 +15,8 @@
                 <td>Id</td>
                 <td>Description</td>
                 <td>Questions</td>
+                <td>Template?</td>
+                <td>Active?</td>
                 <td>Actions</td>
             </tr>
         </thead>
@@ -23,11 +25,18 @@
                 <td>{{ e.id }}</td>
                 <td>{{ e.description }}</td>
                 <td>{{ e.questions.length }}</td>
+                <td>{{ e.isTemplate | bool }}</td>
+                <td>{{ e.active | bool }}</td>
                 <td>
                     <a routerLink="/evals/take/{{e.id}}">Take</a> |
-                    <a routerLink="/quests/list/{{e.id}}">Questions</a>
+                    <a routerLink="/evals/detail/{{e.id}}">Det</a> |
+                    <a routerLink="/evals/edit/{{e.id}}">Edt</a> |
+                    <a routerLink="/quests/list/{{e.id}}">Quests</a>
                 </td>
             </tr>
         </tbody>
     </table>
 </main>
+<footer>
+    <app-footer></app-footer>
+</footer>

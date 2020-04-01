@@ -28,7 +28,7 @@ export class QuestionDetailComponent extends BcmsComponent implements OnInit {
         this.router.navigateByUrl(`/quests/list/${this.question.evaluationId}`);
       },
       err => {
-        this.sys.log.err("ERROR deleting questions:", err);
+        this.sys.log.err("ERROR deleting questions:", err, this.question);
       }
     );
   }

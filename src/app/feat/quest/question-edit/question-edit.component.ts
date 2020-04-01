@@ -44,7 +44,7 @@ export class QuestionEditComponent extends BcmsComponent implements OnInit {
         this.router.navigateByUrl(`/quests/list/${this.question.evaluationId}`)
       },
       err => {
-        this.sys.log.err("ERROR Updating Question:", err);
+        this.sys.log.err("ERROR Updating Question:", err, this.question);
       }
     );
   }

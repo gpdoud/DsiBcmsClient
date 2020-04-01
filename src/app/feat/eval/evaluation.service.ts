@@ -24,19 +24,19 @@ export class EvaluationService {
   get(id: any): Observable<Evaluation> {
     return this.http.get(`${this.sys.url}/evaluations/${id}`) as Observable<Evaluation>;
   }
-  create(cohort: Evaluation): Observable<any> {
-    return this.http.post(`${this.sys.url}/evaluations`, cohort) as Observable<any>;
+  create(evaluation: Evaluation): Observable<any> {
+    return this.http.post(`${this.sys.url}/evaluations`, evaluation) as Observable<any>;
   }
-  change(cohort: Evaluation): Observable<any> {
-    return this.http.post(`${this.sys.url}/evaluations/update/${cohort.id}`, cohort) as Observable<any>;
+  change(evaluation: Evaluation): Observable<any> {
+    return this.http.post(`${this.sys.url}/evaluations/update/${evaluation.id}`, evaluation) as Observable<any>;
   }
-  change2(cohort: Evaluation): Observable<any> {
-    return this.http.put(`${this.sys.url}/evaluations/${cohort.id}`, cohort) as Observable<any>;
+  change2(evaluation: Evaluation): Observable<any> {
+    return this.http.put(`${this.sys.url}/evaluations/${evaluation.id}`, evaluation) as Observable<any>;
   }
-  remove(cohort: Evaluation): Observable<any> {
-    return this.http.post(`${this.sys.url}/evaluations/delete/${cohort.id}`, null) as Observable<any>;
+  remove(evaluation: Evaluation): Observable<any> {
+    return this.http.post(`${this.sys.url}/evaluations/delete/${evaluation.id}`, null) as Observable<any>;
   }
-  remove2(cohort: Evaluation): Observable<any> {
-    return this.http.delete(`${this.sys.url}/evaluations/${cohort.id}`) as Observable<any>;
+  remove2(evaluation: Evaluation): Observable<any> {
+    return this.http.delete(`${this.sys.url}/evaluations/${evaluation.id}`) as Observable<any>;
   }
 }

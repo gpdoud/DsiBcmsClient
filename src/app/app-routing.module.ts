@@ -33,6 +33,10 @@ const routes: Routes = [
   { path: 'enrollments/list/:id',                           component: feat.EnrollmentListComponent },
   
   { path: 'evals/list',                                     component: feat.EvaluationListComponent },
+  { path: 'evals/detail/:id',                               component: feat.EvaluationDetailComponent },
+  { path: 'evals/create',                                   component: feat.EvaluationCreateComponent },
+  { path: 'evals/edit/:id',                                 component: feat.EvaluationEditComponent },
+  { path: 'evals/take/:id',                                 component: feat.EvaluationTakeComponent },
 
   { path: 'feedbacks/list',                                 component: feat.FeedbackListComponent },
   { path: 'feedbacks/create',                               component: feat.FeedbackCreateComponent },

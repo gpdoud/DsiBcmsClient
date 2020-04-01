@@ -8,7 +8,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent,
             CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
             EnrollmentListComponent, EnrollmentSearchPipe, 
-            EvaluationListComponent,
+            EvaluationListComponent, EvaluationDetailComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationTakeComponent,
             AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
             BcmsComponent, BcmsListComponent,
             AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
@@ -25,14 +25,14 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
                 ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent, 
                 CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
                 EnrollmentListComponent, EnrollmentSearchPipe, 
-                EvaluationListComponent,
+                EvaluationListComponent, EvaluationDetailComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationTakeComponent,
                 AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
                 BcmsComponent, BcmsListComponent, 
                 AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
                 AttendanceReportComponent, AssessmentSearchPipe, AttendanceReportStudentComponent, AttendanceReportAttendanceComponent,
                 AttendanceReportSearchPipe, 
                 FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe, 
-                QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent
+                QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationDetailComponent, EvaluationTakeComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [
