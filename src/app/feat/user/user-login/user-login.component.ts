@@ -51,7 +51,7 @@ export class UserLoginComponent implements OnInit {
     this.ipsvc.getIp().subscribe(
       (res: Ip) => {
         this.extIp = res.ip;
-        this.sys.log.warn("Current external IP [", this.extIp, "]");
+        this.sys.log.debug("Current external IP [", this.extIp, "]");
       }
     );
     // this.user.username = "gpdoud";
