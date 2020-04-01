@@ -13,51 +13,51 @@
         </tr>
         <tr>
             <td>Category:</td>
-            <td><input [(ngModel)]="question.category" type="text" size="15" name="question.category"></td>
+            <td><input [(ngModel)]="question.category" type="text" [disabled]="readonly" size="15" name="question.category"></td>
         </tr>
         <tr>
             <td>Question:</td>
-            <td><textarea id="qtext" [(ngModel)]="question.questionText" rows="3" name="question.questionText"></textarea></td>
+            <td><textarea id="qtext" [(ngModel)]="question.questionText" [disabled]="readonly" rows="3" name="question.questionText"></textarea></td>
         </tr>
         <tr>
             <td>A:</td>
             <td>
-                <textarea class="qans" [(ngModel)]="question.answerTextA" rows="1" name="question.answerTextA"></textarea>
+                <textarea class="qans" [(ngModel)]="question.answerTextA" [disabled]="readonly" rows="1" name="question.answerTextA"></textarea>
                 <span class="align-top"></span>
             </td>
         </tr>
         <tr>
             <td>B:</td>
             <td>
-                <textarea class="qans" [(ngModel)]="question.answerTextB" rows="1" name="question.answerTextB"></textarea>
+                <textarea class="qans" [(ngModel)]="question.answerTextB" [disabled]="readonly" rows="1" name="question.answerTextB"></textarea>
                 <span class="align-top"></span>
             </td>
         </tr>
         <tr>
             <td>C:</td>
             <td>
-                <textarea [disabled]="cignore ? 'true' : 'false'" class="qans" [(ngModel)]="question.answerTextC" rows="1" name="question.answerTextC"></textarea>
-                <span class="align-top"> <button (click)="disable('c')" class="btn btn-link">Disable</button></span>
+                <textarea class="qans" [(ngModel)]="question.answerTextC" [disabled]="readonly" rows="1" name="question.answerTextC"></textarea>
+                <span class="align-top"></span>
             </td>
         </tr>
         <tr>
             <td>D:</td>
             <td>
-                <textarea [disabled]="dignore ? 'true' : 'false'" class="qans" [(ngModel)]="question.answerTextD" rows="1" name="question.answerTextD"></textarea>
-                <span class="align-top"> <button (click)="disable('d')" class="btn btn-link">Disable</button></span>
+                <textarea class="qans" [(ngModel)]="question.answerTextD" [disabled]="readonly" rows="1" name="question.answerTextD"></textarea>
+                <span class="align-top"></span>
             </td>
         </tr>
         <tr>
             <td>E:</td>
             <td>
-                <textarea [disabled]="eignore ? 'true' : 'false'" class="qans" [(ngModel)]="question.answerTextE" rows="1" name="question.answerTextE"></textarea>
-                <span class="align-top"> <button (click)="disable('e')" class="btn btn-link">Disable</button></span>
+                <textarea class="qans" [(ngModel)]="question.answerTextE" [disabled]="readonly" rows="1" name="question.answerTextE"></textarea>
+                <span class="align-top"></span>
             </td>
         </tr>
         <tr>
             <td>Answer:</td>
             <td>
-                <select [(ngModel)]="question.correctAnswerNbr">
+                <select [(ngModel)]="question.correctAnswerNbr" [disabled]="readonly" >
                     <option value=-1 selected>&ngsp;</option>
                     <option value=0>A</option>
                     <option value=1>B</option>
@@ -69,7 +69,16 @@
         </tr>
         <tr>
             <td colspan="2">
-                <button (click)="save()" class="btn btn-primary">Save</button>
+                <span  *ngIf="!readonly">
+                    <button (click)="save()" class="btn btn-primary">Save</button>
+                </span>
+                <span *ngIf="readonly">
+                    <button (click)="edit()" class="btn btn-warning">Edit</button>
+                     | <button (click)="delete()" class="btn btn-danger">Delete</button>
+                    <span *ngIf="verified">
+                        | <button (click)="verify()" class="btn btn-danger">Verify</button>
+                    </span>
+                </span>
             </td>
         </tr>
     </table>
