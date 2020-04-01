@@ -9,6 +9,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
             EnrollmentListComponent, EnrollmentSearchPipe, 
             EvaluationListComponent, EvaluationDetailComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationTakeComponent,
+            EvaluationStudentListComponent,
             AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
             BcmsComponent, BcmsListComponent,
             AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
@@ -26,13 +27,14 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
                 CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
                 EnrollmentListComponent, EnrollmentSearchPipe, 
                 EvaluationListComponent, EvaluationDetailComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationTakeComponent,
+                EvaluationStudentListComponent,
                 AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
                 BcmsComponent, BcmsListComponent, 
                 AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
                 AttendanceReportComponent, AssessmentSearchPipe, AttendanceReportStudentComponent, AttendanceReportAttendanceComponent,
                 AttendanceReportSearchPipe, 
                 FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe, 
-                QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationDetailComponent, EvaluationTakeComponent
+                QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationDetailComponent, EvaluationTakeComponent, EvaluationStudentListComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

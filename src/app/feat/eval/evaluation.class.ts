@@ -7,6 +7,8 @@ export class Evaluation {
     enrollmentId?: number = null;
     questions: Question[] = [];
     active: boolean = true;
+    created: string;
+    updated: string;
 
     constructor() {
         

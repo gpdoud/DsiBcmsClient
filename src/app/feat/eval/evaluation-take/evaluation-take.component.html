@@ -1,1 +1,46 @@
-<p>evaluation-take works!</p>
+<app-menu></app-menu>
+<header></header>
+<div>
+    <span>{{pageTitle}}</span>
+    <!-- <span> | </span>
+    <span><a routerLink="/evals/create" class="">Create</a></span>
+    <span> | </span>
+    <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span> -->
+
+</div>
+<main class="component-content">
+    <table class="table table-sm" *ngIf="quests">
+        <tr>
+            <td colspan="2">Question {{idx}}:</td>
+        </tr>
+        <tr>
+            <td>{{quests[idx].questionText}}</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="answer" value='A'>: {{question.answerTextA}}</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="answer" value='B'>: {{question.answerTextB}}</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="answer" value='C'>: {{question.answerTextC}}</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="answer" value='D'>: {{question.answerTextD}}</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="answer" value='E'>: {{question.answerTextE}}</td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="next()" class="btn btn-primary">Next</button>
+            </td>
+        </tr>
+    </table>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

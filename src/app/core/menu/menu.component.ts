@@ -17,9 +17,10 @@ export class MenuComponent implements OnInit {
 
   menus: Menu[] = [
     new Menu("BCMS", "/home", "The BCMS Home Page"),
-    new Menu("Cohorts", "/cohorts/list", "The BCMS Cohorts Page", true, true),
-    new Menu("Evals", "/evals/list", "Student Evaluations"),
+    new Menu("Evaluations", "/evals/stud/list", "Student Evaluations"),
     new Menu("Asmnts", "/assessments/listbystudent", "Student Assessments"),
+    new Menu("Cohorts", "/cohorts/list", "The BCMS Cohorts Page", true, true),
+    new Menu("Evals", "/evals/list", "Evaluations", true, false),
     new Menu("Users", "/users/list", "The BCMS Users Page", true, false),
     new Menu("Roles", "/roles/list", "The BCMS Roles Page", true, false),
     new Menu("Configs", "/configs/list", "The BCMS Configs Page", true, false),

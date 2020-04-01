@@ -15,6 +15,9 @@ export class EvaluationService {
 
   ) { }
 
+  listStudentEvals(id: any): Observable<Evaluation[]> {
+    return this.http.get(`${this.sys.url}/evaluations/student/${id}`) as Observable<Evaluation[]>;
+  }
   listTemplates(): Observable<Evaluation[]> {
     return this.http.get(`${this.sys.url}/evaluations/templates`) as Observable<Evaluation[]>;
   }
