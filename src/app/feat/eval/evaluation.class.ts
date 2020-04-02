@@ -6,6 +6,7 @@ export class Evaluation {
     isTemplate: boolean = false;
     enrollmentId?: number = null;
     questions: Question[] = [];
+    isDone: boolean = false;
     active: boolean = true;
     created: string;
     updated: string;

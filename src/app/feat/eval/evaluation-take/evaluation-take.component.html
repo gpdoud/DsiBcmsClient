@@ -9,34 +9,54 @@
 
 </div>
 <main class="component-content">
-    <table class="table table-sm" *ngIf="quests">
+    <table class="table table-borderless table-sm" *ngIf="question">
         <tr>
-            <td colspan="2">Question {{idx}}:</td>
+            <td class="text-uppercase font-weight-bold category">{{eval.description}}</td>
+            <td class="text-italics text-right">Question {{idx+1}} of {{count}}</td>
         </tr>
         <tr>
-            <td>{{quests[idx].questionText}}</td>
+            <td class="font-italic question" colspan="2">{{question.questionText}}</td>
         </tr>
         <tr>
-            <td><input type="radio" name="answer" value='A'>: {{question.answerTextA}}</td>
+            <td colspan="2"><input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=0 >
+                {{question.answerTextA}}</td>
         </tr>
         <tr>
-            <td><input type="radio" name="answer" value='B'>: {{question.answerTextB}}</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="answer" value='C'>: {{question.answerTextC}}</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="answer" value='D'>: {{question.answerTextD}}</td>
-        </tr>
-        <tr>
-            <td><input type="radio" name="answer" value='E'>: {{question.answerTextE}}</td>
-        </tr>
-        <tr>
-            <td></td>
+            <td><input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=1>
+                {{question.answerTextB}}</td>
         </tr>
         <tr>
             <td colspan="2">
-                <button (click)="next()" class="btn btn-primary">Next</button>
+                <span *ngIf="question.answerTextC.length > 0">
+                    <input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=2>
+                    {{question.answerTextC}}
+                </span>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span *ngIf="question.answerTextD.length > 0">
+                    <input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=3>
+                    {{question.answerTextD}}
+                </span>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span *ngIf="question.answerTextE.length > 0">
+                    <input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=4>
+                    {{question.answerTextE}}
+                </span>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="done()" class="btn btn-success">Submit</button> | |
+                <button [disabled]="isFirst" (click)="prev()" class="btn btn-primary">Prev</button> |
+                <button [disabled]="isLast" (click)="next()" class="btn btn-primary">Next</button>
             </td>
         </tr>
     </table>
