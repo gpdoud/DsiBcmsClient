@@ -10,6 +10,7 @@ export class Question {
     answerTextD: string = '';
     answerTextE: string = '';
     correctAnswerNbr: number = -1;
+    userAnswerNbr: number = -1;
     pointValue: number = 10;
     evaluationId: number = 0;
     evaluation: Evaluation = null;

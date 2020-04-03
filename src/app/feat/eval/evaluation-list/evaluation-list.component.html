@@ -14,6 +14,7 @@
             <tr>
                 <td>Id</td>
                 <td>Description</td>
+                <td>Done?</td>
                 <td>Questions</td>
                 <td>Template?</td>
                 <td>Active?</td>
@@ -24,6 +25,7 @@
             <tr *ngFor="let e of evals">
                 <td>{{ e.id }}</td>
                 <td>{{ e.description }}</td>
+                <td>{{ e.isDone | bool }}</td>
                 <td>{{ e.questions.length }}</td>
                 <td>{{ e.isTemplate | bool }}</td>
                 <td>{{ e.active | bool }}</td>

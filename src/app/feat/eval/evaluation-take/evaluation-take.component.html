@@ -18,33 +18,33 @@
             <td class="font-italic question" colspan="2">{{question.questionText}}</td>
         </tr>
         <tr>
-            <td colspan="2"><input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=0 >
+            <td colspan="2"><input [(ngModel)]="ans" type="radio" name="answer" [value]=0>
                 {{question.answerTextA}}</td>
         </tr>
         <tr>
-            <td><input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=1>
+            <td><input [(ngModel)]="ans" type="radio" name="answer" [value]=1>
                 {{question.answerTextB}}</td>
         </tr>
         <tr>
             <td colspan="2">
-                <span *ngIf="question.answerTextC.length > 0">
-                    <input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=2>
+                <span *ngIf="eval.questions[idx].answerTextC.length > 0">
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=2>
                     {{question.answerTextC}}
                 </span>&nbsp;
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <span *ngIf="question.answerTextD.length > 0">
-                    <input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=3>
+                <span *ngIf="eval.questions[idx].answerTextD.length > 0">
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=3>
                     {{question.answerTextD}}
                 </span>&nbsp;
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <span *ngIf="question.answerTextE.length > 0">
-                    <input [(ngModel)]="question.correctAnswerNbr" type="radio" name="answer" value=4>
+                <span *ngIf="eval.questions[idx].answerTextE.length > 0">
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=4>
                     {{question.answerTextE}}
                 </span>&nbsp;
             </td>
