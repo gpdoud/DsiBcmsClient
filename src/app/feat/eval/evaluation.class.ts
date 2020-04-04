@@ -7,6 +7,8 @@ export class Evaluation {
     enrollmentId?: number = null;
     questions: Question[] = [];
     isDone: boolean = false;
+    pointsAvailable: number = 0;
+    pointsScored: number = 0;
     active: boolean = true;
     created: string;
     updated: string;

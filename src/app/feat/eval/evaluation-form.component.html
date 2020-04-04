@@ -16,6 +16,14 @@
             <td><input [(ngModel)]="eval.description" type="text" [disabled]="readonly" size="25" name="eval.description"></td>
         </tr>
         <tr>
+            <td>Points:</td>
+            <td>
+                <input [(ngModel)]="eval.pointsScored"  class="text-center" type="text" disabled size="5" name="eval.pointsScored">
+                <span> of </span>
+                <input [(ngModel)]="eval.pointsAvailable"  class="text-center" type="text" disabled size="5" name="eval.pointsAvailable">
+            </td>
+        </tr>
+        <tr>
             <td>Template?:</td>
             <td><input [(ngModel)]="eval.isTemplate" type="checkbox" [disabled]="readonly" size="10" name="eval.istemplate"></td>
         </tr>
