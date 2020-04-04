@@ -32,8 +32,8 @@ export class EvaluationReviewItemComponent implements OnInit {
 
   points: number = 0;
   chkx: string = "";
-  chkxRight: string = "RIGHT";
-  chkxWrong: string = "WRONG";
+  chkxRight: string = "CORRECT";
+  chkxWrong: string = "INCORRECT";
   questclsRight = " alert-success ";
   questclsWrong = " alert-danger ";
   questcls: string = ""

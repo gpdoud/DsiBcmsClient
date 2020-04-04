@@ -27,8 +27,18 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
   get ans(): number { return this.eval.questions[this.idx].userAnswerNbr; }
   set ans(res: number) { this.eval.questions[this.idx].userAnswerNbr = Number(res); }
 
+  calcTotalPoints(qs: Question[]): number {
+    let total = 0;
+    qs.forEach(q => {
+      if(q.correctAnswerNbr === q.userAnswerNbr) {
+        total += q.pointValue;
+      }
+    });
+    return total;
+  }
   done(): void {
     this.eval.isDone = true;
+    this.eval.pointsScored = this.calcTotalPoints(this.eval.questions);
     // this.eval.questions = null;
     this.evalsvc.change(this.eval).subscribe(
       res => {
