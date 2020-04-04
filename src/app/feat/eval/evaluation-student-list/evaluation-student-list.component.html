@@ -2,11 +2,6 @@
 <header></header>
 <div>
     <span>{{pageTitle}}</span>
-    <!-- <span> | </span>
-    <span><a routerLink="/evals/create" class="">Create</a></span>
-    <span> | </span>
-    <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span> -->
-
 </div>
 <main>
     <table class="table table-sm">
@@ -23,11 +18,11 @@
                 <td>{{ e.id }}</td>
                 <td>{{ e.description }}</td>
                 <td>{{ e.questions.length }}</td>
-                <td>
+                <td *ngIf="!e.isDone">
                     <a routerLink="/evals/take/{{e.id}}">Take</a> 
-                    <!-- | <a routerLink="/evals/detail/{{e.id}}">Det</a> |
-                    <a routerLink="/evals/edit/{{e.id}}">Edt</a> |
-                    <a routerLink="/quests/list/{{e.id}}">Quests</a> -->
+                </td>
+                <td *ngIf="e.isDone">
+                    <a routerLink="/evals/review/{{e.id}}">Review</a> 
                 </td>
             </tr>
         </tbody>

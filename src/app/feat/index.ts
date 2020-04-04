@@ -37,6 +37,8 @@ export { EvaluationEditComponent } from '@eval/evaluation-edit/evaluation-edit.c
 export { EvaluationDetailComponent } from '@eval/evaluation-detail/evaluation-detail.component';
 export { EvaluationStudentListComponent } from '@eval/evaluation-student-list/evaluation-student-list.component';
 export { EvaluationTakeComponent } from '@eval/evaluation-take/evaluation-take.component';
+export { EvaluationReviewComponent } from '@eval/evaluation-review/evaluation-review.component';
+
 
 export { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
 export { FeedbackDetailComponent } from './feedback/feedback-detail/feedback-detail.component';

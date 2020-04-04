@@ -54,8 +54,9 @@ export class UserLoginComponent implements OnInit {
         this.sys.log.debug("Current external IP [", this.extIp, "]");
       }
     );
-    // this.user.username = "gpdoud";
-    // this.user.password = "MaxPass@8888";
+    this.sys.log.warn("Login as Sarah Bode in user-login.component line 57.")
+    this.user.username = "sbode";
+    this.user.password = "Train@MAX";
     if (!this.sys.config.checkLogin) {
       this.login();
     }

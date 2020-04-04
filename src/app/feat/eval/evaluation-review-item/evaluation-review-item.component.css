@@ -1,0 +1,25 @@
+span#right-wrong {
+    font-weight: bold;
+    font-variant: small-caps;
+}
+div.sbs {
+    display: inline-block;
+}
+div.left-align {
+    width: 80%;
+}
+div.right-align {
+    width: 19%;
+    text-align: right;
+}
+
+li.right {
+    color: green;
+}
+li.wrong {
+    color: red;
+}
+li.right, li.wrong {
+    /* font-size: 1.3rem; */
+    font-weight: bold;
+}
