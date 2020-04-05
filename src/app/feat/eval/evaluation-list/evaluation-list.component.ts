@@ -12,6 +12,7 @@ import { Evaluation } from '../evaluation.class';
 export class EvaluationListComponent extends BcmsListComponent implements OnInit {
   
   evals: Evaluation[];
+  templatesOnly: boolean = true;
 
   constructor(
     protected sys: SystemService,
@@ -24,7 +25,7 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
   ngOnInit() {
     super.ngOnInit();
     this.evalsvc.list().subscribe(
-      res => {
+      (res: Evaluation[]) => {
         this.evals = res;
         this.sys.log.debug("Templates:", res);
       }
