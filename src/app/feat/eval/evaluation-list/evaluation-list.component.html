@@ -34,6 +34,7 @@
                 <td>{{ e.isTemplate | bool }}</td>
                 <td>{{ e.active | bool }}</td>
                 <td>
+                    <a routerLink="/evals/assign/{{e.id}}">Assign</a> |
                     <a routerLink="/evals/take/{{e.id}}">Take</a> |
                     <a routerLink="/evals/detail/{{e.id}}">Det</a> |
                     <a routerLink="/evals/edit/{{e.id}}">Edt</a> |

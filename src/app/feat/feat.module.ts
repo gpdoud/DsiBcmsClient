@@ -16,9 +16,10 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             AttendanceReportComponent, AssessmentSearchPipe, AttendanceReportStudentComponent, AttendanceReportAttendanceComponent,
             AttendanceReportSearchPipe,
             FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe,
-            QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent
+            QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent,
+            EvaluationSearchPipe, EvaluationTemplateOnlyPipe, EvaluationAssignComponent, EvaluationReviewItemComponent
+
         } from './index';
-import { EvaluationReviewItemComponent } from './eval/evaluation-review-item/evaluation-review-item.component';
         
         @NgModule({
             declarations: [
@@ -35,7 +36,9 @@ import { EvaluationReviewItemComponent } from './eval/evaluation-review-item/eva
                 AttendanceReportComponent, AssessmentSearchPipe, AttendanceReportStudentComponent, AttendanceReportAttendanceComponent,
                 AttendanceReportSearchPipe, 
                 FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe, 
-                QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationDetailComponent, EvaluationTakeComponent, EvaluationStudentListComponent, EvaluationReviewItemComponent
+                QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent, 
+                EvaluationCreateComponent, EvaluationEditComponent, EvaluationDetailComponent, EvaluationTakeComponent, 
+                EvaluationSearchPipe, EvaluationTemplateOnlyPipe, EvaluationAssignComponent, EvaluationReviewItemComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

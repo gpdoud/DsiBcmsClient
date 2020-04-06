@@ -7,6 +7,7 @@ import { Evaluation } from './evaluation.class';
 export class EvaluationTemplateOnlyPipe implements PipeTransform {
 
   transform(evals: Evaluation[], templatesOnly: boolean = false): Evaluation[] {
+    if(evals == null) return evals;
     if(!templatesOnly) return evals;
     let selEvals: Evaluation[] = [];
     evals.forEach(e => {

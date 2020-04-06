@@ -38,6 +38,10 @@ export { EvaluationDetailComponent } from '@eval/evaluation-detail/evaluation-de
 export { EvaluationStudentListComponent } from '@eval/evaluation-student-list/evaluation-student-list.component';
 export { EvaluationTakeComponent } from '@eval/evaluation-take/evaluation-take.component';
 export { EvaluationReviewComponent } from '@eval/evaluation-review/evaluation-review.component';
+export { EvaluationReviewItemComponent } from './eval/evaluation-review-item/evaluation-review-item.component';
+export { EvaluationSearchPipe } from './eval/evaluation-search.pipe';
+export { EvaluationTemplateOnlyPipe } from './eval/evaluation-template-only.pipe';
+export { EvaluationAssignComponent } from './eval/evaluation-assign/evaluation-assign.component';
 
 
 export { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
