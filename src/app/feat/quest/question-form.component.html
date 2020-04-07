@@ -16,6 +16,10 @@
             <td><input [(ngModel)]="question.category" type="text" [disabled]="readonly" size="15" name="question.category"></td>
         </tr>
         <tr>
+            <td>Point Value:</td>
+            <td><input [(ngModel)]="question.pointValue" type="number" [disabled]="readonly" size="5" name="question.pointValue"></td>
+        </tr>
+        <tr>
             <td>Question:</td>
             <td><textarea id="qtext" [(ngModel)]="question.questionText" [disabled]="readonly" rows="3" name="question.questionText"></textarea></td>
         </tr>
