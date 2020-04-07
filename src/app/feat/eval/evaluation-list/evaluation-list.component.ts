@@ -20,6 +20,7 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
   ) { 
     super(sys);
     this.pageTitle = "Evaluations List";
+    this.sortCriteria = "studentName";
   }
 
   addStudentName(evals: Evaluation[]): void {
