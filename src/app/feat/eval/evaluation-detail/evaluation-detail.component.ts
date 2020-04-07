@@ -44,11 +44,19 @@ export class EvaluationDetailComponent extends BcmsComponent implements OnInit {
     this.readonly = true;
   }
 
+  addStudentName(e: Evaluation): void {
+    if(e.enrollment != null) {
+      e.studentName = e.enrollment.user.lastname;
+    }
+  }
+
+
   ngOnInit() {
     super.ngOnInit();
     this.evalId = this.route.snapshot.params.id;
     this.evalsvc.get(this.evalId).subscribe(
       (res: Evaluation) => {
+        this.addStudentName(res);
         this.eval = res;
         this.sys.log.debug("Evaluation:", res);
       },

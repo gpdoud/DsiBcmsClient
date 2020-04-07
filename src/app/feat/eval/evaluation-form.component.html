@@ -15,6 +15,10 @@
             <td>Description:</td>
             <td><input [(ngModel)]="eval.description" type="text" [disabled]="readonly" size="25" name="eval.description"></td>
         </tr>
+        <tr *ngIf="eval.studentName">
+            <td>Student:</td>
+            <td><input [(ngModel)]="eval.studentName" type="text" disabled size="25" name="eval.studentName"></td>
+        </tr>
         <tr>
             <td>Points:</td>
             <td>
