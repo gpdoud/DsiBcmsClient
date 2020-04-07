@@ -16,6 +16,7 @@
             <tr>
                 <td class="sortable"><a (click)="sort('id')">Id</a></td>
                 <td class="sortable"><a (click)="sort('description')">Description</a></td>
+                <td class="sortable"><a (click)="sort('studentName')">Student</a></td>
                 <td>Questions</td>
                 <td>Points?</td>
                 <td class="sortable"><a (click)="sort('isDone')">Done?</a></td>
@@ -28,6 +29,8 @@
             <tr *ngFor="let e of evals | templates:templatesOnly | evalSrch:searchCriteria | sort:sortCriteria:ascOrder">
                 <td>{{ e.id }}</td>
                 <td>{{ e.description }}</td>
+                <td *ngIf="e.enrollment && e.enrollment.user">{{ e.enrollment.user.lastname }}</td>
+                <td *ngIf="!e.enrollment || !e.enrollment.user">&nbsp;</td>
                 <td>{{ e.questions.length }}</td>
                 <td>{{ e.pointsScored }} of {{e.pointsAvailable}}</td>
                 <td>{{ e.isDone | bool }}</td>

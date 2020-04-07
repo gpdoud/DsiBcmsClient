@@ -1,4 +1,5 @@
 import { Question } from '@feat/quest/question.class';
+import { Enrollment } from '@feat/enrollment/enrollment.class';
 
 export class Evaluation {
     id: number = 0;
@@ -12,6 +13,9 @@ export class Evaluation {
     active: boolean = true;
     created: string;
     updated: string;
+
+    enrollment?: Enrollment;
+    studentName: string;
 
     constructor() {
         

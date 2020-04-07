@@ -12,7 +12,7 @@ import { Evaluation } from '../evaluation.class';
 export class EvaluationListComponent extends BcmsListComponent implements OnInit {
   
   evals: Evaluation[];
-  templatesOnly: boolean = true;
+  templatesOnly: boolean = false;
 
   constructor(
     protected sys: SystemService,
@@ -22,10 +22,19 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
     this.pageTitle = "Evaluations List";
   }
 
+  addStudentName(evals: Evaluation[]): void {
+    evals.forEach(e => {
+      if(e.enrollment != null) {
+        e.studentName = e.enrollment.user.lastname;
+      }
+    });
+  }
+
   ngOnInit() {
     super.ngOnInit();
     this.evalsvc.list().subscribe(
       (res: Evaluation[]) => {
+        this.addStudentName(res);
         this.evals = res;
         this.sys.log.debug("Templates:", res);
       }
