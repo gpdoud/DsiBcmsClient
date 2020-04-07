@@ -17,8 +17,11 @@ export class EvaluationReviewItemComponent implements OnInit {
   @Input() 
   set q(val: Question) { 
     this._q = val; 
-    
-    if(this.q.correctAnswerNbr === this.q.userAnswerNbr) {
+    if(this.q.correctAnswerNbr === -1) {
+      this.points = 0;
+      this.questcls = this.questclsNeutral;
+      this.chkx = this.chkxNeutral;
+    } else if(this.q.correctAnswerNbr === this.q.userAnswerNbr) {
       this.points = this.q.pointValue;
       this.questcls = this.questclsRight;
       this.chkx = this.chkxRight;
@@ -26,17 +29,25 @@ export class EvaluationReviewItemComponent implements OnInit {
       this.questcls = this.questclsWrong;
       this.chkx = this.chkxWrong;
     } 
-    this.anscls[this.q.userAnswerNbr] = this.ansclsWrong;
-    this.anscls[this.q.correctAnswerNbr] = this.ansclsRight;
+
+    if(this.q.correctAnswerNbr === -1)
+      this.anscls[this.q.userAnswerNbr] = this.ansclsNeutral;
+    else {
+      this.anscls[this.q.userAnswerNbr] = this.ansclsWrong;
+      this.anscls[this.q.correctAnswerNbr] = this.ansclsRight;
+    }
   };
 
   points: number = 0;
   chkx: string = "";
-  chkxRight: string = "CORRECT";
-  chkxWrong: string = "INCORRECT";
+  chkxNeutral: string = "";
+  chkxRight: string = "(CORRECT)";
+  chkxWrong: string = "(INCORRECT)";
+  questclsNeutral = " ";
   questclsRight = " alert-success ";
   questclsWrong = " alert-danger ";
   questcls: string = ""
+  ansclsNeutral: string = " neutral ";
   ansclsRight: string = " right ";
   ansclsWrong: string = " wrong ";
   anscls: string[] = [ "", "", "", "", ""  ];

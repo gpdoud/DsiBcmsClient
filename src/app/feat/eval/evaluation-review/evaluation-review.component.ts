@@ -18,18 +18,6 @@ export class EvaluationReviewComponent extends BcmsComponent implements OnInit {
   user: User = new User();
   eval: Evaluation = new Evaluation();
 
-  // answer(q: Question, idx: number): string { 
-  //   switch(idx) {
-  //     case 0: return q.answerTextA;
-  //     case 1: return q.answerTextB;
-  //     case 2: return q.answerTextC;
-  //     case 3: return q.answerTextD;
-  //     case 4: return q.answerTextE;
-  //     default: return "No Correct Answer";
-  //   }
-  // }
-  // answerResult(q: Question): boolean { return q.correctAnswerNbr === q.userAnswerNbr; }
-  
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,

@@ -13,13 +13,16 @@ div.right-align {
     text-align: right;
 }
 
+li.neutral {
+    color: blue;
+}
 li.right {
     color: green;
 }
 li.wrong {
     color: red;
 }
-li.right, li.wrong {
+li.right, li.wrong, li.neutral {
     /* font-size: 1.3rem; */
     font-weight: bold;
 }
