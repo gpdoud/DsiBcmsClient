@@ -7,7 +7,7 @@
                 <span> {{q.questionText}}</span>
             </div>
             <div class="sbs right-align">
-                <span>Points: {{points}} of {{q.pointValue}}</span>
+                <span *ngIf="q.correctAnswerNbr > -1">Points: {{points}} of {{q.pointValue}}</span>
             </div>
         </div>
         <ol>
