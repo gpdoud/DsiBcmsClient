@@ -15,12 +15,12 @@
         <table class="table table-sm" *ngIf="config">
             <tr>
                 <td>Key:</td>
-                <td><input [(ngModel)]="config.keyValue" [disabled]="readonly" type="text" size="10"> Must be unique.</td>
+                <td><input [(ngModel)]="config.keyValue" [disabled]="readonly" type="text" size="50"> (Must be unique.)</td>
             </tr>
             <tr>
                 <td>Value:</td>
                 <td>
-                    <input [(ngModel)]="config.dataValue" [disabled]="readonly" type="text" size="75">
+                    <input [(ngModel)]="config.dataValue" [disabled]="readonly" type="text" size="80">
                 </td>
             </tr>
             <tr>
