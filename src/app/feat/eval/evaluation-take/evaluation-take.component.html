@@ -1,0 +1,66 @@
+<app-menu></app-menu>
+<header></header>
+<div>
+    <span>{{pageTitle}}</span>
+    <!-- <span> | </span>
+    <span><a routerLink="/evals/create" class="">Create</a></span>
+    <span> | </span>
+    <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span> -->
+
+</div>
+<main class="component-content">
+    <table class="table table-borderless table-sm" *ngIf="question">
+        <tr>
+            <td class="text-uppercase font-weight-bold category">{{eval.description}}</td>
+            <td class="text-italics text-right">Question {{idx+1}} of {{count}}</td>
+        </tr>
+        <tr>
+            <td class="font-italic question" colspan="2">{{question.questionText}}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input [(ngModel)]="ans" type="radio" name="answer" [value]=0>
+                {{question.answerTextA}}</td>
+        </tr>
+        <tr>
+            <td><input [(ngModel)]="ans" type="radio" name="answer" [value]=1>
+                {{question.answerTextB}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span *ngIf="eval.questions[idx].answerTextC.length > 0">
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=2>
+                    {{question.answerTextC}}
+                </span>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span *ngIf="eval.questions[idx].answerTextD.length > 0">
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=3>
+                    {{question.answerTextD}}
+                </span>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span *ngIf="eval.questions[idx].answerTextE.length > 0">
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=4>
+                    {{question.answerTextE}}
+                </span>&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="done()" class="btn btn-success">Submit</button> | |
+                <button [disabled]="isFirst" (click)="prev()" class="btn btn-primary">Prev</button> |
+                <button [disabled]="isLast" (click)="next()" class="btn btn-primary">Next</button>
+            </td>
+        </tr>
+    </table>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

@@ -1,0 +1,12 @@
+table {
+    min-height: 400px;
+}
+button {
+    text-align: left;
+}
+.category {
+    font-size: 1.5rem
+}
+.question {
+    font-size: 1.2rem;
+}

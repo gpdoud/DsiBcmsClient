@@ -17,11 +17,11 @@ export { AttendanceReportSearchPipe } from './attendance/attendance-report-searc
 export { BcmsComponent } from './common/bcms.component';
 export { BcmsListComponent } from './common/bcms-list.component';
 
-export { CohortListComponent } from './cohort/cohort-list/cohort-list.component';
-export { CohortDetailComponent } from './cohort/cohort-detail/cohort-detail.component';
-export { CohortCreateComponent } from './cohort/cohort-create/cohort-create.component';
-export { CohortEditComponent } from './cohort/cohort-edit/cohort-edit.component';
-export { CohortSearchPipe } from './cohort/cohort-search.pipe';
+export { CohortListComponent } from '@cohort/cohort-list/cohort-list.component';
+export { CohortDetailComponent } from '@cohort/cohort-detail/cohort-detail.component';
+export { CohortCreateComponent } from '@cohort/cohort-create/cohort-create.component';
+export { CohortEditComponent } from '@cohort/cohort-edit/cohort-edit.component';
+export { CohortSearchPipe } from '@cohort/cohort-search.pipe';
 
 export { ConfigListComponent } from '@config/config-list/config-list.component';
 export { ConfigEditComponent } from '@config/config-edit/config-edit.component';
@@ -31,12 +31,29 @@ export { ConfigSearchPipe } from '@config/config-search.pipe';
 export { EnrollmentListComponent } from '@enrollment/enrollment-list/enrollment-list.component';
 export { EnrollmentSearchPipe } from '@enrollment/enrollment-search.pipe';
 
+export { EvaluationListComponent } from '@eval/evaluation-list/evaluation-list.component';
+export { EvaluationCreateComponent } from '@eval/evaluation-create/evaluation-create.component';
+export { EvaluationEditComponent } from '@eval/evaluation-edit/evaluation-edit.component';
+export { EvaluationDetailComponent } from '@eval/evaluation-detail/evaluation-detail.component';
+export { EvaluationStudentListComponent } from '@eval/evaluation-student-list/evaluation-student-list.component';
+export { EvaluationTakeComponent } from '@eval/evaluation-take/evaluation-take.component';
+export { EvaluationReviewComponent } from '@eval/evaluation-review/evaluation-review.component';
+export { EvaluationReviewItemComponent } from './eval/evaluation-review-item/evaluation-review-item.component';
+export { EvaluationSearchPipe } from './eval/evaluation-search.pipe';
+export { EvaluationTemplateOnlyPipe } from './eval/evaluation-template-only.pipe';
+export { EvaluationAssignComponent } from './eval/evaluation-assign/evaluation-assign.component';
+
+
 export { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
 export { FeedbackDetailComponent } from './feedback/feedback-detail/feedback-detail.component';
 export { FeedbackCreateComponent } from './feedback/feedback-create/feedback-create.component';
 export { FeedbackEditComponent } from './feedback/feedback-edit/feedback-edit.component';
 export { FeedbackSearchPipe } from './feedback/feedback-search.pipe';
 
+export { QuestionListComponent } from '@quest/question-list/question-list.component';
+export { QuestionDetailComponent } from '@quest/question-detail/question-detail.component';
+export { QuestionEditComponent } from '@quest/question-edit/question-edit.component';
+export { QuestionCreateComponent } from '@quest/question-create/question-create.component';
 
 export { RoleListComponent } from '@role/role-list/role-list.component';
 export { RoleDetailComponent } from '@role/role-detail/role-detail.component';

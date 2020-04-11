@@ -32,6 +32,15 @@ const routes: Routes = [
           
   { path: 'enrollments/list/:id',                           component: feat.EnrollmentListComponent },
   
+  { path: 'evals/list',                                     component: feat.EvaluationListComponent },
+  { path: 'evals/detail/:id',                               component: feat.EvaluationDetailComponent },
+  { path: 'evals/create',                                   component: feat.EvaluationCreateComponent },
+  { path: 'evals/edit/:id',                                 component: feat.EvaluationEditComponent },
+  { path: 'evals/take/:id',                                 component: feat.EvaluationTakeComponent },
+  { path: 'evals/stud/list',                                component: feat.EvaluationStudentListComponent },
+  { path: 'evals/review/:id',                               component: feat.EvaluationReviewComponent },
+  { path: 'evals/assign/:id',                               component: feat.EvaluationAssignComponent },
+
   { path: 'feedbacks/list',                                 component: feat.FeedbackListComponent },
   { path: 'feedbacks/create',                               component: feat.FeedbackCreateComponent },
   { path: 'feedbacks/detail/:id',                           component: feat.FeedbackDetailComponent },
@@ -44,6 +53,11 @@ const routes: Routes = [
   { path: 'users/create',                                   component: feat.UserCreateComponent },
   { path: 'users/detail/:id',                               component: feat.UserDetailComponent },
   { path: 'users/edit/:id',                                 component: feat.UserEditComponent },
+  
+  { path: 'quests/list/:evalid',                            component: feat.QuestionListComponent },
+  { path: 'quests/detail/:id',                              component: feat.QuestionDetailComponent },
+  { path: 'quests/create/:evalId',                          component: feat.QuestionCreateComponent },
+  { path: 'quests/edit/:id',                                component: feat.QuestionEditComponent },
         
   { path: 'roles/list',                                     component: feat.RoleListComponent },
   { path: 'roles/create',                                   component: feat.RoleCreateComponent },

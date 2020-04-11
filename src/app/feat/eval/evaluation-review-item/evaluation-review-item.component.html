@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col">
+        <div [ngClass]="questcls">
+            <div class="sbs left-align">
+                <span>{{idx+1}})</span> 
+                <span id="right-wrong"> {{chkx}}</span>
+                <span> {{q.questionText}}</span>
+            </div>
+            <div class="sbs right-align">
+                <span *ngIf="q.correctAnswerNbr > -1">Points: {{points}} of {{q.pointValue}}</span>
+            </div>
+        </div>
+        <ol>
+            <li [ngClass]="anscls[0]">{{answer(q, 0)}}</li>
+            <li [ngClass]="anscls[1]">{{answer(q, 1)}}</li>
+            <li [ngClass]="anscls[2]" *ngIf="answer(q, 2).length > 0">{{answer(q, 2)}}</li>
+            <li [ngClass]="anscls[3]" *ngIf="answer(q, 3).length > 0">{{answer(q, 3)}}</li>
+            <li [ngClass]="anscls[4]" *ngIf="answer(q, 4).length > 0">{{answer(q, 4)}}</li>
+        </ol>
+    </div>
+</div>

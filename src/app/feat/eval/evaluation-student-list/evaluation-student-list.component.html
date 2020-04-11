@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+<header></header>
+<div>
+    <span>{{pageTitle}}</span>
+</div>
+<main>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td class="sortable"><a (click)="sort('id')">Id</a></td>
+                <td class="sortable"><a (click)="sort('description')">Description</a></td>
+                <td>Questions</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of evals | evalSrch:searchCriteria | sort:sortCriteria:ascOrder">
+                <td>{{ e.id }}</td>
+                <td>{{ e.description }}</td>
+                <td>{{ e.questions.length }}</td>
+                <td *ngIf="!e.isDone">
+                    <a routerLink="/evals/take/{{e.id}}">Take</a> 
+                </td>
+                <td *ngIf="e.isDone">
+                    <a routerLink="/evals/review/{{e.id}}">Review</a> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

@@ -8,12 +8,17 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent,
             CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
             EnrollmentListComponent, EnrollmentSearchPipe, 
+            EvaluationListComponent, EvaluationDetailComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationTakeComponent,
+            EvaluationStudentListComponent, EvaluationReviewComponent, 
             AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
             BcmsComponent, BcmsListComponent,
             AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
             AttendanceReportComponent, AssessmentSearchPipe, AttendanceReportStudentComponent, AttendanceReportAttendanceComponent,
             AttendanceReportSearchPipe,
-            FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe
+            FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe,
+            QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent,
+            EvaluationSearchPipe, EvaluationTemplateOnlyPipe, EvaluationAssignComponent, EvaluationReviewItemComponent
+
         } from './index';
         
         @NgModule({
@@ -23,12 +28,17 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
                 ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent, 
                 CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
                 EnrollmentListComponent, EnrollmentSearchPipe, 
+                EvaluationListComponent, EvaluationDetailComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationTakeComponent,
+                EvaluationStudentListComponent, EvaluationReviewComponent, 
                 AttendanceCheckinoutComponent, AttendanceStudentComponent, AttendancePincodeComponent, AttendanceMenuCheckinoutComponent,
                 BcmsComponent, BcmsListComponent, 
                 AssessmentListComponent, AssessmentDetailComponent, AssessmentEditComponent, AssessmentCreateComponent, AssessmentStudentListComponent,
                 AttendanceReportComponent, AssessmentSearchPipe, AttendanceReportStudentComponent, AttendanceReportAttendanceComponent,
                 AttendanceReportSearchPipe, 
-                FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe
+                FeedbackListComponent, FeedbackDetailComponent, FeedbackCreateComponent, FeedbackEditComponent, FeedbackSearchPipe, 
+                QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent, 
+                EvaluationCreateComponent, EvaluationEditComponent, EvaluationDetailComponent, EvaluationTakeComponent, 
+                EvaluationSearchPipe, EvaluationTemplateOnlyPipe, EvaluationAssignComponent, EvaluationReviewItemComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [
