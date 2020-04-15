@@ -6,6 +6,7 @@ import { KbService } from '../kb.service';
 import { Kb } from '../kb.class';
 import { KbCategoryService } from '../kb-category.service';
 import { KbCategory } from '../kb-category.class';
+import { User } from '@feat/user/user.class';
 
 @Component({
   selector: 'app-kb-detail',
@@ -17,6 +18,7 @@ export class KbDetailComponent extends BcmsComponent implements OnInit {
   kb: Kb = new Kb();
   kbCats: KbCategory[] = [];
   kbId: number = 0;
+  loggedInUser: User = new User();
 
   constructor(
     protected sys: SystemService,
@@ -38,6 +40,7 @@ export class KbDetailComponent extends BcmsComponent implements OnInit {
   verifyDelete(): void {}
 
   ngOnInit() {
+    this.loggedInUser = this.sys.loggedInUser;
     this.kbcatsys.list().subscribe(
       (res: KbCategory[]) => {
         this.kbCats = res;

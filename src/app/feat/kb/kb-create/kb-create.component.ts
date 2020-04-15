@@ -6,6 +6,7 @@ import { KbService } from '../kb.service';
 import { Kb } from '../kb.class';
 import { KbCategoryService } from '../kb-category.service';
 import { KbCategory } from '../kb-category.class';
+import { User } from '@feat/user/user.class';
 
 @Component({
   selector: 'app-kb-create',
@@ -16,6 +17,7 @@ export class KbCreateComponent extends BcmsComponent implements OnInit {
 
   kb: Kb = new Kb();
   kbCats: KbCategory[] = [];
+  loggedInUser: User = new User();
 
   constructor(
     protected sys: SystemService,
@@ -43,6 +45,7 @@ export class KbCreateComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.loggedInUser = this.sys.loggedInUser;
     this.kbcatsys.list().subscribe(
       (res: KbCategory[]) => {
         this.kbCats = res;

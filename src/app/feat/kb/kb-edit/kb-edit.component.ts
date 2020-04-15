@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { KbCategoryService } from '../kb-category.service';
 import { KbService } from '../kb.service';
 import { BcmsComponent } from '@feat/common/bcms.component';
+import { User } from '@feat/user/user.class';
 
 @Component({
   selector: 'app-kb-edit',
@@ -17,6 +18,7 @@ export class KbEditComponent extends BcmsComponent implements OnInit {
   kb: Kb = new Kb();
   kbCats: KbCategory[] = [];
   kbId: number = 0;
+  loggedInUser: User = new User();
 
   constructor(
     protected sys: SystemService,
@@ -44,6 +46,7 @@ export class KbEditComponent extends BcmsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loggedInUser = this.sys.loggedInUser;
     this.kbcatsys.list().subscribe(
       (res: KbCategory[]) => {
         this.kbCats = res;
