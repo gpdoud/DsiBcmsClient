@@ -1,15 +1,62 @@
 import { Component, OnInit } from '@angular/core';
+import { BcmsComponent } from '@feat/common/bcms.component';
+import { SystemService } from '@system/system.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { KbService } from '../kb.service';
+import { Kb } from '../kb.class';
+import { KbCategoryService } from '../kb-category.service';
+import { KbCategory } from '../kb-category.class';
 
 @Component({
   selector: 'app-kb-detail',
-  templateUrl: './kb-detail.component.html',
-  styleUrls: ['./kb-detail.component.css']
+  templateUrl: '../kb-form.component.html',
+  styleUrls: ['../kb-form.component.css']
 })
-export class KbDetailComponent implements OnInit {
+export class KbDetailComponent extends BcmsComponent implements OnInit {
 
-  constructor() { }
+  kb: Kb = new Kb();
+  kbCats: KbCategory[] = [];
+  kbId: number = 0;
+
+  constructor(
+    protected sys: SystemService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private kbcatsys: KbCategoryService,
+    private kbsvc: KbService
+  ) { 
+    super(sys);
+    this.pageTitle = "Kb Detail";
+    this.readonly = true;
+    this.verified = false;
+  }
+
+  edit(): void {
+    this.router.navigateByUrl(`/kbs/edit/${this.kb.id}`);
+  }
+  delete(): void {}
+  verifyDelete(): void {}
 
   ngOnInit() {
+    this.kbcatsys.list().subscribe(
+      (res: KbCategory[]) => {
+        this.kbCats = res;
+        this.sys.log.debug("KbCategories:", res);
+      },
+      err => {
+        this.sys.log.err("Failed to read KbCategories:", err);
+      }
+    );
+    this.kbId = this.route.snapshot.params.id;
+    this.kbsvc.get(this.kbId).subscribe(
+      (res: Kb) => {
+        this.kb = res;
+        this.sys.log.debug("Kb:", res);
+      },
+      err => {
+        this.sys.log.err("Failed to read Kb:", this.kbId, err);
+      }
+    );
   }
 
 }

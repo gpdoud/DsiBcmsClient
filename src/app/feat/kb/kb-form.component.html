@@ -1,0 +1,106 @@
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span> | 
+            <span><a routerLink="/kbs/list">Back to list ...</a></span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <form>
+            <table class="table table-sm" *ngIf="kb">
+                <tr>
+                    <td>Id:</td>
+                    <td>{{kb.id}}</td>
+                </tr>
+                <tr>
+                    <td>User:</td>
+                    <td>
+                        <span *ngIf="kb.user">{{sys.loggedInUser.lastname}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Category:</td>
+                    <td>
+                        <select id="category" [(ngModel)]="kb.kbCategoryId" [disabled]="readonly" [ngModelOptions]="{standalone: true}">
+                            <option *ngFor="let c of kbCats" value={{c.id}}>{{c.description}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Title:</td>
+                    <td>
+                        <input [(ngModel)]="kb.title" [disabled]="readonly" type="text" name="title" size="25">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Text:</td>
+                    <td><textarea [(ngModel)]="kb.text" [disabled]="readonly" name="text"
+                            cols="85" rows="2"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Response:</td>
+                    <td><textarea [(ngModel)]="kb.response" [disabled]="readonly" name="response"
+                            cols="85" rows="2"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Sticky:</td>
+                    <td><input [(ngModel)]="kb.sticky" [disabled]="readonly" type="checkbox" name="sticky" size="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Locked:</td>
+                    <td><input [(ngModel)]="kb.locked" [disabled]="readonly" type="checkbox" name="locked" size="10">
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td>Thread:</td>
+                    <td>
+                        <table class="table table-responsive-sm table-borderless">
+                            <tr>
+                                <td>Previous: {{kb.prevId}}</td>
+                                <td>Next:  {{kb.nextId}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>Active:</td>
+                    <td><input [(ngModel)]="kb.active" [disabled]="readonly" type="checkbox" name="active" size="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Created:</td>
+                    <td>{{kb.created | date:'short'}}</td>
+                </tr>
+                <tr>
+                    <td>Updated:</td>
+                    <td>{{kb.updated | date:'short'}}</td>
+                </tr>
+                <tr *ngIf="!readonly">
+                    <td colspan="2">
+                        <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                    </td>
+                </tr>
+                <tr *ngIf="readonly">
+                    <td colspan="2">
+                        <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                        <span> | </span>
+                        <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                        <span *ngIf="verified"> |
+                            <span>
+                                <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

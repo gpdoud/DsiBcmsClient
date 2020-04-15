@@ -13,6 +13,7 @@ import { KbCategory } from '../kb-category.class';
 export class KbCategoryEditComponent extends BcmsComponent implements OnInit {
 
   kbCat: KbCategory = null;
+  kbCatId: number = 0;
 
   save(): void {
     this.kbcatsys.change(this.kbCat).subscribe(

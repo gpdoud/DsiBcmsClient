@@ -9,8 +9,8 @@ export class Kb {
     response: string = '';
     sticky: boolean = false;
     locked: boolean = false;
-    nextId: boolean = false;
-    prevId: boolean = false;
+    nextId: number = 0;
+    prevId: number = 0;
 
     userId: number = 0;
     user: User = null;
@@ -19,8 +19,11 @@ export class Kb {
     kbCategory: KbCategory = null;
 
     active: boolean = true;
+    created: string = '';
+    updated: string = '';
 
     username: string = '';
+    categorycode: string = '';
 
     constructor() {}
 }
