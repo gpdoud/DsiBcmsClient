@@ -25,7 +25,7 @@
                 <td>{{ kbc.description }}</td>
                 <td>{{ kbc.active | bool }}</td>
                 <td id="actions">
-                    <a routerLink="/kbcats/detail/{{kbc.id}}">Detail</a> |
+                    <!-- <a routerLink="/kbcats/detail/{{kbc.id}}">Detail</a> | -->
                     <a routerLink="/kbcats/edit/{{kbc.id}}">Edit</a> |
                     <a (click)="remove(kbc.id)" class="">Delete</a>
                     <span *ngIf="verified && kbc.id === kbCatId"> |

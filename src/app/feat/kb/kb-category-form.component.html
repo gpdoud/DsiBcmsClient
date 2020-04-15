@@ -2,10 +2,8 @@
 <main>
     <section class="page-header">
         <div class="left">
-            <span class="page-title">{{pageTitle}}</span>
-            <!-- <span *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)"> |
-                <span><a routerLink="/assessments/list/{{cohortId}}">Back to list ...</a></span>
-            </span> -->
+            <span class="page-title">{{pageTitle}}</span> |
+            <span><a routerLink="/kbcats/list">Back to list ...</a></span>
         </div>
         <div class="right">
             <span class="message"></span>
@@ -33,6 +31,14 @@
                     <td>Active:</td>
                     <td><input [(ngModel)]="kbCat.active" [disabled]="readonly" type="checkbox" name="active" size="10">
                     </td>
+                </tr>
+                <tr>
+                    <td>Created:</td>
+                    <td>{{kbCat.created | date:'short'}}</td>
+                </tr>
+                <tr>
+                    <td>Updated:</td>
+                    <td>{{kbCat.updated | date:'short'}}</td>
                 </tr>
                 <tr *ngIf="!readonly">
                     <td colspan="2">

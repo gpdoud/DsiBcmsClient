@@ -4,6 +4,8 @@ export class KbCategory {
     code: string = '';
     description: string = '';
     active: boolean = true;
+    created: string = '';
+    updated: string = '';
 
     constructor() {}
 }
