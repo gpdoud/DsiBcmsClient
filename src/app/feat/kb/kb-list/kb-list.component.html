@@ -16,6 +16,8 @@
                 <td class="sortable"><a (click)="sort('categorycode')">Category</a></td>
                 <td class="sortable"><a (click)="sort('title')">Title</a></td>
                 <td class="sortable"><a (click)="sort('text')">Text</a></td>
+                <td class="sortable"><a (click)="sort('sticky')">Sticky</a></td>
+                <td class="sortable"><a (click)="sort('locked')">Locked</a></td>
                 <td class="sortable"><a (click)="sort('active')">Active</a></td>
                 <td>Actions</td>
             </tr>
@@ -27,6 +29,8 @@
                 <td>{{ kb.categorycode }}</td>
                 <td>{{ kb.title }}</td>
                 <td>{{ kb.text }}</td>
+                <td>{{ kb.sticky | bool }}</td>
+                <td>{{ kb.locked | bool }}</td>
                 <td>{{ kb.active | bool }}</td>
                 <td id="actions">
                     <a routerLink="/kbs/detail/{{kb.id}}">Detail</a> |
