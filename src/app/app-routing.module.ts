@@ -31,6 +31,8 @@ const routes: Routes = [
   { path: 'configs/edit/:key',                              component: feat.ConfigEditComponent },
           
   { path: 'enrollments/list/:id',                           component: feat.EnrollmentListComponent },
+
+  { path: 'devteam',                                        component: core.DevTeamComponent },
   
   { path: 'evals/list',                                     component: feat.EvaluationListComponent },
   { path: 'evals/detail/:id',                               component: feat.EvaluationDetailComponent },
