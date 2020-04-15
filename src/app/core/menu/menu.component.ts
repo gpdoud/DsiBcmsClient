@@ -28,6 +28,8 @@ export class MenuComponent implements OnInit {
     new Menu("About", "/about", "The BCMS About Page"),
     new Menu("Feedback", "/feedbacks/list", "The BCMS Feedback Page"),
     new Menu("Help", "/help", "The BCMS Helo Page"),
+    new Menu("Kb", "/kbs/list", "The BCMS Kb Page"),
+    new Menu("Kb Cat", "/kbcats/list", "The BCMS Kb Category Page"),
     new Menu("Login", "/login", "The Login/logout Page")
   ];
   constructor(

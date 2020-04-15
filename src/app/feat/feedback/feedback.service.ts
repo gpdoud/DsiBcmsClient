@@ -11,8 +11,7 @@ export class FeedbackService {
 
   constructor(
     private sys: SystemService,
-    private http: HttpClient,
-    private fbsvc: FeedbackService
+    private http: HttpClient
   ) { }
 
   list(): Observable<Feedback[]> {

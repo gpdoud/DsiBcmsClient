@@ -46,6 +46,16 @@ const routes: Routes = [
   { path: 'feedbacks/detail/:id',                           component: feat.FeedbackDetailComponent },
   { path: 'feedbacks/edit/:id',                             component: feat.FeedbackEditComponent },
 
+  { path: 'kbs/list',                                       component: feat.KbListComponent },
+  { path: 'kbs/create',                                     component: feat.KbCreateComponent },
+  { path: 'kbs/detail/:id',                                 component: feat.KbDetailComponent },
+  { path: 'kbs/edit/:id',                                   component: feat.KbEditComponent },
+
+  { path: 'kbcats/list',                                    component: feat.KbCategoryListComponent },
+  { path: 'kbcats/create',                                  component: feat.KbCategoryCreateComponent },
+  { path: 'kbcats/edit/:id',                                component: feat.KbCategoryEditComponent },
+//  { path: 'kbcats/detail/:id',                               component: feat.KbDetailComponent },
+
   { path: 'revisions',                                      component: core.RevisionsComponent },
 
   { path: 'login',                                          component: feat.UserLoginComponent },

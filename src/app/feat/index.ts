@@ -38,10 +38,10 @@ export { EvaluationDetailComponent } from '@eval/evaluation-detail/evaluation-de
 export { EvaluationStudentListComponent } from '@eval/evaluation-student-list/evaluation-student-list.component';
 export { EvaluationTakeComponent } from '@eval/evaluation-take/evaluation-take.component';
 export { EvaluationReviewComponent } from '@eval/evaluation-review/evaluation-review.component';
-export { EvaluationReviewItemComponent } from './eval/evaluation-review-item/evaluation-review-item.component';
-export { EvaluationSearchPipe } from './eval/evaluation-search.pipe';
-export { EvaluationTemplateOnlyPipe } from './eval/evaluation-template-only.pipe';
-export { EvaluationAssignComponent } from './eval/evaluation-assign/evaluation-assign.component';
+export { EvaluationReviewItemComponent } from '@eval/evaluation-review-item/evaluation-review-item.component';
+export { EvaluationSearchPipe } from '@eval/evaluation-search.pipe';
+export { EvaluationTemplateOnlyPipe } from '@eval/evaluation-template-only.pipe';
+export { EvaluationAssignComponent } from '@eval/evaluation-assign/evaluation-assign.component';
 
 
 export { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
@@ -49,6 +49,18 @@ export { FeedbackDetailComponent } from './feedback/feedback-detail/feedback-det
 export { FeedbackCreateComponent } from './feedback/feedback-create/feedback-create.component';
 export { FeedbackEditComponent } from './feedback/feedback-edit/feedback-edit.component';
 export { FeedbackSearchPipe } from './feedback/feedback-search.pipe';
+
+export { KbListComponent }      from '@kb/kb-list/kb-list.component';
+export { KbDetailComponent }    from '@kb/kb-detail/kb-detail.component';
+export { KbCreateComponent }    from '@kb/kb-create/kb-create.component';
+export { KbEditComponent }      from '@kb/kb-edit/kb-edit.component';
+export { KbSearchPipe }         from '@kb/kb-search.pipe';
+
+
+export { KbCategoryListComponent }      from '@kb/kb-category-list/kb-category-list.component';
+export { KbCategoryCreateComponent }    from '@kb/kb-category-create/kb-category-create.component';
+export { KbCategoryEditComponent }      from '@kb/kb-category-edit/kb-category-edit.component';
+
 
 export { QuestionListComponent } from '@quest/question-list/question-list.component';
 export { QuestionDetailComponent } from '@quest/question-detail/question-detail.component';
