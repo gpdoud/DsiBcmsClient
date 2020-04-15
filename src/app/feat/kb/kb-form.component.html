@@ -2,7 +2,7 @@
 <main>
     <section class="page-header">
         <div class="left">
-            <span class="page-title">{{pageTitle}}</span> | 
+            <span class="page-title">{{pageTitle}}</span> |
             <span><a routerLink="/kbs/list">Back to list ...</a></span>
         </div>
         <div class="right">
@@ -25,7 +25,8 @@
                 <tr>
                     <td>Category:</td>
                     <td>
-                        <select id="category" [(ngModel)]="kb.kbCategoryId" [disabled]="readonly" [ngModelOptions]="{standalone: true}">
+                        <select id="category" [(ngModel)]="kb.kbCategoryId" [disabled]="readonly"
+                            [ngModelOptions]="{standalone: true}">
                             <option *ngFor="let c of kbCats" value={{c.id}}>{{c.description}}</option>
                         </select>
                     </td>
@@ -38,13 +39,19 @@
                 </tr>
                 <tr>
                     <td>Text:</td>
-                    <td><textarea [(ngModel)]="kb.text" [disabled]="readonly" name="text"
-                            cols="85" rows="2"></textarea></td>
+                    <td><textarea [(ngModel)]="kb.text" [disabled]="readonly" name="text" cols="85" rows="2"></textarea>
+                    </td>
                 </tr>
                 <tr>
                     <td>Response:</td>
-                    <td><textarea [(ngModel)]="kb.response" [disabled]="readonly" name="response"
-                            cols="85" rows="2"></textarea></td>
+                    <td><textarea [(ngModel)]="kb.response" [disabled]="readonly" name="response" cols="85"
+                            rows="2"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Image:</td>
+                    <td>
+                        <input [(ngModel)]="kb.imagePath1" [disabled]="readonly" type="text" name="imagePath1" size="85">
+                    </td>
                 </tr>
                 <tr>
                     <td>Sticky:</td>

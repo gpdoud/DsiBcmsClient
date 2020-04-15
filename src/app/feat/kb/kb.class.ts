@@ -11,6 +11,7 @@ export class Kb {
     locked: boolean = false;
     nextId: number = 0;
     prevId: number = 0;
+    imagePath1: string = '';
 
     userId: number = 0;
     user: User = null;
