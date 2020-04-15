@@ -1,3 +1,8 @@
+.hosting, .hosting a {
+    color: silver;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
 .right-align {
     text-align: right;
     font-size: small;

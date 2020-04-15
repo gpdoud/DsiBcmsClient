@@ -16,6 +16,9 @@ export class FooterComponent implements OnInit {
   copyright: string = "Copyright (c) 2020";
   author: string = "Doud Systems, Inc.";
 
+  hostingCompany: string = 'Winhost - Premium Windows Hosting';
+  hostingUrl: string = 'http://winhost.com';
+
   constructor(
     private sys: SystemService,
     private cfg: ConfigService
