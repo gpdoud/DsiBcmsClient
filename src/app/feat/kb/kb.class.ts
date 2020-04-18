@@ -20,8 +20,8 @@ export class Kb {
     kbCategory: KbCategory = null;
 
     active: boolean = true;
-    created: string = '';
-    updated: string = '';
+    created: string = (new Date()).toISOString();
+    updated: string = null;
 
     username: string = '';
     categorycode: string = '';

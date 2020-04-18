@@ -4,8 +4,8 @@ export class KbCategory {
     code: string = '';
     description: string = '';
     active: boolean = true;
-    created: string = '';
-    updated: string = '';
+    created: string = (new Date()).toISOString();
+    updated: string = null;
 
     constructor() {}
 }

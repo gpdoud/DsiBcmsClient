@@ -36,8 +36,20 @@ export class KbDetailComponent extends BcmsComponent implements OnInit {
   edit(): void {
     this.router.navigateByUrl(`/kbs/edit/${this.kb.id}`);
   }
-  delete(): void {}
-  verifyDelete(): void {}
+  delete(): void {
+    this.verified = !this.verified;
+  }
+  verifyDelete(): void {
+    this.kbsvc.remove(this.kb).subscribe(
+      (res: any) => {
+        this.sys.log.debug("Delete Kb:", res);
+        this.router.navigateByUrl("/kbs/list");
+      },
+      err => {
+        this.sys.log.err("Failed to read Kb:", this.kbId, err);
+      }
+    );
+  }
 
   ngOnInit() {
     this.loggedInUser = this.sys.loggedInUser;
