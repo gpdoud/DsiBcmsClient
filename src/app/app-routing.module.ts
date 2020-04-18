@@ -31,6 +31,8 @@ const routes: Routes = [
   { path: 'configs/edit/:key',                              component: feat.ConfigEditComponent },
           
   { path: 'enrollments/list/:id',                           component: feat.EnrollmentListComponent },
+
+  { path: 'devteam',                                        component: core.DevTeamComponent },
   
   { path: 'evals/list',                                     component: feat.EvaluationListComponent },
   { path: 'evals/detail/:id',                               component: feat.EvaluationDetailComponent },
@@ -45,6 +47,16 @@ const routes: Routes = [
   { path: 'feedbacks/create',                               component: feat.FeedbackCreateComponent },
   { path: 'feedbacks/detail/:id',                           component: feat.FeedbackDetailComponent },
   { path: 'feedbacks/edit/:id',                             component: feat.FeedbackEditComponent },
+
+  { path: 'kbs/list',                                       component: feat.KbListComponent },
+  { path: 'kbs/create',                                     component: feat.KbCreateComponent },
+  { path: 'kbs/detail/:id',                                 component: feat.KbDetailComponent },
+  { path: 'kbs/edit/:id',                                   component: feat.KbEditComponent },
+
+  { path: 'kbcats/list',                                    component: feat.KbCategoryListComponent },
+  { path: 'kbcats/create',                                  component: feat.KbCategoryCreateComponent },
+  { path: 'kbcats/edit/:id',                                component: feat.KbCategoryEditComponent },
+//  { path: 'kbcats/detail/:id',                               component: feat.KbDetailComponent },
 
   { path: 'revisions',                                      component: core.RevisionsComponent },
 

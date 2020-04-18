@@ -1,0 +1,18 @@
+main {
+    text-align: center;
+}
+section {
+    text-align: left;
+    width: 70%;
+    display: inline-block;
+    margin: 70px auto 0 auto;
+    padding: 25px;
+    border: 1px solid silver;
+}
+div {
+    margin: 1rem 0;
+}
+.version, .status {
+    font-weight: bold;
+    color: red;
+}

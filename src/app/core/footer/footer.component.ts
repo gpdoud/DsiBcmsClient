@@ -15,6 +15,10 @@ export class FooterComponent implements OnInit {
   status: string = "Development";
   copyright: string = "Copyright (c) 2020";
   author: string = "Doud Systems, Inc.";
+  rights: string = "All rights reserved.";
+
+  hostingCompany: string = 'Winhost - Premium Windows Hosting';
+  hostingUrl: string = 'http://winhost.com';
 
   constructor(
     private sys: SystemService,
@@ -42,6 +46,7 @@ export class FooterComponent implements OnInit {
         case "status": this.status = cfg.dataValue; break;
         case "copyright": this.copyright = cfg.dataValue; break;
         case "author": this.author = cfg.dataValue; break;
+        case "rights": this.rights = cfg.dataValue; break;
       }
     });
   }

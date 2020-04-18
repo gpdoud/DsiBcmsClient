@@ -1,0 +1,66 @@
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span> |
+            <span><a routerLink="/kbcats/list">Back to list ...</a></span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <form>
+            <table class="table table-sm" *ngIf="kbCat">
+                <tr>
+                    <td>Id:</td>
+                    <td>{{kbCat.id}}</td>
+                </tr>
+                <tr>
+                    <td>Code:</td>
+                    <td>
+                        <input [(ngModel)]="kbCat.code" [disabled]="readonly" type="text" name="subject" size="15">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input [(ngModel)]="kbCat.description" [disabled]="readonly" type="text" name="description"
+                            size="25"></td>
+                </tr>
+                <tr>
+                    <td>Active:</td>
+                    <td><input [(ngModel)]="kbCat.active" [disabled]="readonly" type="checkbox" name="active" size="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Created:</td>
+                    <td>{{kbCat.created | date:'short'}}</td>
+                </tr>
+                <tr>
+                    <td>Updated:</td>
+                    <td>{{kbCat.updated | date:'short'}}</td>
+                </tr>
+                <tr *ngIf="!readonly">
+                    <td colspan="2">
+                        <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                    </td>
+                </tr>
+                <tr *ngIf="readonly">
+                    <td colspan="2">
+                        <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                        <span> | </span>
+                        <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                        <span *ngIf="verified"> |
+                            <span>
+                                <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

@@ -1,0 +1,9 @@
+a {
+    color: #007bff;
+}
+a:hover {
+    cursor: pointer;
+}
+td#actions {
+    width: 300px;
+}
