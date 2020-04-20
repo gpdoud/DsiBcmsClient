@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { E404Component, HomeComponent, AboutComponent, MenuComponent, MenuitemComponent,
           FooterComponent, HelpComponent, SortPipe, BoolDisplayPipe, MenuSecurityPipe, 
-          NotifyComponent, RevisionsComponent, DevTeamComponent } from './index';
+          NotifyComponent, RevisionsComponent, DevTeamComponent, 
+          LogListComponent, LogDetailComponent, LogCreateComponent, LogEditComponent
+        } from './index';
 
 
 @NgModule({
@@ -11,6 +13,7 @@ import { E404Component, HomeComponent, AboutComponent, MenuComponent, MenuitemCo
     E404Component, HomeComponent, AboutComponent
     , MenuComponent, MenuitemComponent, FooterComponent, HelpComponent, SortPipe, BoolDisplayPipe
     , MenuSecurityPipe, NotifyComponent, RevisionsComponent, DevTeamComponent
+    , LogListComponent, LogDetailComponent, LogCreateComponent, LogEditComponent
   ],
   imports: [
     CommonModule, RouterModule
@@ -19,6 +22,7 @@ import { E404Component, HomeComponent, AboutComponent, MenuComponent, MenuitemCo
     E404Component, HomeComponent, AboutComponent, FooterComponent, HelpComponent
     , MenuComponent, MenuitemComponent, SortPipe, BoolDisplayPipe, NotifyComponent
     , MenuSecurityPipe, NotifyComponent, RevisionsComponent, DevTeamComponent
+    , LogListComponent, LogDetailComponent, LogCreateComponent, LogEditComponent
   ]
 })
 export class CoreModule { }
