@@ -21,7 +21,7 @@ In both repos, the `master` branch is the code running in production. Developers
 
 All dev and testing work should be in the new branch. When ready and in the developer's branch, the developer should push their branch to GitHub after committing changes like this:
 
-`git push origin xx-yyyyy-#zz` // respond `yes` to no upstream history
+`git push origin xx-yyyyy-#zz` // respond `yes` to no upstream branch if it appears.
 
 Next, go to GitHub and create a `Pull Request` to merge the new branch back into the `dev` branch. Notify Greg.
 
