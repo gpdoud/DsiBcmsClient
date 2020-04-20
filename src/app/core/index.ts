@@ -11,6 +11,7 @@ export { LogListComponent } from './log/log-list/log-list.component';
 export { LogDetailComponent } from './log/log-detail/log-detail.component';
 export { LogCreateComponent } from './log/log-create/log-create.component';
 export { LogEditComponent } from './log/log-edit/log-edit.component';
+export { LogSearchPipe } from './log/log-search.pipe';
 export { MenuitemComponent } from './menu/menuitem.component';
 export { MenuSecurityPipe } from './menu/menu-security.pipe';
 export { NotifyComponent } from '@core/notify/notify.component';

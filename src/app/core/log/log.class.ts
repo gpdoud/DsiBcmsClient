@@ -1,10 +1,10 @@
 export class Log {
 
     id: number = 0;
-    timestamp: string = (new Date()).toISOString();
+    timestamp: Date = new Date();
     message: string = '';
-    serverity: LogSererity = LogSererity.Info;
+    severity: LogSeverity = LogSeverity.Info;
 
     constructor() {}
 }
-export enum LogSererity { Info, Warn, Error, Fatal }
+export enum LogSeverity { Info, Warn, Error, Fatal }
