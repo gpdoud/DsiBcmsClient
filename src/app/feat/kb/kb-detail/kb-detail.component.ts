@@ -18,7 +18,11 @@ export class KbDetailComponent extends BcmsComponent implements OnInit {
   kb: Kb = new Kb();
   kbCats: KbCategory[] = [];
   kbId: number = 0;
-  loggedInUser: User = new User();
+  loggedInUser: User;
+  get canMaint(): boolean { 
+    return this.sys.loggedInUser && this.sys.loggedInUser.role
+    && (this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin || this.sys.loggedInUser.role.isInstructor); 
+  }
 
   constructor(
     protected sys: SystemService,
@@ -52,6 +56,7 @@ export class KbDetailComponent extends BcmsComponent implements OnInit {
   }
 
   ngOnInit() {
+    super.ngOnInit();
     this.loggedInUser = this.sys.loggedInUser;
     this.kbcatsys.list().subscribe(
       (res: KbCategory[]) => {
