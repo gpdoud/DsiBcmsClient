@@ -6,6 +6,8 @@ import { User } from '../user.class';
 import { NotFound } from '../../common/not-found.class';
 import { IpService } from '@core/ip/ip.service';
 import { Ip } from '@core/ip/ip.class';
+import { LogService } from '@core/log/log.service';
+import { Log, LogSeverity } from '@core/log/log.class';
 
 @Component({
   selector: 'app-user-login',
@@ -21,6 +23,7 @@ export class UserLoginComponent implements OnInit {
 
   constructor(
     private ipsvc: IpService,
+    private logSvc: LogService,
     protected sys: SystemService,
     private usersvc: UserService,
     private router: Router
@@ -29,6 +32,8 @@ export class UserLoginComponent implements OnInit {
   login(): void {
     this.usersvc.login(this.user.username, this.user.password).subscribe(
       res => {
+        let log: Log = new Log(`Login: ${this.user.username}`);
+        this.logSvc.create(log).subscribe(res => {});
         this.sys.setLoggedInUser(res);
         this.sys.log.debug("Login successful!", res);
         this.router.navigateByUrl("/home");
@@ -55,6 +60,8 @@ export class UserLoginComponent implements OnInit {
       }
     );
     // this.sys.log.warn("Login fixed in user-login.component line 57.")
+    let log = new Log(`Login init: Forced gpdoud as user`, LogSeverity.Warn);
+    // this.logSvc.create(log).subscribe(res => {}, err=> { console.error("Log failed! ", log, err); });
     // this.user.username = "gpdoud";
     // this.user.password = "maxpass";
     // this.sys.log.warn("Login as Sarah Bode in user-login.component line 57.")
