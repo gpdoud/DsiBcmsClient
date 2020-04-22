@@ -1,3 +1,15 @@
 button#refresh {
     padding: 0;
 }
+tr.log-info {
+    background-color: transparent;
+}
+tr.log-warn {
+    background-color: #e8d768;
+}
+tr.log-error {
+    background-color: #e49f3e;
+}
+tr.log-fatal {
+    background-color: #ef6963;
+}

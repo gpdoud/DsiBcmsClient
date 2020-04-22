@@ -21,11 +21,25 @@ export class LogListComponent extends BcmsListComponent implements OnInit {
     super(sys);
     this.pageTitle = "Log List";
     this.searchCriteria = '';
+    this.sortCriteria = 'id';
+    this.ascOrder = false;
+  }
+
+  addLineColor(logs: Log[]): void {
+    logs.forEach(log => {
+      switch(log.severity) {
+        case 0: log.lineColor = " log-info "; break;
+        case 1: log.lineColor = " log-warn "; break;
+        case 2: log.lineColor = " log-error "; break;
+        case 3: log.lineColor = " log-fatal "; break;
+      }
+    });
   }
 
   refresh(): void {
     this.logsvc.list().subscribe(
       (res: Log[]) => {
+        this.addLineColor(res);
         this.logs = res;
         this.sys.log.debug("Logs:", res);
       },

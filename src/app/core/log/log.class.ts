@@ -7,6 +7,8 @@ export class Log {
     message: string = '';
     severity: LogSeverity = LogSeverity.Info;
 
+    lineColor: string = '';
+
     constructor(msg: string = '', sev: LogSeverity = LogSeverity.Info) {
         this.id = 0;
         this.timestamp = new Date();
