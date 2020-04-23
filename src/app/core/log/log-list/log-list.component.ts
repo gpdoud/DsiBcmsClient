@@ -32,6 +32,8 @@ export class LogListComponent extends BcmsListComponent implements OnInit {
         case 1: log.lineColor = " log-warn "; break;
         case 2: log.lineColor = " log-error "; break;
         case 3: log.lineColor = " log-fatal "; break;
+        case 4: log.lineColor = " log-trace "; break;
+        case 5: log.lineColor = " log-debug "; break;
       }
     });
   }

@@ -16,4 +16,4 @@ export class Log {
         this.severity = sev;
     }
 }
-export enum LogSeverity { Info, Warn, Error, Fatal }
+export enum LogSeverity { Info, Warn, Error, Fatal, Trace, Debug }

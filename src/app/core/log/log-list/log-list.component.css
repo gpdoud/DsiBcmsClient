@@ -5,11 +5,17 @@ tr.log-info {
     background-color: transparent;
 }
 tr.log-warn {
-    background-color: #e8d768;
+    background-color: #ffffaa;
 }
 tr.log-error {
-    background-color: #e49f3e;
+    background-color: #ffedcc;
 }
 tr.log-fatal {
-    background-color: #ef6963;
+    background-color: #ffcccc;
+}
+tr.log-trace {
+    background-color: transparent;
+}
+tr.log-debug {
+    background-color: transparent;
 }

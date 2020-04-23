@@ -31,4 +31,24 @@ export class LogService {
   remove(id: any): Observable<any> {
     return this.http.post(`${this.serverUrl}/logs/delete/${id}`, null) as Observable<any>;
   }
+  // special functions
+  info(msg: string): Observable<Log> {
+    return this.http.post(`${this.serverUrl}/logs/info`, msg) as Observable<Log>;
+  }
+  warning(msg: string): Observable<Log> {
+    return this.http.post(`${this.serverUrl}/logs/warn`, msg) as Observable<Log>;
+  }
+  error(msg: string): Observable<Log> {
+    return this.http.post(`${this.serverUrl}/logs/error`, msg) as Observable<Log>;
+  }
+  fatal(msg: string): Observable<Log> {
+    return this.http.post(`${this.serverUrl}/logs/fatal`, msg) as Observable<Log>;
+  }
+  trace(msg: string): Observable<Log> {
+    return this.http.post(`${this.serverUrl}/logs/trace`, msg) as Observable<Log>;
+  }
+  debug(msg: string): Observable<Log> {
+    return this.http.post(`${this.serverUrl}/logs/debug`, msg) as Observable<Log>;
+  }
+
 }
