@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Log } from './log.class';
 import { AppInitService } from 'app/app-init.service';
+import { LogMessage } from './log-message.class';
 
 @Injectable({
   providedIn: 'root'
@@ -33,22 +34,22 @@ export class LogService {
   }
   // special functions
   info(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/info`, msg) as Observable<Log>;
+    return this.http.post(`${this.serverUrl}/logs/info`, new LogMessage(msg)) as Observable<Log>;
   }
   warning(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/warn`, msg) as Observable<Log>;
+    return this.http.post(`${this.serverUrl}/logs/warn`, new LogMessage(msg)) as Observable<Log>;
   }
   error(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/error`, msg) as Observable<Log>;
+    return this.http.post(`${this.serverUrl}/logs/error`, new LogMessage(msg)) as Observable<Log>;
   }
   fatal(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/fatal`, msg) as Observable<Log>;
+    return this.http.post(`${this.serverUrl}/logs/fatal`, new LogMessage(msg)) as Observable<Log>;
   }
   trace(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/trace`, msg) as Observable<Log>;
+    return this.http.post(`${this.serverUrl}/logs/trace`, new LogMessage(msg)) as Observable<Log>;
   }
   debug(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/debug`, msg) as Observable<Log>;
+    return this.http.post(`${this.serverUrl}/logs/debug`, new LogMessage(msg)) as Observable<Log>;
   }
 
 }
