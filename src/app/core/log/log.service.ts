@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Log } from './log.class';
+import { Log, LogSeverity } from './log.class';
 import { AppInitService } from 'app/app-init.service';
 import { LogMessage } from './log-message.class';
 
@@ -33,23 +33,31 @@ export class LogService {
     return this.http.post(`${this.serverUrl}/logs/delete/${id}`, null) as Observable<any>;
   }
   // special functions
-  info(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/info`, new LogMessage(msg)) as Observable<Log>;
+  success(res: any) { /* do nothing */ }
+  failure(res: any) { console.error(res); }
+
+  logMessage(msg: string, sev: LogSeverity): void {
+    let log: Log = new Log(msg, sev);
+    this.create(log).subscribe(res => this.success(res), err => this.failure(err));
   }
-  warning(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/warn`, new LogMessage(msg)) as Observable<Log>;
+  logInfo(msg: string): void {
+    this.logMessage(msg, LogSeverity.Info);
   }
-  error(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/error`, new LogMessage(msg)) as Observable<Log>;
+  logWarn(msg: string): void {
+    this.logMessage(msg, LogSeverity.Warn);
   }
-  fatal(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/fatal`, new LogMessage(msg)) as Observable<Log>;
+  logError(msg: string): void {
+    this.logMessage(msg, LogSeverity.Error);
   }
-  trace(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/trace`, new LogMessage(msg)) as Observable<Log>;
+  logFatal(msg: string): void {
+    this.logMessage(msg, LogSeverity.Fatal);
   }
-  debug(msg: string): Observable<Log> {
-    return this.http.post(`${this.serverUrl}/logs/debug`, new LogMessage(msg)) as Observable<Log>;
+  logTrace(msg: string): void {
+    this.logMessage(msg, LogSeverity.Trace);
   }
+  logDebug(msg: string): void {
+    this.logMessage(msg, LogSeverity.Debug);
+  }
+
 
 }
