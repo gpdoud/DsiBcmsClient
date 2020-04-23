@@ -28,12 +28,12 @@ export class LogListComponent extends BcmsListComponent implements OnInit {
   addLineColor(logs: Log[]): void {
     logs.forEach(log => {
       switch(log.severity) {
-        case 0: log.lineColor = " log-info "; break;
-        case 1: log.lineColor = " log-warn "; break;
-        case 2: log.lineColor = " log-error "; break;
-        case 3: log.lineColor = " log-fatal "; break;
-        case 4: log.lineColor = " log-trace "; break;
-        case 5: log.lineColor = " log-debug "; break;
+        case 0: log.lineColor = " actions log-info "; log.severityText = "Info"; break;
+        case 1: log.lineColor = " actions log-warn "; log.severityText = "Warn"; break;
+        case 2: log.lineColor = " actions log-error "; log.severityText = "Error"; break;
+        case 3: log.lineColor = " actions log-fatal "; log.severityText = "Fatal"; break;
+        case 4: log.lineColor = " actions log-trace "; log.severityText = "Trace"; break;
+        case 5: log.lineColor = " actions log-debug "; log.severityText = "Debug"; break;
       }
     });
   }

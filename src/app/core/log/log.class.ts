@@ -8,6 +8,7 @@ export class Log {
     severity: LogSeverity = LogSeverity.Info;
 
     lineColor: string = '';
+    severityText: string = '';
 
     constructor(msg: string = '', sev: LogSeverity = LogSeverity.Info) {
         this.id = 0;

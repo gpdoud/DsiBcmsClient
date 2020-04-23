@@ -14,9 +14,9 @@
             <tr>
                 <td class="sortable"><a (click)="sort('id')">Id</a></td>
                 <td class="sortable"><a (click)="sort('message')">Message</a></td>
-                <td class="sortable"><a (click)="sort('timestamp')">Timestamp</a></td>
-                <td class="sortable"><a (click)="sort('severity')">Severity</a></td>
-                <td>Actions</td>
+                <td class="sortable timestamp"><a (click)="sort('timestamp')">Timestamp</a></td>
+                <td class="sortable severity"><a (click)="sort('severityText')">Severity</a></td>
+                <td class="actions">Actions</td>
             </tr>
         </thead>
         <tbody>
@@ -24,14 +24,7 @@
                 <td>{{x.id}}</td>
                 <td>{{x.message}}</td>
                 <td>{{x.timestamp | date:'medium'}}</td>
-                <td [ngSwitch]="x.severity">
-                    <span *ngSwitchCase="0">Info</span>
-                    <span *ngSwitchCase="1">Warn</span>
-                    <span *ngSwitchCase="2">Error</span>
-                    <span *ngSwitchCase="3">Fatal</span>
-                    <span *ngSwitchCase="4">Trace</span>
-                    <span *ngSwitchCase="5">Debug</span>
-                </td>
+                <td>{{x.severityText}}</td>
                 <td>
                     <span><a routerLink="/logs/detail/{{x.id}}" class="">Detail</a></span>
                     <span> | </span>

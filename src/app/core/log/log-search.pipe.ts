@@ -15,11 +15,12 @@ export class LogSearchPipe implements PipeTransform {
         log.id.toString().includes(criteria)
           || log.timestamp.toString().toLowerCase().includes(criteria)
           || log.message.toLowerCase().includes(criteria)
-          || log.severity.toString().toLowerCase().includes(criteria)
+          || log.severityText.toString().toLowerCase().includes(criteria)
       ) { 
         selLogs.push(log);
       }
     }
+    return selLogs;
   }
 
 }

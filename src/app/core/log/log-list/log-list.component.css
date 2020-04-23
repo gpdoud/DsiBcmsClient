@@ -19,3 +19,12 @@ tr.log-trace {
 tr.log-debug {
     background-color: transparent;
 }
+td.actions {
+    width: 110px;
+}
+td.severity {
+    width: 80px;
+}
+td.timestamp {
+    width: 220px;
+}
