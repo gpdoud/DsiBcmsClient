@@ -19,9 +19,13 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent,
             EvaluationSearchPipe, EvaluationTemplateOnlyPipe, EvaluationAssignComponent, EvaluationReviewItemComponent
             , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
-            , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent
+            , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent,
+             CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
         } from './index';
 import { KbCategorySearchPipe } from './kb/kb-category-search.pipe';
+
+
+
         
         @NgModule({
             declarations: [
@@ -42,7 +46,7 @@ import { KbCategorySearchPipe } from './kb/kb-category-search.pipe';
                 EvaluationCreateComponent, EvaluationEditComponent, EvaluationDetailComponent, EvaluationTakeComponent, 
                 EvaluationSearchPipe, EvaluationTemplateOnlyPipe, EvaluationAssignComponent, EvaluationReviewItemComponent
                 , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
-                , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
+                , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe, CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [
