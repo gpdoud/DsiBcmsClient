@@ -14,7 +14,7 @@ export class CommentarySearchPipe implements PipeTransform {
         commentary.id.toString().toLowerCase().includes(criteria.toLowerCase()) ||
         commentary.text.toLowerCase().includes(criteria.toLowerCase()) ||
         (commentary.lastAccessUserId != null && commentary.lastAccessUserId.toString().toLowerCase().includes(criteria.toLowerCase())) ||
-        (commentary.userId != null && commentary.userId.toString().toLowerCase().includes(criteria.toLowerCase()))
+        (commentary.studentId != null && commentary.studentId.toString().toLowerCase().includes(criteria.toLowerCase()))
       ){selCommentaries.push(commentary);}
     });
     return selCommentaries;

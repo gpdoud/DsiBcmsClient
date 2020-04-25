@@ -6,8 +6,9 @@ export class Commentary {
     lastAccessUserId?: number;
     created: string;
     updated: string;
-    userId: number = 0;
-    user: User;
+    studentId?: number;
+    student: User;
+    studentName: string;
 
     constructor () {}
 }
