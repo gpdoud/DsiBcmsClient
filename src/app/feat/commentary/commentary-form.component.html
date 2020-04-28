@@ -32,13 +32,20 @@
                 <tr>
                     <td>Text:</td>
                     <td>
-                        <input [(ngModel)]="commentary.text" [disabled]="readonly" type="text" name="text" size="5000">
+                        <input [(ngModel)]="commentary.text" [disabled]="readonly" type="text" name="text">
                     </td>
                 </tr>
                 <tr>
                     <td>Student:</td>
-                    <td><input [(ngModel)] = "commentary.student.firstname && commentary.student.lastname" type = "text" size="20" disabled>
+                    <td><input [(ngModel)] = "commentary.studentName" type = "text" size="20" disabled>
                     </td>
+                </tr>
+                <tr>
+                    <th>Sensitive Information:</th>
+                    <td>
+                    <input [(ngModel)] = "commentary.sensitive" type="checkbox">
+                    </td>
+                </tr>
                 <tr>
                     <td>Created:</td>
                     <td>{{commentary.created | date:'short'}}</td>
