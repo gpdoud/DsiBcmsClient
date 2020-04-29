@@ -5,7 +5,7 @@
         <div class="left">
             <span class="page-title">{{pageTitle}}</span>
             <span *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)"> |
-                <span><a routerLink="/commentaries/list/{{studentId}}">Back to list ...</a></span>
+                <span><a routerLink="/commentaries/list/{{commentary.studentId}}">Back to list ...</a></span>
             </span>
         </div>
         <div class="right">
@@ -24,11 +24,6 @@
                     <td><input [(ngModel)] = "commentary.user.firstname && commentary.user.lastname" type = "text" size="20" disabled>
                     </td>
                 </tr>                
-                <tr>
-                    <td>Date:</td>
-                    <td><input [ngModel]="commentary.date | date:'yyyy-MM-dd'"  (ngModelChange)="commentary.date = $event"
-                        [disabled]="readonly" type="date" autocomplete="date" name="date" size="10"></td>
-                </tr>
                 <tr>
                     <td>Text:</td>
                     <td>

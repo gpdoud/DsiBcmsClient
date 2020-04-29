@@ -9,7 +9,7 @@ import { UserService } from '@feat/user/user.service';
 
 @Component({
   selector: 'app-commentary-detail',
-  templateUrl: '../cohort-form.component.html',
+  templateUrl: '../commentary-form.component.html',
   styleUrls: ['./commentary-detail.component.css']
 })
 export class CommentaryDetailComponent extends BcmsComponent implements OnInit {

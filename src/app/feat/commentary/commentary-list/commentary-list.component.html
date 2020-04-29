@@ -12,7 +12,7 @@
     <table class="table table-sm">
         <thead>
             <tr>
-                <th>Id</a></th>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Username</th>
                 <th>Phones (cell/work)</th>
@@ -23,13 +23,13 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{u.id}}</td>
-                <td>{{u.firstname}} {{u.lastname}}</td>
-                <td>{{u.username}}</td>
-                <td>{{u.cellPhone}} / {{u.workPhone}}</td>
-                <td>{{u.email}}</td>
-                <td>{{u.pinCode}}</td>
-                <td>{{u.role.name}}</td>
+                <td>{{user.id}}</td>
+                <td>{{user.firstname}} {{user.lastname}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.cellPhone}} / {{user.workPhone}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.pinCode}}</td>
+                <td>{{user.role.name}}</td>
             </tr>
         </tbody>
     </table>
@@ -43,14 +43,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let c of commentaries | commentarySrch:searchCriteria | sort:sortCriteria:date&time,descOrder"> 
-                <td>{{c.id}}</td>
-                <td>{{c.text}}</td>
-                <td>{{c.user != null ? c.user.username: "Undeclared"}}</td>
+            <tr *ngFor="let cm of commentaries | commentarySrch:searchCriteria | sort:sortCriteria: ascOrder"> 
+                <td>{{cm.id}}</td>
+                <td>{{cm.text}}</td>
+                <td>{{cm.user != null ? cm.user.username: "Undeclared"}}</td>
                 <td>
-                    <span><a routerLink="/commentaries/detail/{{c.id}}" class="">Detail</a></span>
+                    <span><a routerLink="/commentaries/detail/{{cm.id}}" class="">Detail</a></span>
                     <span> | </span>
-                    <span><a routerLink="/commentaries/edit/{{c.id}}" class="">Edit</a></span>
+                    <span><a routerLink="/commentaries/edit/{{cm.id}}" class="">Edit</a></span>
                 </td>
             </tr>
         </tbody>
