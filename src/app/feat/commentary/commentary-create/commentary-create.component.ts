@@ -3,7 +3,7 @@ import { Commentary } from '../commentary.class';
 import { BcmsComponent } from '@feat/common/bcms.component';
 import { SystemService } from '@system/system.service';
 import { CommentaryService } from '../commentary.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-commentary-create',
@@ -12,11 +12,13 @@ import { Router } from '@angular/router';
 })
 export class CommentaryCreateComponent extends BcmsComponent implements OnInit {
 
+  studentId: number = 0;
   commentary: Commentary = new Commentary();
   
   constructor(
     protected sys: SystemService,
     private commentarysvc: CommentaryService,
+    private route: ActivatedRoute,
     private router: Router
     ) {
       super(sys);
@@ -25,11 +27,12 @@ export class CommentaryCreateComponent extends BcmsComponent implements OnInit {
   }
 
   save(): void {
-    this.commentary.lastAccessUserId = Number(this._loggedInUser.id);
+    this.commentary.studentId = Number(this.route.snapshot.params.studentId);
+    this.commentary.lastAccessUserId = Number(this.sys.loggedInUser.id);
     this.commentarysvc.create(this.commentary).subscribe(
       res => {
         this.sys.log.debug("Create successful!", res);
-        this.router.navigateByUrl("/commentaries/list");
+        this.router.navigateByUrl(`/commentaries/list/${this.commentary.studentId}`);
       },
       err => {
         this.sys.log.err(err);

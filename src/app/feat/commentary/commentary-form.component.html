@@ -21,7 +21,7 @@
                 </tr>
                 <tr *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin || _loggedInUser.role.isInstructor)">
                     <td>Commentator:</td>
-                    <td><input [(ngModel)] = "commentary.user.firstname && commentary.user.lastname" type = "text" size="20" disabled>
+                    <td><input [(ngModel)] = "commentary.user.firstname && commentary.user.lastname" type = "text" size="20" name="lastname" disabled>
                     </td>
                 </tr>                
                 <tr>
@@ -32,13 +32,13 @@
                 </tr>
                 <tr>
                     <td>Student:</td>
-                    <td><input [(ngModel)] = "commentary.studentName" type = "text" size="20" disabled>
+                    <td><input [(ngModel)] = "commentary.studentName" type = "text" size="20" name="studentname" disabled>
                     </td>
                 </tr>
                 <tr>
                     <th>Sensitive Information:</th>
                     <td>
-                    <input [(ngModel)] = "commentary.sensitive" type="checkbox">
+                    <input [(ngModel)] = "commentary.sensitive" type="checkbox" name="sensitive">
                     </td>
                 </tr>
                 <tr>
