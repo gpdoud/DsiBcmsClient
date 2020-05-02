@@ -42,8 +42,8 @@
                 <td>Actions</td>
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let cm of commentaries | commentarySrch:searchCriteria | sort:sortCriteria: ascOrder"> 
+        <tbody *ngIf="user">
+            <tr *ngFor="let cm of user.commentaries | commentarySrch:searchCriteria | sort:sortCriteria: ascOrder"> 
                 <td>{{cm.id}}</td>
                 <td>{{cm.text}}</td>
                 <td>{{cm.user != null ? cm.user.username: "Undeclared"}}</td>
