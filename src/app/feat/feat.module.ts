@@ -19,7 +19,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent,
             EvaluationSearchPipe, EvaluationTemplateOnlyPipe, EvaluationAssignComponent, EvaluationReviewItemComponent
             , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
-            , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent,, KbCategorySearchPipe
+            , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
             , CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
         } from './index';
 

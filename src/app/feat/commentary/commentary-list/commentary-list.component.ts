@@ -34,10 +34,9 @@ constructor(
 
   ngOnInit(): void {
     super.ngOnInit();
-    this.userId = this.route.snapshot.params.id;
+    this.userId = this.route.snapshot.params.studentId;
       this.refresh();
-      let id = this.route.snapshot.params.id
-      this.usersvc.get(id).subscribe(
+      this.usersvc.get(this.userId).subscribe(
         res =>{
           this.user = res;
           console.debug("Student:", res);

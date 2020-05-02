@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Commentary } from './commentary.class';
 
 @Pipe({
-  name: 'commentarySearch'
+  name: 'commentarySrch'
 })
 export class CommentarySearchPipe implements PipeTransform {
 

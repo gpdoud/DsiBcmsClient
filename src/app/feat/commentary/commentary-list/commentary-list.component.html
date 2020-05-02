@@ -3,7 +3,7 @@
 <div>
     <span>{{pageTitle}}</span>
     <span> | </span>
-    <span><a routerLink="/commentaries/create/{{studentId}}" class="">Create</a></span>
+    <span><a routerLink="/commentaries/create/{{userId}}" class="">Create</a></span>
     <span> | </span>
     <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
 
@@ -18,7 +18,7 @@
                 <th>Phones (cell/work)</th>
                 <th>Email</th>
                 <th>Pin</th>
-                <th>Role</th>
+                <!-- <th>Role</th> -->
             </tr>
         </thead>
         <tbody>
@@ -29,7 +29,7 @@
                 <td>{{user.cellPhone}} / {{user.workPhone}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.pinCode}}</td>
-                <td>{{user.role.name}}</td>
+                <!-- <td *ngIf="user && user.role">{{user.role.name}}</td> -->
             </tr>
         </tbody>
     </table>

@@ -23,6 +23,12 @@ export { CohortCreateComponent } from '@cohort/cohort-create/cohort-create.compo
 export { CohortEditComponent } from '@cohort/cohort-edit/cohort-edit.component';
 export { CohortSearchPipe } from '@cohort/cohort-search.pipe';
 
+export { CommentaryListComponent } from './commentary/commentary-list/commentary-list.component';
+export { CommentaryEditComponent } from './commentary/commentary-edit/commentary-edit.component';
+export { CommentaryDetailComponent } from './commentary/commentary-detail/commentary-detail.component';
+export { CommentaryCreateComponent } from './commentary/commentary-create/commentary-create.component';
+export { CommentarySearchPipe } from './commentary/commentary-search.pipe';
+
 export { ConfigListComponent } from '@config/config-list/config-list.component';
 export { ConfigEditComponent } from '@config/config-edit/config-edit.component';
 export { ConfigCreateComponent } from '@config/config-create/config-create.component';
@@ -79,9 +85,3 @@ export { UserDetailComponent } from '@user/user-detail/user-detail.component';
 export { UserCreateComponent } from '@user/user-create/user-create.component';
 export { UserEditComponent } from '@user/user-edit/user-edit.component';
 export { UserSearchPipe } from '@user/user-search.pipe';
-
-export { CommentaryListComponent } from './commentary/commentary-list/commentary-list.component';
-export { CommentaryEditComponent } from './commentary/commentary-edit/commentary-edit.component';
-export { CommentaryDetailComponent } from './commentary/commentary-detail/commentary-detail.component';
-export { CommentaryCreateComponent } from './commentary/commentary-create/commentary-create.component';
-export { CommentarySearchPipe } from './commentary/commentary-search.pipe';
