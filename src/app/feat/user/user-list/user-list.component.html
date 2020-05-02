@@ -35,6 +35,9 @@
                     <span><a routerLink="/users/detail/{{u.id}}" class="">Detail</a></span>
                     <span> | </span>
                     <span><a routerLink="/users/edit/{{u.id}}" class="">Edit</a></span>
+                    <span *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)"> |
+                        <span><a routerLink="/commentaries/list/{{u.id}}">Comment</a></span>
+                    </span>
                 </td>
             </tr>
         </tbody>

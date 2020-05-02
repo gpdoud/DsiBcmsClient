@@ -1,0 +1,75 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+            <span *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)"> |
+                <span><a routerLink="/commentaries/list/{{commentary.studentId}}">Back to list ...</a></span>
+            </span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <form>
+            <table class="table table-sm" *ngIf="commentary">
+                <tr>
+                    <td>Id:</td>
+                    <td>{{commentary.id}}</td>
+                </tr>
+                <tr *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin || _loggedInUser.role.isInstructor)">
+                    <td>Commentator:</td>
+                    <td><input [(ngModel)] = "commentary.user.firstname && commentary.user.lastname" type = "text" size="20" disabled>
+                    </td>
+                </tr>                
+                <tr>
+                    <td>Text:</td>
+                    <td>
+                        <input [(ngModel)]="commentary.text" [disabled]="readonly" type="text" name="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Student:</td>
+                    <td><input [(ngModel)] = "commentary.studentName" type = "text" size="20" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Sensitive Information:</th>
+                    <td>
+                    <input [(ngModel)] = "commentary.sensitive" type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Created:</td>
+                    <td>{{commentary.created | date:'short'}}</td>
+                </tr>
+                <tr>
+                    <td>Updated:</td>
+                    <td>{{commentary.updated | date:'short'}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                    </td>
+                </tr>
+                <tr *ngIf="readonly">
+                    <td colspan="2">
+                        <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                        <span> | </span>
+                        <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                        <span *ngIf="verified"> |
+                            <span>
+                                <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

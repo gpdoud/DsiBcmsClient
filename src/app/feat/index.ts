@@ -80,3 +80,8 @@ export { UserCreateComponent } from '@user/user-create/user-create.component';
 export { UserEditComponent } from '@user/user-edit/user-edit.component';
 export { UserSearchPipe } from '@user/user-search.pipe';
 
+export { CommentaryListComponent } from './commentary/commentary-list/commentary-list.component';
+export { CommentaryEditComponent } from './commentary/commentary-edit/commentary-edit.component';
+export { CommentaryDetailComponent } from './commentary/commentary-detail/commentary-detail.component';
+export { CommentaryCreateComponent } from './commentary/commentary-create/commentary-create.component';
+export { CommentarySearchPipe } from './commentary/commentary-search.pipe';
