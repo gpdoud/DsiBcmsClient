@@ -58,6 +58,11 @@ const routes: Routes = [
   { path: 'kbcats/edit/:id',                                component: feat.KbCategoryEditComponent },
 //  { path: 'kbcats/detail/:id',                               component: feat.KbDetailComponent },
 
+  { path: 'logs/list',                                      component: core.LogListComponent },
+  { path: 'logs/create',                                    component: core.LogCreateComponent },
+  { path: 'logs/detail/:id',                                component: core.LogDetailComponent },
+  { path: 'logs/edit/:id',                                  component: core.LogEditComponent },
+
   { path: 'revisions',                                      component: core.RevisionsComponent },
 
   { path: 'login',                                          component: feat.UserLoginComponent },

@@ -6,6 +6,8 @@ import { User } from '../user.class';
 import { NotFound } from '../../common/not-found.class';
 import { IpService } from '@core/ip/ip.service';
 import { Ip } from '@core/ip/ip.class';
+import { LogService } from '@core/log/log.service';
+import { Log, LogSeverity } from '@core/log/log.class';
 
 @Component({
   selector: 'app-user-login',
@@ -21,6 +23,7 @@ export class UserLoginComponent implements OnInit {
 
   constructor(
     private ipsvc: IpService,
+    private logSvc: LogService,
     protected sys: SystemService,
     private usersvc: UserService,
     private router: Router
@@ -29,8 +32,10 @@ export class UserLoginComponent implements OnInit {
   login(): void {
     this.usersvc.login(this.user.username, this.user.password).subscribe(
       res => {
+        let msg = `${res.firstname} ${res.lastname} has logged in.`;
+        this.logSvc.logInfo(msg);
         this.sys.setLoggedInUser(res);
-        this.sys.log.debug("Login successful!", res);
+        this.sys.log.debug(msg, res);
         this.router.navigateByUrl("/home");
       },
       err => { 
@@ -55,11 +60,10 @@ export class UserLoginComponent implements OnInit {
       }
     );
     // this.sys.log.warn("Login fixed in user-login.component line 57.")
+    // let msg = `*** WARNING: Forced gpdoud as user ***`;
+    // this.logSvc.warning(msg).subscribe(res => console.warn(res), err => console.error(err));
     // this.user.username = "gpdoud";
     // this.user.password = "maxpass";
-    // this.sys.log.warn("Login as Sarah Bode in user-login.component line 57.")
-    // this.user.username = "sbode";
-    // this.user.password = "Train@MAX";
     if (!this.sys.config.checkLogin) {
       this.login();
     }

@@ -5,6 +5,7 @@ import { Ip } from './ip.class';
 import { AppInitService } from 'app/app-init.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { LogService } from '@core/log/log.service';
 
 const DoudIp: string = "69.133.52.201";
 const DoudPhoneIp: string = "174.233.133.93";
@@ -47,12 +48,14 @@ export class IpService {
   getCurrentIp(): void {
     this.http.get(GetIpUrl).subscribe(
       (res: Ip) => {
+        this.logSvc.logDebug(`Previous IP is ${this.currentIp}; Current IP is ${res.ip}`);
         this.log.debug("PrevIp:", this.currentIp, ", CurrIp:", res.ip);
         if(this.currentIp !== res.ip) {
           this.router.navigateByUrl("/login");
         }
         this.currentIp = res.ip;
         this.setIsValidIp(this.currentIp);
+        this.logSvc.logDebug(`New current IP is ${this.currentIp}`);
         this.log.debug(`IP: ${this.currentIp}`)
       },
       err => {
@@ -65,6 +68,7 @@ export class IpService {
     private init: AppInitService,
     private http: HttpClient,
     private log: LoggerService,
+    private logSvc: LogService,
     private router: Router
   ) {
     this.getCurrentIp();

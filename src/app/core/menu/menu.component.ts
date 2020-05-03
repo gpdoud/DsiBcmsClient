@@ -17,19 +17,20 @@ export class MenuComponent implements OnInit {
 
   menus: Menu[] = [
     new Menu("BCMS", "/home", "The BCMS Home Page"),
-    new Menu("Evaluations", "/evals/stud/list", "Student Evaluations"),
+    new Menu("Evals", "/evals/stud/list", "Student Evaluations"),
     new Menu("Asmnts", "/assessments/listbystudent", "Student Assessments"),
     new Menu("Cohorts", "/cohorts/list", "The BCMS Cohorts Page", true, true),
-    new Menu("Evals", "/evals/list", "Evaluations", true, false),
+    new Menu("Evals(a)", "/evals/list", "Evaluations", true, false),
     new Menu("Users", "/users/list", "The BCMS Users Page", true, false),
     new Menu("Roles", "/roles/list", "The BCMS Roles Page", true, false),
     new Menu("Configs", "/configs/list", "The BCMS Configs Page", true, false),
     new Menu("CheckIn", "/attendance/checkinout", "Student checkin/out"),
     new Menu("About", "/about", "The BCMS About Page"),
-    new Menu("Feedback", "/feedbacks/list", "The BCMS Feedback Page"),
-    new Menu("Help", "/help", "The BCMS Helo Page"),
+    // new Menu("Feedback", "/feedbacks/list", "The BCMS Feedback Page"),
+    // new Menu("Help", "/help", "The BCMS Helo Page"),
     new Menu("Kb", "/kbs/list", "The BCMS Kb Page"),
-    new Menu("Kb Cat", "/kbcats/list", "The BCMS Kb Category Page"),
+    new Menu("Kb Cat", "/kbcats/list", "The BCMS Kb Category Page", true, false),
+    new Menu("Logs", "/logs/list", "Log files", true, false),
     new Menu("Login", "/login", "The Login/logout Page")
   ];
   constructor(

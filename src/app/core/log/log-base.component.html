@@ -1,0 +1,76 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+            <!-- <span *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin)"> |
+                <span><a routerLink="/logs/list">Back to list ...</a></span>
+            </span> -->
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <form>
+            <table class="table table-sm" *ngIf="log">
+                <tr>
+                    <td>Id:</td>
+                    <td>{{log.id}}</td>
+                </tr>
+                <tr>
+                    <td>Message:</td>
+                    <td><input [(ngModel)]="log.message" [disabled]="readonly" type="text" name="message" size="75">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Timestamp:</td>
+                    <td>
+                        <span>{{log.timestamp | date:'MMM dd yyyy hh:mm:ss'}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Severity:</td>
+                    <td><select [(ngModel)]="log.severity" [disabled]="readonly" name="severity">
+                            <option [value]="0">Info</option>
+                            <option [value]="1">Warn</option>
+                            <option [value]="2">Error</option>
+                            <option [value]="3">Fatal</option>
+                            <option [value]="4">Trace</option>
+                            <option [value]="5">Debug</option>
+                        </select>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td>Created:</td>
+                    <td>{{log.created | date:'short'}}</td>
+                </tr>
+                <tr>
+                    <td>Updated:</td>
+                    <td>{{log.updated | date:'short'}}</td>
+                </tr> -->
+                <tr *ngIf="!readonly">
+                    <td colspan="2">
+                        <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                    </td>
+                </tr>
+                <tr *ngIf="readonly">
+                    <td colspan="2">
+                        <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                        <span> | </span>
+                        <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                        <span *ngIf="verified"> |
+                            <span>
+                                <button (click)="verifyDelete()" class="btn btn-danger btn-sm">Verify Delete</button>
+                            </span>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

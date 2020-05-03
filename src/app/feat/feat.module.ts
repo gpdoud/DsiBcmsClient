@@ -19,9 +19,8 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             QuestionListComponent, QuestionDetailComponent, QuestionEditComponent, QuestionCreateComponent,
             EvaluationSearchPipe, EvaluationTemplateOnlyPipe, EvaluationAssignComponent, EvaluationReviewItemComponent
             , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
-            , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent
+            , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
         } from './index';
-import { KbCategorySearchPipe } from './kb/kb-category-search.pipe';
         
         @NgModule({
             declarations: [

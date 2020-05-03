@@ -1,8 +1,8 @@
 <app-menu></app-menu>
 <div>
     <span>{{pageTitle}}</span>
-    <span> | </span>
-    <span><a routerLink="/kbs/create" class="">Create</a></span>
+    <span *ngIf="canMaint"> 
+        | <a routerLink="/kbs/create" class="">Create</a></span>
     <span> | </span>
     <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
 
@@ -33,8 +33,10 @@
                 <td>{{ kb.locked | bool }}</td>
                 <td>{{ kb.active | bool }}</td>
                 <td id="actions">
-                    <a routerLink="/kbs/detail/{{kb.id}}">Detail</a> |
-                    <a routerLink="/kbs/edit/{{kb.id}}">Edit</a>
+                    <a routerLink="/kbs/detail/{{kb.id}}">Detail</a> 
+                    <span *ngIf="canMaint">
+                        | <a routerLink="/kbs/edit/{{kb.id}}">Edit</a>
+                    </span>
                 </td>
             </tr>
         </tbody>

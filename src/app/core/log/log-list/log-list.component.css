@@ -1,0 +1,30 @@
+button#refresh {
+    padding: 0;
+}
+tr.log-info {
+    background-color: transparent;
+}
+tr.log-warn {
+    background-color: #ffffaa;
+}
+tr.log-error {
+    background-color: #ffedcc;
+}
+tr.log-fatal {
+    background-color: #ffcccc;
+}
+tr.log-trace {
+    background-color: transparent;
+}
+tr.log-debug {
+    background-color: transparent;
+}
+td.actions {
+    width: 110px;
+}
+td.severity {
+    width: 80px;
+}
+td.timestamp {
+    width: 220px;
+}

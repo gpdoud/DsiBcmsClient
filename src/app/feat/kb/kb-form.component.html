@@ -50,7 +50,7 @@
                 <tr>
                     <td>Image:</td>
                     <td>
-                        <img src="assets/{{kb.imagePath1}}" width="600"><br>
+                        <img *ngIf="kb.imagePath1" src="assets/{{kb.imagePath1}}" width="600"><br>
                         <input [(ngModel)]="kb.imagePath1" [disabled]="readonly" type="text" name="imagePath1" size="85">
                     </td>
                 </tr>
@@ -93,7 +93,7 @@
                         <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
                     </td>
                 </tr>
-                <tr *ngIf="readonly">
+                <tr *ngIf="readonly && canMaint">
                     <td colspan="2">
                         <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
                         <span> | </span>

@@ -17,7 +17,11 @@ export class KbCreateComponent extends BcmsComponent implements OnInit {
 
   kb: Kb = new Kb();
   kbCats: KbCategory[] = [];
-  loggedInUser: User = new User();
+  loggedInUser: User;
+  get canMaint(): boolean { 
+    return this.sys.loggedInUser && this.sys.loggedInUser.role
+    && (this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin || this.sys.loggedInUser.role.isInstructor); 
+  }
 
   constructor(
     protected sys: SystemService,

@@ -3,6 +3,7 @@ import { BcmsListComponent } from '@feat/common/bcms-list.component';
 import { SystemService } from '@system/system.service';
 import { KbService } from '../kb.service';
 import { Kb } from '../kb.class';
+import { User } from '@feat/user/user.class';
 
 @Component({
   selector: 'app-kb-list',
@@ -12,6 +13,11 @@ import { Kb } from '../kb.class';
 export class KbListComponent extends BcmsListComponent implements OnInit {
 
   kbs: Kb[] = [];
+  loggedInUser: User;
+  get canMaint(): boolean { 
+    return this.sys.loggedInUser && this.sys.loggedInUser.role
+          && (this.sys.loggedInUser.role.isRoot || this.sys.loggedInUser.role.isAdmin || this.sys.loggedInUser.role.isInstructor); 
+  }
   
   constructor(
     protected sys: SystemService,
@@ -35,6 +41,7 @@ export class KbListComponent extends BcmsListComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.loggedInUser = this.sys.loggedInUser;
     this.kbsys.list().subscribe(
       (res: Kb[]) => { 
         this.addUsername(res);
