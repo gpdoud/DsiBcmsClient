@@ -13,13 +13,14 @@ export class AboutComponent implements OnInit {
   copyright: string;
   status: string;
   version: string;
+  versionDate: string;
   
   constructor(
     private cfg: ConfigService
   ) { }
 
   ngOnInit() {
-    this.cfg.getKeys("author,copyright,status,version").subscribe(
+    this.cfg.getKeys("author,copyright,status,version,version.date").subscribe(
       res => {
         for(let config of res) {
           switch(config.keyValue) {
@@ -27,6 +28,7 @@ export class AboutComponent implements OnInit {
             case "copyright": this.copyright = config.dataValue; break;
             case "status": this.status = config.dataValue; break;
             case "version": this.version = config.dataValue; break;
+            case "version.date": this.versionDate = config.dataValue; break;
 
           }
         }

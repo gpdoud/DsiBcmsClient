@@ -55,7 +55,7 @@ export { KbDetailComponent }    from '@kb/kb-detail/kb-detail.component';
 export { KbCreateComponent }    from '@kb/kb-create/kb-create.component';
 export { KbEditComponent }      from '@kb/kb-edit/kb-edit.component';
 export { KbSearchPipe }         from '@kb/kb-search.pipe';
-
+export { KbCategorySearchPipe } from './kb/kb-category-search.pipe';
 
 export { KbCategoryListComponent }      from '@kb/kb-category-list/kb-category-list.component';
 export { KbCategoryCreateComponent }    from '@kb/kb-category-create/kb-category-create.component';

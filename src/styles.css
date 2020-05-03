@@ -3,7 +3,8 @@ body {
     margin: 0;
 }
 header {
-    background-color: steelblue;
+    /* background-color: steelblue; */
+    background-color: navy;
 }
 input, select { 
     border-radius: 5px;

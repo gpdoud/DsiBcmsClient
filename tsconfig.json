@@ -17,6 +17,7 @@
       "@eval/*": ["app/feat/eval/*"],
       "@quest/*": ["app/feat/quest/*"],
       "@kb/*": ["app/feat/kb/*"],
+      "@log/*": ["app/core/log/*"]
     },
     // "baseUrl": "./",
     "outDir": "./dist/out-tsc",
