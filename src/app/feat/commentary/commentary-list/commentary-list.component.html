@@ -38,15 +38,16 @@
             <tr>
                 <td class="sortable"><a (click)="sort('id')">Id</a></td>
                 <td class="sortable"><a (click)="sort('text')">Text</a></td>
-                <td class="sortable"><a (click)="sort('lastAccessUserId')">Commentator</a></td>
-                <td>Actions</td>
+                <td id="commentator" class="sortable"><a (click)="sort('lastAccessUserId')">Commentator</a></td>
+                <td id="actions">Actions</td>
             </tr>
         </thead>
         <tbody *ngIf="user">
-            <tr *ngFor="let cm of user.commentaries | commentarySrch:searchCriteria | sort:sortCriteria: ascOrder"> 
+            <tr *ngFor="let cm of user.studentCommentaries | commentarySrch:searchCriteria | sort:sortCriteria: ascOrder"> 
                 <td>{{cm.id}}</td>
                 <td>{{cm.text}}</td>
-                <td>{{cm.user != null ? cm.user.username: "Undeclared"}}</td>
+                <td *ngIf="cm && cm.lastAccessUser">{{cm.lastAccessUser.firstname+" "+cm.lastAccessUser.lastname}}</td>
+                <td *ngIf="!cm || !cm.lastAccessUser">Undeclared</td>
                 <td>
                     <span><a routerLink="/commentaries/detail/{{cm.id}}" class="">Detail</a></span>
                     <span> | </span>

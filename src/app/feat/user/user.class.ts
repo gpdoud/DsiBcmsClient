@@ -18,7 +18,7 @@ export class User {
     updated: string;
     role: Role;
     roleName: string;
-    commentaries: Commentary[] = [];
+    studentCommentaries: Commentary[] = [];
 
     constructor() {}
 }
