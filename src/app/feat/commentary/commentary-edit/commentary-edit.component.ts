@@ -10,12 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-commentary-edit',
   templateUrl: '../commentary-form.component.html',
-  styleUrls: ['./commentary-edit.component.css']
+  styleUrls: ['../commentary-form.component.css']
 })
 export class CommentaryEditComponent extends BcmsComponent implements OnInit {
 
   commentary: Commentary = null;
   users: User[] = [];
+  get commentator(): string { 
+    return `${this.commentary.lastAccessUser.firstname} ${this.commentary.lastAccessUser.lastname}`; 
+  }
   
   constructor(
     protected sys: SystemService,
@@ -34,7 +37,7 @@ export class CommentaryEditComponent extends BcmsComponent implements OnInit {
     this.commentarysvc.change(this.commentary).subscribe(
       res => {
         this.sys.log.debug("Change successful!", res);
-        this.router.navigateByUrl("/commentaries/list");
+        this.router.navigateByUrl(`/commentaries/list/${this.commentary.studentId}`);
       },
       err => {
         this.sys.log.err(err);
@@ -54,9 +57,9 @@ export class CommentaryEditComponent extends BcmsComponent implements OnInit {
     let id = this.route.snapshot.params.id
       this.commentarysvc.get(id).subscribe(
         res =>{
-          this.commentary.studentName = `${this.commentary.student.lastname}, ${this.commentary.student.firstname} `; 
           this.commentary = res;
-          console.debug("Commentary", res);
+          this.sys.log.debug("Commentary:", res);
+          this.commentary.studentName = `${this.commentary.student.lastname}, ${this.commentary.student.firstname} `; 
         },
         err => {console.error(err);}
       );

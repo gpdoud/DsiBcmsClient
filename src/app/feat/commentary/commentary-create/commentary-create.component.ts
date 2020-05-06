@@ -8,12 +8,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-commentary-create',
   templateUrl: '../commentary-form.component.html',
-  styleUrls: ['./commentary-create.component.css']
+  styleUrls: ['../commentary-form.component.css']
 })
 export class CommentaryCreateComponent extends BcmsComponent implements OnInit {
 
   studentId: number = 0;
   commentary: Commentary = new Commentary();
+  get commentator(): string { 
+    return `${this.commentary.lastAccessUser.firstname} ${this.commentary.lastAccessUser.lastname}`; 
+  }
   
   constructor(
     protected sys: SystemService,

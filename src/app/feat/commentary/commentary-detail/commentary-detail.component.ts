@@ -10,7 +10,7 @@ import { UserService } from '@feat/user/user.service';
 @Component({
   selector: 'app-commentary-detail',
   templateUrl: '../commentary-form.component.html',
-  styleUrls: ['./commentary-detail.component.css']
+  styleUrls: ['../commentary-form.component.css']
 })
 export class CommentaryDetailComponent extends BcmsComponent implements OnInit {
 
@@ -18,6 +18,9 @@ export class CommentaryDetailComponent extends BcmsComponent implements OnInit {
   
   commentary: Commentary = new Commentary();
   users: User[] = [];
+  get commentator(): string { 
+    return `${this.commentary.lastAccessUser.firstname} ${this.commentary.lastAccessUser.lastname}`; 
+  }
   
   constructor(
     protected sys: SystemService,
@@ -52,21 +55,12 @@ export class CommentaryDetailComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-    this.usersvc.list().subscribe(
-      res => {
-        this.users = res;
-        this.sys.log.debug("Get list of users.", res);
-      },
-      err => {
-        this.sys.log.err("Error getting list of users!", err);
-      }
-    );
     let id = this.route.snapshot.params.id;
     this.commentarysvc.get(id).subscribe(
       res => {
         this.commentary = res;
-        this.commentary.studentName = `${this.commentary.student.lastname}, ${this.commentary.student.firstname} `; 
-        this.sys.log.debug(res);
+        this.sys.log.debug("Commentary:", res);
+        this.commentary.studentName = `${this.commentary.student.firstname} ${this.commentary.student.lastname}`; 
       },
       err => {
         this.sys.log.err(err);

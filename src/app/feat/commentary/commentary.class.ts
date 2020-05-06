@@ -11,6 +11,7 @@ export class Commentary {
     student: User;
     studentName: string;
     user: User;
+    lastAccessUser: User;
 
     constructor () {}
 }
