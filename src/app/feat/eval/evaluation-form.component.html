@@ -28,6 +28,10 @@
             </td>
         </tr>
         <tr>
+            <td>Done?:</td>
+            <td><input [(ngModel)]="eval.isDone" type="checkbox" [disabled]="readonly" size="10" name="eval.isdone"></td>
+        </tr>
+        <tr>
             <td>Template?:</td>
             <td><input [(ngModel)]="eval.isTemplate" type="checkbox" [disabled]="readonly" size="10" name="eval.istemplate"></td>
         </tr>
