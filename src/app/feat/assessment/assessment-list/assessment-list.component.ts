@@ -24,9 +24,7 @@ export class AssessmentListComponent extends BcmsListComponent implements OnInit
       this.pageTitle = "Assessment List";
   }
 
-  ngOnInit() {
-    super.ngOnInit();
-    this.cohortId = this.route.snapshot.params.cohortId;
+  refresh(): void {
     this.assessmentsvc.listByCohort(this.cohortId).subscribe(
       res => {
         res.forEach(a => {
@@ -38,6 +36,12 @@ export class AssessmentListComponent extends BcmsListComponent implements OnInit
       },
       err => console.error(err)
     );
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.cohortId = this.route.snapshot.params.cohortId;
+    this.refresh();
   }
 
 }
