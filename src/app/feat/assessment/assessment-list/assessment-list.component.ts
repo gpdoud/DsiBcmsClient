@@ -22,6 +22,8 @@ export class AssessmentListComponent extends BcmsListComponent implements OnInit
     ) { 
       super(sys);
       this.pageTitle = "Assessment List";
+      this.sortCriteria = "id";
+      this.ascOrder = false;
   }
 
   refresh(): void {
