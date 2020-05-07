@@ -41,11 +41,11 @@ export class CommentaryDetailComponent extends BcmsComponent implements OnInit {
   delete(): void {
     this.verified = !this.verified;
   }
-  verify(): void {
+  verifyDelete(): void {
     this.commentarysvc.remove(this.commentary).subscribe(
       res => {
         this.sys.log.debug("Commentary Remove Successful!", res);
-        this.router.navigateByUrl("/commentaries/list");
+        this.router.navigateByUrl(`/commentaries/list/${this.commentary.studentId}`);
       },
       err => {
         this.sys.log.err(err);

@@ -18,23 +18,23 @@
         <form>
             <table class="table table-sm" *ngIf="commentary">
                 <tr>
-                    <td>Id:</td>
+                    <td id="eid">Id:</td>
                     <td>{{commentary.id}}</td>
                 </tr>
                 <tr *ngIf="_loggedInUser && (_loggedInUser.role.isRoot || _loggedInUser.role.isAdmin || _loggedInUser.role.isInstructor)">
                     <td>Commentator:</td>
                     <td *ngIf="commentary && commentary.lastAccessUser">
-                        <input [ngModel] = "commentator" type = "text" size="20" name="lastname" disabled>
+                        <input [ngModel] = "commentator"  id="ecommentator" type = "text" size="20" name="lastname" disabled>
                     </td>
                 </tr>                
                 <tr>
                     <td>Text:</td>
                     <td>
-                        <input [(ngModel)]="commentary.text" [disabled]="readonly" type="text" name="text">
+                        <textarea  id="etext" [(ngModel)]="commentary.text" [disabled]="readonly" cols="85" rows="2" name="text"></textarea>   
                     </td>
                 </tr>
                 <tr>
-                    <th>Sensitive Information:</th>
+                    <th>Sensitive:</th>
                     <td>
                     <input [(ngModel)] = "commentary.sensitive" type="checkbox" name="sensitive">
                     </td>

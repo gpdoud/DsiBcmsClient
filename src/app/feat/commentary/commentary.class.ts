@@ -7,7 +7,7 @@ export class Commentary {
     lastAccessUserId?: number;
     created: string;
     updated: string;
-    studentId?: number;
+    studentId: number;
     student: User;
     studentName: string;
     user: User;
