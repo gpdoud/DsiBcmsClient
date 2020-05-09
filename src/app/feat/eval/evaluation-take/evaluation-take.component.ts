@@ -99,6 +99,9 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
     return this.questsvc.change(q) as Observable<any>;
   }
 
+  verifyDone: boolean = false;
+  finished(): void { this.verifyDone = !this.verifyDone; }
+
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
@@ -107,7 +110,7 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
     private questsvc: QuestionService
   ) {
     super(sys);
-    this.pageTitle = "Evaluation Take"
+    this.pageTitle = "Evaluation Take";
   }
 
   refresh(): void {

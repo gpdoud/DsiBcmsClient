@@ -19,6 +19,7 @@ export class EvaluationSearchPipe implements PipeTransform {
         || e.pointsAvailable.toString().includes(search)
         || e.pointsScored.toString().includes(search)
         || e.active.toString().includes(search)
+        || e.studentName.toLowerCase().includes(search)
       ) { selEvals.push(e); }
     }
     return selEvals;

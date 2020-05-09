@@ -1,4 +1,5 @@
 import { Role } from "../role/role.class";
+import { Commentary } from '@feat/commentary/commentary.class';
 
 export class User {
     id: number = 0;
@@ -17,6 +18,7 @@ export class User {
     updated: string;
     role: Role;
     roleName: string;
+    studentCommentaries: Commentary[] = [];
 
     constructor() {}
 }

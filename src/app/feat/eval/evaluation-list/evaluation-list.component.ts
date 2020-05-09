@@ -25,9 +25,9 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
 
   addStudentName(evals: Evaluation[]): void {
     evals.forEach(e => {
-      if(e.enrollment != null) {
-        e.studentName = e.enrollment.user.lastname;
-      }
+        e.studentName = (e.enrollment == null) 
+          ? ''
+          : `${e.enrollment.user.lastname}`;
     });
   }
 

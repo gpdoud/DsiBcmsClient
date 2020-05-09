@@ -54,9 +54,14 @@
         </tr>
         <tr>
             <td colspan="2">
-                <button (click)="done()" class="btn btn-success">Submit</button> | |
                 <button [disabled]="isFirst" (click)="prev()" class="btn btn-primary">Prev</button> |
-                <button [disabled]="isLast" (click)="next()" class="btn btn-primary">Next</button>
+                <button [disabled]="isLast" (click)="next()" class="btn btn-primary">Next</button>  | |
+                <button (click)="finished()" class="btn btn-success">Submit</button>
+                <span *ngIf="verifyDone">
+                    | | <button (click)="done()" class="btn btn-success">Verify Submit</button>
+
+                </span>
+
             </td>
         </tr>
     </table>
