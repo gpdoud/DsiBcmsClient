@@ -80,6 +80,11 @@ const routes: Routes = [
   { path: 'roles/create',                                   component: feat.RoleCreateComponent },
   { path: 'roles/detail/:code',                             component: feat.RoleDetailComponent },
   { path: 'roles/edit/:code',                               component: feat.RoleEditComponent },
+
+  { path: 'commentaries/list/:studentId',                           component: feat.CommentaryListComponent },
+  { path: 'commentaries/create/:studentId',                  component: feat.CommentaryCreateComponent },
+  { path: 'commentaries/detail/:id',                         component: feat.CommentaryDetailComponent },
+  { path: 'commentaries/edit/:id',                           component: feat.CommentaryEditComponent },
           
   { path: '**',                                             component: core.E404Component }
 ];
