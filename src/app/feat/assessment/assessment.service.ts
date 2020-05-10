@@ -11,8 +11,7 @@ export class AssessmentService {
 
   constructor(
     private sys: SystemService,
-    private http: HttpClient,
-    private asmtsvc: AssessmentService
+    private http: HttpClient
   ) { }
 
   list(): Observable<Assessment[]> {
