@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { E404Component, HomeComponent, AboutComponent, MenuComponent, MenuitemComponent,
           FooterComponent, HelpComponent, SortPipe, BoolDisplayPipe, MenuSecurityPipe, 
           NotifyComponent, RevisionsComponent, DevTeamComponent, 
-          LogListComponent, LogDetailComponent, LogCreateComponent, LogEditComponent, LogSearchPipe
+          LogListComponent, LogDetailComponent, LogCreateComponent, LogEditComponent, LogSearchPipe, FilterActivePipe
         } from './index';
 
 
@@ -14,7 +14,7 @@ import { E404Component, HomeComponent, AboutComponent, MenuComponent, MenuitemCo
     E404Component, HomeComponent, AboutComponent
     , MenuComponent, MenuitemComponent, FooterComponent, HelpComponent, SortPipe, BoolDisplayPipe
     , MenuSecurityPipe, NotifyComponent, RevisionsComponent, DevTeamComponent
-    , LogListComponent, LogDetailComponent, LogCreateComponent, LogEditComponent, LogSearchPipe
+    , LogListComponent, LogDetailComponent, LogCreateComponent, LogEditComponent, LogSearchPipe, FilterActivePipe
   ],
   imports: [
     CommonModule, RouterModule, FormsModule
@@ -23,7 +23,7 @@ import { E404Component, HomeComponent, AboutComponent, MenuComponent, MenuitemCo
     E404Component, HomeComponent, AboutComponent, FooterComponent, HelpComponent
     , MenuComponent, MenuitemComponent, SortPipe, BoolDisplayPipe, NotifyComponent
     , MenuSecurityPipe, NotifyComponent, RevisionsComponent, DevTeamComponent
-    , LogListComponent, LogDetailComponent, LogCreateComponent, LogEditComponent, LogSearchPipe
+    , LogListComponent, LogDetailComponent, LogCreateComponent, LogEditComponent, LogSearchPipe, FilterActivePipe
   ]
 })
 export class CoreModule { }
