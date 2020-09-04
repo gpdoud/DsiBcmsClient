@@ -18,6 +18,7 @@
                 <td>Category</td>
                 <td>Question</td>
                 <td>Points</td>
+                <td>Bonus?</td>
                 <td>Actions</td>
             </tr>
         </thead>
@@ -27,6 +28,7 @@
                 <td>{{ q.category }}</td>
                 <td>{{ q.questionText }}</td>
                 <td>{{ q.pointValue }}</td>
+                <td>{{ q.isBonus }}</td>
                 <td>
                     <a routerLink="/quests/detail/{{q.id}}">Detail</a> |
                     <a routerLink="/quests/edit/{{q.id}}">Edit</a>

@@ -72,6 +72,12 @@
             </td>
         </tr>
         <tr>
+            <td>Is Bonus:</td>
+            <td>
+                <input [(ngModel)]="question.isBonus" type="checkbox" [disabled]="readonly" name="questions.isbonus">
+            </td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <span  *ngIf="!readonly">
                     <button (click)="save()" class="btn btn-primary">Save</button>
