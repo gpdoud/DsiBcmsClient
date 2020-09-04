@@ -12,6 +12,7 @@ export class Question {
     correctAnswerNbr: number = -1;
     userAnswerNbr: number = -1;
     pointValue: number = 10;
+    isBonus: boolean = false;
     evaluationId: number = 0;
     evaluation: Evaluation = null;
 
