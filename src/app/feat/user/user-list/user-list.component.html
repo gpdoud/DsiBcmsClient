@@ -5,6 +5,8 @@
     <span> | </span>
     <span><a routerLink="/users/create" class="">Create</a></span>
     <span> | </span>
+    <span><label>Show Inactive: <input [(ngModel)]="showInactive" type="checkbox"></label></span>
+    <span> | </span>
     <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
 
 </div>
@@ -23,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let u of users | userSrch:searchCriteria | sort:sortCriteria:ascOrder">
+            <tr *ngFor="let u of users | filterActive:showInactive | userSrch:searchCriteria | sort:sortCriteria:ascOrder">
                 <td>{{u.id}}</td>
                 <td>{{u.firstname}} {{u.lastname}}</td>
                 <td>{{u.username}}</td>

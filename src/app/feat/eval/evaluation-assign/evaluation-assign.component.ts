@@ -17,6 +17,8 @@ export class EvaluationAssignComponent extends BcmsComponent implements OnInit {
   evalId: number = 0;
   eval: Evaluation = new Evaluation();
   cohorts: Cohort[] = [];
+  message: string = '';
+  cohortId: number = 0;
 
   constructor(
     protected sys: SystemService,
@@ -29,12 +31,15 @@ export class EvaluationAssignComponent extends BcmsComponent implements OnInit {
   }
 
   assign(cohortId: number): void {
+    this.cohortId = cohortId;
     this.evalSvc.assign(this.evalId, cohortId).subscribe(
       res => {
         this.sys.log.debug("Successfully assigned eval to cohort:", res);
+        this.message = `Successfully assigned ${res.evals_created} evals/assess to cohort`;
       },
       err => {
         this.sys.log.err("Failed to assign eval to cohort:", this.evalId, cohortId, err);
+        this.message = "ERROR: Failed to assign to cohort";
       }
     );
   }

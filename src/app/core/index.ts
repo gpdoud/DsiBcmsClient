@@ -17,3 +17,4 @@ export { MenuSecurityPipe } from './menu/menu-security.pipe';
 export { NotifyComponent } from '@core/notify/notify.component';
 export { RevisionsComponent } from './revisions/revisions.component';
 export { SortPipe } from './sort/sort.pipe';
+export { FilterActivePipe } from './util/filter-active.pipe';

@@ -12,6 +12,7 @@ import { BcmsListComponent } from '@feat/common/bcms-list.component';
 export class UserListComponent extends BcmsListComponent implements OnInit {
 
   users: User[] = [];
+  showInactive: boolean = false;
   
   constructor(
     protected sys: SystemService,

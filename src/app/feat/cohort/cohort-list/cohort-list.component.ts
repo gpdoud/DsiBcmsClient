@@ -13,6 +13,7 @@ import { User } from '@feat/user/user.class';
 export class CohortListComponent extends BcmsListComponent implements OnInit {
 
   cohorts: Cohort[] = [];
+  showInactive: boolean = false;
   
   constructor(
     protected sys: SystemService,
