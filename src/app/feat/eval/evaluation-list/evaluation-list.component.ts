@@ -31,11 +31,18 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
     });
   }
 
+  addOwner(evals: Evaluation[]): void {
+    evals.forEach(e => {
+      e.owner = (e.userId != null) ? e.user.lastname : "";
+    });
+  }
+
   ngOnInit() {
     super.ngOnInit();
     this.evalsvc.list().subscribe(
       (res: Evaluation[]) => {
         this.addStudentName(res);
+        this.addOwner(res);
         this.evals = res;
         this.sys.log.debug("Templates:", res);
       }

@@ -50,6 +50,10 @@ export class EvaluationDetailComponent extends BcmsComponent implements OnInit {
     }
   }
 
+  addOwner(e: Evaluation): void {
+    e.owner = (e.userId != null) ? e.user.lastname : "";
+  }
+
 
   ngOnInit() {
     super.ngOnInit();
@@ -57,6 +61,7 @@ export class EvaluationDetailComponent extends BcmsComponent implements OnInit {
     this.evalsvc.get(this.evalId).subscribe(
       (res: Evaluation) => {
         this.addStudentName(res);
+        this.addOwner(res);
         this.eval = res;
         this.sys.log.debug("Evaluation:", res);
       },

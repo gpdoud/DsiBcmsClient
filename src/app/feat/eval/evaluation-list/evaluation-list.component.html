@@ -22,6 +22,7 @@
                 <td class="sortable"><a (click)="sort('isDone')">Done?</a></td>
                 <td class="sortable"><a (click)="sort('isTemplate')">Template?</a></td>
                 <td class="sortable"><a (click)="sort('active')">Active?</a></td>
+                <td class="sortable"><a (click)="sort('owner')">Owner?</a></td>
                 <td>Actions</td>
             </tr>
         </thead>
@@ -36,6 +37,7 @@
                 <td>{{ e.isDone | bool }}</td>
                 <td>{{ e.isTemplate | bool }}</td>
                 <td>{{ e.active | bool }}</td>
+                <td>{{ e.owner }}</td>
                 <td>
                     <a routerLink="/evals/assign/{{e.id}}">Assign</a> |
                     <a routerLink="/evals/take/{{e.id}}">Take</a> |
