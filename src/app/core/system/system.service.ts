@@ -38,13 +38,13 @@ export class SystemService {
     }
   }
   get userIsRoot(): boolean {
-    return (this.isUserLoggedIn && this.loggedInUser.role.isRoot) ? true : false;
+    return this.isUserLoggedIn && this.loggedInUser.role != null && this.loggedInUser.role.isRoot;
   }
   get userIsAdmin(): boolean {
-    return (this.isUserLoggedIn && this.loggedInUser.role.isAdmin) ? true : false;
+    return this.isUserLoggedIn && this.loggedInUser.role != null && this.loggedInUser.role.isAdmin;
   }
   get userIsInstructor(): boolean {
-    return (this.isUserLoggedIn && this.loggedInUser.role.isInstructor) ? true : false;
+    return this.isUserLoggedIn && this.loggedInUser.role != null && this.loggedInUser.role.isInstructor;
   }
   get userIsRootOrAdmin(): boolean {
     return this.userIsRoot || this.userIsAdmin;
