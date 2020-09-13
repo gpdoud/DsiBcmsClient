@@ -5,7 +5,7 @@ import { User } from '@feat/user/user.class';
 export class Evaluation {
     id: number = 0;
     description: string = '';
-    isTemplate: boolean = false;
+    isTemplate: boolean = true;
     enrollmentId?: number = null;
     questions: Question[] = [];
     isDone: boolean = false;
