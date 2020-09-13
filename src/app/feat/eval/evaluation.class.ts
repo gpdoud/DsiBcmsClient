@@ -20,6 +20,7 @@ export class Evaluation {
     user?: User;
     studentName: string;
     owner: string;
+    canMaint: boolean = false;
 
     constructor() {
         

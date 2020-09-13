@@ -13,6 +13,9 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
   
   evals: Evaluation[];
   templatesOnly: boolean = false;
+  get isRootOrAdmin(): boolean {
+    return this.sys.userIsRootOrAdmin;
+  }
 
   constructor(
     protected sys: SystemService,
@@ -37,12 +40,19 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
     });
   }
 
+  canMaint(evals: Evaluation[]): void {
+    evals.forEach(e => {
+      e.canMaint = this.isRootOrAdmin || this.sys.loggedInUser.id == e.userId;
+    });
+  }
+
   ngOnInit() {
     super.ngOnInit();
     this.evalsvc.list().subscribe(
       (res: Evaluation[]) => {
         this.addStudentName(res);
         this.addOwner(res);
+        this.canMaint(res);
         this.evals = res;
         this.sys.log.debug("Templates:", res);
       }
