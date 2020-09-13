@@ -37,6 +37,21 @@ export class SystemService {
       this.router.navigateByUrl("/login");
     }
   }
+  get userIsRoot(): boolean {
+    return (this.isUserLoggedIn && this.loggedInUser.role.isRoot) ? true : false;
+  }
+  get userIsAdmin(): boolean {
+    return (this.isUserLoggedIn && this.loggedInUser.role.isAdmin) ? true : false;
+  }
+  get userIsInstructor(): boolean {
+    return (this.isUserLoggedIn && this.loggedInUser.role.isInstructor) ? true : false;
+  }
+  get userIsRootOrAdmin(): boolean {
+    return this.userIsRoot || this.userIsAdmin;
+  }
+  get userIsRootAdminOrInstructor(): boolean {
+    return this.userIsRoot || this.userIsAdmin || this.userIsInstructor;
+  }
 
   constructor(
     private init: AppInitService,
