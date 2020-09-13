@@ -56,7 +56,7 @@
                 <span  *ngIf="!readonly">
                     <button (click)="save()" class="btn btn-primary">Save</button>
                 </span>
-                <span *ngIf="readonly">
+                <span *ngIf="readonly && eval.canMaint">
                     <button (click)="edit()" class="btn btn-warning">Edit</button>
                      | <button (click)="delete()" class="btn btn-danger">Delete</button>
                     <span *ngIf="verified">
