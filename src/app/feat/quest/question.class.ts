@@ -15,6 +15,7 @@ export class Question {
     isBonus: boolean = false;
     evaluationId: number = 0;
     evaluation: Evaluation = null;
+    canMaint: boolean = false;
 
     constructor() {}
 }

@@ -14,6 +14,9 @@ export class QuestionDetailComponent extends BcmsComponent implements OnInit {
   
   questId: any;
   question: Question = new Question();
+  get isRootOrAdmin(): boolean {
+    return this.sys.userIsRootOrAdmin;
+  }
 
   edit(): void {
     this.router.navigateByUrl(`/quests/edit/${this.questId}`);
@@ -40,13 +43,19 @@ export class QuestionDetailComponent extends BcmsComponent implements OnInit {
     private questsvc: QuestionService
   ) { 
     super(sys);
+    this.pageTitle = "Question Detail";
     this.readonly = true;
+  }
+
+  canMaint(q: Question): void {
+    q.canMaint = this.isRootOrAdmin || this.sys.loggedInUser.id == q.evaluation.userId;
   }
 
   ngOnInit() {
     this.questId = this.route.snapshot.params.id;
     this.questsvc.get(this.questId).subscribe(
       res => {
+        this.canMaint(res);
         this.question = res;
         this.sys.log.debug("Question:", res);
       },

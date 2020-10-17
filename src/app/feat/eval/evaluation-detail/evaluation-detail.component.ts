@@ -14,6 +14,9 @@ export class EvaluationDetailComponent extends BcmsComponent implements OnInit {
 
   evalId: any;
   eval: Evaluation = new Evaluation();
+  get isRootOrAdmin(): boolean {
+    return this.sys.userIsRootOrAdmin;
+  }
 
   edit(): void {
     this.router.navigateByUrl(`/evals/edit/${this.eval.id}`)
@@ -50,6 +53,14 @@ export class EvaluationDetailComponent extends BcmsComponent implements OnInit {
     }
   }
 
+  addOwner(e: Evaluation): void {
+    e.owner = (e.userId != null) ? e.user.lastname : "";
+  }
+
+  canMaint(e: Evaluation): void {
+    e.canMaint = this.isRootOrAdmin || this.sys.loggedInUser.id == e.userId;
+  }
+
 
   ngOnInit() {
     super.ngOnInit();
@@ -57,6 +68,8 @@ export class EvaluationDetailComponent extends BcmsComponent implements OnInit {
     this.evalsvc.get(this.evalId).subscribe(
       (res: Evaluation) => {
         this.addStudentName(res);
+        this.addOwner(res);
+        this.canMaint(res);
         this.eval = res;
         this.sys.log.debug("Evaluation:", res);
       },

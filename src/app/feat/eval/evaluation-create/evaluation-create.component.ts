@@ -38,6 +38,7 @@ export class EvaluationCreateComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    this.eval.userId = this.sys.loggedInUser.id;
   }
 
 }

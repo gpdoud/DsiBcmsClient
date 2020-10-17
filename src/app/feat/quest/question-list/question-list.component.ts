@@ -15,6 +15,9 @@ export class QuestionListComponent extends BcmsListComponent implements OnInit {
 
   eval: Evaluation = new Evaluation();
   evalId: number = 0;
+  get isRootOrAdmin(): boolean {
+    return this.sys.userIsRootOrAdmin;
+  }
 
   constructor(
     protected sys: SystemService,
@@ -26,11 +29,16 @@ export class QuestionListComponent extends BcmsListComponent implements OnInit {
     this.pageTitle = "Question List";
   }
 
+  canMaint(e: Evaluation): void {
+    e.canMaint = this.isRootOrAdmin || this.sys.loggedInUser.id == e.userId;
+  }
+
   ngOnInit() {
     super.ngOnInit();
     this.evalId = this.route.snapshot.params.evalid;
     this.evalsvc.get(this.evalId).subscribe(
       res => {
+        this.canMaint(res);
         this.eval = res;
         this.sys.log.debug("Evaluation:", res);
       },
