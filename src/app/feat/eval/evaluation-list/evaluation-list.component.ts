@@ -3,6 +3,7 @@ import { BcmsListComponent } from '@feat/common/bcms-list.component';
 import { SystemService } from '@system/system.service';
 import { EvaluationService } from '../evaluation.service';
 import { Evaluation } from '../evaluation.class';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-evaluation-list',
@@ -30,7 +31,7 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
     evals.forEach(e => {
         e.studentName = (e.enrollment == null) 
           ? ''
-          : `${e.enrollment.user.lastname}`;
+          : `${e.enrollment.user.lastname}, ${e.enrollment.user.firstname}`;
     });
   }
 
@@ -46,10 +47,21 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
     });
   }
 
+  removeInactiveUsers(evals: Evaluation[]) {
+    let activeEvals: Evaluation[] = [];
+    evals.forEach(e => {
+      if(e.isTemplate || e.enrollment.user.active) {
+        activeEvals.push(e);
+      }
+    });
+    return activeEvals;
+  }
+
   ngOnInit() {
     super.ngOnInit();
     this.evalsvc.list().subscribe(
       (res: Evaluation[]) => {
+        res = this.removeInactiveUsers(res);
         this.addStudentName(res);
         this.addOwner(res);
         this.canMaint(res);
