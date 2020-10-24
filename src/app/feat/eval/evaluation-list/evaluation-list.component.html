@@ -37,11 +37,14 @@
                 <td>{{ e.isTemplate | bool }}</td>
                 <td>{{ e.owner }}</td>
                 <td>
-                    <a routerLink="/evals/assign/{{e.id}}">Assign</a> 
-                    <span> | <a routerLink="/evals/take/{{e.id}}">Take</a></span>
-                    <span> | <a routerLink="/evals/detail/{{e.id}}">Det</a></span>
-                    <span *ngIf="e.canMaint"> | <a routerLink="/evals/edit/{{e.id}}">Edt</a></span>
-                    <span> | <a routerLink="/quests/list/{{e.id}}">Quests</a></span>
+                    
+                    <span *ngIf="!e.isTemplate && !e.isDone"><a routerLink="/evals/take/{{e.id}}">Take</a> | </span>
+                    <span *ngIf="!e.isTemplate &&  e.isDone"><a routerLink="/evals/review/{{e.id}}">Review</a> | </span>
+                    
+                    <span><a routerLink="/evals/assign/{{e.id}}">Assign</a> | </span>
+                    <span><a routerLink="/evals/detail/{{e.id}}">Det</a> | </span>
+                    <span *ngIf="e.canMaint"><a routerLink="/evals/edit/{{e.id}}">Edt</a> | </span>
+                    <span><a routerLink="/quests/list/{{e.id}}">Quests</a></span>
                 </td>
             </tr>
         </tbody>
