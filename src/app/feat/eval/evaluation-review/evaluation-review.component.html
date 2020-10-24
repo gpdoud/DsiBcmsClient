@@ -3,6 +3,7 @@
 <div>
     <span>{{pageTitle}}</span> |
     <span><a routerLink="/evals/stud/list/">Back to list ...</a></span>
+    <span *ngIf="user.role.isRoot || user.role.isAdmin || user.role.isInstructor"> | <a routerLink="/evals/list/">Back to eval(a) ...</a></span>
 </div>
 <main>
     <div class="container">
