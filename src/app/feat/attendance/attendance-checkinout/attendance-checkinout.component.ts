@@ -36,7 +36,14 @@ export class AttendanceCheckinoutComponent extends BcmsListComponent implements 
     this.cohortsvc.get(this.cohortId).subscribe(
       res => {
         this.students = [];
-        res.enrollments.forEach(e => this.students.push(e.user));
+        res.enrollments.forEach(e => { 
+          // ISSUE: #79 Handling students who drop out of cohort
+          // show check-in/out button only
+          // if the user is active
+          if(e.user.active) {
+            this.students.push(e.user); 
+          }
+        });
         this.sys.log.debug("Cohort:", res);
         this.sys.log.debug("Students:", this.students);
       },
@@ -48,18 +55,7 @@ export class AttendanceCheckinoutComponent extends BcmsListComponent implements 
 
   ngOnInit() {
     super.ngOnInit();
-    this.cohortId = this.route.snapshot.params.id;
-    this.cohortsvc.get(this.cohortId).subscribe(
-      res => {
-        this.students = [];
-        res.enrollments.forEach(e => this.students.push(e.user));
-        this.sys.log.debug("Cohort:", res);
-        this.sys.log.debug("Students:", this.students);
-      },
-      err => {
-        this.sys.log.err(err);
-      }
-    );
+    this.refresh();
   }
 
 }
