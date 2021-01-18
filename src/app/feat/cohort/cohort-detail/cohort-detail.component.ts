@@ -65,7 +65,7 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
     this.cohortsvc.get(id).subscribe(
       res => {
         this.cohort = res;
-        this.cohort.instructorName = `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
+        this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
         this.sys.log.debug(res);
       },
       err => {
