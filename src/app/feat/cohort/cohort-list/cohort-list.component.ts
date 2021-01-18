@@ -28,7 +28,7 @@ export class CohortListComponent extends BcmsListComponent implements OnInit {
     let filteredCohorts: Cohort[] = [];
     let loggedInUser: User = this._loggedInUser;
     cohorts.forEach(c => {
-      if(c.instructor.id === loggedInUser.id || loggedInUser.role.isAdmin || loggedInUser.role.isRoot) {
+      if(c.instructor?.id === loggedInUser.id || loggedInUser.role.isAdmin || loggedInUser.role.isRoot) {
         filteredCohorts.push(c);
       }
     });
@@ -40,7 +40,7 @@ export class CohortListComponent extends BcmsListComponent implements OnInit {
     this.Cohortsvc.list().subscribe(
       res => {
         let res2 = this.filterCohort(res);
-        res2.forEach(cohort => { cohort.instructorName = `${cohort.instructor.lastname}, ${cohort.instructor.firstname} `; })
+        res2.forEach(cohort => { cohort.instructorName = cohort.instructorId === null ? `Not selected` : `${cohort.instructor?.lastname}, ${cohort.instructor?.firstname} `; })
         this.cohorts = res2;
         this.sys.log.debug("Cohorts", res2);
       },
