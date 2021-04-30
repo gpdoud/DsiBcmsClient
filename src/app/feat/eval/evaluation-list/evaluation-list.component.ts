@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./evaluation-list.component.css']
 })
 export class EvaluationListComponent extends BcmsListComponent implements OnInit {
-  
+
   evals: Evaluation[];
   templatesOnly: boolean = false;
   get isRootOrAdmin(): boolean {
@@ -21,7 +21,7 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
   constructor(
     protected sys: SystemService,
     private evalsvc: EvaluationService
-  ) { 
+  ) {
     super(sys);
     this.pageTitle = "Evaluations List";
     this.sortCriteria = "studentName";
@@ -29,9 +29,9 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
 
   addStudentName(evals: Evaluation[]): void {
     evals.forEach(e => {
-        e.studentName = (e.enrollment == null) 
-          ? ''
-          : `${e.enrollment.user.lastname}, ${e.enrollment.user.firstname}`;
+      e.studentName = (e.enrollment == null)
+        ? ''
+        : `${e.enrollment.user.lastname}, ${e.enrollment.user.firstname}`;
     });
   }
 
@@ -50,15 +50,14 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
   removeInactiveUsers(evals: Evaluation[]) {
     let activeEvals: Evaluation[] = [];
     evals.forEach(e => {
-      if(e.isTemplate || e.enrollment.user.active) {
+      if (e.isTemplate || e.enrollment.user.active) {
         activeEvals.push(e);
       }
     });
     return activeEvals;
   }
 
-  ngOnInit() {
-    super.ngOnInit();
+  refresh() {
     this.evalsvc.list().subscribe(
       (res: Evaluation[]) => {
         res = this.removeInactiveUsers(res);
@@ -69,6 +68,11 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
         this.sys.log.debug("Templates:", res);
       }
     );
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.refresh();
   }
 
 }
