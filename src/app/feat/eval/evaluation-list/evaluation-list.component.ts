@@ -3,6 +3,7 @@ import { BcmsListComponent } from '@feat/common/bcms-list.component';
 import { SystemService } from '@system/system.service';
 import { EvaluationService } from '../evaluation.service';
 import { Evaluation } from '../evaluation.class';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-evaluation-list',
@@ -10,7 +11,7 @@ import { Evaluation } from '../evaluation.class';
   styleUrls: ['./evaluation-list.component.css']
 })
 export class EvaluationListComponent extends BcmsListComponent implements OnInit {
-  
+
   evals: Evaluation[];
   templatesOnly: boolean = false;
   get isRootOrAdmin(): boolean {
@@ -20,7 +21,7 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
   constructor(
     protected sys: SystemService,
     private evalsvc: EvaluationService
-  ) { 
+  ) {
     super(sys);
     this.pageTitle = "Evaluations List";
     this.sortCriteria = "studentName";
@@ -28,9 +29,9 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
 
   addStudentName(evals: Evaluation[]): void {
     evals.forEach(e => {
-        e.studentName = (e.enrollment == null) 
-          ? ''
-          : `${e.enrollment.user.lastname}`;
+      e.studentName = (e.enrollment == null)
+        ? ''
+        : `${e.enrollment.user.lastname}, ${e.enrollment.user.firstname}`;
     });
   }
 
@@ -46,10 +47,20 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
     });
   }
 
-  ngOnInit() {
-    super.ngOnInit();
+  removeInactiveUsers(evals: Evaluation[]) {
+    let activeEvals: Evaluation[] = [];
+    evals.forEach(e => {
+      if (e.isTemplate || e.enrollment.user.active) {
+        activeEvals.push(e);
+      }
+    });
+    return activeEvals;
+  }
+
+  refresh() {
     this.evalsvc.list().subscribe(
       (res: Evaluation[]) => {
+        res = this.removeInactiveUsers(res);
         this.addStudentName(res);
         this.addOwner(res);
         this.canMaint(res);
@@ -57,6 +68,11 @@ export class EvaluationListComponent extends BcmsListComponent implements OnInit
         this.sys.log.debug("Templates:", res);
       }
     );
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.refresh();
   }
 
 }

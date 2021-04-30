@@ -7,6 +7,8 @@
     <span> | </span>
     <span>Templates Only: <input [(ngModel)]="templatesOnly" class="" type="checkbox"></span>
     <span> | </span>
+    <span><button (click)="refresh()" class="btn btn-link">Refresh</button></span>
+    <span> | </span>
     <span><input [(ngModel)]="searchCriteria" class="searchbox" type="text" placeholder="Search"></span>
 
 </div>
@@ -17,11 +19,10 @@
                 <td class="sortable"><a (click)="sort('id')">Id</a></td>
                 <td class="sortable"><a (click)="sort('description')">Description</a></td>
                 <td class="sortable"><a (click)="sort('studentName')">Student</a></td>
-                <td>Questions</td>
+                <td>Quests</td>
                 <td>Points?</td>
                 <td class="sortable"><a (click)="sort('isDone')">Done?</a></td>
-                <td class="sortable"><a (click)="sort('isTemplate')">Template?</a></td>
-                <td class="sortable"><a (click)="sort('active')">Active?</a></td>
+                <td class="sortable"><a (click)="sort('isTemplate')">Tmp?</a></td>
                 <td class="sortable"><a (click)="sort('owner')">Owner?</a></td>
                 <td>Actions</td>
             </tr>
@@ -30,20 +31,22 @@
             <tr *ngFor="let e of evals | templates:templatesOnly | evalSrch:searchCriteria | sort:sortCriteria:ascOrder">
                 <td>{{ e.id }}</td>
                 <td>{{ e.description }}</td>
-                <td *ngIf="e.enrollment && e.enrollment.user">{{ e.enrollment.user.lastname }}</td>
+                <td *ngIf="e.enrollment && e.enrollment.user">{{ e.studentName }}</td>
                 <td *ngIf="!e.enrollment || !e.enrollment.user">&nbsp;</td>
                 <td>{{ e.questions.length }}</td>
                 <td>{{ e.pointsScored }} of {{e.pointsAvailable}}</td>
                 <td>{{ e.isDone | bool }}</td>
                 <td>{{ e.isTemplate | bool }}</td>
-                <td>{{ e.active | bool }}</td>
                 <td>{{ e.owner }}</td>
                 <td>
-                    <a routerLink="/evals/assign/{{e.id}}">Assign</a> 
-                    <span> | <a routerLink="/evals/take/{{e.id}}">Take</a></span>
-                    <span> | <a routerLink="/evals/detail/{{e.id}}">Det</a></span>
-                    <span *ngIf="e.canMaint"> | <a routerLink="/evals/edit/{{e.id}}">Edt</a></span>
-                    <span> | <a routerLink="/quests/list/{{e.id}}">Quests</a></span>
+                    
+                    <span *ngIf="!e.isTemplate && !e.isDone"><a routerLink="/evals/take/{{e.id}}">Take</a> | </span>
+                    <span *ngIf="!e.isTemplate &&  e.isDone"><a routerLink="/evals/review/{{e.id}}">Review</a> | </span>
+                    
+                    <span><a routerLink="/evals/assign/{{e.id}}">Assign</a> | </span>
+                    <span><a routerLink="/evals/detail/{{e.id}}">Det</a> | </span>
+                    <span *ngIf="e.canMaint"><a routerLink="/evals/edit/{{e.id}}">Edt</a> | </span>
+                    <span><a routerLink="/quests/list/{{e.id}}">Quests</a></span>
                 </td>
             </tr>
         </tbody>
