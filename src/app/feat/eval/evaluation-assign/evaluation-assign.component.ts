@@ -57,7 +57,7 @@ export class EvaluationAssignComponent extends BcmsComponent implements OnInit {
     );
     this.cohortSvc.list().subscribe(
       (res: Cohort[]) => {
-        this.cohorts = res;
+        this.cohorts = res.filter(c => c.active);
         this.sys.log.debug("Cohorts:", res);
       },
       err => {
