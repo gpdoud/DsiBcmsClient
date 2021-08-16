@@ -66,30 +66,49 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
     this.saveQuestion(this.question).subscribe(
       res => {
         this.sys.log.debug("Successfully updated question:", res);
+        this.prevQuestion();
       },
       err => {
         this.sys.log.err("Failed to update question:", this.question, err);
       }
     );
-    if (this.idx > 0) {
-      this.idx--;
-      this.question = this.quests[this.idx];
-    }
-    this.isFirst = this.idx == 0;
-    this.isLast = this.idx == this.count - 1;
+    // if (this.idx > 0) {
+    //   this.idx--;
+    //   this.question = this.quests[this.idx];
+    // }
+    // this.isFirst = this.idx == 0;
+    // this.isLast = this.idx == this.count - 1;
   }
   next(): void {
     this.question.userAnswerNbr = Number(this.question.userAnswerNbr);
     this.saveQuestion(this.question).subscribe(
       res => {
         this.sys.log.debug("Successfully updated question:", res);
+        this.nextQuestion();
       },
       err => {
         this.sys.log.err("Failed to update question:", this.question, err);
       }
     );
+    // if (this.idx < this.quests.length - 1) {
+    //   this.idx++;
+    //   this.question = this.quests[this.idx];
+    // }
+    // this.isFirst = this.idx == 0;
+    // this.isLast = this.idx == this.count - 1;
+  }
+
+  nextQuestion(): void {
     if (this.idx < this.quests.length - 1) {
       this.idx++;
+      this.question = this.quests[this.idx];
+    }
+    this.isFirst = this.idx == 0;
+    this.isLast = this.idx == this.count - 1;
+  }
+  prevQuestion(): void {
+    if (this.idx > 0) {
+      this.idx--;
       this.question = this.quests[this.idx];
     }
     this.isFirst = this.idx == 0;
