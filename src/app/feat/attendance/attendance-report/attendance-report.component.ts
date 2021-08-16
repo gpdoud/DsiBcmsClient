@@ -14,6 +14,8 @@ export class AttendanceReportComponent extends BcmsListComponent implements OnIn
   
   reports: AttendanceReport[];
   cohortId: number = 0;
+  fromDate: string = '0001-01-01';
+  toDate: string = '9999-12-31';
 
   constructor(
     protected sys: SystemService,
@@ -25,7 +27,8 @@ export class AttendanceReportComponent extends BcmsListComponent implements OnIn
   }
 
   refresh(): void {
-    this.attsvc.report(this.cohortId).subscribe(
+    console.warn("Dates:", this.fromDate, this.toDate);
+    this.attsvc.report(this.cohortId, this.fromDate, this.toDate).subscribe(
       res => {
         this.reports = res;
         this.sys.log.debug("Reports", res);

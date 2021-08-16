@@ -17,8 +17,8 @@ export class AttendanceService {
   ) { }
   
 
-  report(cohortId): Observable<AttendanceReport[]> {
-    return this.http.get(`${this.sys.url}/attendances/report/${cohortId}`) as Observable<AttendanceReport[]>;
+  report(cohortId, fromDate, toDate): Observable<AttendanceReport[]> {
+    return this.http.get(`${this.sys.url}/attendances/report/${cohortId}/${fromDate}/${toDate}`) as Observable<AttendanceReport[]>;
   }
   ischeckedin(cohortId: number, studentId: number): Observable<Attendance> {
     return this.http.get(`${this.sys.url}/attendances/ischeckedin/${cohortId}/${studentId}`) as Observable<Attendance>;
