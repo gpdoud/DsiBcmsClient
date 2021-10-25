@@ -4,7 +4,7 @@ import { LoggerService } from '@core/logger/logger.service';
 import { Ip } from './ip.class';
 import { AppInitService } from 'app/app-init.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { LogService } from '@core/log/log.service';
 
 const DoudIp: string = "69.133.52.201";
@@ -42,11 +42,16 @@ export class IpService {
   }
 
   getIp(): Observable<Ip> {
-    return this.http.get(GetIpUrl) as Observable<Ip>;
+    //return this.http.get(GetIpUrl) as Observable<Ip>;
+    let fakeId = new Ip();
+    fakeId.ip = `${MaxIp}00`;
+    fakeId.name = "Max IP";
+    return of(fakeId);
   }
 
   getCurrentIp(): void {
-    this.http.get(GetIpUrl).subscribe(
+//    this.http.get(GetIpUrl).subscribe(
+    this.getIp().subscribe(
       (res: Ip) => {
         this.logSvc.logDebug(`Previous IP is ${this.currentIp}; Current IP is ${res.ip}`);
         this.log.debug("PrevIp:", this.currentIp, ", CurrIp:", res.ip);
