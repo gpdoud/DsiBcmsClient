@@ -12,7 +12,8 @@ const DoudPhoneIp: string = "174.233.133.93";
 const KenIP: string = "75.185.248.152";
 const MaxIp: string = "66.42.189.";
 
-const GetIpUrl: string = "http://api.ipify.org/?format=json";
+//const GetIpUrl: string = "http://api.ipify.org/?format=json";
+const GetIpUrl: string = "http://doudsystems.com/getip";
 
 @Injectable({
   providedIn: 'root'
@@ -42,11 +43,11 @@ export class IpService {
   }
 
   getIp(): Observable<Ip> {
-    //return this.http.get(GetIpUrl) as Observable<Ip>;
-    let fakeId = new Ip();
-    fakeId.ip = `${MaxIp}00`;
-    fakeId.name = "Max IP";
-    return of(fakeId);
+    return this.http.get(GetIpUrl) as Observable<Ip>;
+    // let fakeId = new Ip();
+    // fakeId.ip = `${MaxIp}00`;
+    // fakeId.name = "Max IP";
+    // return of(fakeId);
   }
 
   getCurrentIp(): void {
