@@ -13,28 +13,37 @@
     <div class="container">
         <div class="row sortable">
             <div class="col-lg-1 text-left">Id</div>
-            <div class="col-lg text-left">Evaluation/Assessment</div>
+            <div class="col-lg-4 text-left">Evaluation/Assessment</div>
+            <div class="col-lg-3 text-left">Cohort</div>
         </div>
         <div class="row text-left">
             <div class="col-lg-1">{{eval.id}}</div>
-            <div class="col-lg">{{eval.description}}</div>
+            <div class="col-lg-4">{{eval.description}}</div>
+            <div class="col-lg-3">
+                <select [(ngModel)]="cohortId" name="cohort">
+                    <option *ngFor="let c of cohorts" [ngValue]=c.id>{{c.name}}</option>
+                </select>
+            </div>
+            <div *ngIf="cohortId > 0" class="col-lg">
+                <button (click)="displayStudents()" class="btn btn-link">Display Students</button>
+            </div>
         </div>
     </div>
     <div>&nbsp;</div>
-    <div class="container">
+    <div *ngIf="students" class="container">
         <div class="row text-left">
-            <div class="col-lg-1 sortable">Id</div>
-            <div class="col-lg-4 sortable">Cohort</div>
-            <div class="col-lg-1">Actions</div>
-            <div class="col-lg-5">Message</div>
-        </div>
-        <div *ngFor="let c of cohorts | sort:'beginDate'" class="row text-left">
-            <div class="col-lg-1">{{c.id}}</div>
-            <div class="col-lg-4">{{c.name}}</div>
-            <div class="col-lg-1 align-top"><button (click)="assign(c.id)" class="btn btn-link">Select</button></div>
-            <div class="col-lg-5 text-success font-weight-bold">
-                <span *ngIf="c.id == cohortId">{{message}}</span>
+            <div class="col-lg-1 sortable"><input [(ngModel)]="checked" type="checkbox" (change)="checkAllChanged()"></div>
+            <div class="col-lg-3 sortable">Student</div>
+            <div class="col-lg-3 sortable">Message</div>
+            <div class="col-lg-5 sortable">
+                <button (click)="assign()" class="btn btn-link text-danger">Assign To Selected Students</button>
             </div>
+        </div>
+        <div class="row text-left" *ngFor="let us of students">
+            <div class="col-lg-1"><input [(ngModel)]="us.checked" type="checkbox"></div>
+            <div class="col-lg-3">{{us.user.firstname}} {{us.user.lastname}}</div>
+            <div class="col-lg-3">{{us.message}}</div>
+            <div class="col-lg-5">&nbsp;</div>
         </div>
     </div>
 </main>

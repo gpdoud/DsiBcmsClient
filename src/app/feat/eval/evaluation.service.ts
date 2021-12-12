@@ -27,8 +27,8 @@ export class EvaluationService {
   get(id: any): Observable<Evaluation> {
     return this.http.get(`${this.sys.url}/evaluations/${id}`) as Observable<Evaluation>;
   }
-  assign(evalId: number, cohortId: number): Observable<any> {
-    return this.http.post(`${this.sys.url}/evaluations/assign/${evalId}/${cohortId}`, null) as Observable<any>
+  assign(cohortId: number, userId: number, evalId: number): Observable<any> {
+    return this.http.post(`${this.sys.url}/evaluations/assign/cohort/${cohortId}/user/${userId}/eval/${evalId}`, null) as Observable<any>
   }
   create(evaluation: Evaluation): Observable<any> {
     return this.http.post(`${this.sys.url}/evaluations`, evaluation) as Observable<any>;
