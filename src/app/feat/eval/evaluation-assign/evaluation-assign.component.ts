@@ -6,6 +6,8 @@ import { EvaluationService } from '../evaluation.service';
 import { Evaluation } from '../evaluation.class';
 import { Cohort } from '@feat/cohort/cohort.class';
 import { CohortService } from '@feat/cohort/cohort.service';
+import { User } from '@feat/user/user.class';
+import { UserSelection } from '@feat/user/user-selection.class';
 
 @Component({
   selector: 'app-evaluation-assign',
@@ -19,6 +21,8 @@ export class EvaluationAssignComponent extends BcmsComponent implements OnInit {
   cohorts: Cohort[] = [];
   message: string = '';
   cohortId: number = 0;
+  cohort!: Cohort;
+  students!: UserSelection[];
 
   constructor(
     protected sys: SystemService,
@@ -30,18 +34,40 @@ export class EvaluationAssignComponent extends BcmsComponent implements OnInit {
     this.pageTitle = "Evaluation Assign to Cohort";
   }
 
-  assign(cohortId: number): void {
-    this.cohortId = cohortId;
-    this.evalSvc.assign(this.evalId, cohortId).subscribe(
-      res => {
-        this.sys.log.debug("Successfully assigned eval to cohort:", res);
-        this.message = `Successfully assigned ${res.evals_created} evals/assess to cohort`;
-      },
-      err => {
-        this.sys.log.err("Failed to assign eval to cohort:", this.evalId, cohortId, err);
-        this.message = "ERROR: Failed to assign to cohort";
+  checked: boolean = false;
+  checkAllChanged(): void {
+    console.debug(`Changed(): is checked: ${this.checked}`);
+    this.students.forEach(us => {
+      us.checked = this.checked;
+    });
+  }
+
+  displayStudents(): void {
+    this.students = [];
+    console.warn(this.cohortId);
+    this.cohortSvc.get(this.cohortId).subscribe({
+      next: res => { 
+        res.enrollments.forEach(e => {
+          let us = new UserSelection();
+          us.user = e.user;
+          this.students.push(us);
+        })
       }
-    );
+    });
+  }
+
+  assign(): void {
+    let cohortId = +this.cohortId;
+    let evalId = +this.evalId;
+    for(let us of this.students) {
+      let userId = +us.user.id;
+      if(!us.checked) { continue; } // skip student
+      this.evalSvc.assign(cohortId, userId, evalId).subscribe({
+        next: res => {
+          us.message = "Assigned...";
+        }
+      });
+    };
   }
 
   ngOnInit() {

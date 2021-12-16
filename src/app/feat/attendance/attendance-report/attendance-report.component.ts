@@ -14,8 +14,9 @@ export class AttendanceReportComponent extends BcmsListComponent implements OnIn
   
   reports: AttendanceReport[];
   cohortId: number = 0;
-  fromDate: string = '0001-01-01';
-  toDate: string = '9999-12-31';
+  year: string = (new Date()).toISOString().substr(0, 4);
+  fromDate: string = `${this.year}-01-01`;
+  toDate: string = `${this.year}-12-31`;;
 
   constructor(
     protected sys: SystemService,
