@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AttendanceService } from '../attendance.service';
 import { AttendanceReport } from '../attendance-report.class';
 import { BcmsListComponent } from '@feat/common/bcms-list.component';
+import { CohortService } from '@feat/cohort/cohort.service';
+import { Cohort } from '@feat/cohort/cohort.class';
 
 @Component({
   selector: 'app-attendance-report',
@@ -14,6 +16,7 @@ export class AttendanceReportComponent extends BcmsListComponent implements OnIn
   
   reports: AttendanceReport[];
   cohortId: number = 0;
+  cohort!: Cohort;
   year: string = (new Date()).toISOString().substr(0, 4);
   fromDate: string = `${this.year}-01-01`;
   toDate: string = `${this.year}-12-31`;;
@@ -21,7 +24,8 @@ export class AttendanceReportComponent extends BcmsListComponent implements OnIn
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
-    private attsvc: AttendanceService
+    private attsvc: AttendanceService,
+    private chortsvc: CohortService
   ) { 
     super(sys);
     this.pageTitle = "Attendance Report"
@@ -38,9 +42,21 @@ export class AttendanceReportComponent extends BcmsListComponent implements OnIn
     );
   }
 
+  setFromToDateRange(): void {
+    this.fromDate = this.cohort.beginDate.slice(0, 10);
+    this.toDate = this.cohort.endDate.slice(0, 10);
+  }
+
   ngOnInit() {
     super.ngOnInit();
     this.cohortId = Number(this.route.snapshot.params.cohortId);
+    this.chortsvc.get(this.cohortId).subscribe(
+      res => {
+        this.cohort = res;
+        this.sys.log.debug("Cohort:", this.cohort);
+        this.setFromToDateRange();
+      }
+    );
     this.refresh();
     // this.attsvc.report(this.cohortId).subscribe(
     //   res => {
