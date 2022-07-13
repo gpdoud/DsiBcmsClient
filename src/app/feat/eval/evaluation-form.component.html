@@ -28,6 +28,14 @@
             </td>
         </tr>
         <tr>
+            <td>Time Limit (mins:secs):</td>
+            <td>
+                <input [(ngModel)]="eval.timeLimitMinutes" min="0" max="60"  [disabled]="readonly" class="text-center time-limit" type="number" name="eval.timeLimitMinutes">
+                <span> :&nbsp;&nbsp; </span>
+                <input [(ngModel)]="eval.timeLimitSeconds" min="0" max="60" [disabled]="readonly" class="text-center time-limit" type="number" name="eval.timeLimitSeconds">
+            </td>
+        </tr>
+        <tr>
             <td>Done?:</td>
             <td><input [(ngModel)]="eval.isDone" type="checkbox" [disabled]="readonly" size="10" name="eval.isdone"></td>
         </tr>
