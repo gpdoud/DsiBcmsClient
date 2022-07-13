@@ -11,6 +11,11 @@
 <main class="component-content">
     <table class="table table-borderless table-sm" *ngIf="question">
         <tr>
+            <td colspan="2">
+                <app-dsi-countdown-timer></app-dsi-countdown-timer>
+            </td>
+        </tr>
+        <tr>
             <td class="text-uppercase font-weight-bold category">{{eval.description}}</td>
             <td class="text-italics text-right">Question {{idx+1}} of {{count}}</td>
         </tr>
