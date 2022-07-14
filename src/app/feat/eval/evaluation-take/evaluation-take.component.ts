@@ -27,6 +27,12 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
   get ans(): number { return this.eval.questions[this.idx].userAnswerNbr; }
   set ans(res: number) { this.eval.questions[this.idx].userAnswerNbr = Number(res); }
 
+  countdown!: string;
+  handleTimerExpiredEvent(): void {
+    console.warn("Timer expired!");
+    this.done();
+  }
+
   calcTotalPoints(qs: Question[]): number {
     let total = 0;
     qs.forEach(q => {
@@ -139,6 +145,7 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
         this.quests = this.eval.questions;
         this.count = this.quests.length;
         this.question = this.quests[0];
+        this.countdown = `${this.eval.timeLimitMinutes}:${this.eval.timeLimitSeconds}`;
         this.sys.log.debug("Evaluation:", res, this.evalId);
       },
       err => {

@@ -49,8 +49,7 @@ export { EvaluationSearchPipe } from '@eval/evaluation-search.pipe';
 export { EvaluationTemplateOnlyPipe } from '@eval/evaluation-template-only.pipe';
 export { EvaluationAssignComponent } from '@eval/evaluation-assign/evaluation-assign.component';
 
-export { DsiCountdownTimerComponent } from './utility/dsi-countdown-timer/dsi-countdown-timer.component';
-
+export { DsiCountdownTimerComponent } from '@feat/utility/dsi-countdown-timer/dsi-countdown-timer.component';
 
 export { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
 export { FeedbackDetailComponent } from './feedback/feedback-detail/feedback-detail.component';

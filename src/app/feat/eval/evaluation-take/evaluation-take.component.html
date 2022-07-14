@@ -11,13 +11,14 @@
 <main class="component-content">
     <table class="table table-borderless table-sm" *ngIf="question">
         <tr>
-            <td colspan="2">
-                <app-dsi-countdown-timer></app-dsi-countdown-timer>
+            <td class="text-uppercase category">{{eval.description}}</td>
+            <td class="text-italics text-right">
+                <span class="font-weight-bold ">
+                    [ Time remaining: <dsi-countdown-timer [countdown]="countdown" class="font-weight-bold text-danger"
+                        (timerExpiredEvent)="handleTimerExpiredEvent()"></dsi-countdown-timer> ]
+                </span>
+                <span> || Question {{idx+1}} of {{count}}</span>
             </td>
-        </tr>
-        <tr>
-            <td class="text-uppercase font-weight-bold category">{{eval.description}}</td>
-            <td class="text-italics text-right">Question {{idx+1}} of {{count}}</td>
         </tr>
         <tr>
             <td class="font-italic question" colspan="2">{{question.questionText}}</td>
