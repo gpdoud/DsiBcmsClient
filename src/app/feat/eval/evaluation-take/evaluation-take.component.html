@@ -59,14 +59,15 @@
             <td colspan="2">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2">
-                <button [disabled]="isFirst" (click)="prev()" class="btn btn-primary">Prev</button> |
-                <button [disabled]="isLast" (click)="next()" class="btn btn-primary">Next</button>  | |
-                <button (click)="finished()" class="btn btn-success">Submit</button>
+            <td class="">
+                <button [disabled]="isFirst" (click)="prev()" class="btn btn-primary btn-sm">Prev</button> |
+                <button [disabled]="isLast" (click)="next()" class="btn btn-primary btn-sm">Next</button>
+            </td>
+            <td class="text-right">
                 <span *ngIf="verifyDone">
-                    | | <button (click)="done()" class="btn btn-success">Verify Submit</button>
-
+                    <button (click)="done()" class="btn btn-danger btn-sm">Verify Done If Finished</button> | |
                 </span>
+                <button (click)="finished()" class="btn btn-warning btn-sm">Done</button>
 
             </td>
         </tr>
