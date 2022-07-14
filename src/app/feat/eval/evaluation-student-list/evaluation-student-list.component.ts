@@ -13,6 +13,9 @@ export class EvaluationStudentListComponent extends BcmsListComponent implements
 
   evals: Evaluation[];
   studentId: number = 0;
+  timer(min: number, sec: number) {
+    return min.toString() + ":" + (sec < 10 ? 0 + sec.toString() : sec.toString());
+  }
 
   constructor(
     protected sys: SystemService,

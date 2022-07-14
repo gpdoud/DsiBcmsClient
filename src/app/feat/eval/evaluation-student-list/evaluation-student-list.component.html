@@ -10,6 +10,7 @@
                 <td class="sortable"><a (click)="sort('id')">Id</a></td>
                 <td class="sortable"><a (click)="sort('description')">Description</a></td>
                 <td>Questions</td>
+                <td>Time Limit</td>
                 <td>Score</td>
                 <td>Actions</td>
             </tr>
@@ -19,6 +20,7 @@
                 <td>{{ e.id }}</td>
                 <td>{{ e.description }}</td>
                 <td>{{ e.questions.length }}</td>
+                <td>{{ timer(e.timeLimitMinutes, e.timeLimitSeconds) }}</td>
                 <td *ngIf="!e.isDone"></td>
                 <td *ngIf="e.isDone">{{e.pointsScored / e.pointsAvailable | percent}}</td>
                 <td *ngIf="!e.isDone">
