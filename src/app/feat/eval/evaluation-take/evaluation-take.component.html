@@ -24,7 +24,7 @@
             <td class="font-italic question" colspan="2">{{question.questionText}}</td>
         </tr>
         <tr>
-            <td colspan="2"><input [(ngModel)]="ans" type="radio" name="answer" [value]=0>
+            <td colspan="2"><input [(ngModel)]="ans" type="radio" name="answer" [value]=0 >
                 {{question.answerTextA}}</td>
         </tr>
         <tr>
@@ -63,7 +63,7 @@
                 <button [disabled]="isFirst" (click)="prev()" class="btn btn-primary btn-sm">Prev</button> |
                 <button [disabled]="isLast" (click)="next()" class="btn btn-primary btn-sm">Next</button>
             </td>
-            <td class="text-right">
+            <td class="text-right" *ngIf="canComplete">
                 <span *ngIf="verifyDone">
                     <button (click)="done()" class="btn btn-danger btn-sm">Verify Done If Finished</button> | |
                 </span>
