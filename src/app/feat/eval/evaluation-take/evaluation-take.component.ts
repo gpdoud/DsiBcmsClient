@@ -27,6 +27,11 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
   get ans(): number { return this.eval.questions[this.idx].userAnswerNbr; }
   set ans(res: number) { this.eval.questions[this.idx].userAnswerNbr = Number(res); }
 
+  registerAnswer(answer: number): void {
+    this.ans = answer;
+    this.saveQuest();
+  }
+
   countdown!: string;
   handleTimerExpiredEvent(): void {
     console.warn("Timer expired!");
@@ -37,12 +42,12 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
   answeredQuestions: number = 0;
   countAnsweredQuestions(): void {
     let sum = 0;
-    for(let q of this.eval.questions) {
-      if(q.userAnswerNbr !== -1) {
+    for (let q of this.eval.questions) {
+      if (q.userAnswerNbr !== -1) {
         sum++;
       }
     }
-    if(this.eval.questions.length === sum) {
+    if (this.eval.questions.length === sum) {
       this.canComplete = true;
     }
   }
@@ -50,7 +55,7 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
   calcTotalPoints(qs: Question[]): number {
     let total = 0;
     qs.forEach(q => {
-      if(q.correctAnswerNbr === q.userAnswerNbr) {
+      if (q.correctAnswerNbr === q.userAnswerNbr) {
         total += q.pointValue;
       }
     });
@@ -83,42 +88,10 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
     );
   }
   prev(): void {
-    this.question.userAnswerNbr = Number(this.question.userAnswerNbr);
-    this.saveQuestion(this.question).subscribe(
-      res => {
-        this.sys.log.debug("Successfully updated question:", res);
-        this.countAnsweredQuestions();
-        this.prevQuestion();
-      },
-      err => {
-        this.sys.log.err("Failed to update question:", this.question, err);
-      }
-      );
-      // if (this.idx > 0) {
-        //   this.idx--;
-        //   this.question = this.quests[this.idx];
-        // }
-        // this.isFirst = this.idx == 0;
-        // this.isLast = this.idx == this.count - 1;
-      }
-      next(): void {
-        this.question.userAnswerNbr = Number(this.question.userAnswerNbr);
-        this.saveQuestion(this.question).subscribe(
-          res => {
-            this.sys.log.debug("Successfully updated question:", res);
-            this.countAnsweredQuestions();
-            this.nextQuestion();
-          },
-          err => {
-            this.sys.log.err("Failed to update question:", this.question, err);
-          }
-          );
-          // if (this.idx < this.quests.length - 1) {
-    //   this.idx++;
-    //   this.question = this.quests[this.idx];
-    // }
-    // this.isFirst = this.idx == 0;
-    // this.isLast = this.idx == this.count - 1;
+    this.prevQuestion();
+  }
+  next(): void {
+    this.nextQuestion();
   }
 
   nextQuestion(): void {
@@ -143,41 +116,41 @@ export class EvaluationTakeComponent extends BcmsComponent implements OnInit {
 
   verifyDone: boolean = false;
   finished(): void { this.verifyDone = !this.verifyDone; }
-  
+
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
     private evalsvc: EvaluationService,
     private questsvc: QuestionService
-    ) {
-      super(sys);
-      this.pageTitle = "Evaluation Take";
-    }
-    
-    refresh(): void {
-      this.evalsvc.get(this.evalId).subscribe(
-        (res: Evaluation) => {
-          this.eval = res;
-          this.quests = this.eval.questions;
-          this.count = this.quests.length;
-          this.question = this.quests[0];
-          this.countdown = `${this.eval.timeLimitMinutes}:${this.eval.timeLimitSeconds}`;
-          this.sys.log.debug("Evaluation:", res, this.evalId);
-          this.countAnsweredQuestions();
-        },
-        err => {
-          this.sys.log.err("Failed to read the evaluation:", err, this.evalId);
-        }
-        );
+  ) {
+    super(sys);
+    this.pageTitle = "Evaluation Take";
+  }
+
+  refresh(): void {
+    this.evalsvc.get(this.evalId).subscribe(
+      (res: Evaluation) => {
+        this.eval = res;
+        this.quests = this.eval.questions;
+        this.count = this.quests.length;
+        this.question = this.quests[0];
+        this.countdown = `${this.eval.timeLimitMinutes}:${this.eval.timeLimitSeconds}`;
+        this.sys.log.debug("Evaluation:", res, this.evalId);
+        this.countAnsweredQuestions();
+      },
+      err => {
+        this.sys.log.err("Failed to read the evaluation:", err, this.evalId);
       }
-      
-      ngOnInit() {
-        super.ngOnInit();
-        this.evalId = this.route.snapshot.params.id;
-        this.refresh();
-        
-        // this.evalsvc.get(this.evalId).subscribe(
+    );
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
+    this.evalId = this.route.snapshot.params.id;
+    this.refresh();
+
+    // this.evalsvc.get(this.evalId).subscribe(
     //   (res: Evaluation) => {
     //     this.eval = res;
     //     this.quests = this.eval.questions;

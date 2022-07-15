@@ -24,17 +24,17 @@
             <td class="font-italic question" colspan="2">{{question.questionText}}</td>
         </tr>
         <tr>
-            <td colspan="2"><input [(ngModel)]="ans" type="radio" name="answer" [value]=0 >
+            <td colspan="2"><input [(ngModel)]="ans" type="radio" name="answer" [value]=0 (click)="registerAnswer(0)">
                 {{question.answerTextA}}</td>
         </tr>
         <tr>
-            <td><input [(ngModel)]="ans" type="radio" name="answer" [value]=1>
+            <td><input [(ngModel)]="ans" type="radio" name="answer" [value]=1 (click)="registerAnswer(1)">
                 {{question.answerTextB}}</td>
         </tr>
         <tr>
             <td colspan="2">
                 <span *ngIf="eval.questions[idx].answerTextC.length > 0">
-                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=2>
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=2 (click)="registerAnswer(2)">
                     {{question.answerTextC}}
                 </span>&nbsp;
             </td>
@@ -42,7 +42,7 @@
         <tr>
             <td colspan="2">
                 <span *ngIf="eval.questions[idx].answerTextD.length > 0">
-                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=3>
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=3 (click)="registerAnswer(3)">
                     {{question.answerTextD}}
                 </span>&nbsp;
             </td>
@@ -50,7 +50,7 @@
         <tr>
             <td colspan="2">
                 <span *ngIf="eval.questions[idx].answerTextE.length > 0">
-                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=4>
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=4 (click)="registerAnswer(4)">
                     {{question.answerTextE}}
                 </span>&nbsp;
             </td>
