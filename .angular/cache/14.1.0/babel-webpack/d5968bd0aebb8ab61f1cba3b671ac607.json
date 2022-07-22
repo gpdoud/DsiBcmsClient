@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Role {\n  constructor() {\n    this.isRoot = false;\n    this.isAdmin = false;\n    this.isStaff = false;\n    this.isInstructor = false;\n    this.isStudent = false;\n    this.active = true;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
