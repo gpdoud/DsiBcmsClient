@@ -8,6 +8,7 @@ import { User } from '@user/user.class';
 import { NotFound } from '../../utility/not-found.class';
 import { Attendance } from '../attendance.class';
 import { IpService } from '@core/ip/ip.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-attendance-pincode',
@@ -21,7 +22,7 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
   attnd: Attendance = new Attendance();
   pinCode: string = '';
   studentIscheckedIn: boolean = false;
-  message: string = 'Enter PinCode and optional Note and press enter';
+  message: string = 'Add note if arriving late or leaving early.';
   
   constructor(
     protected sys: SystemService,
@@ -38,7 +39,35 @@ export class AttendancePincodeComponent extends BcmsComponent implements OnInit 
   get isLoggedInUserRootOrAdmin(): boolean {
     return this._loggedInUser.role.isAdmin || this._loggedInUser.role.isRoot || this._loggedInUser.role.isInstructor;
   }
+
+  checkin(): void {
+    let chkinout = this.attendsvc.checkin(this.cohortId, this.student.id, this.attnd);
+    this.navigateAfterCheckInOut(chkinout);
+  }
   
+  checkout(): void {
+    let chkinout = this.attendsvc.checkout(this.cohortId, this.student.id, this.attnd);
+    this.navigateAfterCheckInOut(chkinout);
+  }
+
+  navigateAfterCheckInOut(chkinout: Observable<any>) {
+    chkinout.subscribe(
+      res => {
+        this.sys.log.debug(`Student ${this.student.firstname} is checked${this.studentIscheckedIn ? 'out' : 'in'}`);
+        if(this.isLoggedInUserRootOrAdmin) {
+          this.router.navigateByUrl(`/attendance/checkinout/${this.cohortId}`);
+        } else {
+          this.router.navigateByUrl(`/home`);
+        }
+      },
+      err => {
+        this.sys.log.err(err);
+      }
+    );
+  }
+
+  // deprecated
+  // replaced by checkin() and checkout()
   enter(): void {
     // skip pin if isRoot/isAdmin
     if (!this.isLoggedInUserRootOrAdmin && this.pinCode !== this.student.pinCode) {
