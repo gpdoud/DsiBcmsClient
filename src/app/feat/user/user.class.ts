@@ -12,7 +12,8 @@ export class User {
     workPhone: string;
     roleCode: string;
     securityKey: string;
-    pinCode: string;
+    // deprecated as of v1.6
+    pinCode: string = "0000";
     active: boolean = true;
     created: string;
     updated: string;
