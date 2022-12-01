@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <header></header>
-<div>
+<div> 
     <span>{{pageTitle}}</span>
     <span> | </span>
     <span><a routerLink="/evals/list" class="">Back to list ...</a></span>
@@ -25,6 +25,14 @@
                 <input [(ngModel)]="eval.pointsScored"  class="text-center" type="text" disabled size="5" name="eval.pointsScored">
                 <span> of </span>
                 <input [(ngModel)]="eval.pointsAvailable"  class="text-center" type="text" disabled size="5" name="eval.pointsAvailable">
+            </td>
+        </tr>
+        <tr>
+            <td>Time Limit (mins:secs):</td>
+            <td>
+                <input [(ngModel)]="eval.timeLimitMinutes" min="0" max="60"  [disabled]="readonly" class="text-center time-limit" type="number" name="eval.timeLimitMinutes">
+                <span> :&nbsp;&nbsp; </span>
+                <input [(ngModel)]="eval.timeLimitSeconds" min="0" max="60" [disabled]="readonly" class="text-center time-limit" type="number" name="eval.timeLimitSeconds">
             </td>
         </tr>
         <tr>

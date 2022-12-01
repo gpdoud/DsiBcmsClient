@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Enrollment {\n  constructor() {\n    this.id = 0;\n    this.userId = 0;\n    this.cohortId = 0;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

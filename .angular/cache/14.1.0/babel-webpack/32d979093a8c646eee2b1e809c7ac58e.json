@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Menu {\n  constructor(display, route, tip, reqsAdm = false, reqsInstructor = false) {\n    this.display = display;\n    this.route = route;\n    this.tip = tip;\n    this.reqsAdm = reqsAdm;\n    this.reqsInstructor = reqsInstructor;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

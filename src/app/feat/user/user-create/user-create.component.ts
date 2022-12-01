@@ -54,18 +54,20 @@ export class UserCreateComponent extends BcmsComponent implements OnInit {
     );
   }
 
-  genPinCode(): string {
-    let pin:any = Math.floor(Math.random() * 10000);
-    pin = `0000${pin}`;
-    pin = <string>pin.substring(pin.length - 4);
-    return pin;
-  }
+  // deprecated as of v1.6
+  // genPinCode(): string {
+  //   let pin:any = Math.floor(Math.random() * 10000);
+  //   pin = `0000${pin}`;
+  //   pin = <string>pin.substring(pin.length - 4);
+  //   return pin;
+  // }
 
   ngOnInit() {
     super.ngOnInit();
     this.verifyPassword = this.user.password = "Train@MAX";
     this.user.roleCode = "stu";
-    this.user.pinCode = this.genPinCode();
+    // deprecated as of v1.6
+    // this.user.pinCode = this.genPinCode();
     this.rolesvc.list().subscribe(
       res => {
         this.roles = res;

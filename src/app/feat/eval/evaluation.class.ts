@@ -11,6 +11,8 @@ export class Evaluation {
     isDone: boolean = false;
     pointsAvailable: number = 0;
     pointsScored: number = 0;
+    timeLimitMinutes: number = 0;
+    timeLimitSeconds: number = 0;
     userId: number = null;
     active: boolean = true;
     created: string;

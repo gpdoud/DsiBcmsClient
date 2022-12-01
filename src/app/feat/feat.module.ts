@@ -21,6 +21,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
             , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
             , CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
+            , DsiCountdownTimerComponent
         } from './index';
 
         @NgModule({
@@ -44,6 +45,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
                 , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
                 , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
                 , CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
+                , DsiCountdownTimerComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

@@ -10,6 +10,7 @@
                 <td class="sortable"><a (click)="sort('id')">Id</a></td>
                 <td class="sortable"><a (click)="sort('description')">Description</a></td>
                 <td>Questions</td>
+                <td>Time Limit</td>
                 <td>Score</td>
                 <td>Actions</td>
             </tr>
@@ -19,6 +20,7 @@
                 <td>{{ e.id }}</td>
                 <td>{{ e.description }}</td>
                 <td>{{ e.questions.length }}</td>
+                <td>{{ timer(e.timeLimitMinutes, e.timeLimitSeconds) }}</td>
                 <td *ngIf="!e.isDone"></td>
                 <td *ngIf="e.isDone">{{e.pointsScored / e.pointsAvailable | percent}}</td>
                 <td *ngIf="!e.isDone">
@@ -26,6 +28,22 @@
                 </td>
                 <td *ngIf="e.isDone">
                     <a routerLink="/evals/review/{{e.id}}">Review</a> 
+                </td>
+            </tr>
+            <tr><td colspan="6">&nbsp;</td></tr>
+            <tr>
+                <td class="text-italic" colspan="6">
+                    <p class="font-weight-bold text-italic">*** Important note! ***</p>
+                    <p>
+                        The evaluations/assessments now have a time limit as listed above. The timer
+                        will start as soon as you click "Take". The timer will display at the top right
+                        of the page.
+                    </p>
+                    <p>
+                        If the evaluation/assessment being taken has not be completed before the timer 
+                        expires, the system will end it for you and any unanswered questions will be 
+                        marked incorrect.
+                    </p>
                 </td>
             </tr>
         </tbody>

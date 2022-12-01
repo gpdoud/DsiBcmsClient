@@ -11,24 +11,30 @@
 <main class="component-content">
     <table class="table table-borderless table-sm" *ngIf="question">
         <tr>
-            <td class="text-uppercase font-weight-bold category">{{eval.description}}</td>
-            <td class="text-italics text-right">Question {{idx+1}} of {{count}}</td>
+            <td class="text-uppercase category">{{eval.description}}</td>
+            <td class="text-italics text-right">
+                <span class="font-weight-bold ">
+                    [ Time remaining: <dsi-countdown-timer [countdown]="countdown" class="font-weight-bold text-danger"
+                        (timerExpiredEvent)="handleTimerExpiredEvent()"></dsi-countdown-timer> ]
+                </span>
+                <span> || Question {{idx+1}} of {{count}}</span>
+            </td>
         </tr>
         <tr>
             <td class="font-italic question" colspan="2">{{question.questionText}}</td>
         </tr>
         <tr>
-            <td colspan="2"><input [(ngModel)]="ans" type="radio" name="answer" [value]=0>
+            <td colspan="2"><input [(ngModel)]="ans" type="radio" name="answer" [value]=0 (click)="registerAnswer(0)">
                 {{question.answerTextA}}</td>
         </tr>
         <tr>
-            <td><input [(ngModel)]="ans" type="radio" name="answer" [value]=1>
+            <td><input [(ngModel)]="ans" type="radio" name="answer" [value]=1 (click)="registerAnswer(1)">
                 {{question.answerTextB}}</td>
         </tr>
         <tr>
             <td colspan="2">
                 <span *ngIf="eval.questions[idx].answerTextC.length > 0">
-                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=2>
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=2 (click)="registerAnswer(2)">
                     {{question.answerTextC}}
                 </span>&nbsp;
             </td>
@@ -36,7 +42,7 @@
         <tr>
             <td colspan="2">
                 <span *ngIf="eval.questions[idx].answerTextD.length > 0">
-                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=3>
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=3 (click)="registerAnswer(3)">
                     {{question.answerTextD}}
                 </span>&nbsp;
             </td>
@@ -44,7 +50,7 @@
         <tr>
             <td colspan="2">
                 <span *ngIf="eval.questions[idx].answerTextE.length > 0">
-                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=4>
+                    <input [(ngModel)]="ans" type="radio" name="answer" [value]=4 (click)="registerAnswer(4)">
                     {{question.answerTextE}}
                 </span>&nbsp;
             </td>
@@ -53,14 +59,15 @@
             <td colspan="2">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2">
-                <button [disabled]="isFirst" (click)="prev()" class="btn btn-primary">Prev</button> |
-                <button [disabled]="isLast" (click)="next()" class="btn btn-primary">Next</button>  | |
-                <button (click)="finished()" class="btn btn-success">Submit</button>
+            <td class="">
+                <button [disabled]="isFirst" (click)="prev()" class="btn btn-primary btn-sm">Prev</button> |
+                <button [disabled]="isLast" (click)="next()" class="btn btn-primary btn-sm">Next</button>
+            </td>
+            <td class="text-right" *ngIf="canComplete">
                 <span *ngIf="verifyDone">
-                    | | <button (click)="done()" class="btn btn-success">Verify Submit</button>
-
+                    <button (click)="done()" class="btn btn-danger btn-sm">Verify Done If Finished</button> | |
                 </span>
+                <button (click)="finished()" class="btn btn-warning btn-sm">Done</button>
 
             </td>
         </tr>
