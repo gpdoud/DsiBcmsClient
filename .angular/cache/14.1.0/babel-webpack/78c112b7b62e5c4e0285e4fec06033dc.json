@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class Cohort {\n  constructor() {\n    this.id = 0;\n    this.capacity = 12;\n    this.active = true;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
