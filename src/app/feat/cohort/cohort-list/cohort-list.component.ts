@@ -27,9 +27,12 @@ export class CohortListComponent extends BcmsListComponent implements OnInit {
   filterCohort(cohorts: Cohort[]): Cohort[] {
     let filteredCohorts: Cohort[] = [];
     let loggedInUser: User = this._loggedInUser;
+    if(loggedInUser.role.isRoot || loggedInUser.role.isAdmin) {
+      return cohorts;
+    }
     cohorts.forEach(c => {
       for(var i of c.instructorCohorts) {
-        if(i.instructorId === loggedInUser.id || loggedInUser.role.isAdmin || loggedInUser.role.isRoot ) {
+        if(i.instructorId === loggedInUser.id) {
           filteredCohorts.push(c);
           break;
         }

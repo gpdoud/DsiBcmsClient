@@ -1,0 +1,55 @@
+<header></header>
+<app-menu></app-menu>
+<div>
+    <span>{{pageTitle}}</span>
+
+</div>
+<main>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Begins</th>
+                <th>Ends</th>
+                <th>Grad</th>
+                <th>Cap</th>
+                <th>Enrolled</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="cohort">
+            <tr>
+                <td>{{cohort.id}}</td>
+                <td>{{cohort.name}}</td>
+                <td>{{cohort.beginDate | date}}</td>
+                <td>{{cohort.endDate | date}}</td>
+                <td>{{cohort.demoDay | date}}</td>
+                <td>{{cohort.capacity}}</td>
+                <td>{{cohort.enrollments.length}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p></p>
+    <a *ngIf="canAddRemove && cohort" routerLink='/intructorCohort/add/{{cohort.id}}' class="text-success font-weight-bold">Add</a>
+    <table class="table table-sm" *ngIf="cohort">
+        <thead>
+            <tr>
+                <td>Instructor(s)</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ic of cohort.instructorCohorts">
+                <td>{{ ic.instructor.firstname }} {{ ic.instructor.lastname }} | 
+                    [{{ ic.instructor.cellPhone }}] | [{{ ic.instructor.email }}]</td>
+                <td>
+                    <button *ngIf="canAddRemove" (click)="remove(ic.id)" class="btn btn-link text-danger font-weight-bold">Remove</button>
+                    &nbsp;
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

@@ -7,6 +7,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             RoleListComponent, RoleDetailComponent, RoleEditComponent, RoleCreateComponent, RoleSearchPipe,
             ConfigListComponent, ConfigSearchPipe, ConfigEditComponent, ConfigCreateComponent,
             CohortListComponent, CohortDetailComponent, CohortEditComponent, CohortCreateComponent, CohortSearchPipe, 
+            CohortInstructorComponent,
             EnrollmentListComponent, EnrollmentSearchPipe, 
             EvaluationListComponent, EvaluationDetailComponent, EvaluationCreateComponent, EvaluationEditComponent, EvaluationTakeComponent,
             EvaluationStudentListComponent, EvaluationReviewComponent, 
@@ -21,7 +22,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
             , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
             , CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
-            , DsiCountdownTimerComponent
+            , DsiCountdownTimerComponent, InstructorCohortAddInstructorComponent
         } from './index';
 
         @NgModule({
@@ -45,7 +46,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
                 , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
                 , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
                 , CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
-                , DsiCountdownTimerComponent
+                , DsiCountdownTimerComponent, CohortInstructorComponent, InstructorCohortAddInstructorComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

@@ -15,19 +15,19 @@ export class InstructorCohortService {
   ) { }
 
   list(): Observable<InstructorCohort[]> {
-    return this.http.get(`${this.sys.url}/enrollments`) as Observable<InstructorCohort[]>;
+    return this.http.get(`${this.sys.url}/instructorCohorts`) as Observable<InstructorCohort[]>;
   }
   get(userId: number, cohortId: number): Observable<InstructorCohort> {
-    return this.http.get(`${this.sys.url}/enrollments/${userId}/${cohortId}`) as Observable<InstructorCohort>;
+    return this.http.get(`${this.sys.url}/instructorCohorts/${userId}/${cohortId}`) as Observable<InstructorCohort>;
   }
   create(instructorCohort: InstructorCohort): Observable<any> {
-    return this.http.post(`${this.sys.url}/enrollments`, instructorCohort) as Observable<any>;
+    return this.http.post(`${this.sys.url}/instructorCohorts`, instructorCohort) as Observable<any>;
   }
   change(instructorCohort: InstructorCohort): Observable<any> {
-    return this.http.post(`${this.sys.url}/enrollments/update/${instructorCohort.id}`, instructorCohort) as Observable<any>;
+    return this.http.post(`${this.sys.url}/instructorCohorts/update/${instructorCohort.id}`, instructorCohort) as Observable<any>;
   }
-  remove(instructorCohort: InstructorCohort): Observable<any> {
-    return this.http.post(`${this.sys.url}/enrollments/delete/${instructorCohort.id}`, null) as Observable<any>;
+  remove(id: number): Observable<any> {
+    return this.http.post(`${this.sys.url}/instructorCohorts/delete/${id}`, null) as Observable<any>;
   }
 
 }
