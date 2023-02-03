@@ -17,7 +17,7 @@
                 <td>Id</td>
                 <td>Cohort</td>
                 <td>Dates</td>
-                <td>Instructor</td>
+                <!-- <td>Instructor</td> -->
                 <td>Capacity</td>
                 <td>Enrollments</td>
             </tr>
@@ -27,7 +27,7 @@
                 <td>{{cohort.id}}</td>
                 <td>{{cohort.name}}</td>
                 <td>{{cohort.beginDate | date:'MMM dd, yyyy'}} / {{cohort.endDate | date:'MMM dd, yyyy'}}</td>
-                <td *ngIf="cohort.instructor">{{cohort.instructor.lastname}}, {{cohort.instructor.firstname}}</td>
+                <!-- <td *ngIf="cohort.instructors">{{cohort.instructor.lastname}}, {{cohort.instructor.firstname}}</td> -->
                 <td>{{cohort.capacity}}</td>
                 <td *ngIf="cohort.enrollments">{{cohort.enrollments.length}}</td>
             </tr>

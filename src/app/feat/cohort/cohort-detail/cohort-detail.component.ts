@@ -10,7 +10,7 @@ import { BcmsComponent } from '../../common/bcms.component';
 @Component({
   selector: 'app-cohort-detail',
   templateUrl: '../cohort-form.component.html',
-  styleUrls: ['./cohort-detail.component.css']
+  styleUrls: ['../cohort-form.component.css']
 })
 export class CohortDetailComponent extends BcmsComponent implements OnInit {
 
@@ -18,6 +18,7 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
   
   cohort: Cohort = new Cohort();
   users: User[] = [];
+  instructors: User[] = [];
   
   constructor(
     protected sys: SystemService,
@@ -65,7 +66,7 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
     this.cohortsvc.get(id).subscribe(
       res => {
         this.cohort = res;
-        this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
+        //this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
         this.sys.log.debug(res);
       },
       err => {

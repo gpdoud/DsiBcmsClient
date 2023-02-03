@@ -10,12 +10,13 @@ import { User } from '@feat/user/user.class';
 @Component({
   selector: 'app-cohort-edit',
   templateUrl: '../cohort-form.component.html',
-  styleUrls: ['./cohort-edit.component.css']
+  styleUrls: ['../cohort-form.component.css']
 })
 export class CohortEditComponent extends BcmsComponent implements OnInit {
 
   cohort: Cohort = null;
   users: User[] = [];
+  instructors: User[] = [];
   
   constructor(
     protected sys: SystemService,
@@ -56,7 +57,7 @@ export class CohortEditComponent extends BcmsComponent implements OnInit {
     this.cohortsvc.get(id).subscribe(
       res => {
         this.cohort = res;
-        this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
+        //this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
         this.sys.log.debug("Cohort", res);
       },
       err => {

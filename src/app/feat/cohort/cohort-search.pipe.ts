@@ -13,7 +13,6 @@ export class CohortSearchPipe implements PipeTransform {
       if(
         cohort.id.toString().toLowerCase().includes(criteria.toLowerCase()) ||
         cohort.name.toLowerCase().includes(criteria.toLowerCase()) ||
-        (cohort.instructorId != null && cohort.instructorId.toString().toLowerCase().includes(criteria.toLowerCase())) ||
         (cohort.beginDate != null && cohort.beginDate.toString().toLowerCase().includes(criteria.toLowerCase())) ||
         (cohort.endDate != null && cohort.endDate.toLowerCase().includes(criteria.toLowerCase())) ||
         (cohort.demoDay != null && cohort.demoDay.toLowerCase().includes(criteria.toLowerCase())) ||

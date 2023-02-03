@@ -10,12 +10,13 @@ import { User } from '@feat/user/user.class';
 @Component({
   selector: 'app-cohort-create',
   templateUrl: '../cohort-form.component.html',
-  styleUrls: ['./cohort-create.component.css']
+  styleUrls: ['../cohort-form.component.css']
 })
 export class CohortCreateComponent extends BcmsComponent implements OnInit {
 
   cohort: Cohort = new Cohort();
   users: User[] = [];
+  instructors: User[] = [];
   
   constructor(
     protected sys: SystemService,
