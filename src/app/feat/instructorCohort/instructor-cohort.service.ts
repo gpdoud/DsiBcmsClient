@@ -17,8 +17,8 @@ export class InstructorCohortService {
   list(): Observable<InstructorCohort[]> {
     return this.http.get(`${this.sys.url}/instructorCohorts`) as Observable<InstructorCohort[]>;
   }
-  get(userId: number, cohortId: number): Observable<InstructorCohort> {
-    return this.http.get(`${this.sys.url}/instructorCohorts/${userId}/${cohortId}`) as Observable<InstructorCohort>;
+  get(cohortId: number): Observable<InstructorCohort> {
+    return this.http.get(`${this.sys.url}/instructorCohorts/${cohortId}`) as Observable<InstructorCohort>;
   }
   create(instructorCohort: InstructorCohort): Observable<any> {
     return this.http.post(`${this.sys.url}/instructorCohorts`, instructorCohort) as Observable<any>;
