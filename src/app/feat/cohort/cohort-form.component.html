@@ -24,14 +24,9 @@
             <tr>
                 <td>Instructor(s):</td>
                 <td>
-                    <div>
-                        <ng-container *ngFor="let u of users; index as idx;">
-                            <input [(ngModel)]="instructors[idx]" 
-                            type="checkbox" [disabled]="readonly">
-                            <span> {{ u.firstname }} {{ u.lastname }}</span>
-                            <br>
-                        </ng-container>
-                    </div>
+                    <select size="5">
+                        <option *ngFor="let i of instructors">{{ i }}</option>
+                    </select>
                 </td>
             </tr>
             <tr>

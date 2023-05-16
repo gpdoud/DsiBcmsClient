@@ -16,7 +16,7 @@ export class CohortCreateComponent extends BcmsComponent implements OnInit {
 
   cohort: Cohort = new Cohort();
   users: User[] = [];
-  instructors: User[] = [];
+  instructors: string[] = [];
   
   constructor(
     protected sys: SystemService,
@@ -45,8 +45,10 @@ export class CohortCreateComponent extends BcmsComponent implements OnInit {
     super.ngOnInit();
     this.usersvc.getInstructors().subscribe(
       res => {
-        this.users = res;
         this.sys.log.debug("Get list of instructors.", res);
+        for (let u of res) {
+          this.instructors.push(`${u.firstname} ${u.lastname}`);
+        }
       },
       err => {
         this.sys.log.err("Error getting list of instructors!", err);

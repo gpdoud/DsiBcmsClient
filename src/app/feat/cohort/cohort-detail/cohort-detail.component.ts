@@ -15,21 +15,20 @@ import { BcmsComponent } from '../../common/bcms.component';
 export class CohortDetailComponent extends BcmsComponent implements OnInit {
 
   verified: boolean = false;
-  
+
   cohort: Cohort = new Cohort();
-  users: User[] = [];
-  instructors: User[] = [];
-  
+  instructors: string[] = [];
+
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
     private cohortsvc: CohortService,
     private usersvc: UserService
-    ) { 
-      super(sys);
-      this.pageTitle = "Cohort Detail";
-      this.readonly = true;
+  ) {
+    super(sys);
+    this.pageTitle = "Cohort Detail";
+    this.readonly = true;
   }
 
   edit(): void {
@@ -55,8 +54,10 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
     super.ngOnInit();
     this.usersvc.list().subscribe(
       res => {
-        this.users = res;
-        this.sys.log.debug("Get list of users.", res);
+        this.sys.log.debug("Get list of instructors.", res);
+        for (let u of res) {
+          this.instructors.push(`${u.firstname} ${u.lastname}`);
+        }
       },
       err => {
         this.sys.log.err("Error getting list of users!", err);
