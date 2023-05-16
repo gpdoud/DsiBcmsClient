@@ -28,7 +28,7 @@ export class CohortInstructorComponent implements OnInit {
     this.icsvc.remove(id).subscribe({
       next: (res) => {
         this.sys.log.debug("Instructor removed.");
-        this.cohort = res;
+        this.refresh();
       },
       error: (err) => {
         this.sys.log.err(err);
