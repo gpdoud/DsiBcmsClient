@@ -6,6 +6,7 @@ import { Cohort } from '@cohort/cohort.class';
 import { BcmsComponent } from '@feat/common/bcms.component';
 import { UserService } from '@feat/user/user.service';
 import { User } from '@feat/user/user.class';
+import { InstructorCohortService } from '@feat/instructorCohort/instructor-cohort.service';
 
 @Component({
   selector: 'app-cohort-create',
@@ -21,7 +22,7 @@ export class CohortCreateComponent extends BcmsComponent implements OnInit {
   constructor(
     protected sys: SystemService,
     private cohortsvc: CohortService,
-    private usersvc: UserService,
+    private icsvc: InstructorCohortService,
     private router: Router
     ) {
       super(sys);
@@ -43,11 +44,11 @@ export class CohortCreateComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-    this.usersvc.getInstructors().subscribe(
+    this.icsvc.list().subscribe(
       res => {
         this.sys.log.debug("Get list of instructors.", res);
-        for (let u of res) {
-          this.instructors.push(`${u.firstname} ${u.lastname}`);
+        for (let ic of res) {
+          //this.instructors.push(`${ic.instructor.firstname} ${ic.instructor.lastname}`);
         }
       },
       err => {

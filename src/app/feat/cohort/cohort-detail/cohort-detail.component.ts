@@ -6,6 +6,7 @@ import { Cohort } from '@cohort/cohort.class';
 import { UserService } from '@user/user.service';
 import { User } from '@user/user.class'
 import { BcmsComponent } from '../../common/bcms.component';
+import { InstructorCohortService } from '@feat/instructorCohort/instructor-cohort.service';
 
 @Component({
   selector: 'app-cohort-detail',
@@ -23,8 +24,7 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
     protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
-    private cohortsvc: CohortService,
-    private usersvc: UserService
+    private cohortsvc: CohortService
   ) {
     super(sys);
     this.pageTitle = "Cohort Detail";
@@ -52,11 +52,12 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-    this.usersvc.list().subscribe(
-      res => {
-        this.sys.log.debug("Get list of instructors.", res);
-        for (let u of res) {
-          this.instructors.push(`${u.firstname} ${u.lastname}`);
+    let cohortId = +this.route.snapshot.params["id"];
+    this.cohortsvc.getInstructors(cohortId).subscribe(
+      cohort => {
+        this.sys.log.debug("Get list of instructors.", cohort);
+        for (let ic of cohort.instructorCohorts) {
+          this.instructors.push(`${ic.instructor.firstname} ${ic.instructor.lastname}`);
         }
       },
       err => {
