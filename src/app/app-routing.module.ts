@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'cohorts/create',                                 component: feat.CohortCreateComponent },
   { path: 'cohorts/detail/:id',                             component: feat.CohortDetailComponent },
   { path: 'cohorts/edit/:id',                               component: feat.CohortEditComponent },
+  { path: 'cohorts/instructors/:id',                        component: feat.CohortInstructorComponent },
           
   { path: 'configs/list',                                   component: feat.ConfigListComponent },
   { path: 'configs/create',                                 component: feat.ConfigCreateComponent },
@@ -47,6 +48,8 @@ const routes: Routes = [
   { path: 'feedbacks/create',                               component: feat.FeedbackCreateComponent },
   { path: 'feedbacks/detail/:id',                           component: feat.FeedbackDetailComponent },
   { path: 'feedbacks/edit/:id',                             component: feat.FeedbackEditComponent },
+  
+  { path: 'intructorCohort/add/:cohortId',                  component: feat.InstructorCohortAddInstructorComponent },
 
   { path: 'kbs/list',                                       component: feat.KbListComponent },
   { path: 'kbs/create',                                     component: feat.KbCreateComponent },

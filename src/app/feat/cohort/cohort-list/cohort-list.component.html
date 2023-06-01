@@ -16,7 +16,6 @@
             <tr>
                 <td class="sortable"><a (click)="sort('id')">Id</a></td>
                 <td class="sortable"><a (click)="sort('name')">Name</a></td>
-                <td class="sortable"><a (click)="sort('instructorName')">Instructor</a></td>
                 <td class="sortable"><a (click)="sort('beginDate')">Begins</a></td>
                 <td class="sortable"><a (click)="sort('endDate')">Ends</a></td>
                 <td class="sortable"><a (click)="sort('demoDay')">Demo Day</a></td>
@@ -30,7 +29,6 @@
             <tr *ngFor="let c of cohorts | filterActive:showInactive | cohortSrch:searchCriteria | sort:sortCriteria:ascOrder">
                 <td>{{c.id}}</td>
                 <td>{{c.name}}</td>
-                <td>{{c.instructorName}}</td>
                 <td>{{c.beginDate | date}}</td>
                 <td>{{c.endDate | date}}</td>
                 <td>{{c.demoDay | date}}</td>
@@ -49,6 +47,8 @@
                     <span><a routerLink="/cohorts/detail/{{c.id}}" class="">Det</a></span>
                     <span> | </span>
                     <span><a routerLink="/cohorts/edit/{{c.id}}" class="">Edt</a></span>
+                    <span> | </span>
+                    <span><a routerLink="/cohorts/instructors/{{c.id}}" class="">Inst</a></span>
                 </td>
             </tr>
         </tbody>

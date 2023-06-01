@@ -22,13 +22,10 @@
                 <td><input [(ngModel)]="cohort.name" [disabled]="readonly" type="text" size="35"></td>
             </tr>
             <tr>
-                <td>Instructor:</td>
-                <td *ngIf="readonly">
-                    <input type="text" [disabled]="readonly" [(ngModel)]="cohort.instructorName" size="30"></td>
-                <td *ngIf="!readonly">
-                    <select [(ngModel)]="cohort.instructorId" [disabled]="readonly">
-                        <option *ngFor="let user of users" [ngValue]="user.id">{{user.lastname}}, {{user.firstname}}
-                        </option>
+                <td>Instructor(s):</td>
+                <td>
+                    <select size="5">
+                        <option *ngFor="let i of instructors">{{ i }}</option>
                     </select>
                 </td>
             </tr>

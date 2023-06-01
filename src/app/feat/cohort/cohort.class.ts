@@ -1,10 +1,9 @@
 import { Enrollment } from '@feat/enrollment/enrollment.class';
-import { User } from '@feat/user/user.class';
+import { InstructorCohort } from '@feat/instructorCohort/instructor-cohort.class';
 
 export class Cohort {
     id: number = 0;
     name: string;
-    instructorId?: number;
     beginDate: string;
     endDate: string;
     demoDay: string;
@@ -13,8 +12,7 @@ export class Cohort {
     created: string;
     updated: string;
     enrollments: Enrollment[];
-    instructor: User;
-    instructorName: string;
+    instructorCohorts: InstructorCohort[];
 
     constructor() {}
 }

@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class KbCategory {\n  constructor() {\n    this.id = 0;\n    this.code = '';\n    this.description = '';\n    this.active = true;\n    this.created = new Date().toISOString();\n    this.updated = null;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

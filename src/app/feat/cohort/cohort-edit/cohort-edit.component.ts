@@ -6,21 +6,22 @@ import { Cohort } from '@cohort/cohort.class';
 import { BcmsComponent } from '@feat/common/bcms.component';
 import { UserService } from '@feat/user/user.service';
 import { User } from '@feat/user/user.class';
+import { InstructorCohortService } from '@feat/instructorCohort/instructor-cohort.service';
 
 @Component({
   selector: 'app-cohort-edit',
   templateUrl: '../cohort-form.component.html',
-  styleUrls: ['./cohort-edit.component.css']
+  styleUrls: ['../cohort-form.component.css']
 })
 export class CohortEditComponent extends BcmsComponent implements OnInit {
 
   cohort: Cohort = null;
   users: User[] = [];
+  instructors: string[] = [];
   
   constructor(
     protected sys: SystemService,
     private cohortsvc: CohortService,
-    private usersvc: UserService,
     private route: ActivatedRoute,
     private router: Router
     ) {
@@ -43,10 +44,13 @@ export class CohortEditComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-    this.usersvc.getInstructors().subscribe(
-      res => {
-        this.users = res;
-        this.sys.log.debug("Get list of instructors.", res);
+    let cohortId = this.route.snapshot.params["id"];
+    this.cohortsvc.getInstructors(cohortId).subscribe(
+      cohort => {
+        this.sys.log.debug("Get list of instructors.", cohort);
+        for (let ic of cohort.instructorCohorts) {
+          this.instructors.push(`${ic.instructor.firstname} ${ic.instructor.lastname}`);
+        }
       },
       err => {
         this.sys.log.err("Error getting list of instructors!", err);
@@ -56,7 +60,7 @@ export class CohortEditComponent extends BcmsComponent implements OnInit {
     this.cohortsvc.get(id).subscribe(
       res => {
         this.cohort = res;
-        this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
+        //this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
         this.sys.log.debug("Cohort", res);
       },
       err => {

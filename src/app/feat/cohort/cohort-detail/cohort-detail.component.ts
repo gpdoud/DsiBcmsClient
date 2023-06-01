@@ -6,29 +6,29 @@ import { Cohort } from '@cohort/cohort.class';
 import { UserService } from '@user/user.service';
 import { User } from '@user/user.class'
 import { BcmsComponent } from '../../common/bcms.component';
+import { InstructorCohortService } from '@feat/instructorCohort/instructor-cohort.service';
 
 @Component({
   selector: 'app-cohort-detail',
   templateUrl: '../cohort-form.component.html',
-  styleUrls: ['./cohort-detail.component.css']
+  styleUrls: ['../cohort-form.component.css']
 })
 export class CohortDetailComponent extends BcmsComponent implements OnInit {
 
   verified: boolean = false;
-  
+
   cohort: Cohort = new Cohort();
-  users: User[] = [];
-  
+  instructors: string[] = [];
+
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
-    private cohortsvc: CohortService,
-    private usersvc: UserService
-    ) { 
-      super(sys);
-      this.pageTitle = "Cohort Detail";
-      this.readonly = true;
+    private cohortsvc: CohortService
+  ) {
+    super(sys);
+    this.pageTitle = "Cohort Detail";
+    this.readonly = true;
   }
 
   edit(): void {
@@ -52,10 +52,13 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-    this.usersvc.list().subscribe(
-      res => {
-        this.users = res;
-        this.sys.log.debug("Get list of users.", res);
+    let cohortId = +this.route.snapshot.params["id"];
+    this.cohortsvc.getInstructors(cohortId).subscribe(
+      cohort => {
+        this.sys.log.debug("Get list of instructors.", cohort);
+        for (let ic of cohort.instructorCohorts) {
+          this.instructors.push(`${ic.instructor.firstname} ${ic.instructor.lastname}`);
+        }
       },
       err => {
         this.sys.log.err("Error getting list of users!", err);
@@ -65,7 +68,7 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
     this.cohortsvc.get(id).subscribe(
       res => {
         this.cohort = res;
-        this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
+        //this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
         this.sys.log.debug(res);
       },
       err => {

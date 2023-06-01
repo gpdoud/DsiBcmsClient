@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class Feedback {\n  constructor() {\n    this.id = 0;\n    this.category = '';\n    this.title = '';\n    this.text = '';\n    this.response = '';\n    this.locked = false;\n    this.active = true;\n    this.userId = 0;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

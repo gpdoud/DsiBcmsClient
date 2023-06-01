@@ -1,0 +1,7 @@
+select {
+    width: 300px;
+}
+td div {
+    border: 2px solid black;
+    padding: 1px;
+}

@@ -6,7 +6,7 @@ header {
     /* background-color: steelblue; */
     background-color: navy;
 }
-input, select, textarea { 
+input, select, textarea, td div { 
     border-radius: 5px;
 }
 thead tr td {

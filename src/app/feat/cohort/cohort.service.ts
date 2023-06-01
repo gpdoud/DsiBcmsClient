@@ -20,6 +20,9 @@ export class CohortService {
   get(id: number): Observable<Cohort> {
     return this.http.get(`${this.sys.url}/cohorts/${id}`) as Observable<Cohort>;
   }
+  getInstructors(cohortId: number): Observable<Cohort> {
+    return this.http.get(`${this.sys.url}/cohorts/instructors/${cohortId}`) as Observable<Cohort>;
+  }
   create(cohort: Cohort): Observable<any> {
     return this.http.post(`${this.sys.url}/cohorts`, cohort) as Observable<any>;
   }

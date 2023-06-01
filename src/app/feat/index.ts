@@ -21,6 +21,7 @@ export { CohortListComponent } from '@cohort/cohort-list/cohort-list.component';
 export { CohortDetailComponent } from '@cohort/cohort-detail/cohort-detail.component';
 export { CohortCreateComponent } from '@cohort/cohort-create/cohort-create.component';
 export { CohortEditComponent } from '@cohort/cohort-edit/cohort-edit.component';
+export { CohortInstructorComponent } from './cohort/cohort-instructor/cohort-instructor.component';
 export { CohortSearchPipe } from '@cohort/cohort-search.pipe';
 
 export { CommentaryListComponent } from './commentary/commentary-list/commentary-list.component';
@@ -56,6 +57,8 @@ export { FeedbackDetailComponent } from './feedback/feedback-detail/feedback-det
 export { FeedbackCreateComponent } from './feedback/feedback-create/feedback-create.component';
 export { FeedbackEditComponent } from './feedback/feedback-edit/feedback-edit.component';
 export { FeedbackSearchPipe } from './feedback/feedback-search.pipe';
+
+export { InstructorCohortAddInstructorComponent } from './instructorCohort/instructor-cohort-add-instructor/instructor-cohort-add-instructor.component';
 
 export { KbListComponent }      from '@kb/kb-list/kb-list.component';
 export { KbDetailComponent }    from '@kb/kb-detail/kb-detail.component';

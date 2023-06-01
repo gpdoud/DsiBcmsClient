@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class Commentary {\n  constructor() {\n    this.id = 0;\n    this.text = \"Comment\";\n    this.sensitive = false;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
