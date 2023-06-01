@@ -1,3 +1,13 @@
 main {
     padding: 0 10px;
 }
+h4 {
+    font-style: italic;
+}
+#left, #right {
+    display: inline-block;
+    width: 49%;
+    padding: 0 10px;
+    vertical-align: top;
+    /* border: 1px dashed red; */
+}

@@ -2,51 +2,87 @@
 <app-menu></app-menu>
 <main>
     <h1>Boot Camp Management System (BCMS)</h1>
-    <p>
-        The Boot Camp Management System is designed to totally manage every aspect of the boot camp. This management
-        includes:
-
-    </p>
-    <ul>
-        <li>Creating and scheduling cohorts</li>
-        <li>Registering students</li>
-        <li>Tracking student attendance</li>
-        <li>Assigning work</li>
-    </ul>
-    <p>
-        BCMS includes important features:
+    <p>BCMS is the system that manages the boot camps for MAX Technical Training
+        and this page describes the various functions students of those boot camps
+        need to know
     </p>
     <div>
-        <h3>Cohorts</h3>
-        <p>
-            Cohorts provides flexible and comprehensive data providing all that schools need:
-        </p>
-        <ul>
-            <li>User description</li>
-            <li>Assignment of primary instructor</li>
-            <li>First and last day of the boot camp</li>
-            <li>Date of Demo Day</li>
-            <li>Maximum number of students</li>
-            <li>Easy enrollment and drops of students</li>
-        </ul>
-    </div>
-    <div>
-        <h3>Security</h3>
-        <p>
-            BCMS is secure. Each authorized use is required to log into the system with a username and password
-            and is assigned authorization to access only the parts of the system they need. Features not available
-            to a user are hidden from view.
-        </p>
-        <p>
-            The flexible authorization system allow configuration of multiple roles with each role capable of
-            authorizing the user as one or multiple:
-        </p>
-        <ul>
-            <li>Admin - authorization to all functions</li>
-            <li>Staff - staff-only functions</li>
-            <li>Instructor - allows being assigned as instructor to a cohort</li>
-            <li>Student - allows enrolling in cohors</li>
-        </ul>
+        <div id="left">
+            <h4>Checking in and out</h4>
+            <p>To check in or out of BCMS, click the <span class="font-weight-bold">CheckIn/Out</span>
+                menu item. A dialog box will display with a message that the student is currently
+                "checked-in" or "checked-out". There is a Note text box where students can enter
+                messages when coming to class late or leaving class early. No note is needed if 
+                checking in on-time or checking-out after class ends. Click the blue button which
+                displays the student will "Check-in" or "Check-out".
+            </p>
+            <p>A student can click the <span class="font-weight-bold">"CheckIn/Out"</span> menu item to see if they are currently
+                checked in or out.
+            </p>
+            <p>BCMS tracks the attendance of students. It does so by requiring the 
+                students to <span class="font-weight-bold">"check-in"</span> at the beginning
+                of class and <span class="font-weight-bold">"check-out</span> at the end. BCMS
+                will keep track of the times a student is checked in and out.
+            </p>
+            <p>In the morning boot camps, students are required to check-in by 9:00 AM.
+                BCMS will allow a 15 minute grace period were the students checking-in by
+                9:15 AM will still be considered on time. After that grace period, a student
+                is considered <span class="font-weight-bold">"late"</span> for class. There are 
+                state board requirements for attendance and an excessive number of late 
+                arrivals may result in dismissal from the cohort.
+            </p>
+            <hr>
+            <h4>Logging in</h4>
+            <p>To log into BCMS, the student must enter their username and password. By default,
+                a student's username is the first initial of their first name plus their entire 
+                last name. For example, for a student named Noah Phence, the username would be nphence.
+                The password for all students defaults to Train@MAX.
+            </p>
+            <p>Students should can change their profile information by clicking their lastname on 
+                the right side of the menu bar. To change the password, which is not displayed, the 
+                student must enter it twice. The student can change the first and/or last name if needed.
+                If this student's email address is not correct, it should
+                be changed to the correct one. The Cell/Work Phone fields should include the student's 
+                cellphone number in the first text box in the form of xxx-xxx-xxxx. Changing the username
+                it NOT recommended.
+            </p>
+        </div>
+        <div id="right">
+            <h4>Taking Assessments</h4>
+            <p>Assessments test that checks a student's knowledge of a general topic presented
+                in the cohort. Passing all assessments is a requirement for graduation.
+            </p>
+            <p>Most assessments are 10 multiple choice or true and false questions
+                and may include a bonus question. Each question has a point value and there are
+                at least 100 points available. 80 points are required to pass the assessment. 
+                If a student does not attain the 80 points, there is a remedial assessment that
+                will be required. Any questions not answered are incorrect.
+            </p>
+            <p>If the instructor assigns an assessment and the student does not see it in the
+                "Evals" menu item, the student should simply navigate to the "BCMS" menu item
+                then navigate back to "Evals". The assessment should be in the list.
+            </p>
+            <p>Assessments will be assigned to students and are available under the 
+                <span class="font-weight-bold">Evals</span> menu item. The Evaluations List 
+                will show all the assessments already taken plus any recently assigned. It shows
+                the number of questions, the time limit, and, if the assessment is complete, the 
+                score. Under the <span class="font-weight-bold">Actions</span> column, there will
+                be a link that says <span class="font-weight-bold text-primary">Take</span> to 
+                take the assessment and <span class="font-weight-bold">Review</span> to review
+                an assessment already completed.
+            </p>
+            <p>When reviewing an assessment, all the questions and answers are displayed. If a
+                question was answered correctly, the question and the correct answer are displayed
+                in <span class="font-weight-bold text-success">green</span>. If a question was answered 
+                incorrectly, the question and the student's 
+                answer is displayed in <span class="font-weight-bold text-danger">red</span> with 
+                the correct answer displayed in <span class="font-weight-bold text-success">green</span>. 
+                The point value of the question is displayed on the right.
+            </p>
+            <p>If a student believes that they answered a question correctly but the question was
+                marked incorrect, the student should notify the instructor.
+            </p>
+        </div>
     </div>
 </main>
 <footer>
