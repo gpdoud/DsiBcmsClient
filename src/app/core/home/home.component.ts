@@ -38,9 +38,47 @@ export class HomeComponent implements OnInit {
         ]
       },
       {
+        section: "Adding Cohorts (STAFF ONLY)",
+        paragraphs: [
+          `Cohorts can be added by selecting 'Cohorts' from the menu then click 'Create'.`,
+
+          `The 'Name' of the cohort, by convention, starts with the starting date then 
+            the type of cohort follows the data. For example, for a coding bootcamp that
+            starts on May 15, 2025, the name would likely be '05/15/2025 FT Coding Bootcamp'.`,
+
+          `The instructor(s) will be added later after the cohort has been created.`,
+
+          `The Begin, End, and Demo dates are easily selected by clicking on the mini calendar
+            then navigating to the year and month then clicking on the day.`,
+
+          `The 'Active' checkbox should be checked by default and should remain checked.`,
+
+          `The 'Capacity' defines the maximum number of students in the class.`,
+
+          `Click on the 'Save' button then you'll be returned to the 'Cohort list'`,
+
+          `Once the cohort is created, click on the 'Inst' action item to add one or more
+            instructors. Then click <span class='fw-bold text-success'>Add</span> button
+            to display a drop-down list of instructors. Click on the list to display all 
+            the instructors then click on one instructor to be added to the cohort then 
+            click the 'Save' button. You'll be returned to the display of instructors for 
+            the cohort. Repeat that process to add additional instructors.`,
+
+          `<span class='fst-italic'>NOTE: All instructors assigned to the cohort can perform
+            all the functions avilable to an instructor even if that instructor is not teaching
+            at the time.</span>`,
+
+          `<span class='font-weight-bold fst-italic text-danger'>NOTE: Do not select the same instructor multiple times
+            for a cohort! It will cause problems with the system.</span>`,
+        ]
+      },
+      {
         section: "Cohorts Enrollment (STAFF ONLY)",
         paragraphs: [
-          "Enrolling students in a cohort" 
+          `To enroll students in a cohort, the students must have been added as 'Users' in 
+            the BCMS system.`,
+
+          ``
         ]
       },
       {
