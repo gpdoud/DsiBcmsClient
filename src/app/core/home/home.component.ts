@@ -76,21 +76,41 @@ export class HomeComponent implements OnInit {
         section: "Cohorts Enrollment (STAFF ONLY)",
         paragraphs: [
           `To enroll students in a cohort, the students must have been added as 'Users' in 
-            the BCMS system.`,
+            the BCMS system. Then, to enroll a student in a corhort, click on 'Cohorts' then 
+            click on the 'Enrll' next to the cohort the student will be enrolled in.`,
 
-          ``
+          `The 'Enrollment List' displays some detail about the cohort like the name, the start
+            and end dates, the capacity of the class and the current number of students enrolled
+            in the cohort.`,
+
+          `The next list are the students enrolled in the cohort. To remove a student previously
+            enrolled, click 'Drop'.`,
+          
+          `To enroll a new student, scroll through the list of 'Not Enrolled' students. When 
+            you find the student to be enrolled, just click 'Enroll' and the student will be 
+            displayed in the list of enrolled students. The number of students currently enrolled
+            should be increased by 1.`,
+          
+          `Note: be sure not to enroll a student that is already enrolled in another cohort.`
         ]
       },
       {
-        section: "Assessments (formally Evaluations) (STAFF ONLY)",
+        section: "Viewing a Student's Assessment Scores (STAFF ONLY)",
         paragraphs: [
-          "TBD"
-        ]
-      },
-      {
-        section: "Section2",
-        paragraphs: [
-          "TBD"
+          `To view all the current assessment scores for students, click on 'Cohorts' then click 
+            'Asmts' action next to the cohort. This will display all the students and all their
+            assessment scores grouped by default by description. There are two different ways to
+            see all the scores for a particular student.`,
+
+          `First, click on the 'Student' column heading to sort all the data by student. This will
+            group the data by student showing all their assessments to date. Just scroll through
+            the list to find the student you want.`,
+
+          `Second, if you only want to see a particular student, enter some of the student's 
+            first or last names in the 'Search' box next to the 'Back to list...'. This will
+            limit the rows to only those that contain the search characters you entered. So if
+            you wanted to see only Mary Jones, is probably best to put 'Jones' in the search
+            box.`
         ]
       },
     ],
@@ -99,56 +119,99 @@ export class HomeComponent implements OnInit {
         section: "Reviewing student attendance (STAFF ONLY)",
         paragraphs: [
           "BCMS will keep a record of all student's attendance and there is a report available to " +
-            " staff and instructors that will show all the students attendance up to the current date.",
-      
+          " staff and instructors that will show all the students attendance up to the current date.",
+          
           "Select <span class='font-weight-bold'>'Cohorts'</span> then <span class='font-weight-bold'>'Rpt'</span> " +
-            " for the particular cohort. The report allows searching for particular students and/or " +
-            " limiting the date range.",
-
+          " for the particular cohort. The report allows searching for particular students and/or " +
+          " limiting the date range.",
+          
           "The report will show the attendance for each student in date sequence and showing each  " +
-            " day the check in and check out times. It will also display any notes entered by the student  " +
-            " and it will display the excused, absent, and secure note enterd by staff or instructors. If  " +
-            " the 'Out' column is blank, it means the student did not check out for that day. If a normal " +
-            " class day is missing, there was no check in or check out for that day."
+          " day the check in and check out times. It will also display any notes entered by the student  " +
+          " and it will display the excused, absent, and secure note enterd by staff or instructors. If  " +
+          " the 'Out' column is blank, it means the student did not check out for that day. If a normal " +
+          " class day is missing, there was no check in or check out for that day."
         ]
       },
       {
         section: "Monitoring daily cohort attendance (STAFF ONLY)",
         paragraphs: [
           "Because at times, a full-time class instructor can get busy working with students " +
-            " in the morning and the afternnon, it can be difficult for the instructor to keep track  " +
-            " of the students " +
-            " that are checking into class on time. Any administrator can view a page in BCMS that " +
-            " will show all the students and their status of being checked in or out.",
-
+          " in the morning and the afternnon, it can be difficult for the instructor to keep track  " +
+          " of the students " +
+          " that are checking into class on time. Any administrator can view a page in BCMS that " +
+          " will show all the students and their status of being checked in or out.",
+          
           "Start by clicking on <span class='font-weight-bold'>'Cohorts'</span> in the menu. Then" +
-            " click on the <span class='font-weight-bold'>'ChkIO'</span> like on the particular cohort to" +
-            "     be monitored. This will display a page that shows each student in a box colored " +
-            "     <span class='font-weight-bold text-secondary'>grey</span>, " +
-            "     <span class='font-weight-bold text-success'>green</span>, or " +
-            "     <span class='font-weight-bold text-warning'>yellow</span>.",
-
+          " click on the <span class='font-weight-bold'>'ChkIO'</span> like on the particular cohort to" +
+          "     be monitored. This will display a page that shows each student in a box colored " +
+          "     <span class='font-weight-bold text-secondary'>grey</span>, " +
+          "     <span class='font-weight-bold text-success'>green</span>, or " +
+          "     <span class='font-weight-bold text-warning'>yellow</span>.",
+          
           "When the color of the box is grey, it means the student is NOT checked in. When the colored " +
-            " is green, it means the student checked in before the 9:15 AM (grace period). If the box " +
-            " is yellow, it means the student did check in but it was after 9:15 AM.",
+          " is green, it means the student checked in before the 9:15 AM (grace period). If the box " +
+          " is yellow, it means the student did check in but it was after 9:15 AM.",
 
           "The administrator or instructor can check a student in or out by simply clicking on " +
-            " box then clicking the check-in or check-out button.",
-
+          " box then clicking the check-in or check-out button.",
+          
           "When checking a student does not attend class for any reason, the student should be " +
-            " marked absent by clicking the <span class='font-weight-bold'>'Absent'</span> checkbox. ",
+          " marked absent by clicking the <span class='font-weight-bold'>'Absent'</span> checkbox. ",
 
           "When checking a student does not attend class for valid personal or health reasons and " +
-            " notifies MAX, the student should be marked exclosed by clicking the  " +
-            " <span class='font-weight-bold'>'Absent'</span> checkbox. ",
-
+          " notifies MAX, the student should be marked exclosed by clicking the  " +
+          " <span class='font-weight-bold'>'Absent'</span> checkbox. ",
+          
           "There is a textbox for a secured note viewable only by staff and instructors where information " +
-            " can be entered and shown on the attendance report."
+          " can be entered and shown on the attendance report."
         ]
       },
+      {
+        section: "Creating Assessments (formally Evaluations) (STAFF ONLY)",
+        paragraphs: [
+          `The assessments are the tests that students must pass with 80 points in order to graduate
+            from the cohort. Assessments can be made for any topic. There can be any number of 
+            questions that will be multiple choice or true and false. Each question can be assigned
+            any number of points and questions can be marked as 'Bonus' questions.`,
+
+          `To create an assessment, click on 'Evals(a)' which is for adminstrators and instructors
+            only then click the 'Create' link at the top left.`,
+
+          `The 'Evaluation Create' requires only a description of the assessment and the time
+             limit in minutes and seconds. Also, make sure to check the 'Template' checkbox.
+             That designates the assessment as one that can be copied and assigned to students.
+             Click the 'Save' button when finished.`,
+
+          `Once the assessment has been created, click the 'Quests' action item from the 
+            'Evaluation list'. This will display the page that allows creating the questions
+            that will be presented on the text along with the designated correct answer. Click
+            'Create' to create a new question.`,
+
+          `When creating a question, start by filling in the 'Category' textbox. It is just
+            some text that helps the creator keep track of questions types in the assessment.
+            Next, give it a point value. A point value of 10 is typical for a test that will
+            have 10 questions. The point values of all the non-Bonus questions should add up
+            to 100 points. A question marked 'Bonus' is not added to that total.`,
+
+          `Next the question text goes in the 'Question' textbox. It must be all text with no
+            formatting or html.`,
+
+          `Text boxes A, B, C, D, and E are the possible answers. Only A & B are required. The
+            'Answer' drop-down defines which answer is the correct one.`,
+
+          `The 'Is Bonus' checkbox designates the question as a bonus and it is not added to 
+            total number of points. So if an assessment has 10 questions each worth 10 points,
+            there will be 100 points possible. An 11th question worth 10 points but marked as
+            a bonus question means a student getting all the question correct would get 110 
+            points even though only 100 were listed as available.`,
+
+          `Click the 'Save' button when done with the question. Repeat adding as many questions
+            as needed.`
+        ]
+      }
     ],
   }
-
+  
   studentsHelp = {
     left: [
       {
