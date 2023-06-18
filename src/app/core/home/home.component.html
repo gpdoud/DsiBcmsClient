@@ -2,52 +2,64 @@
 <app-menu></app-menu>
 <main>
     <h1>Boot Camp Management System (BCMS)</h1>
-    <p>
-        The Boot Camp Management System is designed to totally manage every aspect of the boot camp. This management
-        includes:
+    <p>BCMS is the system that manages the boot camps for MAX Technical Training
+        and this page describes the various functions students of those boot camps
+        need to know
+    </p>
+    
+    <div *ngIf="userIsRootAdminOrInstructor">
 
-    </p>
-    <ul>
-        <li>Creating and scheduling cohorts</li>
-        <li>Registering students</li>
-        <li>Tracking student attendance</li>
-        <li>Assigning work</li>
-    </ul>
-    <p>
-        BCMS includes important features:
-    </p>
-    <div>
-        <h3>Cohorts</h3>
-        <p>
-            Cohorts provides flexible and comprehensive data providing all that schools need:
-        </p>
-        <ul>
-            <li>User description</li>
-            <li>Assignment of primary instructor</li>
-            <li>First and last day of the boot camp</li>
-            <li>Date of Demo Day</li>
-            <li>Maximum number of students</li>
-            <li>Easy enrollment and drops of students</li>
-        </ul>
+        <div class="staff-divider">STAFF ONLY</div>
+        
+        <div id="left">
+            <ng-container *ngFor="let topic of staffHelp.left">
+                <div class="section">{{ topic.section }}</div>
+                <p *ngFor="let p of topic.paragraphs">
+                    <span [innerHTML]=p></span>
+                </p>
+                <hr>
+            </ng-container>
+        </div> <!-- left -->
+        
+        <div id="right">
+            <ng-container *ngFor="let topic of staffHelp.right">
+                <div class="section">{{ topic.section }}</div>
+                <p *ngFor="let p of topic.paragraphs">
+                    <span [innerHTML]=p></span>
+                </p>
+                <hr>
+            </ng-container>
+        </div> <!-- left -->
+        
     </div>
+    
     <div>
-        <h3>Security</h3>
-        <p>
-            BCMS is secure. Each authorized use is required to log into the system with a username and password
-            and is assigned authorization to access only the parts of the system they need. Features not available
-            to a user are hidden from view.
-        </p>
-        <p>
-            The flexible authorization system allow configuration of multiple roles with each role capable of
-            authorizing the user as one or multiple:
-        </p>
-        <ul>
-            <li>Admin - authorization to all functions</li>
-            <li>Staff - staff-only functions</li>
-            <li>Instructor - allows being assigned as instructor to a cohort</li>
-            <li>Student - allows enrolling in cohors</li>
-        </ul>
+
+        <div *ngIf="userIsRootAdminOrInstructor" class="student-divider">STUDENTS</div>
+
+        <div id="left">
+            <ng-container *ngFor="let topic of studentsHelp.left">
+                <div class="section">{{ topic.section }}</div>
+                <p *ngFor="let p of topic.paragraphs">
+                    <span [innerHTML]=p></span>
+                </p>
+                <hr>
+            </ng-container>
+        </div> <!-- left -->
+
+        <div id="right">
+            <ng-container *ngFor="let topic of studentsHelp.right">
+                <div class="section">{{ topic.section }}</div>
+                <p *ngFor="let p of topic.paragraphs">
+                    <span [innerHTML]=p></span>
+                </p>
+                <hr>
+            </ng-container>
+        </div> <!-- left -->
+
     </div>
+    
+
 </main>
 <footer>
     <app-footer></app-footer>
