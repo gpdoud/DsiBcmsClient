@@ -17,6 +17,16 @@ export { AttendanceReportSearchPipe } from './attendance/attendance-report-searc
 export { BcmsComponent } from './common/bcms.component';
 export { BcmsListComponent } from './common/bcms-list.component';
 
+export { CalendarListComponent } from './calendar/calendar-list/calendar-list.component';
+export { CalendarDetailComponent } from './calendar/calendar-detail/calendar-detail.component';
+export { CalendarCreateComponent } from './calendar/calendar-create/calendar-create.component';
+export { CalendarChangeComponent } from './calendar/calendar-change/calendar-change.component';
+
+export { CalendarDayListComponent } from './calendarDay/calendar-day-list/calendar-day-list.component';
+export { CalendarDayDetailComponent } from './calendarDay/calendar-day-detail/calendar-day-detail.component';
+export { CalendarDayCreateComponent } from './calendarDay/calendar-day-create/calendar-day-create.component';
+export { CalendarDayChangeComponent } from './calendarDay/calendar-day-change/calendar-day-change.component';
+
 export { CohortListComponent } from '@cohort/cohort-list/cohort-list.component';
 export { CohortDetailComponent } from '@cohort/cohort-detail/cohort-detail.component';
 export { CohortCreateComponent } from '@cohort/cohort-create/cohort-create.component';

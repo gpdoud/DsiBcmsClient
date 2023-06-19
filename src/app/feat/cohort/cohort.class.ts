@@ -7,6 +7,7 @@ export class Cohort {
     beginDate: string;
     endDate: string;
     demoDay: string;
+    calendarId: number = 0
     capacity: number = 12;
     active: boolean = true;
     created: string;

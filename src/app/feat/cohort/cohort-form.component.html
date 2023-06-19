@@ -45,6 +45,10 @@
                         [disabled]="readonly" type="date" size="25"></td>
             </tr>
             <tr>
+                <td>Calendar:</td>
+                <td><a routerLink="/calendars/detail/{{calendarId}}">Calendar Display</a></td>
+            </tr>
+            <tr>
                 <td>Active:</td>
                 <td><input [(ngModel)]="cohort.active" [disabled]="readonly" type="checkbox" size="10"></td>
             </tr>

@@ -7,6 +7,7 @@ import { BcmsComponent } from '@feat/common/bcms.component';
 import { UserService } from '@feat/user/user.service';
 import { User } from '@feat/user/user.class';
 import { InstructorCohortService } from '@feat/instructorCohort/instructor-cohort.service';
+import { CalendarService } from '@feat/calendar/calendar.service';
 
 @Component({
   selector: 'app-cohort-edit',
@@ -18,10 +19,13 @@ export class CohortEditComponent extends BcmsComponent implements OnInit {
   cohort: Cohort = null;
   users: User[] = [];
   instructors: string[] = [];
+  calendarName: string;
+  calendarId: number;
   
   constructor(
     protected sys: SystemService,
     private cohortsvc: CohortService,
+    private calsvc: CalendarService,
     private route: ActivatedRoute,
     private router: Router
     ) {
@@ -42,6 +46,21 @@ export class CohortEditComponent extends BcmsComponent implements OnInit {
     );
   }
 
+  getCalendar(calendarId: number): void {
+    this.calsvc.get(calendarId).subscribe({
+      next:
+        (res) => {
+          this.calendarName = res.description;
+          this.calendarId = res.id;
+          this.sys.log.debug(res);
+        },
+      error:
+        err => {
+          this.sys.log.err(err);
+        }
+    });
+  }
+
   ngOnInit() {
     super.ngOnInit();
     let cohortId = this.route.snapshot.params["id"];
@@ -60,6 +79,7 @@ export class CohortEditComponent extends BcmsComponent implements OnInit {
     this.cohortsvc.get(id).subscribe(
       res => {
         this.cohort = res;
+        this.getCalendar(this.cohort.calendarId);
         //this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
         this.sys.log.debug("Cohort", res);
       },
