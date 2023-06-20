@@ -9,12 +9,12 @@ export class CalendarDay {
     subtopic: string = '';
     weekNbr: number = 0;
     dayNbr: number = 0;
-    assessmentToday: boolean = false;
+    assessmentToday: string = null;
     graduationToday: boolean = false;
     noClassToday: boolean = false;
     calendarId: number = 0;
     active: boolean = true;
-    created: string;
-    updated: string;
+    created: string = null;
+    updated: string = null;
     calendar: Calendar;
 }

@@ -24,12 +24,13 @@ const routes: Routes = [
   { path: 'calendars/list',                                 component: feat.CalendarListComponent },
   { path: 'calendars/create',                               component: feat.CalendarCreateComponent },
   { path: 'calendars/detail/:id',                           component: feat.CalendarDetailComponent },
-  { path: 'calendars/edit/:id',                             component: feat.CalendarChangeComponent },
+  { path: 'calendars/change/:id',                           component: feat.CalendarChangeComponent },
+  { path: 'calendars/days/:id',                             component: feat.CalendarDaysComponent },
 
   { path: 'calendarDays/list',                              component: feat.CalendarDayListComponent },
-  { path: 'calendarDays/create',                            component: feat.CalendarDayCreateComponent },
+  { path: 'calendarDays/create/:calId',                     component: feat.CalendarDayCreateComponent },
   { path: 'calendarDays/detail/:id',                        component: feat.CalendarDayDetailComponent },
-  { path: 'calendarDays/edit/:id',                          component: feat.CalendarDayChangeComponent },
+  { path: 'calendarDays/change/:id',                        component: feat.CalendarDayChangeComponent },
 
   { path: 'cohorts/list',                                   component: feat.CohortListComponent },
   { path: 'cohorts/create',                                 component: feat.CohortCreateComponent },

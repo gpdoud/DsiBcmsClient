@@ -21,6 +21,8 @@ export { CalendarListComponent } from './calendar/calendar-list/calendar-list.co
 export { CalendarDetailComponent } from './calendar/calendar-detail/calendar-detail.component';
 export { CalendarCreateComponent } from './calendar/calendar-create/calendar-create.component';
 export { CalendarChangeComponent } from './calendar/calendar-change/calendar-change.component';
+export { CalendarSearchPipe } from './calendar/calendar-search.pipe';
+export { CalendarDaysComponent } from './calendar/calendar-days/calendar-days.component';
 
 export { CalendarDayListComponent } from './calendarDay/calendar-day-list/calendar-day-list.component';
 export { CalendarDayDetailComponent } from './calendarDay/calendar-day-detail/calendar-day-detail.component';

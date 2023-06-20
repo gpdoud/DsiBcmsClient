@@ -1,0 +1,90 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+            <span> | </span>
+            <span><a routerLink="/calendarDays/list">Back to list ...</a></span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <table class="table table-sm" *ngIf="calendarDay">
+            <tr>
+                <td>Id:</td>
+                <td>{{calendarDay.id}}</td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td><input [(ngModel)]="calendarDay.date" [disabled]="readonly" type="date" size="35"></td>
+            </tr>
+            <tr>
+                <td>Notes:</td>
+                <td><input [(ngModel)]="calendarDay.notes" [disabled]="readonly" size="25"></td>
+            </tr>
+            <tr>
+                <td>Topic:</td>
+                <td><input [(ngModel)]="calendarDay.topic" [disabled]="readonly" size="25"></td>
+            </tr>
+            <tr>
+                <td>Subtopic:</td>
+                <td><input [(ngModel)]="calendarDay.subtopic" [disabled]="readonly" size="25"></td>
+            </tr>
+            <tr>
+                <td>Week Nbr:</td>
+                <td><input [(ngModel)]="calendarDay.weekNbr" type="number" [disabled]="readonly" size="25"></td>
+            </tr>
+            <tr>
+                <td>Day Nbr:</td>
+                <td><input [(ngModel)]="calendarDay.dayNbr" type="number" [disabled]="readonly" size="25"></td>
+            </tr>
+            <tr>
+                <td>Assessment:</td>
+                <td><input [(ngModel)]="calendarDay.assessmentToday" [disabled]="readonly" size="25"></td>
+            </tr>
+            <tr>
+                <td>No Class:</td>
+                <td><input [(ngModel)]="calendarDay.noClassToday" type="checkbox" [disabled]="readonly" size="25"></td>
+            </tr>
+            <tr>
+                <td>Grad Day:</td>
+                <td><input [(ngModel)]="calendarDay.graduationToday" type="checkbox" [disabled]="readonly" size="25"></td>
+            </tr>
+            <tr>
+                <td>Active:</td>
+                <td><input [(ngModel)]="calendarDay.active" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Created:</td>
+                <td>{{calendarDay.created | date:'short'}}</td>
+            </tr>
+            <tr>
+                <td>Updated:</td>
+                <td>{{calendarDay.updated | date:'short'}}</td>
+            </tr>
+            <tr *ngIf="!readonly">
+                <td colspan="2">
+                    <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                </td>
+            </tr>
+            <tr *ngIf="readonly">
+                <td colspan="2">
+                    <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                    <span> | </span>
+                    <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                    <span *ngIf="verified"> |
+                        <span>
+                            <button (click)="verify()" class="btn btn-danger btn-sm">Verify Delete</button>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

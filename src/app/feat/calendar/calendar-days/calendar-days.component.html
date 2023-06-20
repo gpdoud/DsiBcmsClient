@@ -1,0 +1,78 @@
+<header></header>
+<app-menu></app-menu>
+<div>
+    <span>{{pageTitle}}</span>
+</div>
+<main>
+    <table class="table table-sm" *ngIf="calendar">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Description</td>
+                <td>Cohort</td>
+                <td>Start</td>
+                <td>Ends</td>
+                <td>Grad Day</td>
+                <td>Template</td>
+                <td>Active</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{calendar.id}}</td>
+                <td>{{calendar.description}}</td>
+                <td>{{calendar.cohortName}}</td>
+                <td>{{calendar.startDate | date}}</td>
+                <td>{{calendar.endDate | date}}</td>
+                <td>{{calendar.graduationDate | date}}</td>
+                <td>{{calendar.template | bool}}</td>
+                <td>{{calendar.active | bool}}</td>
+                <td>Actions</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <span class="margin-left">
+        <a *ngIf="calendar" routerLink="/calendarDays/create/{{ calendar.id }}" class="font-weight-bold text-success">Add</a>
+    </span>
+    <table class="table table-sm" *ngIf="calendar && calendar.calendarDays">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>WW/DD</td>
+                <td>Date</td>
+                <td>Topic</td>
+                <td>Subtopic</td>
+                <td>Assessment?</td>
+                <td>Class?</td>
+                <td>Active?</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let day of calendar.calendarDays">
+                <td>{{ day.id }}</td>
+                <td>{{ day.weekNbr }}/{{ day.dayNbr }}</td>
+                <td>{{ day.date | date }}</td>
+                <td>{{ day.topic }}</td>
+                <td>{{ day.subtopic ?? "" }}</td>
+                <td>{{ day.assessmentToday ?? ""}}</td>
+                <td>{{ day.noClassToday ? "NO CLASS" : ""}}</td>
+                <td>{{ day.active | bool }}</td>
+                <td>
+                    <button (click)="edit( day.id )" class="btn btn-link font-weight-bold text-warning">Edt</button>
+                    <span> | </span>
+                    <button (click)="delete()" class="btn btn-link font-weight-bold text-danger">Del</button>
+                    <span *ngIf="showVerify">
+                        <span> | </span>
+                        <button (click)="verify( day )" class="btn btn-link font-weight-bold text-danger">Verify</button>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>
