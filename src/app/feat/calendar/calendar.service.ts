@@ -24,9 +24,9 @@ export class CalendarService {
     return this.http.post(`${this.sys.url}/calendars`, calendar) as Observable<any>;
   }
   change(calendar: Calendar): Observable<any> {
-    return this.http.post(`${this.sys.url}/calendars/update/${calendar.id}`, calendar) as Observable<any>;
+    return this.http.put(`${this.sys.url}/calendars/${calendar.id}`, calendar) as Observable<any>;
   }
   remove(calendar: Calendar): Observable<any> {
-    return this.http.post(`${this.sys.url}/calendars/delete/${calendar.id}`, null) as Observable<any>;
+    return this.http.delete(`${this.sys.url}/calendars/${calendar.id}`) as Observable<any>;
   }
 }

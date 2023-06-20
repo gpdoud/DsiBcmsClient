@@ -12,6 +12,7 @@ import { CalendarService } from '../calendar.service';
 export class CalendarListComponent extends BcmsListComponent implements OnInit {
 
   calendars: Calendar[] = [];
+  showInactive: boolean = false;
   
   constructor(    
     protected sys: SystemService,

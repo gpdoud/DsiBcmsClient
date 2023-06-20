@@ -9,8 +9,8 @@ export class Calendar {
     graduationDate : '0001-01-01'
     template : false
     active : true
-    created : string = ''
-    updated : string = ''
+    created = null
+    updated = null
     
     calendarDays: CalendarDay[];
 }

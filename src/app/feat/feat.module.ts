@@ -26,6 +26,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             , CalendarListComponent, CalendarDetailComponent, CalendarChangeComponent, CalendarCreateComponent
             , CalendarDayListComponent, CalendarDayDetailComponent, CalendarDayChangeComponent, CalendarDayCreateComponent 
         } from './index';
+import { CalendarSearchPipe } from './calendar/calendar-search.pipe';
 
         @NgModule({
             declarations: [
@@ -48,7 +49,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
                 , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
                 , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
                 , CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
-                , DsiCountdownTimerComponent, CohortInstructorComponent, InstructorCohortAddInstructorComponent, CalendarListComponent, CalendarDetailComponent, CalendarCreateComponent, CalendarChangeComponent, CalendarDayListComponent, CalendarDayDetailComponent, CalendarDayCreateComponent, CalendarDayChangeComponent
+                , DsiCountdownTimerComponent, CohortInstructorComponent, InstructorCohortAddInstructorComponent, CalendarListComponent, CalendarDetailComponent, CalendarCreateComponent, CalendarChangeComponent, CalendarDayListComponent, CalendarDayDetailComponent, CalendarDayCreateComponent, CalendarDayChangeComponent, CalendarSearchPipe
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [
