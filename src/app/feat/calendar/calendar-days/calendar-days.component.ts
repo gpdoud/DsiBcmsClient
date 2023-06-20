@@ -20,7 +20,7 @@ export class CalendarDaysComponent implements OnInit {
   showVerify = false;
 
   constructor(
-    private sys: SystemService,
+    protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
     private calsvc: CalendarService,
