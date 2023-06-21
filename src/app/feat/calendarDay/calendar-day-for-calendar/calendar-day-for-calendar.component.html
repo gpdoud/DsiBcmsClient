@@ -1,0 +1,11 @@
+<div class="day">
+
+    <ng-container *ngIf="calendarDay">
+        <span class="date">{{ calendarDay.date | date:'ccc MM/dd' }} : W:{{ calendarDay.weekNbr }}/D:{{ calendarDay.dayNbr }}</span><br>
+        <span>{{ calendarDay.topic }}</span><br>
+        <span>{{ calendarDay.subtopic }}</span><br>
+        <span>{{ calendarDay.notes }}</span><br>
+    </ng-container>
+
+</div>
+

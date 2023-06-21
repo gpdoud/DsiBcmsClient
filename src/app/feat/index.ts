@@ -23,6 +23,8 @@ export { CalendarCreateComponent } from './calendar/calendar-create/calendar-cre
 export { CalendarChangeComponent } from './calendar/calendar-change/calendar-change.component';
 export { CalendarSearchPipe } from './calendar/calendar-search.pipe';
 export { CalendarDaysComponent } from './calendar/calendar-days/calendar-days.component';
+export { CalendarForStudentComponent } from './calendar/calendar-for-student/calendar-for-student.component';
+
 
 export { CalendarDayListComponent } from './calendarDay/calendar-day-list/calendar-day-list.component';
 export { CalendarDayDetailComponent } from './calendarDay/calendar-day-detail/calendar-day-detail.component';

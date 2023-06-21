@@ -1,0 +1,11 @@
+.day {
+    display: inline-block;
+    width: 150px;
+    border: 1px solid silver;
+    margin: 0;
+    height: 200px;
+    vertical-align: top;
+    font-size: 0.9em;
+}
+.date {
+}

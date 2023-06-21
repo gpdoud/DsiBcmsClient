@@ -20,6 +20,9 @@ export class CalendarService {
   get(id: number): Observable<Calendar> {
     return this.http.get(`${this.sys.url}/calendars/${id}`) as Observable<Calendar>;
   }
+  getSchedule(userId: number): Observable<Calendar> {
+    return this.http.get(`${this.sys.url}/calendars/student/${userId}`) as Observable<Calendar>;
+  }
   create(calendar: Calendar): Observable<any> {
     return this.http.post(`${this.sys.url}/calendars`, calendar) as Observable<any>;
   }
