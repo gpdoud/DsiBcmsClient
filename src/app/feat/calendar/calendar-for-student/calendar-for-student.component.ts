@@ -12,7 +12,7 @@ import { CalendarDay } from '@feat/calendarDay/calendar-day.class';
 })
 export class CalendarForStudentComponent implements OnInit {
 
-  pageTitle = "Calendar Detail";
+  pageTitle = "Student Curriculum";
   calendar: Calendar;
   formattedCalendar = [];
 
@@ -54,7 +54,9 @@ export class CalendarForStudentComponent implements OnInit {
       days.push(cday);
       lastdow = dow;
     }
-    this.fillNonClassDays(days, dow);
+    while(days.length < 7) {
+      days.push(null);
+    }
     weeks.push(days)
     days = [];
     this.formattedCalendar = weeks;

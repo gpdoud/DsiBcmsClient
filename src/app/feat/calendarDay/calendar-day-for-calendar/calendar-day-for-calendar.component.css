@@ -1,11 +1,29 @@
 .day {
     display: inline-block;
-    width: 150px;
+    width: 200px;
     border: 1px solid silver;
     margin: 0;
     height: 200px;
     vertical-align: top;
     font-size: 0.9em;
+    padding: 5px;
 }
 .date {
+    font-weight: bold;
+    border-bottom: 1px solid silver;
+}
+.notes {
+    font-style: italic;
+}
+.bgNormal {
+    background-color: inherit;
+    border-width: 1px;
+}
+.bgDanger {
+    border-color: lightcoral;
+    border-width: 3px;
+}
+.bgSuccess {
+    border-color: lightgreen;
+    border-width: 3px;
 }
