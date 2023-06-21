@@ -39,8 +39,9 @@ export class CalendarForStudentComponent implements OnInit {
     let days: CalendarDay[] = [];
     let idx = 0;
     let lastdow = -1;
+    let dow;
     for (let cday of calendar.calendarDays) {
-      let dow = this.calcDayOfWeek(cday);
+      dow = this.calcDayOfWeek(cday);
       this.fillNonClassDays(days, dow);
       if(dow < lastdow) { //start a new week
         for(let i = lastdow + 1; i < 7; i++) {
@@ -53,6 +54,9 @@ export class CalendarForStudentComponent implements OnInit {
       days.push(cday);
       lastdow = dow;
     }
+    this.fillNonClassDays(days, dow);
+    weeks.push(days)
+    days = [];
     this.formattedCalendar = weeks;
     
   }
