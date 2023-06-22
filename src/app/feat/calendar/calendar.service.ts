@@ -14,6 +14,9 @@ export class CalendarService {
     private http: HttpClient
   ) { }
 
+  clone(calendarId: number, startDate: string): Observable<Calendar> {
+    return this.http.post(`${this.sys.url}/calendars/clone/${calendarId}/${startDate}`, null) as Observable<Calendar>;
+  }
   list(): Observable<Calendar[]> {
     return this.http.get(`${this.sys.url}/calendars`) as Observable<Calendar[]>;
   }

@@ -26,9 +26,8 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             , CalendarListComponent, CalendarDetailComponent, CalendarChangeComponent, CalendarCreateComponent
             , CalendarForStudentComponent
             , CalendarDayListComponent, CalendarDayDetailComponent, CalendarDayChangeComponent, CalendarDayCreateComponent 
-            , CalendarDaysComponent, CalendarSearchPipe
+            , CalendarDaysComponent, CalendarSearchPipe, CalendarDayForCalendarComponent, CalendarCloneComponent
         } from './index';
-import { CalendarDayForCalendarComponent } from './calendarDay/calendar-day-for-calendar/calendar-day-for-calendar.component';
 
 
         @NgModule({
@@ -52,7 +51,7 @@ import { CalendarDayForCalendarComponent } from './calendarDay/calendar-day-for-
                 , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
                 , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
                 , CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
-                , DsiCountdownTimerComponent, CohortInstructorComponent, InstructorCohortAddInstructorComponent, CalendarListComponent, CalendarDetailComponent, CalendarCreateComponent, CalendarChangeComponent, CalendarDayListComponent, CalendarDayDetailComponent, CalendarDayCreateComponent, CalendarDayChangeComponent, CalendarSearchPipe, CalendarDaysComponent, CalendarForStudentComponent, CalendarDayForCalendarComponent
+                , DsiCountdownTimerComponent, CohortInstructorComponent, InstructorCohortAddInstructorComponent, CalendarListComponent, CalendarDetailComponent, CalendarCreateComponent, CalendarChangeComponent, CalendarDayListComponent, CalendarDayDetailComponent, CalendarDayCreateComponent, CalendarDayChangeComponent, CalendarSearchPipe, CalendarDaysComponent, CalendarForStudentComponent, CalendarDayForCalendarComponent, CalendarCloneComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

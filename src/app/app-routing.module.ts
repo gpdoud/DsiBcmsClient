@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'calendars/change/:id',                           component: feat.CalendarChangeComponent },
   { path: 'calendars/days/:id',                             component: feat.CalendarDaysComponent },
   { path: 'calendars/student',                              component: feat.CalendarForStudentComponent },
+  { path: 'calendars/clone',                                component: feat.CalendarCloneComponent},
 
   { path: 'calendarDays/list',                              component: feat.CalendarDayListComponent },
   { path: 'calendarDays/create/:calId',                     component: feat.CalendarDayCreateComponent },

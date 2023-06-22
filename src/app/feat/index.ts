@@ -24,6 +24,8 @@ export { CalendarChangeComponent } from './calendar/calendar-change/calendar-cha
 export { CalendarSearchPipe } from './calendar/calendar-search.pipe';
 export { CalendarDaysComponent } from './calendar/calendar-days/calendar-days.component';
 export { CalendarForStudentComponent } from './calendar/calendar-for-student/calendar-for-student.component';
+export { CalendarDayForCalendarComponent } from './calendarDay/calendar-day-for-calendar/calendar-day-for-calendar.component';
+export { CalendarCloneComponent } from './calendar/calendar-clone/calendar-clone.component';
 
 
 export { CalendarDayListComponent } from './calendarDay/calendar-day-list/calendar-day-list.component';
