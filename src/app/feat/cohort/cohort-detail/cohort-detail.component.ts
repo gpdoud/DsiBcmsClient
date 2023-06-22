@@ -21,6 +21,7 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
 
   cohort: Cohort = new Cohort();
   instructors: string[] = [];
+  calendars: Calendar[] = [];
   calendarId: number;
   calendarName: string;
 
@@ -55,21 +56,6 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
     );
   }
 
-  getCalendar(calendarId: number): void {
-    this.calsvc.get(calendarId).subscribe({
-      next:
-        (res) => {
-          this.calendarName = res.description;
-          this.calendarId = res.id;
-          this.sys.log.debug(res);
-        },
-      error:
-        err => {
-          this.sys.log.err(err);
-        }
-    });
-  }
-
   ngOnInit() {
     super.ngOnInit();
     let calendarId = 0;
@@ -89,8 +75,7 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
     this.cohortsvc.get(id).subscribe(
       res => {
         this.cohort = res;
-        this.getCalendar(this.cohort.calendarId);
-        //this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
+        this.calendarId = this.cohort.calendarId;
         this.sys.log.debug(res);
       },
       err => {

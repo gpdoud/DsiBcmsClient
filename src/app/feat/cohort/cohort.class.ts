@@ -1,3 +1,4 @@
+import { Calendar } from '@feat/calendar/calendar.class';
 import { Enrollment } from '@feat/enrollment/enrollment.class';
 import { InstructorCohort } from '@feat/instructorCohort/instructor-cohort.class';
 
@@ -7,7 +8,8 @@ export class Cohort {
     beginDate: string;
     endDate: string;
     demoDay: string;
-    calendarId: number = 0
+    calendarId: number = 0;
+    calendar: Calendar;
     capacity: number = 12;
     active: boolean = true;
     created: string;
