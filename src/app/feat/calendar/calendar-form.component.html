@@ -41,6 +41,15 @@
                         [disabled]="readonly" type="date" size="25"></td>
             </tr>
             <tr>
+                <td>Type:</td>
+                <td>
+                    <select [(ngModel)]="calendar.type" [disabled]="readonly">
+                        <option value="FT">Full-Time</option>
+                        <option value="PT">Part-Time</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td>Template:</td>
                 <td><input [(ngModel)]="calendar.template" type="checkbox" [disabled]="readonly"></td>
             </tr>

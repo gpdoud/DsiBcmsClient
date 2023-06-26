@@ -3,7 +3,7 @@ import { Calendar } from "@feat/calendar/calendar.class";
 export class CalendarDay {
     
     id: number = 0;
-    date: string = '0001-01-01';
+    date: string = '';
     notes: string = '';
     topic: string = '';
     subtopic: string = '';

@@ -32,7 +32,7 @@ export class CalendarDetailComponent extends BcmsComponent implements OnInit {
   }
 
   edit(): void {
-    this.router.navigateByUrl(`/calendars/edit/${this.calendar.id}`);
+    this.router.navigateByUrl(`/calendars/change/${this.calendar.id}`);
   }
 
   delete(): void {
