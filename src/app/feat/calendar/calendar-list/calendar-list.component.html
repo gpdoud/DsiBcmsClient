@@ -22,6 +22,7 @@
                 <td class="sortable"><a (click)="sort('startDate')">Start</a></td>
                 <td class="sortable"><a (click)="sort('endDate')">Ends</a></td>
                 <td class="sortable"><a (click)="sort('graduationDate')">Grad Day</a></td>
+                <td class="sortable"><a (click)="sort('type')">FT/PT</a></td>
                 <td class="sortable"><a (click)="sort('template')">Template</a></td>
                 <td class="sortable"><a (click)="sort('active')">Active</a></td>
                 <td>Actions</td>
@@ -35,6 +36,7 @@
                 <td>{{c.startDate | date}}</td>
                 <td>{{c.endDate | date}}</td>
                 <td>{{c.graduationDate | date}}</td>
+                <td>{{c.type}}</td>
                 <td>{{c.template | bool}}</td>
                 <td>{{c.active | bool}}</td>
                 <td>
