@@ -42,10 +42,11 @@
         <thead>
             <tr>
                 <td>Id</td>
-                <td>WW/DD</td>
+                <td>W/D</td>
                 <td>Date</td>
                 <td>Topic</td>
                 <td>Subtopic</td>
+                <td>Notes</td>
                 <td>Assessment?</td>
                 <td>Class Day?</td>
                 <td>Active?</td>
@@ -59,6 +60,7 @@
                 <td>{{ day.date | date }}</td>
                 <td>{{ day.topic }}</td>
                 <td>{{ day.subtopic ?? "" }}</td>
+                <td>{{ day.notes }}</td>
                 <td>{{ day.assessmentToday ?? ""}}</td>
                 <td>{{ day.noClassToday ? "NO CLASS" : ""}}</td>
                 <td>{{ day.active | bool }}</td>

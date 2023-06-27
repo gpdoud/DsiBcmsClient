@@ -18,12 +18,17 @@
 .bgNormal {
     background-color: inherit;
     border-width: 1px;
+    background-color: inherit;
 }
 .bgDanger {
-    border-color: lightcoral;
+    border-color: rgb(245, 192, 192);
     border-width: 3px;
+    background-color: rgb(245, 192, 192);
+    border-bottom: 1px solid silver;
 }
 .bgSuccess {
-    border-color: lightgreen;
+    border-color: rgb(201, 250, 201);
     border-width: 3px;
+    background-color: rgb(201, 250, 201);
+    border-bottom: 1px solid silver;
 }

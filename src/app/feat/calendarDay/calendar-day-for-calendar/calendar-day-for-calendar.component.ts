@@ -19,7 +19,10 @@ export class CalendarDayForCalendarComponent implements OnInit {
       const val = changes[propname].currentValue;
       if(val === null) return;
       const day = val as CalendarDay;
-      if(day.assessmentToday) {
+
+      if(day.date.substring(0,10) === (new Date).toISOString().substring(0,10)) {
+        this.bgColorStyle = "bgSuccess";
+      } else if(day.assessmentToday) {
         this.bgColorStyle = "bgDanger";
       } else {
         this.bgColorStyle = "bgNormal";
