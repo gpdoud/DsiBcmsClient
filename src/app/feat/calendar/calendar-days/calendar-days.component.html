@@ -54,7 +54,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let day of calendar.calendarDays">
+            <tr *ngFor="let day of calendar.calendarDays | sort:sortCriteria">
                 <td>{{ day.id }} </td>
                 <td>{{ day.weekNbr }}/{{ day.dayNbr }}</td>
                 <td>{{ day.date | date }}</td>
@@ -65,6 +65,10 @@
                 <td>{{ day.noClassToday ? "NO CLASS" : ""}}</td>
                 <td>{{ day.active | bool }}</td>
                 <td>
+                    <button (click)="moveDown( day.id )" class="btn btn-link font-weight-bold text-primary">Dn</button>
+                    <span> | </span>
+                    <button (click)="moveUp( day.id )" class="btn btn-link font-weight-bold text-primary">Up</button>
+                    <span> | </span>
                     <button (click)="edit( day.id )" class="btn btn-link font-weight-bold text-warning">Edt</button>
                     <span> | </span>
                     <button (click)="delete()" class="btn btn-link font-weight-bold text-danger">Del</button>
