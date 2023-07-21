@@ -2,8 +2,9 @@
     "logSeverity": "DEBUG", 
     "checkIp": false,
     "checkLogin": true,
+    "baseurl": "https://dsibcmsserver.azurewebsites.net/dsi",
     "xbaseurl": "http://doudsystems.com/bcms/dsi",
-    "baseurl": "http://localhost:5000/dsi",
+    "xbaseurl": "http://localhost:5000/dsi",
     "validIps": [
         { "name": "Doud Home",              "ip": "98.28.129.85" },
         { "name": "Greg iPhone",            "ip": "174.233.133.93" },
