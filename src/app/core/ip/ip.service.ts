@@ -6,6 +6,7 @@ import { AppInitService } from 'app/app-init.service';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { LogService } from '@core/log/log.service';
+import { UserService } from '@feat/user/user.service';
 
 const DoudIp: string = "69.133.52.201";
 const DoudPhoneIp: string = "174.233.133.93";
@@ -13,7 +14,8 @@ const KenIP: string = "75.185.248.152";
 const MaxIp: string = "66.42.189.";
 
 //const GetIpUrl: string = "http://api.ipify.org/?format=json";
-const GetIpUrl: string = "http://doudsystems.com/getip";
+//const GetIpUrl: string = "http://doudsystems.com/getip";
+const GetIpUrl: string = "https://bcmsgetip.azurewebsites.net/";
 
 @Injectable({
   providedIn: 'root'
