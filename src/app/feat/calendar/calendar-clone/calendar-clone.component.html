@@ -1,0 +1,38 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+            <span> | </span>
+            <span><a routerLink="/calendars/list">Back to list ...</a></span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <div>
+            <div class="h3 font-weight-bold">Instructions:</div>
+            The calendar clone function will create a new calendar by using an existing calendar
+            and defining the starting date.
+        </div>
+        <div>
+            <div class="h4">Step 1: Select an existing calendar</div>
+            <select [(ngModel)]="srcCalendarId">
+                <option *ngFor="let cal of calendars" value="{{ cal.id }}">{{ cal.description }}</option>
+            </select>
+        </div>
+        <div>
+            <div class="h4">Step 2: Select a starting date</div>
+            <input [(ngModel)]="startDate" type="date">
+        </div>
+        <div>
+            <div class="h4">Step 3: Execute the cloning process</div>
+            <button (click)="clone()" class="btn btn-primary">Clone the calendar.</button>
+        </div>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

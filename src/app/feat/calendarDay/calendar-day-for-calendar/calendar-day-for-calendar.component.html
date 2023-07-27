@@ -1,0 +1,15 @@
+<div class="day" [ngClass]="bgColorStyle">
+
+    <ng-container *ngIf="calendarDay">
+        <span class="date">{{ calendarDay.date | date:'ccc MM/dd' }} : w{{ calendarDay.weekNbr }}/d{{ calendarDay.dayNbr }}</span><br>
+        <span>{{ calendarDay.topic }}</span><br>
+        <span *ngIf="calendarDay.subtopic.trim().length > 0">
+            <span>{{ calendarDay.subtopic }}</span><br>
+        </span>
+        <span *ngIf="calendarDay.notes">
+            <span class="notes">{{ calendarDay.notes }}</span><br>
+        </span>
+    </ng-container>
+
+</div>
+

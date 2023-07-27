@@ -23,7 +23,12 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
             , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
             , CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
             , DsiCountdownTimerComponent, InstructorCohortAddInstructorComponent
+            , CalendarListComponent, CalendarDetailComponent, CalendarChangeComponent, CalendarCreateComponent
+            , CalendarForStudentComponent
+            , CalendarDayListComponent, CalendarDayDetailComponent, CalendarDayChangeComponent, CalendarDayCreateComponent 
+            , CalendarDaysComponent, CalendarSearchPipe, CalendarDayForCalendarComponent, CalendarCloneComponent
         } from './index';
+
 
         @NgModule({
             declarations: [
@@ -46,7 +51,7 @@ import { UserListComponent, UserDetailComponent, UserCreateComponent, UserEditCo
                 , KbListComponent, KbDetailComponent, KbCreateComponent, KbEditComponent, KbSearchPipe
                 , KbCategoryListComponent, KbCategoryCreateComponent, KbCategoryEditComponent, KbCategorySearchPipe
                 , CommentaryListComponent, CommentaryEditComponent, CommentaryDetailComponent, CommentaryCreateComponent, CommentarySearchPipe
-                , DsiCountdownTimerComponent, CohortInstructorComponent, InstructorCohortAddInstructorComponent
+                , DsiCountdownTimerComponent, CohortInstructorComponent, InstructorCohortAddInstructorComponent, CalendarListComponent, CalendarDetailComponent, CalendarCreateComponent, CalendarChangeComponent, CalendarDayListComponent, CalendarDayDetailComponent, CalendarDayCreateComponent, CalendarDayChangeComponent, CalendarSearchPipe, CalendarDaysComponent, CalendarForStudentComponent, CalendarDayForCalendarComponent, CalendarCloneComponent
     ],
     imports: [FormsModule, CommonModule, RouterModule, CoreModule],
     exports: [

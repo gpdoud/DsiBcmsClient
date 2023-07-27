@@ -44,6 +44,19 @@
                 <td><input [ngModel]="cohort.demoDay | date:'yyyy-MM-dd'" (ngModelChange)="cohort.demoDay = $event"
                         [disabled]="readonly" type="date" size="25"></td>
             </tr>
+            <tr *ngIf="!readonly">
+                <td>Calendar:</td>
+                <td>
+                    <select [(ngModel)]="cohort.calendarId"> 
+                        <option value=0>Clear</option>
+                        <option *ngFor="let cal of calendars" value="{{ cal.id }}">{{ cal.description }}</option>
+                    </select></td>
+                </tr>
+            <tr *ngIf="readonly">
+                    <td>Calendar:</td>
+                    <td *ngIf="calendarId && calendarId !== 0"><a routerLink="/calendars/days/{{ calendarId }}">Assigned Calendar</a></td>
+                    <td *ngIf="!calendarId || calendarId === 0"><span class="text-danger font-weight-bold">Calendar not assigned!</span></td>
+            </tr>
             <tr>
                 <td>Active:</td>
                 <td><input [(ngModel)]="cohort.active" [disabled]="readonly" type="checkbox" size="10"></td>

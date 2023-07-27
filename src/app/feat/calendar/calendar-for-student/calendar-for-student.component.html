@@ -1,0 +1,28 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="">
+        <div class="calendar">
+            <div class="row">
+                <div class="col">
+                    <div class="week" *ngFor="let week of formattedCalendar">
+                        <app-calendar-day-for-calendar [calendarDay]="day" 
+                                                        *ngFor="let day of week"></app-calendar-day-for-calendar>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

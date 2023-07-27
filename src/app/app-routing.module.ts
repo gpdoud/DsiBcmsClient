@@ -21,6 +21,19 @@ const routes: Routes = [
   { path: 'attendance/checkinout',                          component: feat.AttendanceMenuCheckinoutComponent },
   { path: 'attendance/report/:cohortId',                    component: feat.AttendanceReportComponent },
 
+  { path: 'calendars/list',                                 component: feat.CalendarListComponent },
+  { path: 'calendars/create',                               component: feat.CalendarCreateComponent },
+  { path: 'calendars/detail/:id',                           component: feat.CalendarDetailComponent },
+  { path: 'calendars/change/:id',                           component: feat.CalendarChangeComponent },
+  { path: 'calendars/days/:id',                             component: feat.CalendarDaysComponent },
+  { path: 'calendars/student',                              component: feat.CalendarForStudentComponent },
+  { path: 'calendars/clone',                                component: feat.CalendarCloneComponent},
+
+  { path: 'calendarDays/list',                              component: feat.CalendarDayListComponent },
+  { path: 'calendarDays/create/:calId',                     component: feat.CalendarDayCreateComponent },
+  { path: 'calendarDays/detail/:id',                        component: feat.CalendarDayDetailComponent },
+  { path: 'calendarDays/change/:id',                        component: feat.CalendarDayChangeComponent },
+
   { path: 'cohorts/list',                                   component: feat.CohortListComponent },
   { path: 'cohorts/create',                                 component: feat.CohortCreateComponent },
   { path: 'cohorts/detail/:id',                             component: feat.CohortDetailComponent },

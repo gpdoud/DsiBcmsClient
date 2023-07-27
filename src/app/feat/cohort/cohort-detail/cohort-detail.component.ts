@@ -7,6 +7,8 @@ import { UserService } from '@user/user.service';
 import { User } from '@user/user.class'
 import { BcmsComponent } from '../../common/bcms.component';
 import { InstructorCohortService } from '@feat/instructorCohort/instructor-cohort.service';
+import { Calendar } from '@feat/calendar/calendar.class';
+import { CalendarService } from '@feat/calendar/calendar.service';
 
 @Component({
   selector: 'app-cohort-detail',
@@ -19,12 +21,16 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
 
   cohort: Cohort = new Cohort();
   instructors: string[] = [];
+  calendars: Calendar[] = [];
+  calendarId: number;
+  calendarName: string;
 
   constructor(
     protected sys: SystemService,
     private route: ActivatedRoute,
     private router: Router,
-    private cohortsvc: CohortService
+    private cohortsvc: CohortService,
+    private calsvc: CalendarService
   ) {
     super(sys);
     this.pageTitle = "Cohort Detail";
@@ -52,6 +58,7 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    let calendarId = 0;
     let cohortId = +this.route.snapshot.params["id"];
     this.cohortsvc.getInstructors(cohortId).subscribe(
       cohort => {
@@ -68,13 +75,14 @@ export class CohortDetailComponent extends BcmsComponent implements OnInit {
     this.cohortsvc.get(id).subscribe(
       res => {
         this.cohort = res;
-        //this.cohort.instructorName = this.cohort.instructor === null ? `Not selected`  : `${this.cohort.instructor.lastname}, ${this.cohort.instructor.firstname} `; 
+        this.calendarId = this.cohort.calendarId;
         this.sys.log.debug(res);
       },
       err => {
         this.sys.log.err(err);
       }
     );
+
   }
 
 }

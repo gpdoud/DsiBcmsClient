@@ -1,0 +1,90 @@
+<header></header>
+<app-menu></app-menu>
+<main>
+    <section class="page-header">
+        <div class="left">
+            <span class="page-title">{{pageTitle}}</span>
+            <span> | </span>
+            <span><a routerLink="/calendars/list">Back to list ...</a></span>
+        </div>
+        <div class="right">
+            <span class="message"></span>
+        </div>
+    </section>
+    <section class="component-content">
+        <table class="table table-sm" *ngIf="calendar">
+            <tr>
+                <td>Id:</td>
+                <td>{{calendar.id}}</td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><input [(ngModel)]="calendar.description" [disabled]="readonly" type="text" size="35"></td>
+            </tr>
+            <tr>
+                <td>Cohort:</td>
+                <td><input [(ngModel)]="calendar.cohortName" [disabled]="readonly" size="25"></td>
+            </tr>
+            <tr>
+                <td>Start Date:</td>
+                <td><input [ngModel]="calendar.startDate | date:'yyyy-MM-dd'" (ngModelChange)="calendar.startDate = $event"
+                        [disabled]="readonly" type="date" size="25"></td>
+            </tr>
+            <tr>
+                <td>End Date:</td>
+                <td><input [ngModel]="calendar.endDate | date:'yyyy-MM-dd'" (ngModelChange)="calendar.endDate = $event"
+                        [disabled]="readonly" type="date" size="25"></td>
+            </tr>
+            <tr>
+                <td>Demo Day:</td>
+                <td><input [ngModel]="calendar.graduationDate | date:'yyyy-MM-dd'" (ngModelChange)="calendar.graduationDate = $event"
+                        [disabled]="readonly" type="date" size="25"></td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <select [(ngModel)]="calendar.type" [disabled]="readonly">
+                        <option value="FT">Full-Time</option>
+                        <option value="PT">Part-Time</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Template:</td>
+                <td><input [(ngModel)]="calendar.template" type="checkbox" [disabled]="readonly"></td>
+            </tr>
+            <tr>
+                <td>Active:</td>
+                <td><input [(ngModel)]="calendar.active" [disabled]="readonly" type="checkbox" size="10"></td>
+            </tr>
+            <tr>
+                <td>Created:</td>
+                <td>{{calendar.created | date:'short'}}</td>
+            </tr>
+            <tr>
+                <td>Updated:</td>
+                <td>{{calendar.updated | date:'short'}}</td>
+            </tr>
+            <tr *ngIf="!readonly">
+                <td colspan="2">
+                    <button (click)="save()" class="btn btn-primary btn-sm">Save</button>
+                </td>
+            </tr>
+            <tr *ngIf="readonly">
+                <td colspan="2">
+                    <span><button (click)="edit()" class="btn btn-warning btn-sm">Edit</button></span>
+                    <span> | </span>
+                    <span><button (click)="delete()" class="btn btn-danger btn-sm">Delete</button></span>
+                    <span *ngIf="verified"> |
+                        <span>
+                            <button (click)="verify()" class="btn btn-danger btn-sm">Verify Delete</button>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </section>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

@@ -7,6 +7,8 @@ import { BcmsComponent } from '@feat/common/bcms.component';
 import { UserService } from '@feat/user/user.service';
 import { User } from '@feat/user/user.class';
 import { InstructorCohortService } from '@feat/instructorCohort/instructor-cohort.service';
+import { CalendarService } from '@feat/calendar/calendar.service';
+import { Calendar } from '@feat/calendar/calendar.class';
 
 @Component({
   selector: 'app-cohort-create',
@@ -18,10 +20,13 @@ export class CohortCreateComponent extends BcmsComponent implements OnInit {
   cohort: Cohort = new Cohort();
   users: User[] = [];
   instructors: string[] = [];
+  calendars: Calendar[] = [];
+  calendarId: number;
   
   constructor(
     protected sys: SystemService,
     private cohortsvc: CohortService,
+    private calsvc: CalendarService,
     private icsvc: InstructorCohortService,
     private router: Router
     ) {
@@ -55,6 +60,15 @@ export class CohortCreateComponent extends BcmsComponent implements OnInit {
         this.sys.log.err("Error getting list of instructors!", err);
       }
     );
+    this.calsvc.list().subscribe({
+      next: res => {
+        this.calendars = res;
+        this.sys.log.debug("Get calendars", res);
+      },
+      error: err => {
+        this.sys.log.err(err);
+      }
+    });
   }
 
 }
