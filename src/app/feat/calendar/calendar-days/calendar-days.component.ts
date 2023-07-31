@@ -16,6 +16,7 @@ import { CalendarDayService } from '@feat/calendarDay/calendar-day.service';
 export class CalendarDaysComponent implements OnInit {
 
   calendar: Calendar;
+  calendarDayId: number = 0;
   pageTitle = "Calendar Days";
   readonly = true;
   showVerify = false;
@@ -118,7 +119,8 @@ export class CalendarDaysComponent implements OnInit {
   edit(id: number): void {
     this.router.navigateByUrl(`/calendarDays/change/${id}`);
   }
-  delete(): void {
+  delete(calendarDayId: number): void {
+    this.calendarDayId = calendarDayId;
     this.showVerify = !this.showVerify;
   }
   verify(calendarDay: CalendarDay): void {

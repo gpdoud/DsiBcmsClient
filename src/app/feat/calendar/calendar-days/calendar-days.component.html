@@ -71,8 +71,8 @@
                     <span> | </span>
                     <button (click)="edit( day.id )" class="btn btn-link font-weight-bold text-warning">Edt</button>
                     <span> | </span>
-                    <button (click)="delete()" class="btn btn-link font-weight-bold text-danger">Del</button>
-                    <span *ngIf="showVerify">
+                    <button (click)="delete( day.id )" class="btn btn-link font-weight-bold text-danger">Del</button>
+                    <span *ngIf="showVerify && day.id === calendarDayId">
                         <span> | </span>
                         <button (click)="verify( day )" class="btn btn-link font-weight-bold text-danger">Verify</button>
                     </span>
